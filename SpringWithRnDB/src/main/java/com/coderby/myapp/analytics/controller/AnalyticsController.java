@@ -17,6 +17,8 @@ import com.google.gson.Gson;
 @Controller
 public class AnalyticsController {
 
+	//주석에 아무거나 달아봐!
+	
 	@Autowired
 	IAnalyticsService analyticsService;
 
