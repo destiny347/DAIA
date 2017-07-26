@@ -19,6 +19,8 @@ public class AnalyticsController {
 
 	//주석에 아무거나 달아봐!
 	
+	//밍짱!
+	
 	@Autowired
 	IAnalyticsService analyticsService;
 
