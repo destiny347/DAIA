@@ -166,7 +166,6 @@ public class AnalyticsService implements IAnalyticsService {
 			
 			//eval은 R에게 스크립트를 실행하라고 전달하는 메서드. setlocale은 언어를 설정해주는 것.
 			rEngine.eval("Sys.setlocale(category=\"LC_ALL\", locale=\"English_United States.1252\")");
-//			rEngine.eval("Sys.setlocale(category=\"LC_ALL\", locale=\"ko_KR.UTF-8\")");
 			
 			//R스크립트를 변수로 선언하려면 데이터타입을 REXP로 해야한다. 스크립트 안의 내용은 R의 data변수를 읽어서 dataFrame이라는 변수로 지정한 후 JAVA의 rdataFrame 변수로 선언. ()를 통해 실행까지 시킴
 			REXP rdataFrame = rEngine.eval("(dataFrame <- read.table(text=data, sep=\",\", fill=TRUE, header=TRUE, stringsAsFactors=FALSE, skipNul=TRUE, encoding=\"UTF-8\", fileEncoding=\"UTF-8\"))");
@@ -234,6 +233,7 @@ public class AnalyticsService implements IAnalyticsService {
 		rEngine.rniAssign("data", exp, 0);
 		
 		rEngine.eval("Sys.setlocale(category=\"LC_ALL\", locale=\"English_United States.1252\")");
+		
 		rEngine.eval("dataFrame <- read.table(text=data, sep=\",\", fill=TRUE, header=TRUE, stringsAsFactors=FALSE, skipNul=TRUE, encoding=\"UTF-8\", fileEncoding=\"UTF-8\")");
 		
 		//R에서 dataFrame을 summary 해서 dfSummary에 저장, REXP 클래스 타입의 summary 객체 생성 
@@ -273,6 +273,7 @@ public class AnalyticsService implements IAnalyticsService {
 		rEngine.rniAssign("data", exp, 0);
 		
 		rEngine.eval("Sys.setlocale(category=\"LC_ALL\", locale=\"English_United States.1252\")");
+
 		rEngine.eval("dataFrame <- read.table(text=data, sep=\",\", fill=TRUE, header=TRUE, stringsAsFactors=FALSE, skipNul=TRUE, encoding=\"UTF-8\", fileEncoding=\"UTF-8\")");
 
 		REXP rsummary = rEngine.eval("(dfSummary <- summary(dataFrame))");
