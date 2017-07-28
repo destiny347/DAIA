@@ -184,9 +184,9 @@ public class AnalyticsService implements IAnalyticsService {
 			Object[] modelData = new Object[keys.length];
 			//열 이름들을 출력하기 위해 향상된 for 반복문으로 keys의 길이만큼 key값을 반복시킨다.
 			for(String key : keys) {
-				System.out.print(key + "\t");
+//				System.out.print(key + "\t");
 			}
-			System.out.println();	
+//			System.out.println();	
 //			System.out.print(keys.length);
 			
 			//행 정보들을 출력하기 위해 반복문을 사용.

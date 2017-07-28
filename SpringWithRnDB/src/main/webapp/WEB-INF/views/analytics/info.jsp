@@ -26,22 +26,15 @@
 	            $("input[name=colnames]").prop("checked",false);
 	        }
 	    })
+	   
+	  
 	
 	    //체크박스 값 테이블 열 생성
-	    $("#complete").click(function() {
-			var chk = $("input:checked");
-			var result = "";
-
-			$('#selectTable > tr:last').remove();		
-			
-			for (var i = 0; i < chk.length; i++) {
-				result = $(chk[i]).next().text();
-				$("#selectTable").append("<th>"+ result + "</th>")				
-			}
-			$("#selectCol").show();
-			
-		});
-		
+	    //$("#confirm").click(function() {
+	    	
+			//$("#selectCol").show();			
+		//});
+	
 		//초기화버튼 클릭이벤트
 		$("#reset").click(function() {
 			$("#selectCol").hide()
@@ -61,22 +54,20 @@ ${rData.colNames}<p>
 ${rData.data}<p>
 -->
 
-	<form name="f">
+	<form id="select_col">
+	<div><h3>파일명 : [${fileName}]</h3></div>
 		<div id="checkboxArea">
 		<p>전체 선택<input type="checkbox" id="checkAll" /></p>
 			<table border="1">
 				<tr>
-					<c:forEach var="colName" items="${rData.colNames}">
-						<!-- 열의 이름들을 반복문으로 하나씩 출력 -->
+					<c:forEach var="colName" items="${rData.colNames}">						
 						<c:forEach var="colNameValue" items="${colName}">
-							<th><input id="colnames" name="colnames" type="checkbox"
-								value="${colName}"><label
-								for="colnames">${colName}</label></th>
+							<th><input id="colnames" name="colnames" type="checkbox" data-toggle="checkbox" value="${colName}">
+								<label for="colnames">${colName}</label></th>
 						</c:forEach>
 					</c:forEach>
 				</tr>
-				<c:forEach var="i" begin="0" end="${fn:length(rData.data[0])-1}">
-					<!-- R데이터에 담긴 데이터를 0번째부터 행의 길이만큼 반복 출력 -->
+				<c:forEach var="i" begin="0" end="${fn:length(rData.data[0])-1}">					
 					<c:if test="${i le 4}">
 						<c:set var="row" value="${rData.data}" />
 						<tr>
@@ -88,22 +79,29 @@ ${rData.data}<p>
 				</c:forEach>
 			</table>
 		</div>
-		<br>
-		<div id="buttonGroups">			
-			<input type="button" id="complete" value="완료" />
+		</form>
+		<br>	
+		
+			<input type="submit" id="confirm" name="confirm" form="select_col" value="확인"/>		
 			<input type="reset" id="reset" value="초기화" />
-		</div>
-
-
-		<div id="selectCol" style="display: none">
+			<a href="/myapp/upload/list"><input type="button" value="취소" /></a>
+		
+		<div id="selectCol">
 		<h1>선택한 열 정보</h1>
-		<h3>데이터 명 : <input type="text"></h3>
-		<div>
-			<table id="selectTable" border="1">
-				<tr></tr>
+		<h3>데이터 명 : <input type="text" id="dataName"></h3>
+			<div>			
+			<table border=1>
+				<thead>
+					<c:forEach items="${clickChkbox}" var="chkbox" varStatus="status">
+						<th>${chkbox}</th>
+					</c:forEach>
+				</thead>				
 			</table>
+			<br>
+				<input type="submit" value="다음"/>
+				<a href="/myapp/upload/list"><input type="button" value="취소"/></a>
+			</div>
 		</div>
-		</div>
-	</form>
+	
 </body>
 </html>
