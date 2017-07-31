@@ -99,4 +99,9 @@ public class AnalyticsController {
 		model.addAttribute("rSummary", analyticsService.getSummary(fileId));
 		return "analytics/summary";
 	}
+	
+	@RequestMapping("/analytics/ML")
+	public String machineLearning() {
+		return "analytics/ML";
+	}
 }

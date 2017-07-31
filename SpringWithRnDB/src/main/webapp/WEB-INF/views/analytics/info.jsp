@@ -9,7 +9,7 @@
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
 <script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"">
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 	</script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -98,7 +98,7 @@ ${rData.data}<p>
 				</thead>				
 			</table>
 			<br>
-				<input type="submit" value="다음"/>
+				<a href="<c:url value="/analytics/ML"/>"><input type="submit" value="다음"/></a>
 				<a href="/myapp/upload/list"><input type="button" value="취소"/></a>
 			</div>
 		</div>
