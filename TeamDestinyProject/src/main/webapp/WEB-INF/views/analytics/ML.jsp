@@ -12,7 +12,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 	</script>
 	
-<title>Insert title here</title>
+<title>Destiny</title>
 
  	<!-- Bootstrap Core CSS -->
  	<link href="../css/bootstrap.css" rel="stylesheet">

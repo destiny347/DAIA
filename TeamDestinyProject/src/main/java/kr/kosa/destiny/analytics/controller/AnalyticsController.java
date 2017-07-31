@@ -1,4 +1,4 @@
-package com.coderby.myapp.analytics.controller;
+package kr.kosa.destiny.analytics.controller;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,11 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.coderby.myapp.analytics.model.IrisVO;
-import com.coderby.myapp.analytics.model.SampleVO;
-import com.coderby.myapp.analytics.service.IAnalyticsService;
-import com.coderby.myapp.upload.model.UploadFileVO;
-import com.coderby.myapp.upload.service.IUploadFileService;
+import kr.kosa.destiny.analytics.model.IrisVO;
+import kr.kosa.destiny.analytics.model.SampleVO;
+import kr.kosa.destiny.analytics.service.IAnalyticsService;
+import kr.kosa.destiny.upload.model.UploadFileVO;
+import kr.kosa.destiny.upload.service.IUploadFileService;
 import com.google.gson.Gson;
 
 @Controller
@@ -58,7 +58,8 @@ public class AnalyticsController {
 
 		return "analytics/chart";
 	}
-
+	
+	//데이터 선택 부분 컨트롤러
 	@RequestMapping("/analytics/info/{fileId}")
 	public String analyticsDatabaseInfo(@PathVariable int fileId, HttpServletRequest req, Model model) 
 			throws Exception{
@@ -83,8 +84,16 @@ public class AnalyticsController {
 		return "analytics/summary";
 	}
 	
+	//데이터 전처리 부분 컨트롤러
+	@RequestMapping("/analytics/handling")
+	public String dataHandling() {
+		return "analytics/handling";
+	}
+	
+	//머신러닝 부분 컨트롤러
 	@RequestMapping("/analytics/ML")
 	public String machineLearning() {
 		return "analytics/ML";
 	}
 }
+

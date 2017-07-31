@@ -50,7 +50,7 @@
 	});
 </script>
 
-<title>CoderBy</title>
+<title>Destiny</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.css" rel="stylesheet">
@@ -102,7 +102,7 @@ ${rData.data}<p>
 		
 			<input class="btn" type="button" id="confirm" name="confirm" value="확인"/>		
 			<input class="btn" type="reset" id="reset" value="초기화" />
-			<a href="/myapp/upload/list"><input class="btn" type="button" value="취소" /></a>
+			<a href="/destiny/upload/list"><input class="btn" type="button" value="취소" /></a>
 		
 		<div id="selectCol" style="display:none">
 		<h1>선택한 열 정보</h1>
@@ -112,8 +112,8 @@ ${rData.data}<p>
 				<tr></tr>			
 			</table>
 			<br>
-				<a href="<c:url value="/analytics/ML"/>"><input type="submit" value="다음"/></a>
-				<a href="/myapp/upload/list"><input type="button" value="취소"/></a>
+				<a href="<c:url value="/analytics/handling"/>"><input type="submit" value="다음"/></a>
+				<a href="/destiny/upload/list"><input type="button" value="취소"/></a>
 			</div>
 		</div>
 	
