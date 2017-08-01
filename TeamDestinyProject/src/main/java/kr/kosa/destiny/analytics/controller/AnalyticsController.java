@@ -58,7 +58,7 @@ public class AnalyticsController {
 
 		return "analytics/chart";
 	}
-	
+
 	//데이터 선택 부분 컨트롤러
 	@RequestMapping("/analytics/info/{fileId}")
 	public String analyticsDatabaseInfo(@PathVariable int fileId, HttpServletRequest req, Model model) 
@@ -71,29 +71,47 @@ public class AnalyticsController {
 		String fileName = getFile.getFileName();
 		model.addAttribute("fileName", fileName);
 
-		
-		return "analytics/info";
-		}
 
-		
-	
+		return "analytics/info";
+	}
+
+
+
 
 	@RequestMapping("/analytics/summary/{fileId}")
 	public String summary(@PathVariable int fileId, Model model) {
 		model.addAttribute("rSummary", analyticsService.getSummary(fileId));
 		return "analytics/summary";
 	}
-	
+
 	//데이터 전처리 부분 컨트롤러
 	@RequestMapping("/analytics/handling")
 	public String dataHandling() {
 		return "analytics/handling";
 	}
-	
+
+	//데이터 재구조화 부분 컨트롤러
+	@RequestMapping("/analytics/restructuring")
+	public String restructuring() {
+		return "analytics/restructuring";
+	}
+
+	//시각화 부분 컨트롤러
+	@RequestMapping("/analytics/visual")
+	public String visual() {
+		return "analytics/visual";
+	}
+
 	//머신러닝 부분 컨트롤러
 	@RequestMapping("/analytics/ML")
 	public String machineLearning() {
 		return "analytics/ML";
+	}
+
+	//검정통계량 출력 부분 컨트롤러
+	@RequestMapping("/analytics/analysis")
+	public String analysis() {
+		return "analytics/analysis";
 	}
 }
 

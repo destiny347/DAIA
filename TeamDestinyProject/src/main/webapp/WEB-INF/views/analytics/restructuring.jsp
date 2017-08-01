@@ -116,7 +116,17 @@ ${rData.data}<p>
 		<a href="<c:url value="/analytics/list"/>" id="join"
 			title="join 데이터 선택">JOIN</a> <input type="reset" id="reset"
 			value="reset" />
-
 	</div>
+	
+	<div>
+		<table>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>
+			<a href="/destiny/analytics/ML"><input type="button" value="분석 단계로"/></a>
+			<a href="/destiny/analytics/visual"><input type="button" value="시각화 단계로"/></a>
+			</td></tr>
+		</table>
+	</div>
+	
 </body>
 </html>

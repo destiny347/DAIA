@@ -24,6 +24,9 @@
 .radiobutton {
    height: 150px;
 }
+footer {
+	clear: both;
+}
 </style>
 
 <title>Destiny</title>
@@ -59,7 +62,7 @@
          <table align=right>
             <tr>
             <td>
-               <a href=""><input type="submit" value="저장"/></a>
+               <a href=""><input type="submit" value="변환"/></a>
             </td>
             <td>&nbsp;</td>
             <td>
@@ -100,7 +103,7 @@
          <table align=right>
             <tr>
             <td>
-               <a href=""><input type="submit" value="저장"/></a>
+               <a href=""><input type="submit" value="변환"/></a>
             </td>
             <td>&nbsp;</td>
             <td>
@@ -109,6 +112,11 @@
             </tr>
          </table>
    </div>
-      
 </body>
+<footer class="col-lg-6 col-md-6 col-sm-6" align=right>
+	<table>
+		<tr><td>&nbsp;</td></tr>
+	</table>
+	<a href="/destiny/analytics/restructuring"><input type="button" value="다음 단계로"/></a>
+</footer>
 </html>

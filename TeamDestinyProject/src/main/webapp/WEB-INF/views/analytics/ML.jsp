@@ -57,4 +57,11 @@
 			</div>
 
 </body>
+
+<footer class="col-lg-6 col-md-6 col-sm-6">
+	<table>
+		<tr><td>&nbsp;</td></tr>
+	</table>
+	<a href="/destiny/analytics/analysis"><input type="button" value="결과 보기"/></a>
+</footer>
 </html>
