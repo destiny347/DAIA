@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 
 <!-- jQuery -->
-<script src="js/jquery.js"></script>
+<script src="../js/jquery.js"></script>
 	<script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 	</script>
@@ -41,18 +41,17 @@
 			<div>  				
   				<label for="inputAlgorithm"><b>&nbsp;&nbsp;&nbsp;&nbsp;알고리즘 선택</b><br></label>
     				<div><br>					
-    					<label class="radio-inline">
-    		&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="regression" id="optionsRadios" value="회귀" checked>&nbsp;Regression / 회귀
-   						</label>
-   						<label class="radio-inline">
-   							<input type="radio" name="classification" id="optionsRadios" value="분류">&nbsp;Classfication / 분류
-					 	</label>
-					 	<label class="radio-inline">
-   							<input type="radio" name="association" id="optionsRadios" value="연관">&nbsp;Association / 연관
-					 	</label>	
-					 	<label class="radio-inline">
-   							<input type="radio" name="cluster" id="optionsRadios" value="군집">&nbsp;Cluster Analysis / 군집
-					 	</label>				
+    					<label class="radio-inline" for="optionsRadios1"></label>
+    					&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="Algorithm" id="optionsRadios1" value="회귀" checked>&nbsp;Regression / 회귀
+   						<label class="radio-inline" for="optionsRadios2"></label>
+   							<input type="radio" name="Algorithm" id="optionsRadios2" value="분류">&nbsp;Classfication / 분류
+					 	
+					 	<label class="radio-inline" for="optionsRadios3"></label>	
+   							<input type="radio" name="Algorithm" id="optionsRadios3" value="연관">&nbsp;Association / 연관
+					 	
+					 	<label class="radio-inline" for="optionsRadios4"></label>
+   							<input type="radio" name="Algorithm" id="optionsRadio4" value="군집">&nbsp;Cluster Analysis / 군집
+					 					
   					</div>  				
 			</div>
 

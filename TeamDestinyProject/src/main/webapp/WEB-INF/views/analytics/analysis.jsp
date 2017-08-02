@@ -58,7 +58,7 @@
           </td>
           <td>&nbsp;</td>
           <td>
-            <a href="/myapp/upload/list"><input type="button" value="취소"/></a>
+            <a href="/destiny/upload/list"><input type="button" value="취소"/></a>
           </td>
         </tr>
       </table>    

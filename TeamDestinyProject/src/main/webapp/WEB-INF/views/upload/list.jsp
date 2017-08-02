@@ -106,8 +106,9 @@ $(document).ready(function() {
    }
 
    var str2 = '';
+   var valueArr = new Array();
    function checkSelectedId(){
-       var valueArr = new Array();
+       
           var list = $("input[name='fileId']");
           for(var i = 0; i < list.length; i++){
               if(list[i].checked){ //선택되어 있으면 배열에 값을 저장함
@@ -119,13 +120,13 @@ $(document).ready(function() {
           for(var i in valueArr){
              if(i < valueArr.length-1)
                 {
-                str2 += valueArr[i]+"?";
+                str2 += valueArr[i]+"/";
                 }
              else
                 str2 += valueArr[i];
           }
           
-          location.href = 'http://localhost:8080/destiny/analytics/info/'+str2;
+          location.href = 'http://localhost:8080/destiny/analytics/info/'+valueArr;
     
    }
    
@@ -290,8 +291,8 @@ $(document).ready(function() {
 
 <body>
    <c:url var="actionURL" value='/upload/new' />
-   <form action="${actionURL}" method="post" enctype="multipart/form-data"
-      class="form-horizontal">
+   <form  method="post" enctype="multipart/form-data"
+      class="form-horizontal" action="/analytics/info">
 
       <div id="myForm">
          <h3>File Upload</h3>
@@ -374,7 +375,7 @@ $(document).ready(function() {
          
          <div class="dibugConsole" id="dibugConsole"></div>
          <h3></h3>
-         <input type="button" onclick="checkSelectedId();" value="다음"/>
+         <input type="button" id = "GetTotal" onclick="checkSelectedId();" value="다음"/>
 
    </form>
 </body>
