@@ -45,32 +45,55 @@
 	  	
 	    //체크박스 값 테이블 열 생성
 	    $("#confirm").click(function() {
-	    	var list = $("input[name=chkColnames]:checked");	    	
-	    	var str = "";	    	
-	    	 	
-	    	$("#selectCol").show();
-	    	$("#col_table > tbody > tr > th").remove(); //열 추가 체크시에 기존 선택값들을 지워줘야 중복체크되지 않는다.
-	    		    	
-    		for(var i=0; i<list.length; i++){
-        		str = $(list[i]).next().text();
-            	$("#col_table > tbody > tr:nth-child(1)").append("<th>" + str + "</th>");
-            	//$("#col_table > tbody > tr:nth-child(2)").append("<td>" + "ex" + "</td>");
-            	//$("#col_table > tbody > tr:nth-child(3)").append("<td>" + "ex" + "</td>");
-            	
-    		}
-	    	    		
-	    })
-	    
-	    //행출력 테스트
-	    $("#confirm2").click(function() {
-	    	var val = $("tr:nth-child()").
-	    	console.log(val);
 	    	
+	    	var str = "";
+	    	var list = $("input[name=chkColnames]:checked");
+	    	var str2 = "";	    	
+	    	
+	    	$("#selectCol").show();
+	    	$("#col_table > thead > tr > th").remove(); //열 추가 체크시에 기존 선택값들을 지워줘야 중복체크되지 않는다.
+	    	$("#col_table > tbody > tr > td").remove();
+	    	
+	    	  for(var i=0; i<list.length; i++){
+	    	    	
+	        		str = $(list[i]).next().text();
+	            	$("#col_table > thead > tr").append("<th>" + str + "</th>");
+	            
+	    		}
+	    	 
+	    	var index = Array();
+	    	var chkbox = $(".chkCol");
+	    	index.push($("input[name=chkColnames]:checked").index("input[name=chkColnames]"));
+			console.log(index);
+			
+	    	  
+    		//체크박스 중 체크된 체크박스만 가져와서 Loop 합니다.
+	    	//$("input[name=chkColnames]:checked").each(function(i,elements){
+	    		
+	    		//index = ($(elements).index("input[name=chkColnames]"));  		 
+	    		//console.log(index);
+	    		
+	    			    		
+	    		//for(var k=0; k<5; k++) {
+	    			//var list2 = $("#sum_table > tbody > tr:nth-child(1)").nextAll().eq(k).children().eq(index);
+	    			//$("#col_table > tbody").append("<tr></tr>")
+	    			//console.log(list2.length)
+	    	    	
+	    			//for(var j=0; j<list2.length; j++) {
+	    	    	
+	    	    		//str2 = list2.text();
+	    	    		
+	    	    		//$("#col_table > tbody > tr").append("<td>" + str2 + "</td>")
+	    	    	
+	    	   // }
+	    	    //}
+	    	//})
 	    })
+	    	  
 	    		    	
 		//초기화버튼 클릭이벤트
 		$("#reset").click(function() {
-			$("#col_table > th").remove();
+			$("#col_table > thead > tr > th").remove();
 			$("#selectCol").hide()
 		})	
 		
@@ -101,70 +124,108 @@
 	});
 	
 //------------------------------------------------------
-	 $(document).ready(function () {
-	            console.log("HELLO")
-	            function exportTableToCSV($table, filename) {
-	                var $headers = $table.find('tr:has(th)')
-	                    ,$rows = $table.find('tr:has(td)')
-	                    // Temporary delimiter characters unlikely to be typed by keyboard
-	                    // This is to avoid accidentally splitting the actual contents
-	                    ,tmpColDelim = String.fromCharCode(11) // vertical tab character
-	                    ,tmpRowDelim = String.fromCharCode(0) // null character
-	                    // actual delimiter characters for CSV format
-	                    ,colDelim = '","'
-	                    ,rowDelim = '"\r\n"';
-	                    // Grab text from table into CSV formatted string
-	                    var csv = '"';
-	                    csv += formatRows($headers.map(grabRow));
-	                    csv += rowDelim;
-	                    csv += formatRows($rows.map(grabRow)) + '"';
-	                    // Data URI
-	                    var csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
-	                $(this)
-	                    .attr({
-	                    'download': filename
-	                        ,'href': csvData
-	                        //,'target' : '_blank' //if you want it to open in a new window
-	                });
-	                //------------------------------------------------------------
-	                // Helper Functions 
-	                //------------------------------------------------------------
-	                // Format the output so it has the appropriate delimiters
-	                function formatRows(rows){
-	                    return rows.get().join(tmpRowDelim)
-	                        .split(tmpRowDelim).join(rowDelim)
-	                        .split(tmpColDelim).join(colDelim);
-	                }
-	                // Grab and format a row from the table
-	                function grabRow(i,row){
-	                     
-	                    var $row = $(row);
-	                    //for some reason $cols = $row.find('td') || $row.find('th') won't work...
-	                    var $cols = $row.find('td'); 
-	                    if(!$cols.length) $cols = $row.find('th');  
-	                    return $cols.map(grabCol)
-	                                .get().join(tmpColDelim);
-	                }
-	                // Grab and format a column from the table 
-	                function grabCol(j,col){
-	                    var $col = $(col),
-	                        $text = $col.text();
-	                    return $text.replace('"', '""'); // escape double quotes
-	                }
-	            }
-	            // This must be a hyperlink
-	            $("#export").click(function (event) {
-	                // var outputFile = 'export'
-	                var outputFile = window.prompt("What do you want to name your output file (Note: This won't have any effect on Safari)") || 'export';
-	                outputFile = outputFile.replace('.csv','') + '.csv'
-	                 
-	                // CSV
-	                exportTableToCSV.apply(this, [$('#dvData>table'), outputFile]);
-	                
-	                // IF CSV, don't do event.preventDefault() or return false
-	                // We actually need this to be a typical hyperlink
-	            });
-	        });
+	 function clickExport() {
+	 console.log("test");
+	  var titles = [];
+	  var data = [];
+		var list = $("input[name=chkColnames]:checked");	    	
+	    var str = "";
+	  /*
+	   * Get the table headers, this will be CSV headers
+	   * The count of headers will be CSV string separator
+	   */
+	   
+	  
+	  $(".col_table > thead > tr:last").each(function() {
+	
+	   //titles.push($(this).text());
+		  for(var i = 0; i < list.length; i++){
+      		str = $(list[i]).next().text();
+          	$("#col_table > thead > tr:last").append("<th>" + str + "</th>");     
+          //	tmp[i] = str;
+          	titles.push(str);
+          }
+	  });
+
+	  /*
+	   * Get the actual data, this will contain all the data, in 1 array
+	   */
+	  $(".col_table tbody>tr:last").each(function() {
+	    data.push($(this).text());
+	  });
+	  
+	  /*
+	   * Convert our data to CSV string
+	   */
+	  var CSVString = prepCSVRow(titles, titles.length, '');
+	  CSVString = prepCSVRow(data, titles.length, CSVString);
+
+	  /*
+	   * Make CSV downloadable
+	   */
+	  var downloadLink = document.createElement("a");
+	  var blob = new Blob(["\ufeff", CSVString]);
+	  var url = URL.createObjectURL(blob);
+	  downloadLink.href = url;
+	  var outputFile = $("#outputFile").val();
+	  downloadLink.download = outputFile+".csv";
+		console.log(outputFile);
+	  /*
+	   * Actually download CSV
+	   */
+	  document.body.appendChild(downloadLink);
+	  downloadLink.click();
+	  document.body.removeChild(downloadLink);
+	  
+	  location.href = 'http://localhost:8080/destiny/analytics/handling/'+outputFile +".csv";
+	}
+
+	   /*
+	* Convert data array to CSV string
+	* @param arr {Array} - the actual data
+	* @param columnCount {Number} - the amount to split the data into columns
+	* @param initial {String} - initial string to append to CSV string
+	* return {String} - ready CSV string
+	*/
+	function prepCSVRow(arr, columnCount, initial) {
+	  var row = ""; // this will hold data
+	  var delimeter = ","; // data slice separator, in excel it's `;`, in usual CSv it's `,`
+	  var newLine = "\r\n"; // newline separator for CSV row
+
+	  /*
+	   * Convert [1,2,3,4] into [[1,2], [3,4]] while count is 2
+	   * @param _arr {Array} - the actual array to split
+	   * @param _count {Number} - the amount to split
+	   * return {Array} - splitted array
+	   */
+	  function splitArray(_arr, _count) {
+	    var splitted = [];
+	    var result = [];
+	    _arr.forEach(function(item, idx) {
+	      if ((idx + 1) % _count === 0) {
+	        splitted.push(item);
+	        result.push(splitted);
+	        splitted = [];
+	      } else {
+	        splitted.push(item);
+	      }
+	    });
+	    return result;
+	  }
+	  var plainArr = splitArray(arr, columnCount);
+	  // don't know how to explain this
+	  // you just have to like follow the code
+	  // and you understand, it's pretty simple
+	  // it converts `['a', 'b', 'c']` to `a,b,c` string
+	  plainArr.forEach(function(arrItem) {
+	    arrItem.forEach(function(item, idx) {
+	      row += item + ((idx + 1) === arrItem.length ? '' : delimeter);
+	    });
+	    row += newLine;
+	  });
+	  return initial + row;
+	}
+	      
 </script>
 
 <title>Destiny</title>
@@ -189,9 +250,9 @@
 					<tr>
 						<c:forEach var="colName" items="${rData.get(j).colNames}">
 							<c:forEach var="colNameValue" items="${colName}">
-								<th><input class="chkColnames" id="chkColnames" name="chkColnames"
+								<th><input class="chkCol" name="chkColnames"
 									type="checkbox">
-									<label class="chkColnames" for="chkColnames">${colName}</label></th>
+									<label class="chkCol" for="chkColnames">${colName}</label></th>
 							</c:forEach>
 						</c:forEach>
 					</tr>
@@ -244,16 +305,16 @@
 
 	<div id="selectCol" style="display: none">
 		<h1>선택한 열 정보</h1>
-		<h3>
+		<h5>
 			데이터 명 : <input type="text" id="dataName">
-		</h3>
+		</h5>
 		<div id ="dvData">
 			<table id="col_table" border=1>
 				<thead>
 					<tr></tr>
 				</thead>
 				<tbody>
-					<tr></tr>
+					
 				</tbody>
 			</table>
 			<br> <a href="<c:url value="/analytics/handling"/>">

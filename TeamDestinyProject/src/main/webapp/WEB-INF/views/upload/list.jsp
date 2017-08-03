@@ -291,8 +291,8 @@ $(document).ready(function() {
 
 <body>
    <c:url var="actionURL" value='/upload/new' />
-   <form  method="post" enctype="multipart/form-data"
-      class="form-horizontal" action="/analytics/info">
+   <form action="${actionURL}" method="post" enctype="multipart/form-data"
+       class="form-horizontal">
 
       <div id="myForm">
          <h3>File Upload</h3>

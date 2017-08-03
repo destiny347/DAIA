@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 
 	<!-- jQuery -->
-<script src="js/jquery.js"></script>
+
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 </script>
@@ -18,12 +18,82 @@
 	<!-- Custom CSS -->
 <link href="../css/business-casual.css" rel="stylesheet">
 
-	<!-- chart.js 적용시켜보기 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+	<!-- 그냥 하이차트로 행복하기 -->
+<script src="https://code.highcharts.com/highcharts.js" defer></script>
+<script src="https://code.highcharts.com/modules/exporting.js" defer></script>
 
-<!-- graph test -->
+	<!-- 밍구차트 -->
+<script type="text/javascript">
+$(function() {
 
+	Highcharts.chart('container', {
+	    chart: {
+	    	type : 'bar'
+	    },
+	    colors: ['#ff357f', '#ff8cb6', '#edc57d', '#f7a35c', '#8085e9', 
+	    	   '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
+		
+		<!-- 표제목 -->
+	    title: {
+	        text: ''
+	    },
+	    
+	    <!-- x축 -->
+	    xAxis: {
+	        categories: ["setosa", "versicolor", "virginica"],
+	    },
+	    
+	    labels: {
+	        items: [{
+	            html: '',
+	            style: {
+	                left: '150px',
+	                top: '18px',
+	                color: (Highcharts.theme && Highcharts.theme.textColor) || 'orange'
+	            }
+	        }]
+	    },
+	    series: <%= request.getAttribute("irisData") %>,
+	});
+});
+</script>
+
+<script type="text/javascript">
+$(function() {
+
+	Highcharts.chart('pie', {
+	    chart: {
+	    	type : 'pie'
+	    },
+	    colors: ['#ff357f', '#ff8cb6', '#edc57d', '#f7a35c', '#8085e9', 
+	    	   '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
+		
+		<!-- 표제목 -->
+	    title: {
+	        text: ''
+	    },
+	    tooltip: {
+	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	    },
+	    
+	    <!-- x축 -->
+	    plotOptions: {
+	        pie: {
+	            allowPointSelect: true,
+	            cursor: 'pointer',
+	            dataLabels: {
+	                enabled: true,
+	                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+	                style: {
+	                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+	                }
+	            }
+	        }
+	    },
+	    series: <%= request.getAttribute("getsiu") %>,
+	});
+});
+</script>
 
 <title>visual</title>
 </head>
@@ -62,48 +132,8 @@
 		<h3>그래프 표시부</h3>
 		<div class="graph_type">
 		<div class="col-sm-6">
-		
-		<canvas id="myChart"></canvas>
-	
-	<script>
-	var ctx = document.getElementById("myChart").getContext('2d');
-	var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-	</script>
+
+		<div id="pie"></div>
 		<p>
 		<button id="randomizeData">Randomize Data</button>
     	<button id="addDataset">Add Dataset</button>

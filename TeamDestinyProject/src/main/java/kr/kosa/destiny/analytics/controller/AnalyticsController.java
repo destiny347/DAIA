@@ -62,30 +62,30 @@ public class AnalyticsController {
 	}
 
 	//데이터 선택 부분 컨트롤러
-		@RequestMapping("/analytics/info/{fileId}")
-		public String analyticsDatabaseInfo(@PathVariable String fileId, HttpServletRequest req, HttpServletResponse response,Model model) 
-				throws Exception{
-			
-			String[] tmp = fileId.split(",");
-			int temp=Integer.parseInt(tmp[0]);
-			int test=0;
-			List<Map<String, Object>> rData = new ArrayList<Map<String, Object>>();		
-			ArrayList<String> fileN = new ArrayList<String>();
-			for(int i=0;i <= temp-1 ; i++){			
-				test = Integer.parseInt(tmp[i]);			
-				rData.add(i ,analyticsService.analyticsDatabaseInfo(test));	
-				//info.jsp파일에 파일 제목을 뿌려주기 위한 모델생성.					
-				UploadFileVO getFile = uploadFileService.getFile(test);
-				String fileName = getFile.getFileName();
-				fileN.add(i,fileName);
-				
-			}
-			System.out.println(rData.size());
-			model.addAttribute("rData", rData);
-			model.addAttribute("fileName", fileN);
-			return "analytics/info";
+	@RequestMapping("/analytics/info/{fileId}")
+	public String analyticsDatabaseInfo(@PathVariable String fileId, HttpServletRequest req, HttpServletResponse response,Model model) 
+			throws Exception{
+
+		String[] tmp = fileId.split(",");
+		int temp=Integer.parseInt(tmp[0]);
+		int test=0;
+		List<Map<String, Object>> rData = new ArrayList<Map<String, Object>>();		
+		ArrayList<String> fileN = new ArrayList<String>();
+		for(int i=0;i <= temp-1 ; i++){			
+			test = Integer.parseInt(tmp[i]);			
+			rData.add(i ,analyticsService.analyticsDatabaseInfo(test));	
+			//info.jsp파일에 파일 제목을 뿌려주기 위한 모델생성.					
+			UploadFileVO getFile = uploadFileService.getFile(test);
+			String fileName = getFile.getFileName();
+			fileN.add(i,fileName);
 
 		}
+		System.out.println(rData.size());
+		model.addAttribute("rData", rData);
+		model.addAttribute("fileName", fileN);
+		return "analytics/info";
+
+	}
 
 
 
@@ -125,5 +125,19 @@ public class AnalyticsController {
 	public String analysis() {
 		return "analytics/analysis";
 	}
+
+/*
+	// 민구 테스트
+
+	@RequestMapping("/analytics/iris2")
+	public String getCsv(Model model) {
+		ArrayList<SampleVO> getCsv = analyticsService.getCsvFile();
+		Gson gson = new Gson();
+		String getsiu = gson.toJson(getCsv);
+		model.addAttribute("getsiu", getsiu);
+
+		return "analytics/visual";
+	}
+*/
 }
 
