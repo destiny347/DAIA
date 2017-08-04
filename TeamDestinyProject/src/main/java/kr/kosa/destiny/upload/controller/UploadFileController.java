@@ -126,4 +126,47 @@ public class UploadFileController {
       imageService.updateDirectory(fileIds, directoryName);
       return "redirect:/upload/list";
    }
+   
+	@RequestMapping(value="/include/header")
+	public String header() {
+		return "/include/header";
+	}
+	
+	@RequestMapping(value="/include/footer")
+	public String footer() {
+		return "/include/footer";
+	}
+	
+	@RequestMapping(value="/webpage/main")
+	public String main() {
+		return "/webpage/main";
+	}
+	
+	@RequestMapping(value="/webpage/aboutPrj")
+	public String aboutPrj() {
+		return "/webpage/aboutPrj";
+	}
+	
+	@RequestMapping(value="/webpage/aboutUs")
+	public String aboutUs() {
+		return "/webpage/aboutUs";
+	}
+	
+	@RequestMapping(value="/webpage/contact")
+	public String contact() {
+		return "/webpage/contact";
+	}
+	
+	@RequestMapping(value="/webpage/board")
+	public String board() {
+		return "/webpage/board";
+	}
+	
+	@RequestMapping(value="/webpage/registration")
+	public String registration() {
+		return "/webpage/registration";
+	}
+	
 }
+
+
