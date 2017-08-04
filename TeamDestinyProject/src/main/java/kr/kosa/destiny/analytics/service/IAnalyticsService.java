@@ -6,11 +6,13 @@ import java.util.Map;
 
 import kr.kosa.destiny.analytics.model.IrisVO;
 import kr.kosa.destiny.analytics.model.SampleVO;
+import kr.kosa.destiny.analytics.model.SampleVO1;
 import kr.kosa.destiny.analytics.model.SummaryVO;
 
 public interface IAnalyticsService {
 	ArrayList<IrisVO> getAvgPetalBySpecies();
 	ArrayList<SampleVO> getAvgPetalBySpecies2();
+	ArrayList<SampleVO1> getAvgPetalBySpecies3();
 	ArrayList<SampleVO> analyticsDatabase(int fileId);
 	Map<String, Object> analyticsDatabaseInfo(int fileId);
 	Map<String, Object> getSummary(int fileId);

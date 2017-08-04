@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import kr.kosa.destiny.analytics.model.IrisVO;
 import kr.kosa.destiny.analytics.model.SampleVO;
+import kr.kosa.destiny.analytics.model.SampleVO1;
 import kr.kosa.destiny.analytics.model.SummaryVO;
 import kr.kosa.destiny.upload.model.UploadFileVO;
 import kr.kosa.destiny.upload.service.IUploadFileService;
@@ -74,6 +75,25 @@ public class AnalyticsService implements IAnalyticsService {
 			sample2.setType("column");
 			sample2.setData(result2.asDoubleArray());
 			irisList.add(sample2);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			throw new RuntimeException(e);
+		}
+		return irisList;
+	}
+	
+	@Override
+	public ArrayList<SampleVO1> getAvgPetalBySpecies3() {
+		ArrayList<SampleVO1> irisList = new ArrayList<SampleVO1>();
+		try {
+			REXP result = rEngine.eval("(ming <- tapply(iris$Petal.Length, iris$Species, mean))");
+			REXP result1 = rEngine.eval("names(ming)");
+			
+			SampleVO1 sample1 = new SampleVO1();
+			sample1.setName(result1.asStringArray());
+			sample1.setY(result.asDoubleArray());
+			irisList.add(sample1);
+
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 			throw new RuntimeException(e);

@@ -21,12 +21,13 @@
 	<!-- 그냥 하이차트로 행복하기 -->
 <script src="https://code.highcharts.com/highcharts.js" defer></script>
 <script src="https://code.highcharts.com/modules/exporting.js" defer></script>
-
+	
+	
 	<!-- 밍구차트 -->
 <script type="text/javascript">
 $(function() {
 
-	Highcharts.chart('container', {
+	Highcharts.chart('bar', {
 	    chart: {
 	    	type : 'bar'
 	    },
@@ -60,38 +61,34 @@ $(function() {
 
 <script type="text/javascript">
 $(function() {
-
 	Highcharts.chart('pie', {
 	    chart: {
-	    	type : 'pie'
+	        plotBackgroundColor: null,
+	        plotBorderWidth: null,
+	        plotShadow: false,
+	        type: 'pie'
 	    },
-	    colors: ['#ff357f', '#ff8cb6', '#edc57d', '#f7a35c', '#8085e9', 
-	    	   '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
-		
-		<!-- 표제목 -->
 	    title: {
 	        text: ''
 	    },
 	    tooltip: {
 	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
 	    },
-	    
-	    <!-- x축 -->
 	    plotOptions: {
 	        pie: {
 	            allowPointSelect: true,
 	            cursor: 'pointer',
 	            dataLabels: {
-	                enabled: true,
-	                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-	                style: {
-	                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-	                }
-	            }
+	                enabled: true
+	            },
+	            showInLegend: true
 	        }
 	    },
-	    series: <%= request.getAttribute("getsiu") %>,
-	});
+	    
+        series: 
+               <%= request.getAttribute("irisData2") %>,
+        
+});
 });
 </script>
 
@@ -111,7 +108,7 @@ $(function() {
 	
 	<!-- 시각화하려는 변수를 선택하는 부분 -->
 	
-	<div>
+	<div>		종속 변수 선택 : <input type="text" id="dataName"><br> 
 		종속 변수 선택 : <input type="text" id="dataName"><br> 
 		독립 변수 선택 : <input type="text" id="dataName"><br>
 	</div>
@@ -133,12 +130,14 @@ $(function() {
 		<div class="graph_type">
 		<div class="col-sm-6">
 
-		<div id="pie"></div>
+		<div id="bar"></div>
 		<p>
+		<div id="pie"></div>
+		</p>
+		<br><br>
 		<button id="randomizeData">Randomize Data</button>
     	<button id="addDataset">Add Dataset</button>
     	<button id="removeDataset">Remove Dataset</button>
-		</p>
 		</div>
 		</div>
 

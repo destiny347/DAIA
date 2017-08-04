@@ -11,6 +11,7 @@
 
 <P><a href="analytics/iris">Sample 1</a></P>
 <P><a href="analytics/iris2">Sample 2</a></P>
+<P><a href="analytics/iris3">Sample 3</a></P>
 <P><a href="upload">File Upload index</a></P>
 </body>
 </html>

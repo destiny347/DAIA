@@ -13,12 +13,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.google.gson.Gson;
+
 import kr.kosa.destiny.analytics.model.IrisVO;
 import kr.kosa.destiny.analytics.model.SampleVO;
+import kr.kosa.destiny.analytics.model.SampleVO1;
 import kr.kosa.destiny.analytics.service.IAnalyticsService;
 import kr.kosa.destiny.upload.model.UploadFileVO;
 import kr.kosa.destiny.upload.service.IUploadFileService;
-import com.google.gson.Gson;
 
 @Controller
 public class AnalyticsController {
@@ -48,7 +50,18 @@ public class AnalyticsController {
 		String irisData = gson.toJson(irisList);
 		model.addAttribute("irisData", irisData);
 
-		return "analytics/chart";
+		return "analytics/visual";
+	}
+
+	// 
+	@RequestMapping("/analytics/iris3")
+	public String getAvgPetalbySpecies3(Model model) {
+		ArrayList<SampleVO1> irisList = analyticsService.getAvgPetalBySpecies3();
+		Gson gson = new Gson();
+		String irisData = gson.toJson(irisList);
+		model.addAttribute("irisData2", irisData);
+
+		return "analytics/visual";
 	}
 
 	@RequestMapping("/analytics/database/{fileId}")
