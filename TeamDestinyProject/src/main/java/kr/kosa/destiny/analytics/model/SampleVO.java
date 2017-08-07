@@ -1,12 +1,12 @@
 package kr.kosa.destiny.analytics.model;
 
-import java.util.Arrays;
-
 public class SampleVO {
 	private String type;
 	private String name;
 	private double[] data;
+	private int y;
 	private Marker marker;
+	
 	public String getType() {
 		return type;
 	}
@@ -25,16 +25,16 @@ public class SampleVO {
 	public void setData(double[] data) {
 		this.data = data;
 	}
+	public int getY() {
+		return y;
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
 	public Marker getMarker() {
 		return marker;
 	}
 	public void setMarker(Marker marker) {
 		this.marker = marker;
 	}
-	@Override
-	public String toString() {
-		return "SampleVO [type=" + type + ", name=" + name + ", data=" + Arrays.toString(data) + ", marker=" + marker
-				+ "]";
-	}
-
 }

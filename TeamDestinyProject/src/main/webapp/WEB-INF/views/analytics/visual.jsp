@@ -68,8 +68,9 @@ $(function() {
 	        plotShadow: false,
 	        type: 'pie'
 	    },
+	    
 	    title: {
-	        text: ''
+	        text: 'pie는 ApplePie'
 	    },
 	    tooltip: {
 	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -84,10 +85,44 @@ $(function() {
 	            showInLegend: true
 	        }
 	    },
+        series: [{name: 'Species',
+        		colorByPoint : true,
+        		data :<%= request.getAttribute("irisData2") %>
+        }]
+});
+});
+</script>
+
+<script type="text/javascript">
+$(function() {
+	Highcharts.chart('pie1', {
+	    chart: {
+	        plotBackgroundColor: null,
+	        plotBorderWidth: null,
+	        plotShadow: false,
+	        type: 'pie'
+	    },
 	    
-        series: 
-               <%= request.getAttribute("irisData2") %>,
-        
+	    title: {
+	        text: 'pie는 ApplePie'
+	    },
+	    tooltip: {
+	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	    },
+	    plotOptions: {
+	        pie: {
+	            allowPointSelect: true,
+	            cursor: 'pointer',
+	            dataLabels: {
+	                enabled: true
+	            },
+	            showInLegend: true
+	        }
+	    },
+        series: [{name: 'HanHwa',
+        		colorByPoint : true,
+        		data :<%= request.getAttribute("gcv") %>
+        }]
 });
 });
 </script>
@@ -131,10 +166,11 @@ $(function() {
 		<div class="col-sm-6">
 
 		<div id="bar"></div>
-		<p>
+		<br>
 		<div id="pie"></div>
-		</p>
-		<br><br>
+		<br>
+		<div id="pie1"></div>
+		<br>
 		<button id="randomizeData">Randomize Data</button>
     	<button id="addDataset">Add Dataset</button>
     	<button id="removeDataset">Remove Dataset</button>

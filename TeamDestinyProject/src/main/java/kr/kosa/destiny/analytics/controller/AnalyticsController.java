@@ -53,7 +53,9 @@ public class AnalyticsController {
 
 		return "analytics/iris_chart";
 	}
-
+	
+	
+	// 막대그래프 구현부
 	@RequestMapping("/analytics/iris2")
 	public String getAvgPetalbySpecies2(Model model) {
 		ArrayList<SampleVO> irisList = analyticsService.getAvgPetalBySpecies2();
@@ -64,7 +66,7 @@ public class AnalyticsController {
 		return "analytics/visual";
 	}
 
-	// 
+	// 파이차트 구현부
 	@RequestMapping("/analytics/iris3")
 	public String getAvgPetalbySpecies3(Model model) {
 		ArrayList<SampleVO1> irisList = analyticsService.getAvgPetalBySpecies3();
@@ -74,6 +76,18 @@ public class AnalyticsController {
 
 		return "analytics/visual";
 	}
+	
+	// 파이차트로 사기자 구분
+	@RequestMapping("/analytics/iris4")
+	public String getCsvFile(Model model) {
+		ArrayList<SampleVO> getCsv = analyticsService.getCsvFile();
+		Gson gson = new Gson();
+		String gcv = gson.toJson(getCsv);
+		model.addAttribute("gcv", gcv);
+
+		return "analytics/visual";
+	}
+
 
 	@RequestMapping("/analytics/database/{fileId}")
 	public String analyticsDatabase(@PathVariable int fileId, Model model) {
