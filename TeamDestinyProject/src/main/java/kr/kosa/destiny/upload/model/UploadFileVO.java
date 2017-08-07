@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class UploadFileVO {
 	
+	private String userId;
 	private int fileId;
 	private String directoryName;
 	private String fileName;
@@ -11,7 +12,23 @@ public class UploadFileVO {
 	private String fileContentType;
 	private Timestamp fileUploadDate;
 	private byte[] fileData;
-
+	private int flowNum;
+			
+	public UploadFileVO() {
+		userId = "1";
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public int getFlowNum() {
+		return flowNum;
+	}
+	public void setFlowNum(int flowNum) {
+		this.flowNum = flowNum;
+	}
 	public int getFileId() {
 		return fileId;
 	}

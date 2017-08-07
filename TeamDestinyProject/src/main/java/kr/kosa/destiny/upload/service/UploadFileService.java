@@ -1,5 +1,9 @@
 package kr.kosa.destiny.upload.service;
 
+import java.io.IOException;
+import java.sql.Blob;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,6 +18,14 @@ public class UploadFileService implements IUploadFileService {
 
 	@Autowired
 	IUploadFileRepository uploadFileRepository;
+	
+	@Override
+	public void insertFile(UploadFileVO file){
+		// controller에서 name과 num을 가지고 온다.
+		// 해야할일 directory name과 filesize, contenttype, filedata를 넣어주기
+		file.setFileId(uploadFileRepository.getMaxFileId()+1);
+		uploadFileRepository.insertFile(file);
+	}
 	
 	@Override
 	public void uploadFile(UploadFileVO file) {
@@ -32,8 +44,8 @@ public class UploadFileService implements IUploadFileService {
 	}
 	
 	@Override
-	public List<UploadFileVO> getAllFileList() {
-		return uploadFileRepository.getAllFileList();
+	public List<UploadFileVO> getAllFileList(UploadFileVO file) {
+		return uploadFileRepository.getAllFileList(file);
 	}
 	
 	@Override

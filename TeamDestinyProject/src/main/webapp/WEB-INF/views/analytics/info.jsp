@@ -132,14 +132,13 @@
 	 console.log("test");
 	  var titles = [];
 	  var data = [];
-		var list = $("input[name=chkColnames]:checked");	    	
-	    var str = "";
+	    var index = [];
 	  /*
 	   * Get the table headers, this will be CSV headers
 	   * The count of headers will be CSV string separator
 	   */
 	   
-	  
+	  /*
 	  $(".col_table > thead > tr:last").each(function() {
 	
 	   //titles.push($(this).text());
@@ -150,13 +149,38 @@
           	titles.push(str);
           }
 	  });
-
+		*/
+		$('#sum_table thead tr input[type=checkbox]:checked').each(function() {
+		     index.push($(this).closest('th').index());
+		     //console.log($(this).closest('th').text());
+		     //console.log($(this).closest('th').index());
+		   });
+		
+	  var thead = $('<thead>');
+	   $('#sum_table thead tr th').each(function() {
+	     if (jQuery.inArray($(this).index(), index) != -1) {
+	       thead.append($('<th>' + $(this).text() + '</th>'));
+	       //console.log($(this).text());
+	       titles.push($(this).text());
+	     }
+	   });
+	  
 	  /*
 	   * Get the actual data, this will contain all the data, in 1 array
 	   */
-	  $(".col_table tbody>tr:last").each(function() {
-	    data.push($(this).text());
-	  });
+	  var tbody = $('<tbody>');
+	   $('#sum_table tbody tr').each(function() {
+	     var tr = $('<tr>');
+	     $(this).find('td').each(function() {
+	       if (jQuery.inArray($(this).index(), index) != -1) {
+	         tr.append($('<td>' + $(this).text() + '</td>'));
+	         //console.log($(this).text());
+	         data.push($(this).text());
+	       }
+	     });
+	     tbody.append(tr);
+	    
+	   });
 	  
 	  /*
 	   * Convert our data to CSV string
@@ -180,8 +204,8 @@
 	  document.body.appendChild(downloadLink);
 	  downloadLink.click();
 	  document.body.removeChild(downloadLink);
-	  
-	  location.href = 'http://localhost:8080/destiny/analytics/handling/'+outputFile +".csv";
+	  var outputFile2 = outputFile+".csv";
+	  location.href = 'http://localhost:8080/destiny/analytics/handling/'+outputFile2;
 	}
 
 	   /*
@@ -254,7 +278,7 @@
 		<table id="sum_table" border="1">
 			 <thead>
 				<tr>
-					<c:forEach var="colName" items="${rData.get(j).colNames}">
+					<c:forEach var="colName" items="${rData.get(j).colNames}" >
 						<c:forEach var="colNameValue" items="${colName}">
 							<th><input class="chkCol" name="chkColnames" type="checkbox">
 								<label class="chkCol" for="chkColnames">${colName}</label></th>
@@ -265,7 +289,7 @@
 			 <tbody>
 				<c:forEach var="i" begin="0"
 					end="${fn:length(rData.get(j).data[0])-1}">
-					<c:if test="${i le 20}">
+					<c:if test="${i le 30000}">
 						<c:set var="row" value="${rData.get(j).data}" />
 						<tr>
 							<c:forEach var="data" items="${row}">
@@ -276,9 +300,7 @@
 				</c:forEach>
 			 </tbody>
 			</table>
-			</div>
-	
-		
+			</div>			
 	</c:forEach>
 
 	<br>
@@ -291,19 +313,24 @@
 	<div id="selectCol" style="display:none">
 		<h1>선택한 열 정보</h1>
 		<h5>
-			데이터 명 : <input type="text" id="dataName">
+			데이터 명 : <input type="text" id="outputFile">
 		</h5>
 		<div id ="dvData">
 			
 			<input type="button" id="show_sum2" value="테이블 요약보기(5행)">
 			<input type="button" id="show_all2" value="테이블 전체보기" style="display:none">
-				<table id="col_table" border=1>				
-				</table>
-			<br> <a href="<c:url value="/analytics/handling"/>">
-				<input value="다음" id ="export" type="button"/></a> 
+				<table id="col_table" class="col_table" border=1>
+				<thead>
+					<tr></tr>
+				</thead>
+				<tbody>
+					<tr></tr>
+				</tbody>
+			</table>
+			<br><input value="다음" id="export" onclick="clickExport();"
+				type="button"/>
 				<a href="/destiny/upload/list">	<input type="reset" value="취소" /></a>
 		</div>
 	</div>
-
 </body>
 </html>

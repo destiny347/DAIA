@@ -51,6 +51,7 @@ public class UploadFileController {
             image.setFileSize(file.getSize());
             image.setFileContentType(file.getContentType());
             image.setFileData(file.getBytes());
+            image.setFlowNum(1);
             logger.info("/upload : " + image.toString());
 
             imageService.uploadFile(image);
@@ -71,7 +72,8 @@ public class UploadFileController {
    
    @RequestMapping("/upload/list")
    public String getImageList(Model model) {
-      model.addAttribute("fileList", imageService.getAllFileList());
+	   UploadFileVO file = new UploadFileVO();
+      model.addAttribute("fileList", imageService.getAllFileList(file));
       return "/upload/list";
    }
 

@@ -10,7 +10,7 @@ public interface IUploadFileRepository {
 	void uploadFile(UploadFileVO file);
 
 	List<UploadFileVO> getFileList(String directoryName);
-	List<UploadFileVO> getAllFileList();
+	List<UploadFileVO> getAllFileList(UploadFileVO file);
 	List<UploadFileVO> getImageList(String directoryName);
 
 	UploadFileVO getFile(int fileId);
@@ -20,5 +20,6 @@ public interface IUploadFileRepository {
 
 	void deleteFile(int fileId);
 	void updateFile(UploadFileVO file);
+	void insertFile(UploadFileVO file);
 }
 

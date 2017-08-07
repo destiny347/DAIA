@@ -304,7 +304,7 @@ $(document).ready(function() {
       <h3>File List</h3>
       <table border="1">
          <tr>
-            <th>ID</th>
+         	<th>ID</th>
             <td>경로</td>
             <td>파일명</td>
             <td>크기</td>
@@ -312,6 +312,8 @@ $(document).ready(function() {
             <td>날짜</td>
             <td>상세설명</td>
             <td>삭제</td>
+            <td style="display:none">순서</td>
+            <td style="display:none">사용자 id</td>
          </tr>
          <c:forEach var="file" items="${fileList}">
             <tr>
@@ -336,6 +338,7 @@ $(document).ready(function() {
                      pattern="#,###" />KB</td>
                <td>${file.fileContentType}</td>
                <td>${file.fileUploadDate}</td>
+				<td style="display:none">${file.flowNum}</td>
                <td>
                             <!-- Modal -->
             

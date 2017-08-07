@@ -9,7 +9,7 @@ public interface IUploadFileService {
 	void uploadFile(UploadFileVO file);
 
 	List<UploadFileVO> getFileList(String dir);
-	List<UploadFileVO> getAllFileList();
+	List<UploadFileVO> getAllFileList(UploadFileVO file);
 	List<UploadFileVO> getImageList(String dir);
 
 	UploadFileVO getFile(int fileId);
@@ -19,4 +19,8 @@ public interface IUploadFileService {
 
 	void deleteFile(int fileId);
 	void updateFile(UploadFileVO file);
+	
+	void insertFile(UploadFileVO file);
+		
+	
 }
