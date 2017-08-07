@@ -62,7 +62,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-    background-color: #4CAF50;
+    background-color: #f1f1f1;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -79,13 +79,13 @@ button:hover {
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: #f44336;
+    background-color: #ffffff;
     float: left;
 }
 .createbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: #f44336;
+    background-color: #ffffff;
 }
 
 /* Center the image and position the close button */
@@ -171,12 +171,15 @@ span.psw {
 
 <body>
 <header>
-<div class="w3-bar w3-white w3-wide w3-card-2">
+
+<div class="page-header">
 <div class="container">
   <div class="col col-social-icons">
   	<table align="center">
   		<tr>
-  			<td><a href="/destiny/"><img src="http://erotic-chaos.com/wp-content/uploads/2017/08/Logo_Destiny.png" style="width:100px;height:100px;border:0"></a></td>
+  			<td><a href="/destiny/"><img src="http://erotic-chaos.com/wp-content/uploads/2017/08/Logo_Destiny.png" 
+
+style="width:100px;height:100px;border:0"></a></td>
   		</tr>
   		<tr><td>&nbsp;</td></tr>
   	</table>
@@ -185,22 +188,36 @@ span.psw {
   		<tr>
   			<td><a class="button" style="cursor:pointer;"><i class="fa fa-list-ul" style="font-size: 30px"></i></a></td>
   			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="/destiny/webpage/aboutPrj">프로젝트 소개</a></button></td>	<td>&nbsp;</td>
-	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="/destiny/webpage/aboutUs">팀 소개</a></button></td>	<td>&nbsp;</td>
-	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="">기능들</a></button></td>	<td>&nbsp;</td>
-	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="/destiny/webpage/board">게시판</a></button></td>	<td>&nbsp;</td>
-  			<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="/destiny/webpage/contact">Contact</a></button></td>	<td>&nbsp;</td>
-  			<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="">메뉴6</a></button></td>	<td>&nbsp;</td>
+	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="/destiny/webpage/aboutPrj">프
+
+로젝트 소개</a></button></td>	<td>&nbsp;</td>
+	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="/destiny/webpage/aboutUs">팀 
+
+소개</a></button></td>	<td>&nbsp;</td>
+	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="">기능들</a></button></td>	
+
+<td>&nbsp;</td>
+	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="/destiny/webpage/board">게시판
+
+</a></button></td>	<td>&nbsp;</td>
+  			<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a 
+
+href="/destiny/webpage/contact">Contact</a></button></td>	<td>&nbsp;</td>
+  			<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="">메뉴6</a></button></td>	
+
+<td>&nbsp;</td>
   			<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="">메뉴7</a></button></td>
   		</tr>
   	</table>
   	</div>
-  	
+
+
 	<!-- login -->
 	<div class="w3-right w3-hide-small">
 		<!-- Button to open the modal login form -->
-	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
+	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
+	<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button>
+   
 	<div id="id01" class="modal">
    		<form class="modal-content animate" action="/action_page.php">
     		<div class="imgcontainer">
@@ -216,84 +233,104 @@ span.psw {
       			<input type="password" placeholder="Enter Password" name="psw" required>
         
       			<button type="submit">로그인</button>
-      			<input type="checkbox" checked="checked"> Remember me
+      			<input type="checkbox" checked="checked"> 기억하기
     		</div>
 			<div>&nbsp;</div>
 			
     		<div class="w3-container" style="background-color:#f1f1f1">
       			<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">취소</button>
       			&nbsp;
-      			<button type="button" onclick="resistration.html" class="createbtn">
-      				회원가입
-      			</button>				
+      							
       			<span class="psw">Forgot <a href="#">password?</a></span>
     		</div>
     		<div>&nbsp;</div>
   		</form>
 	</div>
-
 	
-<!-- 		<div id="id01" class="modal">
-			<form class="modal-content animate" action="/action_page.php">
-				<div class="imgcontainer" align="center">
-					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> 
-					<img src="http://erotic-chaos.com/wp-content/uploads/2017/06/img_avatar2.jpg" alt="Avatar" class="avatar">
-				</div>
+		
+	<div id="id02" class="modal">
+   		<form class="modal-content animate" action="/action_page.php">
+    		<div class="w3-container">
+      			<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    		
+				<div class="w3-container">
+					<div class="page-header">
+    	   				<h1>회원가입 <small>BD Platform</small></h1>
+        			</div>
+        		</div>
+        		
+        		<div class="form-group">
+        			<label class="col-sm-4 control-label" for="inputEmail">이메일</label>
+        			<div class="col-sm-8">
+          				<input class="form-control" id="inputEmail" type="email" placeholder="이메일" required>        		
+        			</div>
+        		</div>
+        		
+        		<div class="form-group">
+          			<label class="col-sm-4 control-label" for="inputPassword">비밀번호</label>
+        			<div class="col-sm-8">
+          				<input class="form-control" id="inputPassword" type="password" placeholder="비밀번호" required>
+        				<p class="help-block">숫자, 특수문자 포함 8자 이상</p>
+        			</div>
+        		</div>
+        		
+        		<div class="form-group">
+              		<label class="col-sm-4 control-label" for="inputPasswordCheck">비밀번호 확인</label>
+             		<div class="col-sm-8">
+              			<input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호 확인" required>
+                		<p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
+             		</div>
+          		</div>
+          		
+          		<div class="form-group">
+            		<label class="col-sm-4 control-label" for="inputName">이름</label>
+          			<div class="col-sm-8">
+            			<input class="form-control" id="inputName" type="text" placeholder="이름" required>
+          			</div>
+        		</div>
+        		
+        		<div class="form-group">
+            		<label class="col-sm-4 control-label" for="inputNumber">휴대폰 번호</label>
+              		<div class="col-sm-8">
+                  		<input class="form-control" id="inputNumber" type="tel" placeholder="- 없이 입력해 주세요">
+              		</div>
+        		</div>
+				<div>&nbsp;</div>
 				
-				<div class="container">
-					<label><b>Username</b></label>
-					<input type="text" placeholder="Enter Username" name="uname" required>
-					<label><b>Password</b></label>
-					<input type="password" placeholder="Enter Password" name="psw" required>
-					<button type="submit">Login</button>
-					<input type="checkbox" checked="checked"> Remember me
-				</div>
-				
-				<div class="container" style="background-color: #f1f1f1">
-					<a href="/destiny/webpage/registration">
-						<button type="button" onclick="document.getElementById('id01').style.display='none'" class="createbtn">Create</button>
-					</a>
-						<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-				</div>
-			</form>
-		</div> -->
-			
-</div> <!-- End Container -->
-</div>
+				<div class="form-group">
+          			<div class="col-sm-12 text-center">
+            		<input class="btn btn-primary" action="action" onclick="myFunction()" type="submit" value="회원가입"/>
+            		<input class="btn btn-danger" action="action" onclick="document.getElementById('id02').style.display='none'" 
+
+type="button" value="취소" />
+               		</div>
+        		</div>	        
+        	</div>
+        	<div>&nbsp;</div>
+        </form>	<!-- End Form -->
+        
+    </div>	<!-- End Modal -->
+	</div>
+
+  	</div> <!-- End Container -->
+	</div> <!-- End HeaderLine -->
 </header>
-
-
-<!-- <div class="container">
-  <div class="loginForm" style="position:relative; left: 0%; top: 150px;">
-  	<table align=right>
-  		<tr align=right>
-  			<td>아이디 :&nbsp;</td>
-  			<td><input type="text" id="loginId"></td>
-  		</tr>
-  		<tr align=right>
-  			<td>비밀번호 :&nbsp;</td>
-  			<td><input type="password" id="loginPassword"></td>
-  		</tr>
-  		<tr>
-  			<td colspan="2" align=right><button type="submit" class="btn btn-link">로그인</button>
-  				<button type="button" class="btn btn-link">회원가입</button>
- 			</td>
-  		</tr>
-  	</table>
-  </div>
-</div> -->
 
 <!-- Script 모음 -->
 <script type="text/javascript">
 // Get the modal
 var modal = document.getElementById('id01');
+var modal2 = document.getElementById('id02');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+    } else if (event.target == modal2) {
+        modal2.style.display = "none";
     }
 }
 </script>
+
 </body>
 </html>
