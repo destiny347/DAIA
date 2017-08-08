@@ -38,3 +38,4 @@ public class SampleVO {
 		this.marker = marker;
 	}
 }
+

@@ -108,6 +108,36 @@ public class AnalyticsService implements IAnalyticsService {
 		return irisList;
 	}
 
+	// 꺾은선 그래프로 등급별 사기자 수 확인하려고 했는데 일단 보류!!!
+	/*
+	 * @Override public ArrayList<SampleVO1> getBymincrdt() {
+	 * ArrayList<SampleVO1> siuList = new ArrayList<SampleVO1>(); try {
+	 * rEngine.eval("setwd(\"c:R/Workplace\")"); rEngine.
+	 * eval("(data_cust <- read.csv(\"BGCON_CUST_DATA.csv\", header=TRUE, sep=\",\", encoding=\"cp949\", fileEncoding = \"UCS-2\"))"
+	 * ); rEngine.
+	 * eval("(yn_to_10 <- function(row){if(row==\"Y\" row = 1 else if(row==\"N\") row = 0  else row = \"\")})"
+	 * ); rEngine.
+	 * eval("(data_cust$SIU_CUST_YN <- sapply(data_cust$SIU_CUST_YN, yn_to_10))"
+	 * ); rEngine.
+	 * eval("(na_to_6 <- function(row){if(is.na(row)) row = 6 else row = row})"
+	 * );
+	 * rEngine.eval("(data_cust$MINCRDT <- sapply(data_cust$MINCRDT, na_to_6))"
+	 * ); rEngine.
+	 * eval("(count_by_crdt <- table(subset(data_cust, select = MINCRDT, subset=(data_cust$SIU_CUST_YN==1))))"
+	 * ); REXP result = rEngine.eval("as.vector(count_by_crdt)"); rEngine.
+	 * eval("(names(count_by_crdt) <- c(\"등급없음\",\"1등급\",\"2등급\",\"3등급\",\"4등급\",\"5등급\",\"6등급\",\"7등급\",\"8등급\",\"9등급\",\"10등급\")"
+	 * ); REXP result1 = rEngine.eval("names(count_by_crdt)");
+	 * 
+	 * int resultList[] = result.asIntArray(); String resultList1[] =
+	 * result1.asStringArray();
+	 * 
+	 * for (int i=0; i<resultList.length; i++){ SampleVO1 sample1 = new
+	 * SampleVO1(); sample1.setName(resultList1[i]);
+	 * sample1.setData(resultList[i]); siuList.add(sample1); } } catch
+	 * (Exception e) { logger.error(e.getMessage()); throw new
+	 * RuntimeException(e); } return siuList; }
+	 */
+
 	@Override
 	public ArrayList<SampleVO> analyticsDatabase(int fileId) {
 		ArrayList<SampleVO> irisList = new ArrayList<SampleVO>();
@@ -868,33 +898,33 @@ public class AnalyticsService implements IAnalyticsService {
 
 	// 원본 데이터 읽고 정상인과 사기자 수 구분!!!
 	@Override
-	public ArrayList<SampleVO> getCsvFile(){
+	public ArrayList<SampleVO> getCsvFile() {
 		ArrayList<SampleVO> getCsv = new ArrayList<SampleVO>();
 		try {
 			rEngine.eval("setwd(\"c:R/Workplace\")");
-			rEngine.eval("(data_cust <- read.csv(\"BGCON_CUST_DATA.csv\", header=TRUE, sep=\",\", encoding=\"cp949\", fileEncoding = \"UCS-2\"))");
+			rEngine.eval(
+					"(data_cust <- read.csv(\"BGCON_CUST_DATA.csv\", header=TRUE, sep=\",\", encoding=\"cp949\", fileEncoding = \"UCS-2\"))");
 			rEngine.eval("(cnt_siu <- table(data_cust$SIU_CUST_YN))");
 			rEngine.eval("(names(cnt_siu) <- c(\"분석대상\", \"정상인\", \"사기자\"))");
 			REXP result = rEngine.eval("as.vector(cnt_siu)");
 			REXP result1 = rEngine.eval("names(cnt_siu)");
-		      
+
 			int resultList[] = result.asIntArray();
 			String resultList1[] = result1.asStringArray();
-			
-			for (int i=1; i<resultList.length; i++){
+
+			for (int i = 1; i < resultList.length; i++) {
 				SampleVO sample1 = new SampleVO();
 				sample1.setName(resultList1[i]);
 				sample1.setY(resultList[i]);
 				getCsv.add(sample1);
 			}
-		      
+
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 			throw new RuntimeException(e);
 		}
 		return getCsv;
 	}
-
 
 	/*
 	 * 
