@@ -162,7 +162,6 @@ $(document).ready(function(){
 			src="https://www.youtube.com/embed/vyRC1bUAwFE" frameborder="0"
 			allowfullscreen></iframe>
 		<a href="project.html"></a>
-
 	</div>
 	
 	<!-- phase1 -->

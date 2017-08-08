@@ -70,13 +70,14 @@ $('.dropdown-toggle').dropdown()
 
 <body>
 <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+
 <div style="float: left;">&nbsp;
 <div class="side_bar" style="position: absolute; border:1px solid black;">
 	<ul>
-		<li><a href="/destiny/upload">파일관리</a></li>
+		<li><a href="/destiny/upload/list">파일관리</a></li>
 		<li><a href="/destiny/analytics/handling">데이터 전처리</a></li>
 		<li><a href="/destiny/analytics/restructuring">데이터 재구조화</a></li>
-		<li><a href="/destiny/analytics/info/5">데이터 탐색</a></li>
+		<li><a href="/destiny/analytics/info/">데이터 탐색</a></li>
 		<li><a href="/destiny/analytics/visual">데이터 시각화</a></li>
 		<li><a href="">데이터 주성분분석</a></li>
 		<li><a href="/destiny/analytics/ML">머신러닝</a></li>
@@ -85,9 +86,14 @@ $('.dropdown-toggle').dropdown()
 </div>
 
 <div class="container">
-	<div style="width: 100%; height: 500px; border:1px solid black;">
-		메인페이지1
-	</div>
+	
+        <div class="row">
+            <div class="box">               
+                    <div class="col-lg-12 text-center">
+                       <iframe width="854" height="480" src="https://www.youtube.com/embed/tVrecgoBfwg?rel=0&autoplay=1&loop=1&playlist=tVrecgoBfwg" frameborder="0" allowfullscreen></iframe>                               
+                        </div> 
+                    </div>
+               </div>
 	<div style="width: 100%; height: 500px; border:1px solid black;">
 		메인페이지2
 	</div>

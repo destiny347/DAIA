@@ -289,7 +289,7 @@
 			 <tbody>
 				<c:forEach var="i" begin="0"
 					end="${fn:length(rData.get(j).data[0])-1}">
-					<c:if test="${i le 30000}">
+					<c:if test="${i le 30}">
 						<c:set var="row" value="${rData.get(j).data}" />
 						<tr>
 							<c:forEach var="data" items="${row}">

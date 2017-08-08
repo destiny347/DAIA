@@ -177,11 +177,7 @@ span.psw {
   <div class="col col-social-icons">
   	<table align="center">
   		<tr>
-  			<td>
-  				<a href="/destiny/">
-  					<img src="http://erotic-chaos.com/wp-content/uploads/2017/08/Logo_Destiny.png" style="width:100px;height:100px;border:0">
-  				</a>
-  			</td>
+  			<td><a href="/destiny/"><img src="http://erotic-chaos.com/wp-content/uploads/2017/08/Logo_Destiny.png" style="width:100px;height:100px;border:0"></a></td>
   		</tr>
   		<tr><td>&nbsp;</td></tr>
   	</table>
@@ -202,12 +198,18 @@ span.psw {
   	</table>
   	</div>
 
-
+	<div class="w3-right">
+		<div class="box">
+    	<h4>[${user.userName}]님 환영합니다.</h4>        
+		<a href="logout"><button class="btn btn-default" onclick="return confirm('정말로 로그아웃하시겠습니까?')">로그아웃</button></a>
+		</div>
+    </div>
+    
 	<!-- login -->
-	<div class="w3-right w3-hide-small">
-		<!-- Button to open the modal login form -->
-	<button class="btn btn-default" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
-	<button class="btn btn-default" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button>
+	<!-- <div class="w3-right w3-hide-small">
+		Button to open the modal login form
+	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
+	<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button> -->
    
 	<div id="id01" class="modal">
    		<form class="modal-content animate" action="users/login" method="post">
@@ -312,7 +314,6 @@ span.psw {
         </form>	<!-- End Form -->
         
     </div>	<!-- End Modal -->
-
   	</div> <!-- End Container -->
 	</div> <!-- End HeaderLine -->
 </header>

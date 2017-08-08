@@ -172,32 +172,39 @@ span.psw {
 <body>
 <header>
 
-<div class="w3-border-bottom w3-border-light-grey w3-padding-10">
+<div class="page-header">
 <div class="container">
   <div class="col col-social-icons">
   	<table align="center">
   		<tr>
-  			<td>
-  				<a href="/destiny/">
-  					<img src="http://erotic-chaos.com/wp-content/uploads/2017/08/Logo_Destiny.png" style="width:100px;height:100px;border:0">
-  				</a>
-  			</td>
+  			<td><a href="/destiny/"><img src="http://erotic-chaos.com/wp-content/uploads/2017/08/Logo_Destiny.png" 
+
+style="width:100px;height:100px;border:0"></a></td>
   		</tr>
   		<tr><td>&nbsp;</td></tr>
   	</table>
-  </div>
   	<div class="w3-left">
   	<table>
   		<tr>
   			<td><a class="button" style="cursor:pointer;"><i class="fa fa-list-ul" style="font-size: 30px"></i></a></td>
-  			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-	  		<td><a href="/destiny/webpage/aboutPrj"><button class="w3-bar-item w3-button" style="font-size: 20px">프로젝트 소개</button></a></td>		<td>&nbsp;</td>
-	  		<td><a href="/destiny/webpage/aboutUs"><button class="w3-bar-item w3-button" style="font-size: 20px">팀 소개</button></a></td>	<td>&nbsp;</td>
-	  		<td><a href=""><button class="w3-bar-item w3-button" style="font-size: 20px">기능들</button></a></td>	<td>&nbsp;</td>
-	  		<td><a href="/destiny/webpage/board"><button class="w3-bar-item w3-button" style="font-size: 20px">게시판</button></a></td>		<td>&nbsp;</td>
-  			<td><a href="/destiny/webpage/contact"><button class="w3-bar-item w3-button" style="font-size: 20px">Contact</button></a></td>	<td>&nbsp;</td>
-  			<td><a href=""><button class="w3-bar-item w3-button" style="font-size: 20px">메뉴6</button></a></td>	<td>&nbsp;</td>
-  			<td><a href=""><button class="w3-bar-item w3-button" style="font-size: 20px">메뉴7</button></a></td>
+  			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="/destiny/webpage/aboutPrj">프로젝트 소개</a></button></td>	<td>&nbsp;</td>
+	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="/destiny/webpage/aboutUs">팀 
+
+소개</a></button></td>	<td>&nbsp;</td>
+	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="">기능들</a></button></td>	
+
+<td>&nbsp;</td>
+	  		<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="/destiny/webpage/board">게시판
+
+</a></button></td>	<td>&nbsp;</td>
+  			<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a 
+
+href="/destiny/webpage/contact">Contact</a></button></td>	<td>&nbsp;</td>
+  			<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="">메뉴6</a></button></td>	
+
+<td>&nbsp;</td>
+  			<td><button type="button" class="w3-bar-item w3-button" style="font-size: 18px"><a href="">메뉴7</a></button></td>
   		</tr>
   	</table>
   	</div>
@@ -206,11 +213,11 @@ span.psw {
 	<!-- login -->
 	<div class="w3-right w3-hide-small">
 		<!-- Button to open the modal login form -->
-	<button class="btn btn-default" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
-	<button class="btn btn-default" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button>
+	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
+	<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button>
    
 	<div id="id01" class="modal">
-   		<form class="modal-content animate" action="users/login" method="post">
+   		<form class="modal-content animate" action="/destiny/users/welcome" method="post">
     		<div class="imgcontainer">
       			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       			<img src="http://erotic-chaos.com/wp-content/uploads/2017/06/img_avatar2.jpg" alt="Avatar" class="avatar">
@@ -218,13 +225,13 @@ span.psw {
 
     		<div class="w3-container">
       			<label><b>Username</b></label>
-      			<input type="text" placeholder="Enter Username" name="userEmail" required>
+      			<input type="text" placeholder="Enter Username" name="uname" required>
 
 			    <label><b>Password</b></label>
-      			<input type="password" placeholder="Enter Password" name="userPw" required>
+      			<input type="password" placeholder="Enter Password" name="psw" required>
         
       			<button type="submit">로그인</button>
-      			<input type="checkbox"> 기억하기
+      			<input type="checkbox" checked="checked"> 기억하기
     		</div>
 			<div>&nbsp;</div>
 			
@@ -240,7 +247,7 @@ span.psw {
 	
 		
 	<div id="id02" class="modal">
-   		<form class="modal-content animate" action="users/signup" method="post">
+   		<form class="modal-content animate" action="/destiny/users/welcome" method="post">
     		<div class="w3-container">
       			<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
     		
@@ -253,14 +260,14 @@ span.psw {
         		<div class="form-group">
         			<label class="col-sm-3 control-label" for="inputEmail">이메일</label>
         			<div class="col-sm-9">
-          				<input class="form-control" id="inputEmail" type="email" name="userEmail" placeholder="이메일" required>        		
+          				<input class="form-control" id="inputEmail" type="email" placeholder="이메일" required>        		
         			</div>
         		</div>
         		
         		<div class="form-group">
           			<label class="col-sm-3 control-label" for="inputPassword">비밀번호</label>
         			<div class="col-sm-9">
-          				<input class="form-control" id="inputPassword" type="password" name="userPw" placeholder="비밀번호" required>
+          				<input class="form-control" id="inputPassword" type="password" placeholder="비밀번호" required>
         				<p class="help-block">숫자, 특수문자 포함 8자 이상</p>
         			</div>
         		</div>
@@ -276,7 +283,7 @@ span.psw {
           		<div class="form-group">
             		<label class="col-sm-3 control-label" for="inputName">이름</label>
           			<div class="col-sm-9">
-            			<input class="form-control" id="inputName" type="text" name="userName" placeholder="이름" required>
+            			<input class="form-control" id="inputName" type="text" placeholder="이름" required>
           			</div>
         		</div>
         		
@@ -296,7 +303,7 @@ span.psw {
         		<div class="form-group">
             		<label class="col-sm-3 control-label" for="inputNumber">휴대폰 번호</label>
               		<div class="col-sm-9">
-                  		<input class="form-control" id="inputNumber" type="tel" name="userPhone" placeholder="- 없이 입력해 주세요">
+                  		<input class="form-control" id="inputNumber" type="tel" placeholder="- 없이 입력해 주세요">
               		</div>
         		</div>
 				<div>&nbsp;</div>
@@ -312,6 +319,7 @@ span.psw {
         </form>	<!-- End Form -->
         
     </div>	<!-- End Modal -->
+	</div>
 
   	</div> <!-- End Container -->
 	</div> <!-- End HeaderLine -->

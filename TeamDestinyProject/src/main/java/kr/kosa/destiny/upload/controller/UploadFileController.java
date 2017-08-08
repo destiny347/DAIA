@@ -129,7 +129,7 @@ public class UploadFileController {
       return "redirect:/upload/list";
    }
    
-	@RequestMapping(value="/include/header")
+/*	@RequestMapping(value="/include/header")
 	public String header() {
 		return "/include/header";
 	}
@@ -167,7 +167,7 @@ public class UploadFileController {
 	@RequestMapping(value="/webpage/registration")
 	public String registration() {
 		return "/webpage/registration";
-	}
+	}*/
 	
 }
 
