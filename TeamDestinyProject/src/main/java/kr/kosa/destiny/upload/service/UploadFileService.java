@@ -1,9 +1,6 @@
 package kr.kosa.destiny.upload.service;
 
-import java.io.IOException;
-import java.sql.Blob;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -51,6 +48,11 @@ public class UploadFileService implements IUploadFileService {
 	@Override
 	public UploadFileVO getFile(int fileId) {
 		return uploadFileRepository.getFile(fileId);
+	}
+	
+	@Override
+	public UploadFileVO getNameFile(String fileName){
+		return uploadFileRepository.getNameFile(fileName);
 	}
 
 	@Override

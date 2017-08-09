@@ -9,20 +9,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Destiny</title>
+<title>CoderBy</title>
 <!-- Favicon -->
 <link href="<c:url value='/favicon.png'/>" rel="icon" type="image/png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src='//code.jquery.com/jquery.min.js'></script>
 <script type="text/javascript">
 $(document).ready(function() {
-
     // The event listener for the file upload
     document.getElementById('txtFileUpload').addEventListener('change', upload, false);
-
     // Method that checks that the browser supports the HTML5 File API
     function browserSupportFileUpload() {
         var isCompatible = false;
@@ -31,7 +30,6 @@ $(document).ready(function() {
         }
         return isCompatible;
     }
-
     // Method that reads and processes the selected file
     function upload(evt) {
     if (!browserSupportFileUpload()) {
@@ -55,7 +53,6 @@ $(document).ready(function() {
             };
         }
     }
-
 });
    function myFunction() {
      var file1 = document.querySelector("#txtFileUpload");
@@ -74,8 +71,6 @@ $(document).ready(function() {
         alert("csv 파일이 아닙니다! 다시 선택해주세요");
         document.getElementById("myForm").reset();
    }
-
-
 //------------------------------------------
    $(document).ready(function() {
       $(".delete").click(function() {
@@ -104,11 +99,9 @@ $(document).ready(function() {
        $('#dibugConsole').html(str);  
        console.log(str);
    }
-
    var str2 = '';
-   var valueArr = new Array();
    function checkSelectedId(){
-       
+       var valueArr = new Array();
           var list = $("input[name='fileId']");
           for(var i = 0; i < list.length; i++){
               if(list[i].checked){ //선택되어 있으면 배열에 값을 저장함
@@ -120,26 +113,25 @@ $(document).ready(function() {
           for(var i in valueArr){
              if(i < valueArr.length-1)
                 {
-                str2 += valueArr[i]+"/";
+                str2 += valueArr[i]+"?";
                 }
              else
                 str2 += valueArr[i];
           }
           
-          location.href = 'http://localhost:8080/destiny/analytics/info/'+valueArr;
+          location.href = 'http://localhost:8080/destiny/analytics/info/'+str2;
     
    }
    
    
    //--------------------------------------------------
-
    $(function() {
       //console.log($("[id=popbutton1]"));
       $("[id=popbutton1]").click(function() {
          //jquery로 현재 객체의 data-fileid 속성을 읽어서 변수에 저장하고 그변수를..
          $.ajax({
             type : "GET",
-            url : "/myapp/upload/list/"+ $(this).attr("data-fileid"), // 서버측에서 가져올 페이지
+            url : "/destiny/upload/list/"+ $(this).attr("data-fileid"), // 서버측에서 가져올 페이지
 //            data: '3',
             timeout : 5000, // 응답대기시간 
             dataType : "jsp", // html , javascript, text, xml, jsonp 등이 있다
@@ -151,7 +143,7 @@ $(document).ready(function() {
                //   remote : data
                //});
                console.log(data); // data 인수에는 return 되어진 data 가 저장되어 있다
-               console.log('/myapp/analytics/info/' + $(this).attr("data-fileid"));
+               console.log('/destiny/analytics/info/' + $(this).attr("data-fileid"));
                
             },
             error : function(request, status, error) { // 오류가 발생했을 때 호출된다. 
@@ -162,7 +154,7 @@ $(document).ready(function() {
                            + request.responseText + "\n" + "error:" + error)) {
                         console.log("code:" + request.status + "\n" + "message:"
                               + request.responseText + "\n" + "error:" + error);
-                        console.log("/myapp/upload/list/" + $(this).attr("data-fileid"));
+                        console.log("/destiny/upload/list/" + $(this).attr("data-fileid"));
                         return true;
                      } else {
                         return false;
@@ -179,10 +171,10 @@ $(document).ready(function() {
    $(function() {
       $("[id=popbutton2]").click(function() {
          //jquery로 현재 객체의 data-fileid 속성을 읽어서 변수에 저장하고 그변수를..
-         console.log('/myapp/analytics/info/' + $(this).attr("data-fileid"));
+         console.log('/destiny/analytics/info/' + $(this).attr("data-fileid"));
          $.ajax({
             type : "GET", // GET 또는 POST
-            url : '/myapp/analytics/summary/' + $(this).attr("data-fileid"), // 서버측에서 가져올 페이지
+            url : '/destiny/analytics/summary/' + $(this).attr("data-fileid"), // 서버측에서 가져올 페이지
 //            data: '3',
             timeout : 5000, // 응답대기시간 
             dataType : 'jsp', // html , javascript, text, xml, jsonp 등이 있다
@@ -207,10 +199,8 @@ $(document).ready(function() {
       
       })
    })
-
 </script>
 <style type="text/css">
-
 .btn{
    padding:5px;
    margin:6%;
@@ -286,13 +276,12 @@ $(document).ready(function() {
     z-index: 11;
     padding: 10px;
 }
-
 </style>
 
 <body>
    <c:url var="actionURL" value='/upload/new' />
    <form action="${actionURL}" method="post" enctype="multipart/form-data"
-       class="form-horizontal">
+      class="form-horizontal">
 
       <div id="myForm">
          <h3>File Upload</h3>
@@ -304,7 +293,7 @@ $(document).ready(function() {
       <h3>File List</h3>
       <table border="1">
          <tr>
-         	<th>ID</th>
+            <th>ID</th>
             <td>경로</td>
             <td>파일명</td>
             <td>크기</td>
@@ -312,8 +301,6 @@ $(document).ready(function() {
             <td>날짜</td>
             <td>상세설명</td>
             <td>삭제</td>
-            <td style="display:none">순서</td>
-            <td style="display:none">사용자 id</td>
          </tr>
          <c:forEach var="file" items="${fileList}">
             <tr>
@@ -338,7 +325,6 @@ $(document).ready(function() {
                      pattern="#,###" />KB</td>
                <td>${file.fileContentType}</td>
                <td>${file.fileUploadDate}</td>
-				<td style="display:none">${file.flowNum}</td>
                <td>
                             <!-- Modal -->
             
@@ -378,7 +364,7 @@ $(document).ready(function() {
          
          <div class="dibugConsole" id="dibugConsole"></div>
          <h3></h3>
-         <input type="button" id = "GetTotal" onclick="checkSelectedId();" value="다음"/>
+         <input type="button" onclick="checkSelectedId();" value="다음"/>
 
    </form>
 </body>

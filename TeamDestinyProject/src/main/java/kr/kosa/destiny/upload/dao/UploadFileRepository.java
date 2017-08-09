@@ -1,14 +1,6 @@
 package kr.kosa.destiny.upload.dao;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -56,8 +48,6 @@ public class UploadFileRepository implements IUploadFileRepository {
 
 	@Override
 	public void insertFile(UploadFileVO file) {
-		// TODO Auto-generated method stub
-
 		String sql = "INSERT INTO UPLOAD_FILE "
 				+ "	(USER_ID,FILE_ID, DIRECTORY_NAME, FILE_NAME, FILE_SIZE, "
 				+ "	FILE_UPLOAD_DATE, FILE_DATA,flow_num) "
@@ -186,6 +176,32 @@ public UploadFileVO getFile(int fileId) {
 			return file;
 		}
 	}, fileId);
+}
+
+@Override
+public UploadFileVO getNameFile(String fileName) {
+	String sql = "SELECT " 
+			+"	FILE_ID				AS fileId, " 
+			+"	DIRECTORY_NAME		AS directoryName, " 
+			+"	FILE_NAME			AS fileName, "
+			+"	FILE_SIZE			AS fileSize, "
+			+"	FILE_CONTENT_TYPE	AS fileContentType, "
+			+"	FILE_DATA			AS fileData "
+			+"FROM UPLOAD_FILE " 
+			+"WHERE FILE_Name=?";
+	return jdbcTemplate.queryForObject(sql, new RowMapper<UploadFileVO>(){
+		@Override
+		public UploadFileVO mapRow(ResultSet rs, int count) throws SQLException {
+			UploadFileVO file = new UploadFileVO();
+			file.setFileId(rs.getInt("fileId"));
+			file.setDirectoryName(rs.getString("directoryName"));
+			file.setFileName(rs.getString("fileName"));
+			file.setFileSize(rs.getLong("fileSize"));
+			file.setFileContentType(rs.getString("fileContentType"));
+			file.setFileData(rs.getBytes("fileData"));
+			return file;
+		}
+	}, fileName);
 }
 
 @Override

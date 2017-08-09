@@ -14,6 +14,7 @@ public interface IUploadFileRepository {
 	List<UploadFileVO> getImageList(String directoryName);
 
 	UploadFileVO getFile(int fileId);
+	UploadFileVO getNameFile(String fileName);
 
 	String getDirectoryName(int fileId);
 	void updateDirectory(HashMap<String, Object> map);

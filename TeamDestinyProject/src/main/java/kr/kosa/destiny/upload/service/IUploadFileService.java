@@ -13,6 +13,7 @@ public interface IUploadFileService {
 	List<UploadFileVO> getImageList(String dir);
 
 	UploadFileVO getFile(int fileId);
+	UploadFileVO getNameFile(String fileName);
 	
 	String getDirectoryName(int fileId);
 	void updateDirectory(int[] fileIds, String directoryName);

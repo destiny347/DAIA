@@ -15,10 +15,12 @@ public interface IAnalyticsService {
 	ArrayList<SampleVO1> getAvgPetalBySpecies3();
 	ArrayList<SampleVO> analyticsDatabase(int fileId);
 	Map<String, Object> analyticsDatabaseInfo(int fileId);
+	Map<String, Object> analyticsDatabaseInfo(String fileName);
 	Map<String, Object> getSummary(int fileId);
 	SummaryVO getSummaryList(int fileId);
 
 	//데이터 전처리 부분
+	List<String> getNaIndex(String column);
 	Map<String, Object> getTens(String column);
 	Map<String, Object> ynTo10(String column);
 	Map<String, Object> naToNumber(String column, int number);
@@ -27,11 +29,13 @@ public interface IAnalyticsService {
 	Map<String, Object> nullToN(String column);
 	Map<String, Object> zeroToMeanByGroup(String groupcol, String datacol);
 	Map<String, Object> colToMeanByGroup(String groupcol, String datacol);
-	Map<String, Object> getTableByColumns(String[] columns);
-	Map<String, Object> getRestructuredData();
+	void getRestructuredData();
 	void getMergedTable(int fileId1, int fileId2);
-	List<Map<String, Object>> dataSampling(int trainrate, int testrate, String column);
-	void xgboost(String column);
+	List<Map<String, Object>> dataSampling(double trainrate, String column);
+	void xgboost(String independentvar, String primecol);
+	void nnet(String independentvar, String primekey);
+	void e1071(String independentvar, String primekey);
+
 
 	// 민구 테스트
 	ArrayList<SampleVO> getCsvFile();
