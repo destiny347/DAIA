@@ -46,19 +46,9 @@
 
 
 
-<title>메뉴바 테스트</title>
+<title>header_welcome</title>
 
 <style>
-
-/* Full-width input fields */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
 
 /* Set a style for all buttons */
 button {
@@ -75,11 +65,21 @@ button:hover {
     opacity: 0.8;
 }
 
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
 /* Extra styles for the cancel button */
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: #ffffff;
+    background-color: #f1f1f1;
     float: left;
 }
 .createbtn {
@@ -166,154 +166,91 @@ span.psw {
     to {transform: scale(1)}
 }
 
+/* 민구 추가 스타일 */
+.headhead{
+border-bottom: 1px solid #696969;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+.nt300{
+font-family: 'Noto Sans KR', sans-serif;
+color : slateblue;
+font-weight:300;
+}
+.nt400{
+font-family: 'Noto Sans KR', sans-serif;
+color : slateblue;
+font-weight:400;
+}
+
+.hovbutton{
+    background-color: white; 
+    border: none;
+    color: slateblue;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 4px 2px 0;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    }
+.hovbutton:hover {
+background-color: slateblue;
+color : white;
+}
+.button {
+    background-color: white; 
+    border: none;
+    color: slateblue;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 4px 2px 0;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}    
+.button:hover {
+	background-color: slateblue;
+	color : white;
+}    
+
 </style>
 </head>
 
 <body>
 <header>
 
-<div class="w3-border-bottom w3-border-light-grey w3-padding-10">
+<!-- w3 컨테이너 지우고 헤드헤드 클래스로 작업함! -->
+<div class="headhead">
 <div class="container">
-  <div class="col col-social-icons">
-  	<table align="center">
-  		<tr>
-  			<td><a href="/destiny/"><img src="http://erotic-chaos.com/wp-content/uploads/2017/08/Logo_Destiny.png" style="width:100px;height:100px;border:0"></a></td>
-  		</tr>
-  		<tr><td>&nbsp;</td></tr>
-  	</table>
-  </div>
-  	<div class="w3-left">
-  	<table>
-  		<tr>
-  			<td><a class="button" style="cursor:pointer;"><i class="fa fa-list-ul" style="font-size: 30px"></i></a></td>
-  			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-	  		<td><a href="/destiny/webpage/aboutPrj"><button class="w3-bar-item w3-button" style="font-size: 20px">프로젝트 소개</button></a></td>		<td>&nbsp;</td>
-	  		<td><a href="/destiny/webpage/aboutUs"><button class="w3-bar-item w3-button" style="font-size: 20px">팀 소개</button></a></td>	<td>&nbsp;</td>
-	  		<td><a href=""><button class="w3-bar-item w3-button" style="font-size: 20px">기능들</button></a></td>	<td>&nbsp;</td>
-	  		<td><a href="/destiny/webpage/board"><button class="w3-bar-item w3-button" style="font-size: 20px">게시판</button></a></td>		<td>&nbsp;</td>
-  			<td><a href="/destiny/webpage/contact"><button class="w3-bar-item w3-button" style="font-size: 20px">Contact</button></a></td>	<td>&nbsp;</td>
-  			<td><a href=""><button class="w3-bar-item w3-button" style="font-size: 20px">메뉴6</button></a></td>	<td>&nbsp;</td>
-  			<td><a href=""><button class="w3-bar-item w3-button" style="font-size: 20px">메뉴7</button></a></td>
-  		</tr>
-  	</table>
-  	</div>
-
-	<div class="w3-right">
-		<div class="box">
-    	<h4>[${user.userName}]님 환영합니다.</h4>        
-		<a href="logout"><button class="btn btn-default" onclick="return confirm('정말로 로그아웃하시겠습니까?')">로그아웃</button></a>
-		</div>
-    </div>
-    
-	<!-- login -->
-	<!-- <div class="w3-right w3-hide-small">
-		Button to open the modal login form
-	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
-	<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button> -->
-   
-	<div id="id01" class="modal">
-   		<form class="modal-content animate" action="users/login" method="post">
-    		<div class="imgcontainer">
-      			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      			<img src="http://erotic-chaos.com/wp-content/uploads/2017/06/img_avatar2.jpg" alt="Avatar" class="avatar">
-    		</div>
-
-    		<div class="w3-container">
-      			<label><b>Username</b></label>
-      			<input type="text" placeholder="Enter Username" name="userEmail" required>
-
-			    <label><b>Password</b></label>
-      			<input type="password" placeholder="Enter Password" name="userPw" required>
-        
-      			<button type="submit">로그인</button>
-      			<input type="checkbox"> 기억하기
-    		</div>
-			<div>&nbsp;</div>
-			
-    		<div class="w3-container" style="background-color:#f1f1f1">
-      			<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">취소</button>
-      			&nbsp;
-      							
-      			<span class="psw">Forgot <a href="#">password?</a></span>
-    		</div>
-    		<div>&nbsp;</div>
-  		</form>
+	<div class="logo" align="center">
+		<a href="/destiny/greeting">
+        <img src="http://erotic-chaos.com/wp-content/uploads/2017/08/Logo_Destiny.png" style="width:100px;height:100px;border:0">
+        </a>
 	</div>
 	
-		
-	<div id="id02" class="modal">
-   		<form class="modal-content animate" action="users/signup" method="post">
-    		<div class="w3-container">
-      			<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-    		
-				<div class="w3-container">
-					<div class="page-header">
-    	   				<h1>회원가입 <small>BD Platform</small></h1>
-        			</div>
-        		</div>
-        		
-        		<div class="form-group">
-        			<label class="col-sm-3 control-label" for="inputEmail">이메일</label>
-        			<div class="col-sm-9">
-          				<input class="form-control" id="inputEmail" type="email" name="userEmail" placeholder="이메일" required>        		
-        			</div>
-        		</div>
-        		
-        		<div class="form-group">
-          			<label class="col-sm-3 control-label" for="inputPassword">비밀번호</label>
-        			<div class="col-sm-9">
-          				<input class="form-control" id="inputPassword" type="password" name="userPw" placeholder="비밀번호" required>
-        				<p class="help-block">숫자, 특수문자 포함 8자 이상</p>
-        			</div>
-        		</div>
-        		
-        		<div class="form-group">
-              		<label class="col-sm-3 control-label" for="inputPasswordCheck">비밀번호 확인</label>
-             		<div class="col-sm-9">
-              			<input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호 확인" required>
-                		<p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
-             		</div>
-          		</div>
-          		
-          		<div class="form-group">
-            		<label class="col-sm-3 control-label" for="inputName">이름</label>
-          			<div class="col-sm-9">
-            			<input class="form-control" id="inputName" type="text" name="userName" placeholder="이름" required>
-          			</div>
-        		</div>
-        		
-<!--         		<div class="form-group">
-            		<label class="col-sm-4 control-label" for="inputGender">성별</label>
-              		<div class="col-sm-8">
-              			<label class="radio-inline">
-              				<input id="optionsRadios1" type="radio" value="남">남
-              			</label>
-                  		<label class="radio-inline">
-              				<input id="optionsRadios2" type="radio" value="여">여
-              			</label>
-              		</div>
-        		</div>
-        		<div>&nbsp;</div> -->
-        		
-        		<div class="form-group">
-            		<label class="col-sm-3 control-label" for="inputNumber">휴대폰 번호</label>
-              		<div class="col-sm-9">
-                  		<input class="form-control" id="inputNumber" type="tel" name="userPhone" placeholder="- 없이 입력해 주세요">
-              		</div>
-        		</div>
-				<div>&nbsp;</div>
-				
-				<div class="form-group">
-          			<div class="col-sm-12 text-center">
-            		<input class="btn btn-primary" action="action" onclick="return confirm('회원 가입을 완료하시겠습니까?')" type="submit" value="회원가입"/>
-            		<input class="btn btn-danger" action="action" onclick="document.getElementById('id02').style.display='none'" type="button" value="취소" />
-               		</div>
-        		</div>	        
-        	</div>
-        	<div>&nbsp;</div>
-        </form>	<!-- End Form -->
-        
-    </div>	<!-- End Modal -->
+<!-- 부트스트랩 씌우고 테이블 버튼을 span에 버튼형식으로 추가함. -->
+	<div class="leftmenu-group col-sm-9 nt400">
+		<span class="mainmenu"><a class="button" style="cursor:pointer;"><i class="fa fa-list-ul" style="font-size: 30px"></i></a></span>
+		<span class="mainmenu"><a href="/destiny/greeting/aboutPrj"><button class="hovbutton" style="font-size:22px; width:auto;">프로젝트 소개</button></a></span>
+		<span class="mainmenu"><a href="/destiny/greeting/aboutUs"><button class="hovbutton" style="font-size:22px; width:auto;">팀 소개</button></a></span>
+		<span class="mainmenu"><a href="/destiny/greeting/board"><button class="hovbutton" style="font-size:22px; width:auto;">게시판</button></a></span>
+		<span class="mainmenu"><a href="/destiny/greeting/contact"><button class="hovbutton" style="font-size:22px; width:auto;">Contact</button></a></span>
+   </div>
+
+	<div class="w3-right">
+		<!-- <div class="box"> -->
+    	<h4>[${user.userName}]님 환영합니다.</h4>        
+		<a href="/destiny/users/logout"><button class="btn btn-default" onclick="return confirm('정말로 로그아웃하시겠습니까?')">로그아웃</button></a>
+		<!-- </div> -->
+    </div>
+   
   	</div> <!-- End Container -->
 	</div> <!-- End HeaderLine -->
 </header>

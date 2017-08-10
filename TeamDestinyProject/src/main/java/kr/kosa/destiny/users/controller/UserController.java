@@ -66,21 +66,21 @@ public class UserController {
 	}
 	
 	//로그인
-	@RequestMapping(value="/users/login", method=RequestMethod.GET)
+	@RequestMapping(value="/greeting", method=RequestMethod.GET)
 	public String signIn() {
-		return "/users/welcome";
+		return "/welcome/welcome";
 	}
 	
-	@RequestMapping(value="/users/login", method=RequestMethod.POST)
+	@RequestMapping(value="/greeting", method=RequestMethod.POST)
 	public String signIn(String userEmail, String userPw, HttpSession session, Model model) {
 		try {
 			UserVO user = userService.selectUserByUserEmail(userEmail);
 			callNameModel(userEmail, model);
-			model.addAttribute("user", user);
 			
 			if(userService.checkPassword(userEmail, userPw)) {
 				session.setAttribute("userEmail", userEmail);
-				return "users/welcome";
+				session.setAttribute("user", user);
+				return "welcome/welcome";
 			} else {
 				session.invalidate();
 				return "users/PwWrong";
@@ -108,29 +108,44 @@ public class UserController {
 		return "/include/footer";
 	}
 	
-	@RequestMapping(value="/webpage/main")
-	public String main() {
-		return "/webpage/main";
-	}
-	
-	@RequestMapping(value="/webpage/aboutPrj")
+	@RequestMapping(value="/aboutPrj")
 	public String aboutPrj() {
 		return "/webpage/aboutPrj";
 	}
 	
-	@RequestMapping(value="/webpage/aboutUs")
+	@RequestMapping(value="/greeting/aboutPrj")
+	public String aboutPrj_welcome() {
+		return "/welcome/aboutPrj_welcome";
+	}
+	
+	@RequestMapping(value="/aboutUs")
 	public String aboutUs() {
 		return "/webpage/aboutUs";
 	}
 	
-	@RequestMapping(value="/webpage/contact")
+	@RequestMapping(value="/greeting/aboutUs")
+	public String aboutUs_welcome() {
+		return "/welcome/aboutUs_welcome";
+	}
+	
+	@RequestMapping(value="/contact")
 	public String contact() {
 		return "/webpage/contact";
 	}
 	
-	@RequestMapping(value="/webpage/board")
+	@RequestMapping(value="/greeting/contact")
+	public String contact_welcome() {
+		return "/welcome/contact_welcome";
+	}
+	
+	@RequestMapping(value="/board")
 	public String board() {
 		return "/webpage/board";
+	}
+	
+	@RequestMapping(value="/greeting/board")
+	public String board_welcome() {
+		return "/welcome/board_welcome";
 	}
 
 }

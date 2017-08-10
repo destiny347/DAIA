@@ -147,7 +147,7 @@ $(document).ready(function(){
 </head>
 
 <body>
-<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
 	<div class="container">
@@ -159,7 +159,9 @@ $(document).ready(function(){
 	<p id="centerText" align="center">Big Data analysis Platform</p>
 
 	<div class="w3-row-padding" align="center">
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/vyRC1bUAwFE" frameborder="0" allowfullscreen></iframe>
+		<iframe width="560" height="315"
+			src="https://www.youtube.com/embed/vyRC1bUAwFE" frameborder="0"
+			allowfullscreen></iframe>
 		<a href="project.html"></a>
 	</div>
 	

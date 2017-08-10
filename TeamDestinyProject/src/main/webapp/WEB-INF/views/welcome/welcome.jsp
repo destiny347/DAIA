@@ -32,7 +32,7 @@ $('.dropdown-toggle').dropdown()
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://macdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" href="css/project.css" type="text/css">
 
@@ -50,46 +50,17 @@ $('.dropdown-toggle').dropdown()
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script>
-	$(document).ready(function() {
-		var menu_flag = false;
-		$(".side_bar").hide();
-	$(".button").bind("click", function() {
-		if (menu_flag) {
-		$(".side_bar").hide();
-		/* $(".side_bar").animate({"left":"-50%"}, 200); */
-		menu_flag = false;
-	} else {
-		$(".side_bar").show();
-		/* $(".side_bar").animate({"left":"0px"}, 200); */
-		menu_flag = true;
-		}
-	});
-});
-</script>
 
 <body>
 <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
-<div style="float: left;">&nbsp;
-<div class="side_bar" style="position: absolute; border:1px solid black;">
-	<ul>
-		<li><a href="/destiny/upload/list">파일관리</a></li>
-		<li><a href="/destiny/analytics/handling">데이터 전처리</a></li>
-		<li><a href="/destiny/analytics/restructuring">데이터 재구조화</a></li>
-		<li><a href="/destiny/analytics/info/">데이터 탐색</a></li>
-		<li><a href="/destiny/analytics/visual">데이터 시각화</a></li>
-		<li><a href="">데이터 주성분분석</a></li>
-		<li><a href="/destiny/analytics/ML">머신러닝</a></li>
-	</ul>
-</div>
-</div>
+<jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
+
 
 <div class="container">
-	
         <div class="row">
             <div class="box">               
                     <div class="col-lg-12 text-center">
-                       <iframe width="854" height="480" src="https://www.youtube.com/embed/tVrecgoBfwg?rel=0&autoplay=1&loop=1&playlist=tVrecgoBfwg" frameborder="0" allowfullscreen></iframe>                               
+                        <iframe width="1100" height="600" src="https://www.youtube.com/embed/sMyEF9cFgxQ?rel=0&autoplay=1&loop=1&list=PLJqLRYAbeOrmCaU3J0p0fZIw6llLzu1RB" frameborder="0" allowfullscreen></iframe>                               
                         </div> 
                     </div>
                </div>

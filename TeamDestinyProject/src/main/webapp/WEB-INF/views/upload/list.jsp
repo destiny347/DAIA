@@ -201,7 +201,7 @@ $(document).ready(function() {
    })
 </script>
 <style type="text/css">
-.btn{
+.button{
    padding:5px;
    margin:6%;
    border-radius:5px;
@@ -279,6 +279,10 @@ $(document).ready(function() {
 </style>
 
 <body>
+<jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
+
+<div class="container">
    <c:url var="actionURL" value='/upload/new' />
    <form action="${actionURL}" method="post" enctype="multipart/form-data"
       class="form-horizontal">
@@ -328,10 +332,10 @@ $(document).ready(function() {
                <td>
                             <!-- Modal -->
             
-                  <input type="button" class="btn" id="popbutton1" name ="popbutton1" data-fileid="${file.fileId}" value="내용보기"
+                  <input type="button" class="button" id="popbutton1" name ="popbutton1" data-fileid="${file.fileId}" value="내용보기"
                   data-target="#myModal"/>
             
-                  <input type="button" class="btn" id="popbutton2" name ="popbutton2" data-fileid="${file.fileId}" value="요약"/>
+                  <input type="button" class="button" id="popbutton2" name ="popbutton2" data-fileid="${file.fileId}" value="요약"/>
                   
                   
                   
@@ -367,5 +371,7 @@ $(document).ready(function() {
          <input type="button" onclick="checkSelectedId();" value="다음"/>
 
    </form>
+</div> <!-- End Container -->   
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </body>
 </html>
