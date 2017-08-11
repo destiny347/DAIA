@@ -40,6 +40,16 @@ public class LoginInterceptor implements HandlerInterceptor {
 				return false;				
 			}
 			
+			String userPw = (String)request.getSession().getAttribute("userPw");
+			if(userPw != request.getSession().getAttribute("userPw")) {
+				session.invalidate();
+				response.setContentType("text/html; charset=UTF-8");
+	            PrintWriter out = response.getWriter();
+	            out.println("<script>alert('로그인 후 사용하실 수 있습니다.'); history.go(-1);</script>");
+	            out.flush();
+				return false;	
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

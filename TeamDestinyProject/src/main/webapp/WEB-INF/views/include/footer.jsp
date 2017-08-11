@@ -60,6 +60,7 @@ th, td {
          <h4 class="nt400">Mailing list</h4>
          	<table class="nt300">
                <tr><td>Sign up if you would like to receive</td></tr>
+               <tr><td>&nbsp;</td></tr>
             </table>
             <form action='/subscribe' method="post" class="form-horizontal form-light" >
             	<div class="input-group col-sm-8" align="center">

@@ -237,7 +237,7 @@ color : white;
 	
 <!-- 부트스트랩 씌우고 테이블 버튼을 span에 버튼형식으로 추가함. -->
 	<div class="leftmenu-group col-sm-9 nt400">
-		<span class="mainmenu"><a class="button" style="cursor:pointer;"><i class="fa fa-list-ul" style="font-size: 30px"></i></a></span>
+		<!-- <span class="mainmenu"><a class="button" style="cursor:pointer;"><i class="fa fa-list-ul" style="font-size: 30px"></i></a></span> -->
 		<span class="mainmenu"><a href="/destiny/greeting/aboutPrj"><button class="hovbutton" style="font-size:22px; width:auto;">프로젝트 소개</button></a></span>
 		<span class="mainmenu"><a href="/destiny/greeting/aboutUs"><button class="hovbutton" style="font-size:22px; width:auto;">팀 소개</button></a></span>
 		<span class="mainmenu"><a href="/destiny/greeting/board"><button class="hovbutton" style="font-size:22px; width:auto;">게시판</button></a></span>

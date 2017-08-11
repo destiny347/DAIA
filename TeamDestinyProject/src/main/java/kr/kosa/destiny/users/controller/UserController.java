@@ -1,6 +1,9 @@
 package kr.kosa.destiny.users.controller;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -46,13 +49,13 @@ public class UserController {
 	}
 	
 	//회원가입
-	@RequestMapping(value="/users/signup", method=RequestMethod.GET)
+	@RequestMapping(value="/users/signUp", method=RequestMethod.GET)
 	public String signUp(Model model) {
 		model.addAttribute("user", new UserVO());
 		return "/";
 	}
 	
-	@RequestMapping(value="/users/signup", method=RequestMethod.POST)
+	@RequestMapping(value="/users/signUp", method=RequestMethod.POST)
 	public String signUp(@ModelAttribute("user") UserVO user, BindingResult result, Model model, RedirectAttributes redirectAttrs) {
 		if(result.hasErrors()) {
 			return "/";
@@ -66,12 +69,12 @@ public class UserController {
 	}
 	
 	//로그인
-	@RequestMapping(value="/greeting", method=RequestMethod.GET)
+	@RequestMapping(value="/users/signIn", method=RequestMethod.GET)
 	public String signIn() {
 		return "/welcome/welcome";
 	}
 	
-	@RequestMapping(value="/greeting", method=RequestMethod.POST)
+	@RequestMapping(value="/users/signIn", method=RequestMethod.POST)
 	public String signIn(String userEmail, String userPw, HttpSession session, Model model) {
 		try {
 			UserVO user = userService.selectUserByUserEmail(userEmail);
@@ -83,9 +86,13 @@ public class UserController {
 				return "welcome/welcome";
 			} else {
 				session.invalidate();
+				model.addAttribute("errorPw", "비밀번호를 잘못 입력하셨습니다.");
+				model.addAttribute("home", "/user/login");
 				return "users/PwWrong";
 			}
 		} catch(Exception e) {
+			model.addAttribute("errorId", "아이디를 잘못 입력하셨습니다.");
+			model.addAttribute("home", "/users/login");
 			return "users/IdWrong";
 		}
 	}
@@ -146,6 +153,16 @@ public class UserController {
 	@RequestMapping(value="/greeting/board")
 	public String board_welcome() {
 		return "/welcome/board_welcome";
+	}
+	
+	@RequestMapping(value="/users/login")
+	public String login() {
+		return "/users/signIn";
+	}
+	
+	@RequestMapping(value="/users/join")
+	public String join() {
+		return "/users/signUp";
 	}
 
 }

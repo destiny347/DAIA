@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html>
+<head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>메인 페이지</title>
@@ -50,6 +51,8 @@ $('.dropdown-toggle').dropdown()
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+</head>
+
 <body>
 <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
@@ -58,7 +61,7 @@ $('.dropdown-toggle').dropdown()
         <div class="row">
             <div class="box">               
                     <div class="col-lg-12 text-center">
-                        <iframe width="1100" height="600" src="https://www.youtube.com/embed/sMyEF9cFgxQ?rel=0&autoplay=1&loop=1&list=PLJqLRYAbeOrmCaU3J0p0fZIw6llLzu1RB" frameborder="0" allowfullscreen></iframe>                               
+                         <iframe width="1100" height="600" src="https://www.youtube.com/embed/EVaV7AwqBWg?rel=0&autoplay=1&loop=1&list=PLpSlDiXC0EEZiFDmw04BLvsbVCzS7c84N" frameborder="0" allowfullscreen></iframe>                               
                      </div> 
             </div>
         </div>

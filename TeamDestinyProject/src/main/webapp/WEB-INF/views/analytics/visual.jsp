@@ -4,98 +4,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
+
+<!-- 하이차트 스타일(칼라) -->
+<style> 
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+.nt300{
+font-family: 'Noto Sans KR', sans-serif;
+color : #696969;
+font-weight:300;
+}
+.nt400{
+font-family: 'Noto Sans KR', sans-serif;
+color : #696969;
+font-weight:400;
+}
+.nt700{
+font-family: 'Noto Sans KR', sans-serif;
+color : #696969;
+font-weight:700;
+}
+
+</style>
 
 <!-- jQuery -->
 
 <script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 </script>
 
 <!-- Bootstrap Core CSS -->
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom CSS -->
-<link href="../css/business-casual.css" rel="stylesheet">
-
 <!-- 그냥 하이차트로 행복하기 -->
 <script src="https://code.highcharts.com/highcharts.js" defer></script>
 <script src="https://code.highcharts.com/modules/exporting.js" defer></script>
 
-
-<!-- 밍구차트 -->
+<!-- 밍구차트 (bar, pie, line)-->
 <script type="text/javascript">
+var barChart;
 $(function() {
-
-	Highcharts.chart('bar', {
-	    chart: {
-	    	type : 'bar'
-	    },
-	    colors: ['#ff357f', '#ff8cb6', '#b97bec', '#6642d1', '#8085e9', 
-	    	   '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
-		
-		<!-- 표제목 -->
-	    title: {
-	        text: 'bar는 ChocoBar'
-	    },
-	    
-	    <!-- x축 -->
-	    xAxis: {
-	        categories: ["setosa", "versicolor", "virginica"],
-	    },
-	    
-    series: <%=request.getAttribute("irisData")%>,
-	});
+barChart = new Highcharts.chart('bar', {
+       chart: {
+          type : 'column'
+       },
+       
+       title: {
+           text: 'bar는 ChocoBar'
+       },
+       
+       colors: ['#ff357f', '#ff8cb6', '#b97bec', '#6642d1', '#8085e9', 
+           '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
+       
+       /* x 축 명세! */
+       xAxis: {
+           categories: ["기혼사기자", "미혼사기자"],
+       },
+       
+    series: [{
+    data: <%=request.getAttribute("wedd")%>
+    }]
+   });
 });
 </script>
 
 <script type="text/javascript">
 $(function() {
-	Highcharts.chart('pie', {
-	    chart: {
-	        plotBackgroundColor: null,
-	        plotBorderWidth: null,
-	        plotShadow: false,
-	        type: 'pie'
-	    },
-	    
-	    colors: ['#ff357f', '#ff8cb6', '#b97bec', '#6642d1', '#8085e9', 
-	    	   '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
-	    
-	    title: {
-	        text: 'pie는 ApplePie'
-	    },
-	    tooltip: {
-	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-	    },
-	    plotOptions: {
-	        pie: {
-	            allowPointSelect: true,
-	            cursor: 'pointer',
-	            dataLabels: {
-	                enabled: true
-	            },
-	            showInLegend: true
-	        }
-	    },
+   Highcharts.chart('pie', {
+       chart: {
+           plotBackgroundColor: null,
+           plotBorderWidth: null,
+           plotShadow: false,
+           type: 'pie'
+       },
+             
+       title: {
+           text: 'pie는 ApplePie'
+       },
+       
+       colors: ['#ff357f', '#ff8cb6', '#b97bec', '#6642d1', '#8085e9', 
+           '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
+           
+       tooltip: {
+           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+       },
+       plotOptions: {
+           pie: {
+               allowPointSelect: true,
+               cursor: 'pointer',
+               dataLabels: {
+                   enabled: true
+               },
+               showInLegend: true
+           }
+       },
         series: [{name: 'HanHwa',
-        		colorByPoint : true,
-        		data :<%=request.getAttribute("gcv")%>
+              colorByPoint : true,
+              data :<%=request.getAttribute("gcv")%>
         }]
 });
 });
 </script>
 
-<script>
+<script type="text/javascript">
 $(function() {
 Highcharts.chart('line', {
 
     title: {
         text: 'Line is a Line'
     },
+    
     colors: ['#ff357f', '#ff8cb6', '#b97bec', '#6642d1', '#8085e9', 
- 	   '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],    
+        '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
+        
     subtitle: {
         text: ''
     },
@@ -138,70 +160,110 @@ Highcharts.chart('line', {
 });
 </script>
 
+<!-- 선택한 것만 보기 -->
+ 
+<script>
+$(document).ready(function(){
+
+   $("#confirm").click(function(){
+      console.log("밍");
+      if($("#barcheck").is(':checked')) {
+         $("#barDiv").toggle();
+         console.log("구");
+         $.ajax({
+            url:'iris2',
+            type: 'get',
+            success : function(data){
+               console.log("밍구");
+               $('#bar').append(data);
+            }
+         });
+      }
+      
+      if($('#piecheck').is(':checked')) {
+         $('#pieDiv').toggle();
+      }
+      
+      if($('#linecheck').is(':checked')) {
+         $('#lineDiv').toggle();
+      }      
+   });
+});
+
+</script>
+
+
 <title>visual</title>
 </head>
+
+
+
 <body>
 
-	<!-- 시각화하려는 변수를 선택하는 부분 -->
+   <!-- 시각화하려는 변수를 선택하는 부분 -->
 
-	<div class="col-sm-12">
-		<h3>
-			변수 선택 : <input type="text" id="dataName" readonly>
-		</h3>
+   <div class="col-sm-12 nt400">
 
-	</div>
-	<br>
+      <h3>
+         변수 선택 : <input type="text" id="dataName" readonly>
+      </h3>
 
-	<!-- 시각화하려는 변수를 선택하는 부분 -->
+   </div>
+   <br> 
 
-	<div class="col-sm-12">
-		종속 변수 선택 : <input type="text" id="dataName"><br> 종속 변수 선택
-		: <input type="text" id="dataName"><br> 독립 변수 선택 : <input
-			type="text" id="dataName"><br>
-	</div>
-	<br>
+   <!-- 시각화하려는 변수를 선택하는 부분 -->
 
-	<!-- 그래프 타입 선택 -->
+   <div class="col-sm-12 nt400">
+      종속 변수 선택 : <input type="text" id="dataName"><br> 
+      종속 변수 선택 : <input type="text" id="dataName"><br>
+      독립 변수 선택 : <input type="text" id="dataName"><br>
+   </div>
+   <br>
 
-	<div class="col-sm-12">
-		<h3>그래프 타입 선택</h3>
-		<input type="checkbox" id=""> 막대 그래프 <br> <input
-			type="checkbox" id=""> 파이 그래프 <br> <input
-			type="checkbox" id=""> 선 그래프 <br>
-		<br> <input type="button" id="" value="적용"><br>
-	</div>
-	<br>
+   <!-- 그래프 타입 선택 -->
 
-	<!-- 그래프 표시부  -->
+   <div class="col-sm-12 nt400">
+      <h3>그래프 타입 선택</h3>
+      <input type="checkbox" id="barcheck"> 막대 그래프 <br> 
+      <input type="checkbox" id="piecheck"> 파이 그래프 <br> 
+      <input type="checkbox" id="linecheck"> 선 그래프 <br>
+      <br> <input type="button" id="confirm" value="적용"><br>
+   </div>
+   <br>
 
-	<div class="col-sm-12" style="margin-top: 5px">
-		<h3>그래프 표시부</h3>
+   <!-- 그래프 표시부  -->
 
-		<br>
-		<div class="col-sm-4"
-			style="border-style: solid; border-width: 1px; border-color: pink">
-			<div id="bar"></div>
-		</div>
-		<div class="col-sm-4"
-			style="border-style: solid; border-width: 1px; border-color: pink">
-			<div id="pie"></div>
-		</div>
-		<div class="col-sm-4"
-			style="border-style: solid; border-width: 1px; border-color: pink">
-			<div id="line"></div>
-		</div>
-	</div>
-	<!-- 저장/리셋 -->
-	<div class="col-sm-12" align="center">
-		<input type="submit" value="SAVE"> <input type="reset"
-			value="RESET">
-	</div>
+   <div class="col-sm-12 nt400" id="graph" 
+      style="margin-top: 5px">
+      <h3>그래프 표시부</h3>
 
-	<br>
-	<div class="col-sm-12" align="right">
-		<a href="/destiny/analytics/ML"><input type="button"
-			value="다음 단계로" /></a>
-	</div>
+      <br>
+      <div class="col-sm-4" id="barDiv"
+         style="border-style: solid; border-width: 1px; border-color: pink; display:none">
+         <div id="bar"></div>
+      </div>
+      <div class="col-sm-4" id="pieDiv"
+         style="border-style: solid; border-width: 1px; border-color: pink; display:none">
+         <div id="pie"></div>
+      </div>
+      <div class="col-sm-4" id="lineDiv"
+         style="border-style: solid; border-width: 1px; border-color: pink; display:none">
+         <div id="line"></div>
+      </div>
+   </div>
+   
+   
+   <!-- 저장/리셋 -->
+   <div class="col-sm-12 nt400" align="center">
+      <input type="submit" value="SAVE"> <input type="reset"
+         value="RESET">
+   </div>
+
+   <br>
+   <div class="col-sm-12 nt400" align="right">
+      <a href="/destiny/analytics/ML"><input type="button"
+         value="다음 단계로" /></a>
+   </div>
 
 
 </body>

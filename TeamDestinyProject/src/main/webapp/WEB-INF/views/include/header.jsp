@@ -34,7 +34,7 @@ Cookie[] cookie = request.getCookies();
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://macdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" href="css/project.css" type="text/css">
 
@@ -233,7 +233,7 @@ color : white;
 </style>
 </head>
 
-<body>
+<body> <!-- onload="document.getElementById('id01').style.display='block'" -->
 <header>
 
 <!-- w3 컨테이너 지우고 헤드헤드 클래스로 작업함! -->
@@ -247,7 +247,7 @@ color : white;
 	
 <!-- 부트스트랩 씌우고 테이블 버튼을 span에 버튼형식으로 추가함. -->
 	<div class="leftmenu-group col-sm-9 nt400">
-		<span class="mainmenu"><a class="button" style="cursor:pointer;"><i class="fa fa-list-ul" style="font-size: 30px"></i></a></span>
+		<!-- <span class="mainmenu"><a class="button" style="cursor:pointer;"><i class="fa fa-list-ul" style="font-size: 30px"></i></a></span> -->
 		<span class="mainmenu"><a href="/destiny/aboutPrj"><button class="hovbutton" style="font-size:22px; width:auto;">프로젝트 소개</button></a></span>
 		<span class="mainmenu"><a href="/destiny/aboutUs"><button class="hovbutton" style="font-size:22px; width:auto;">팀 소개</button></a></span>
 		<span class="mainmenu"><a href="/destiny/board"><button class="hovbutton" style="font-size:22px; width:auto;">게시판</button></a></span>
@@ -258,8 +258,8 @@ color : white;
 	<!-- login -->
 	<div class="rightlogin col-sm-3 nt400" align="right">
 		<!-- Button to open the modal login form -->
-		<button class="btn btn-default" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
-		<button class="btn btn-default" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button>
+		<button id="login" class="btn btn-default" style="width:auto;"><a href="/destiny/users/login">로그인</a></button> <!--  onclick="document.getElementById('id01').style.display='block'"  -->
+		<button id="signIn" class="btn btn-default"style="width:auto;"><a href="/destiny/users/join">회원가입</a></button>	<!--  onclick="document.getElementById('id02').style.display='block'"  -->
    	</div>
    	
 	<div id="id01" class="modal">
@@ -385,6 +385,7 @@ window.onclick = function(event) {
         modal2.style.display = "none";
     }
 }
+
 </script>
 
 </body>
