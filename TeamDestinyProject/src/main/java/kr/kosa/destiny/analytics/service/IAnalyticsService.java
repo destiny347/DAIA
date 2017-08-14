@@ -20,13 +20,14 @@ public interface IAnalyticsService {
 	SummaryVO getSummaryList(int fileId);
 
 	//데이터 전처리 부분
-	List<String> getNaIndex(String column);
-	Map<String, Object> getTens(String column);
-	Map<String, Object> ynTo10(String column);
-	Map<String, Object> naToNumber(String column, int number);
+	
+	Map<String, Object> ynTo10(String[] column);
+	Map<String, Object> naTo6(String[] column);
+	Map<String, Object> nullToN(String[] column);
+	Map<String, Object> naToNumber(String[] column, int number);
 	Map<String, Object> stringToNumber(String column);
 	Map<String, Object> getFirstChrToNum(String column);
-	Map<String, Object> nullToN(String column);
+	
 	Map<String, Object> zeroToMeanByGroup(String groupcol, String datacol);
 	Map<String, Object> colToMeanByGroup(String groupcol, String datacol);
 	void getRestructuredData();

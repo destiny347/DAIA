@@ -4,25 +4,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script src="js/jquery.js"></script>
-<script type="text/javascript"
-	src="http://swip.codylindley.com/jquery.popupWindow.js"></script>
-<script type="text/javascript"
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 
 
 $(document).ready(function() {   
-	
-	$("#join").popupWindow({ 
-		   height:500, 
-		   width:800, 
-		   top:50, 
-		   left:50 
-		   }); 
-	
    //체크박스 전체 선택/해제
    $("#checkAll").click(function(){
         //클릭되었으면
@@ -34,7 +29,37 @@ $(document).ready(function() {
             //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
             $("input[name=colnames]").prop("checked",false);
         }
-})
+	})
+
+	$("#show_all2").click(function() {				 
+		$("#result_table").show();	 
+	})
+	$("#table").click(function() {				 
+		$("#ddtable").show();	 
+	})
+
+		$('#export').click(function() {
+			
+		 var request = {param : $('#dataName').val()};
+		
+		 $.ajax({
+		   url : '/test',
+		   dataType : 'json',
+		   data :JSON.stringify(request),
+		   contentType : 'application/json;charset=UTF-8',
+		   type: 'post',
+		   success: function(data) {
+		       alert("성공:"+data.KEY);
+		       //jsp 파일로 저장을하고 
+		       console.log(blob);
+		   }
+
+	 	});
+		 
+		
+	}); 
+
+
 })
 </script>
 </head>
@@ -45,88 +70,203 @@ ${rData.colNames}<p>
 ${rData.data}<p>
 -->
 
-	<form id="select_col">
-		<div>
-			<h3>전처리완료</h3>
+	<form id="select_col">		
+		<div class="container">
+			<!-- Trigger the modal with a button -->
+			
+
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">File List</h4>
+						</div>
+						<div class="modal-body">
+							<table border="1">
+								<tr>
+									<th>ID</th>
+									<td>경로</td>
+									<td>파일명</td>
+									<td>크기</td>
+									<td>유형</td>
+									<td>날짜</td>
+									<td>삭제</td>
+									<td style="display: none">순서</td>
+									<td style="display: none">사용자 id</td>
+								</tr>
+								<c:forEach var="file" items="${fileList}">
+									<tr>
+										<td><input type="checkbox" name="fileId"
+											id="${file.fileName}" value="${file.fileId}">${file.fileId}</td>
+										<td>${file.directoryName}</td>
+										<td><c:set var="len" value="${fn:length(file.fileName)}" />
+											<c:set var="filetype"
+												value="${fn:toUpperCase(fn:substring(file.fileName, len-4, len))}" />
+											<c:if
+												test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.PNG') or (filetype eq '.GIF')}">
+												<img src='<c:url value="/img/${file.fileId}"/>' width="100"
+													class="img-thumbnail">
+												<br>
+											</c:if> <c:if
+												test="${!((filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.PNG') or (filetype eq '.GIF'))}">
+												<a href='<c:url value="/pds/${file.fileId}"/>'>${file.fileName}</a>
+												<br>
+											</c:if></td>
+										<td><fmt:formatNumber value="${file.fileSize/1024}"
+												pattern="#,###" />KB</td>
+										<td>${file.fileContentType}</td>
+										<td>${file.fileUploadDate}</td>
+										<td style="display: none">${file.flowNum}</td>
+
+										<td><a
+											href='<c:url value="/upload/delete/${file.fileId}"/>'
+											class="delete">삭제</a>
+										</td>
+									</tr>
+								</c:forEach>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<input type="button"  id = "table" class="btn btn-default"
+								data-dismiss="modal" value ="확인">
+								<button type="button" class="btn btn-default"
+								data-dismiss="modal">취소</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
 		</div>
-		<div id="checkboxArea">
-			<p>
-				전체 선택<input type="checkbox" id="checkAll" />
-			</p>
-			<table border="1">
-				<tr>
-					<c:forEach var="colName" items="${refinedData.colNames}">
-						<c:forEach var="colNameValue" items="${colName}">
-							<th><input id="colnames" name="colnames" type="checkbox"
-								data-toggle="checkbox" value="${colName}"> <label
-								for="colnames">${colName}</label></th>
+
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<h1>선택한 열 정보</h1>
+			<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+				data-target="#myModal">파일 목록</button>
+			<a href =  "http://localhost:8080/destiny/analytics/restructuring"><input type="button" class="btn btn-info btn-lg" value ="취소"
+				></a>
+			<h3>
+				데이터 명 : <input type="text" id="dataName" value="${fileName}"
+					readonly>
+			</h3>
+			<table id="sum_table" border="1">
+				<thead>
+					<tr>
+						<c:forEach var="colName" items="${list.colNames}">
+							<c:forEach var="colNameValue" items="${colName}">
+								<th><input class="chkCol" name="chkColnames"
+									type="checkbox"> <label class="chkCol"
+									for="chkColnames">${colName}</label></th>
+							</c:forEach>
 						</c:forEach>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="i" begin="0" end="${fn:length(list.data[0])}">
+						<c:if test="${i le 5}">
+							<c:set var="row" value="${list.data}" />
+							<tr>
+								<c:forEach var="data" items="${row}">
+									<td>${data[i]}</td>
+								</c:forEach>
+							</tr>
+						</c:if>
 					</c:forEach>
-				</tr>
-				<%--             <c:forEach var="i" begin="0" end="${fn:length(refinedData.data[0])-1}">
-               <c:if test="${i le 100}">
-                  <c:set var="row" value="${refinedData.data}" />
-                  <tr>
-                     <c:forEach var="data" items="${row}">
-                        <td>${data[i]}</td>
-                     </c:forEach>
-                  </tr>
-               </c:if>
-            </c:forEach> --%>
+				</tbody>
 			</table>
+			<div id="ddtable" style="display: none">
+			<h3>
+				데이터 명 : <input type="text" id="dataName" value="${dd}"
+					readonly>
+			</h3>
+			<table id="ddtable" border="1">
+				<thead>
+					<tr>
+						<c:forEach var="colName" items="${tmp.colNames}">
+							<c:forEach var="colNameValue" items="${colName}">
+								<th><input class="chkCol" name="chkColnames"
+									type="checkbox"> <label class="chkCol"
+									for="chkColnames">${colName}</label></th>
+							</c:forEach>
+						</c:forEach>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="i" begin="0" end="${fn:length(tmp.data[0])}">
+						<c:if test="${i le 5}">
+							<c:set var="row" value="${tmp.data}" />
+							<tr>
+								<c:forEach var="data" items="${row}">
+									<td>${data[i]}</td>
+								</c:forEach>
+							</tr>
+						</c:if>
+					</c:forEach>
+				</tbody>
+			</table>
+			</div>
 		</div>
 	</form>
 
 	<!-- 재구조화 열 저장 버튼 -->
 	<div>
-		<input type="submit" id="save" value="save" /> <input type="reset"
-			id="reset" value="reset" />
+		<input type="button" id="show_all2" value="save" /> <input
+			type="reset" id="reset" value="reset" />
 	</div>
 
 	<!-- 재구조화 타입 설정 및 테이블 출력 -->
 	<div>
-		<input type="submit" id="melt" value="melt" /> <input type="submit"
+		<input type="button" id="export" value="melt" /> <input type="submit"
 			id="cast" value="cast" /> <input type="submit" id="split"
 			value="split" />
 	</div>
 
 	<div>
 		<h3>재구조화 데이터 테이블</h3>
-		<table border="1">
-			<tr>
-				<c:forEach var="colName" items="${restructuredData.colNames}">
-					<th>${colName}</th>
+		<table id="result_table" border="1" style="display: none">
+			<thead>
+				<tr>
+					<c:forEach var="colName" items="${result.colNames}">
+						<c:forEach var="colNameValue" items="${colName}">
+							<th><input class="chkCol" name="chkColnames" type="checkbox">
+								<label class="chkCol" for="chkColnames">${colName}</label></th>
+						</c:forEach>
+					</c:forEach>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="i" begin="0" end="${fn:length(list.data[0])}">
+					<c:if test="${i le 5}">
+						<c:set var="row" value="${result.data}" />
+						<tr>
+							<c:forEach var="data" items="${row}">
+								<td>${data[i]}</td>
+							</c:forEach>
+						</tr>
+					</c:if>
 				</c:forEach>
-			</tr>
-			<%--       <c:forEach var="i" begin="0" end="${fn:length(restructuredData.data[0])-1}">
-         <c:if test="${i le 100}">
-            <c:set var="row" value="${restructuredData.data}" />
-            <tr>
-               <c:forEach var="data" items="${row}">
-                  <td>${data[i]}</td>
-               </c:forEach>
-            </tr>
-         </c:if>
-      </c:forEach> --%>
+			</tbody>
 		</table>
 	</div>
 
 	<!-- 테이블 조인 & 리셋 -->
-	<div>
-		<a href="<c:url value="/analytics/list"/>" id="join"
-			title="join 데이터 선택">JOIN</a> <input type="reset" id="reset"
-			value="reset" />
-	</div>
-	
+
 	<div>
 		<table>
-			<tr><td>&nbsp;</td></tr>
-			<tr><td>
-			<a href="/destiny/analytics/ML"><input type="button" value="분석 단계로"/></a>
-			<a href="/destiny/analytics/visual"><input type="button" value="시각화 단계로"/></a>
-			</td></tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td><a href="/destiny/analytics/ML"><input type="button"
+						value="분석 단계로" /></a> <a href="/destiny/analytics/visual"><input
+						type="button" value="시각화 단계로" /></a></td>
+			</tr>
 		</table>
 	</div>
-	
+
 </body>
 </html>

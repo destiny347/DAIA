@@ -73,7 +73,7 @@ public class UploadFileController {
    @RequestMapping("/upload/list")
    public String getImageList(Model model) {
 	   UploadFileVO file = new UploadFileVO();
-      model.addAttribute("fileList", imageService.getAllFileList(file));
+      model.addAttribute("fileList", imageService.getAllFileList());
       return "/upload/list";
    }
 

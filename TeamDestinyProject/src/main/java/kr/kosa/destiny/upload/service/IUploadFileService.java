@@ -9,7 +9,7 @@ public interface IUploadFileService {
 	void uploadFile(UploadFileVO file);
 
 	List<UploadFileVO> getFileList(String dir);
-	List<UploadFileVO> getAllFileList(UploadFileVO file);
+	List<UploadFileVO> getAllFileList();
 	List<UploadFileVO> getImageList(String dir);
 
 	UploadFileVO getFile(int fileId);

@@ -50,12 +50,12 @@
 		</property>
 	</bean>
 	
- 	<mvc:interceptors>
+ <!-- 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/welcome/**"/>
 			<mvc:mapping path="/upload/**"/>
 			<mvc:mapping path="/analytics/**"/>
 			<bean class="kr.kosa.destiny.common.LoginInterceptor"/>
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors> -->
 </beans>

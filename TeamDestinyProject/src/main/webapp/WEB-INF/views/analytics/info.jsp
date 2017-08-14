@@ -1,62 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- W3.CSS Templates -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href="/favicon.png" rel="icon" type="image/png">
-<link rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
-<!-- BootStrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!-- 각종 CSS 링크모음 -->
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://macdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/login.css">
-<link rel="stylesheet" href="css/project.css" type="text/css">
-
-<!-- About페이지 css파일 -->
-<link rel="stylesheet" href="css/about_btnStyle.css">
-
-<!-- 테이블 css파일 -->
-<link rel="stylesheet" href="css/default.css" type="text/css">
-
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- About페이지 js파일 -->
-<script type="text/javascript" src="js/about_btn.js" defer></script>
-<script type="text/javascript" src="js/graph.js" defer></script>
-<script type="text/javascript" src="js/js_menu.js" defer></script>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!-- --------------------------------------------------------------------------------------------------------------------- -->
-
 <style type="text/css">
 </style>
-
 <!-- Bootstrap Core CSS -->
 <link href="../../css/bootstrap.css" rel="stylesheet">
 <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom CSS -->
-<link href="../../css/business-casual.css" rel="stylesheet">
 
 <!-- Fonts -->
 <link
@@ -174,7 +128,10 @@
          $("#show_sum2").hide();
       });
       
+    
+      
       $('#export').click(function() {
+    	  /*
 			 var blob;
 			 var filenamam;
 			var titles = [];
@@ -197,7 +154,7 @@
 
 			  /*
 			   * Get the actual data, this will contain all the data, in 1 array
-			   */
+			   
 			  var tbody = $('<tbody>');
 			   $('#sum_table tbody tr').each(function() {
 			     var tr = $('<tr>');
@@ -213,30 +170,20 @@
 			   var CSVString = prepCSVRow(titles, titles.length, '');
 				CSVString = prepCSVRow(data, titles.length, CSVString);
 				blob = new Blob(["\ufeff", CSVString]);
+				 alert(JSON.stringify(["\ufeff", CSVString]));
+
 				filenamam =  $("#outputFile").val();
 			 console.log(filenamam);
 				var outputFile2 = {
 					 fileName : filenamam,	 
 				  //체크된 열의 이름을 담는다.
-				 	blob : blob,
+				 	blob : CSVString,
 				 	dmd : '야 정신차리라고'
 				 };	 
-				 location.href = 'http://localhost:8080/destiny/analytics/okModal/'+filenamam;
+				*/
+				 location.href = 'http://localhost:8080/destiny/analytics/handling';
 				
-				$.ajax({
-			    url : 'http://localhost:8080/destiny/analytics/okModal/'+filenamam,
-			    dataType : 'json',
-			    data :JSON.stringify(outputFile2),
-			    contentType : 'application/json;charset=UTF-8',
-			    type: 'post',
-			    success: function(data) {
-			        alert("성공:"+data.KEY);
-			        //jsp 파일로 저장을하고 
-			        console.log(blob);
-			    }
-	
-			});  
-				 
+				
 		});
       
    });  
@@ -292,36 +239,39 @@
 
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>	
+	
 
-<div class="container">
+	
    <h1>정보</h1>
+
    <c:forEach var="j" begin="0" end="${rData.size()-1}">
 
       <div>
          <h3>파일명 : [${fileName.get(j)}]</h3>
       </div>
-      <div id="show_col_sum" style="overflow-x: auto;">
+      <div id="show_col_sum">
          <p>
-            <label class="chkColnames" for="checkAll">전체 선택</label>
-            <input type="checkbox" class="chkColnames" id="checkAll" />
+            <label class="chkColnames" for="checkAll">전체 선택</label><input
+               type="checkbox" class="chkColnames" id="checkAll" />
          </p>
-         <input type="button" id="show_all" value="테이블 전체보기"> 
-         <input type="button" id="show_sum" value="테이블 요약보기(5행)" style="display: none;">
+         <input type="button" id="show_all" value="테이블 전체보기"> <input
+            type="button" id="show_sum" value="테이블 요약보기(5행)"
+            style="display: none">
          <table id="sum_table" border="1">
             <thead>
                <tr>
                   <c:forEach var="colName" items="${rData.get(j).colNames}">
-                        <th><input class="chkCol" name="chkColnames" type="checkbox" value="${colName}">
-                        	<label class="chkCol" for="chkColnames">${colName}</label></th>
+                        <th><input class="chkCol" name="chkColnames"
+                           type="checkbox" value="${colName}"> <label class="chkCol"
+                           for="chkColnames">${colName}</label></th>
                   </c:forEach>
                </tr>
             </thead>
             <tbody>
-               <c:forEach var="i" begin="0" end="${fn:length(rData.get(j).data[0])-1}">
+               <c:forEach var="i" begin="0"
+                  end="${fn:length(rData.get(j).data[0])-1}">
                   <c:if test="${i le 300}">
-                     <c:set var="row" value="${rData.get(j).data}"/>
+                     <c:set var="row" value="${rData.get(j).data}" />
                      <tr>
                         <c:forEach var="data" items="${row}">
                            <td>${data[i]}</td>
@@ -334,15 +284,19 @@
       </div>
    </c:forEach>
 
-	<div>
-		<input class="btn" type="button" id="confirm" value="확인" />
-		<input class="btn" type="reset" id="reset" value="초기화" />
-   		<a href="/destiny/upload/list"><input class="btn" type="button" value="취소" /></a>
-	</div>
+   <br>
+
+   <input class="btn" type="button" id="confirm" value="확인" />
+   <input class="btn" type="reset" id="reset" value="초기화" />
+   <a href="/destiny/upload/list"><input class="btn" type="button"
+      value="취소" /></a>
 	
+<form action="/analytics/handling" method="post">	
    <div id="selectCol" style="display: none">
       <h1>선택한 열 정보</h1>
-      <h5>데이터 명 : <input type="text" id="outputFile"></h5>
+      <h5>
+         데이터 명 : <input type="text" name="dataName" id="outputFile">
+      </h5>
       <div id="dvData">
 
          <input type="button" id="show_sum2" value="테이블 요약보기(5행)"> <input
@@ -356,16 +310,14 @@
             </tbody>
          </table>
          <br>
-         <div>
+         <div class="container">
 			<input value="다음" id="export" type="button" /> 
-			<a href="/destiny/upload/list"> 
-			<input type="reset" value="취소" /></a>
-  		</div>	
+			<a href="/destiny/upload/list"> <input
+				type="reset" value="취소" /></a>
+		 </div>
 		</div>
 	</div>
-	</div> <!-- End Container -->
-	
-	
-<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>	
+</form>				
+			 
 </body>
 </html>

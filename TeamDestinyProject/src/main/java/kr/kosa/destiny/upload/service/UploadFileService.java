@@ -41,8 +41,8 @@ public class UploadFileService implements IUploadFileService {
 	}
 	
 	@Override
-	public List<UploadFileVO> getAllFileList(UploadFileVO file) {
-		return uploadFileRepository.getAllFileList(file);
+	public List<UploadFileVO> getAllFileList() {
+		return uploadFileRepository.getAllFileList();
 	}
 	
 	@Override
