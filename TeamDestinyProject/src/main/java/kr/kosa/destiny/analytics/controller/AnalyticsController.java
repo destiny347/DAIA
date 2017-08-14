@@ -41,38 +41,28 @@ public class AnalyticsController {
 	@Autowired
 	IUploadFileService uploadFileService;   
 
+	 // 막대그래프 구현부
+	   @RequestMapping("/analytics/iris2")
+	   public String getMarriedSiu(Model model) {
+	      ArrayList<SampleVO> weddList = analyticsService.getMarriedSiu();
+	      Gson gson = new Gson();
+	      String wedd = gson.toJson(weddList);
+	      model.addAttribute("wedd", wedd);
 
-	@RequestMapping("/analytics/iris")
-	public String getAvgPetalbySpecies(Model model) {
-		ArrayList<IrisVO> irisList = analyticsService.getAvgPetalBySpecies();
-		Gson gson = new Gson();
-		String irisData = gson.toJson(irisList);
-		model.addAttribute("irisData", irisData);
+	      return "analytics/visual";
+	   }
 
-		return "analytics/iris_chart";
-	}
+	   // 파이차트로 사기자 구분
+	   @RequestMapping("/analytics/iris3")
+	   public String getCsvFile(Model model) {
+	      ArrayList<SampleVO> getCsv = analyticsService.getCsvFile();
+	      Gson gson = new Gson();
+	      String gcv = gson.toJson(getCsv);
+	      model.addAttribute("gcv", gcv);
 
-	@RequestMapping("/analytics/iris2")
-	public String getAvgPetalbySpecies2(Model model) {
-		ArrayList<SampleVO> irisList = analyticsService.getAvgPetalBySpecies2();
-		Gson gson = new Gson();
-		String irisData = gson.toJson(irisList);
-		model.addAttribute("irisData", irisData);
-
-		return "analytics/visual";
-	}
-
-	// 
-	@RequestMapping("/analytics/iris3")
-	public String getAvgPetalbySpecies3(Model model) {
-		ArrayList<SampleVO1> irisList = analyticsService.getAvgPetalBySpecies3();
-		Gson gson = new Gson();
-		String irisData = gson.toJson(irisList);
-		model.addAttribute("irisData2", irisData);
-
-		return "analytics/visual";
-	}
-
+	      return "analytics/visual";
+	   }
+	   
 	@RequestMapping("/analytics/database/{fileId}")
 	public String analyticsDatabase(@PathVariable int fileId, Model model) {
 		ArrayList<SampleVO> irisList = analyticsService.analyticsDatabase(fileId);

@@ -7,19 +7,10 @@
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- W3.CSS Templates -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href="/favicon.png" rel="icon" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- BootStrap CSS -->
@@ -28,30 +19,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- jQuery -->
-<script src="js/jquery.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- 각종 CSS 링크모음 -->
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://macdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/login.css">
-<link rel="stylesheet" href="css/project.css" type="text/css">
-
-<!-- About페이지 css파일 -->
-<link rel="stylesheet" href="css/about_btnStyle.css">
-
-<!-- 테이블 css파일 -->
-<link rel="stylesheet" href="css/default.css" type="text/css">
-
-<!-- 스크립트는 여기부터 -->
-<!-- About페이지 js파일 -->
-<script type="text/javascript" src="js/about_btn.js" defer></script>
-<script type="text/javascript" src="js/graph.js" defer></script>
-<script type="text/javascript" src="js/js_menu.js" defer></script>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
 	// Accordion 

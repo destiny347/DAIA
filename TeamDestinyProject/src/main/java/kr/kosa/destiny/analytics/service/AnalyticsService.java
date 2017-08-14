@@ -33,82 +33,64 @@ public class AnalyticsService implements IAnalyticsService {
 	@Autowired
 	IUploadFileService fileService;
 
-	@Override
-	public ArrayList<IrisVO> getAvgPetalBySpecies() {
-		ArrayList<IrisVO> irisList = new ArrayList<IrisVO>();
-		try {
-			String[] species = {"setosa", "versicolor", "virginica"};
-			REXP result = rEngine.eval("tapply(iris$Petal.Length, iris$Species, mean)");
-			REXP result2 = rEngine.eval("tapply(iris$Petal.Width, iris$Species, mean)");
+	   @Override
+	   public ArrayList<SampleVO> getCsvFile() {
+	      ArrayList<SampleVO> getCsv = new ArrayList<SampleVO>();
+	      try {
+	         rEngine.eval("setwd(\"c:R/Workplace\")");
+	         rEngine.eval(
+	               "(data_cust <- read.csv(\"BGCON_CUST_DATA.csv\", header=TRUE, sep=\",\", encoding=\"cp949\", fileEncoding = \"UCS-2\"))");
+	         rEngine.eval("(cnt_siu <- table(data_cust$SIU_CUST_YN))");
+	         rEngine.eval("(names(cnt_siu) <- c(\"분석대상\", \"정상인\", \"사기자\"))");
+	         REXP result = rEngine.eval("as.vector(cnt_siu)");
+	         REXP result1 = rEngine.eval("names(cnt_siu)");
 
-			double resultList[] = result.asDoubleArray();
-			double resultList2[] = result2.asDoubleArray();
-			for(int i=0; i<resultList.length; i++) {
-				IrisVO iris = new IrisVO();
-				iris.setSpecies(species[i]);
-				iris.setPetalLength(resultList[i]);
-				iris.setPetalWidth(resultList2[i]);
-				irisList.add(iris);
-			}
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-			throw new RuntimeException(e);
-		}
-		return irisList;
+	         int resultList[] = result.asIntArray();
+	         String resultList1[] = result1.asStringArray();
 
-	}
+	         for (int i = 1; i < resultList.length; i++) {
+	            SampleVO sample1 = new SampleVO();
+	            sample1.setName(resultList1[i]);
+	            sample1.setY(resultList[i]);
+	            getCsv.add(sample1);
+	         }
 
-	// iris 막대 차트 구현부
-	@Override
-	public ArrayList<SampleVO> getAvgPetalBySpecies2() {
-		ArrayList<SampleVO> irisList = new ArrayList<SampleVO>();
-		try {
-			// String[] species = {"setosa", "versicolor", "virginica"};
-			REXP result = rEngine.eval("tapply(iris$Petal.Length, iris$Species, mean)");
-			REXP result2 = rEngine.eval("tapply(iris$Petal.Width, iris$Species, mean)");
+	      } catch (Exception e) {
+	         logger.error(e.getMessage());
+	         throw new RuntimeException(e);
+	      }
+	      return getCsv;
+	   }
 
-			SampleVO sample1 = new SampleVO();
-			sample1.setName("P.L mean");
-			sample1.setType("column");
-			sample1.setData(result.asDoubleArray());
-			irisList.add(sample1);
-			SampleVO sample2 = new SampleVO();
-			sample2.setName("P.W mean");
-			sample2.setType("column");
-			sample2.setData(result2.asDoubleArray());
-			irisList.add(sample2);
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-			throw new RuntimeException(e);
-		}
-		return irisList;
-	}
+	   @Override
+	   public ArrayList<SampleVO> getMarriedSiu() {
+	      ArrayList<SampleVO> getMarried = new ArrayList<SampleVO>();
+	      try {
+	         rEngine.eval(
+	               "(data_cust <- read.csv(\"http://erotic-chaos.com/wp-content/uploads/2017/08/data_cust_1-1.csv\", header=TRUE, sep=\",\", encoding=\"utf-8\", fileEncoding = \"utf-8\"))");
+	         rEngine.eval("(cnt_wedd <- table(subset(data_cust, select=WEDD_YN, subset=(data_cust$SIU_CUST_YN==1))))");
+	         rEngine.eval("(names(cnt_wedd) <- c(\"미혼사기자\", \"결혼사기자\"))");
+	         REXP result = rEngine.eval("as.vector(cnt_wedd)");
+	         REXP result1 = rEngine.eval("names(cnt_wedd)");
+	         
 
+	         int resultList[] = result.asIntArray();
+	         String resultList1[] = result1.asStringArray();
 
-	// iris 파이차트 구현부!!!
-	@Override
-	public ArrayList<SampleVO1> getAvgPetalBySpecies3() {
-		ArrayList<SampleVO1> irisList = new ArrayList<SampleVO1>();
-		try {
-			REXP result = rEngine.eval("(ming <- tapply(iris$Petal.Length, iris$Species, mean))");
-			REXP result1 = rEngine.eval("names(ming)");
+	         for (int i = 0; i < resultList1.length; i++) {
+	            SampleVO sample1 = new SampleVO();
+	            sample1.setName(resultList1[i]);
+	            sample1.setY(resultList[i]);
+	            getMarried.add(sample1);
+	         }
 
-			double resultList[] = result.asDoubleArray();
-			String resultList1[] = result1.asStringArray();
-
-			for (int i = 0; i < resultList.length; i++) {
-				SampleVO1 sample1 = new SampleVO1();
-				sample1.setName(resultList1[i]);
-				sample1.setY(resultList[i]);
-				irisList.add(sample1);
-			}
-
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-			throw new RuntimeException(e);
-		}
-		return irisList;
-	}
+	            
+	      } catch (Exception e) {
+	         logger.error(e.getMessage());
+	         throw new RuntimeException(e);
+	      }
+	      return getMarried;
+	   }
 
 	// 꺾은선 그래프로 등급별 사기자 수 확인하려고 했는데 일단 보류!!!
 	/*
@@ -657,22 +639,25 @@ public class AnalyticsService implements IAnalyticsService {
 	}
 
 	//   저장된 데이터의 모든 열을 대상으로 cast 진행 (재구조화 대상 열을 선택하고 별도의 파일로 저장한 상태에서 실행)
-	@Override
-	public void getRestructuredData() {
-		//      rEngine.eval("setwd('D:/Projects/DAIA_R Prj/Workplace')");
-		//      rEngine.eval("data<-read.csv('data/data_cast.csv', header=TRUE)");
+	 @Override
+     public void getRestructuredData(String ...args) {
+//        rEngine.eval("setwd('D:/Projects/DAIA_R Prj/Workplace')");
+//        rEngine.eval("data_claim<-read.csv('data/BGCON_CLAIM_DATA.csv', header=TRUE, sep=',', encoding='CP949', fileEncoding='UCS-2')");
+        rEngine.eval("acci_dmnd_count<-table(data_claim$"+args[0]+", data_claim$"+args[1]+", data_claim$"+args[2]+")");
+        rEngine.eval("acci_dmnd_count<-as.data.frame(acci_dmnd_count)");
+         
+        REXP cols = rEngine.eval("names(acci_dmnd_count)<-c('"+args[0]+"', '"+args[1]+"', '"+args[2]+"', 'value')");
+        String[] colnames = cols.asStringArray();
+//        rEngine.eval("install.packages('reshape')");
+        rEngine.eval("library(reshape)");
 
-		//      rEngine.eval("install.packages('reshape')"); -> personal library 사용 확인 
-		rEngine.eval("library(reshape)");
+//        rEngine.eval("colnames(data)").asStringArray();
+        
+        rEngine.eval("data_cast<-cast(data=acci_dmnd_count, "+colnames[0]+" ~ "+colnames[colnames.length-3]+" + "+colnames[colnames.length-2]+", fun=sum)");
 
-		String[] colnames = rEngine.eval("colnames(data)").asStringArray();
-		//마지막 열을 분해해서 옆으로 정렬함
-		rEngine.eval("data<-cast(data=data, "+colnames[0]+" ~ "+colnames[colnames.length-2]+" + "+colnames[colnames.length-1]+", fun=sum)");
-		//데이터 저장 주소, 이름 재설정 필요
-		rEngine.eval("write.csv(data, 'data/data_cast7.csv', row.names = FALSE)");
-		//리턴 값은 무엇으로?
+//        return colnames; 
 
-	}
+     }
 
 	// 병합할 데이터 두개 선택 -> 각각의 데이터를 data1, data2에 담고 merge한 데이터를 data_merged 에 담기
 	@Override
@@ -900,13 +885,6 @@ public class AnalyticsService implements IAnalyticsService {
 		rEngine.eval("svm_predicted_data<-predict(svm_model, test_set)");
 		rEngine.eval("svm_result<-cbind(test_set_yn, svm_predicted_data)");
 	}
-
-	@Override
-	public ArrayList<SampleVO> getCsvFile() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 
 	/*

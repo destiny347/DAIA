@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- 하이차트 스타일(칼라) -->
 <style> 
 
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -45,8 +44,9 @@ font-weight:700;
 <script type="text/javascript">
 var barChart;
 $(function() {
-barChart = new Highcharts.chart('bar', {
+barChart = new Highcharts.chart({
        chart: {
+          renderTo : 'barChartContainer',
           type : 'column'
        },
        
@@ -168,14 +168,15 @@ $(document).ready(function(){
    $("#confirm").click(function(){
       console.log("밍");
       if($("#barcheck").is(':checked')) {
-         $("#barDiv").toggle();
+         $("#barChartContainer").toggle();
          console.log("구");
          $.ajax({
             url:'iris2',
             type: 'get',
+            async : true,
             success : function(data){
                console.log("밍구");
-               $('#bar').append(data);
+               $("#barChartContainer").append(data);
             }
          });
       }
@@ -238,9 +239,9 @@ $(document).ready(function(){
       <h3>그래프 표시부</h3>
 
       <br>
-      <div class="col-sm-4" id="barDiv"
+      <div class="col-sm-4" id="barChartContainer"
          style="border-style: solid; border-width: 1px; border-color: pink; display:none">
-         <div id="bar"></div>
+         <!-- <div id="bar"></div> -->
       </div>
       <div class="col-sm-4" id="pieDiv"
          style="border-style: solid; border-width: 1px; border-color: pink; display:none">

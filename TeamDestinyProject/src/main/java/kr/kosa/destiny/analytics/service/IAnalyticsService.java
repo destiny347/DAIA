@@ -10,9 +10,9 @@ import kr.kosa.destiny.analytics.model.SampleVO1;
 import kr.kosa.destiny.analytics.model.SummaryVO;
 
 public interface IAnalyticsService {
-	ArrayList<IrisVO> getAvgPetalBySpecies();
+/*	ArrayList<IrisVO> getAvgPetalBySpecies();
 	ArrayList<SampleVO> getAvgPetalBySpecies2();
-	ArrayList<SampleVO1> getAvgPetalBySpecies3();
+	ArrayList<SampleVO1> getAvgPetalBySpecies3();*/
 	ArrayList<SampleVO> analyticsDatabase(int fileId);
 	Map<String, Object> analyticsDatabaseInfo(int fileId);
 	Map<String, Object> analyticsDatabaseInfo(String fileName);
@@ -30,7 +30,7 @@ public interface IAnalyticsService {
 	
 	Map<String, Object> zeroToMeanByGroup(String groupcol, String datacol);
 	Map<String, Object> colToMeanByGroup(String groupcol, String datacol);
-	void getRestructuredData();
+	void getRestructuredData(String ...args);
 	void getMergedTable(int fileId1, int fileId2);
 	List<Map<String, Object>> dataSampling(double trainrate, String column);
 	void xgboost(String independentvar, String primecol);
@@ -40,8 +40,7 @@ public interface IAnalyticsService {
 
 	// 민구 테스트
 	ArrayList<SampleVO> getCsvFile();
-
-
+	ArrayList<SampleVO> getMarriedSiu();
 
 
 }

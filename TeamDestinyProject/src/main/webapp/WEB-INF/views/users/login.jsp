@@ -5,17 +5,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>메인 페이지</title>
-<link href="/favicon.png" rel="icon" type="image/png">
 
-<meta charset="UTF-8">
+<title>메인 페이지</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- W3.CSS Templates -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href="/favicon.png" rel="icon" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- BootStrap CSS -->
@@ -24,33 +20,129 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- jQuery -->
-<script src="js/jquery.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-$('.dropdown-toggle').dropdown()
-</script>
-<!-- 각종 CSS 링크모음 -->
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://macdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/login.css">
-<link rel="stylesheet" href="css/project.css" type="text/css">
+<style>
+/* Set a style for all buttons */
+button {
+	background-color: #f1f1f1;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
 
-<!-- About페이지 css파일 -->
-<link rel="stylesheet" href="css/about_btnStyle.css">
+button:hover {
+	opacity: 0.8;
+}
 
-<!-- 테이블 css파일 -->
-<link rel="stylesheet" href="css/default.css" type="text/css">
+/* Full-width input fields */
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 5px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
 
-<!-- 스크립트는 여기부터 -->
-<!-- About페이지 js파일 -->
-<script type="text/javascript" src="js/about_btn.js" defer></script>
-<script type="text/javascript" src="js/graph.js" defer></script>
-<script type="text/javascript" src="js/js_menu.js" defer></script>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+/* Extra styles for the cancel button */
+.cancelbtn {
+	width: auto;
+	padding: 10px 18px;
+	background-color: #f1f1f1;
+	float: left;
+}
 
+.createbtn {
+	width: auto;
+	padding: 10px 18px;
+	background-color: #ffffff;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+	text-align: center;
+	margin: 24px 0 12px 0;
+	position: relative;
+}
+
+img.avatar {
+	width: 40%;
+	border-radius: 50%;
+}
+
+.container {
+	padding: 16px;
+}
+
+span.psw {
+	float: right;
+	padding-top: 16px;
+}
+
+
+/* 민구 추가 스타일 */
+.headhead {
+	border-bottom: 1px solid #EAEAEA;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nt300 {
+	font-family: 'Noto Sans KR', sans-serif;
+	color: slateblue;
+	font-weight: 300;
+}
+
+.nt400 {
+	font-family: 'Noto Sans KR', sans-serif;
+	color: slateblue;
+	font-weight: 400;
+}
+
+.hovbutton {
+	background-color: white;
+	border: none;
+	color: slateblue;
+	padding: 4px 8px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 2px 4px 2px 0;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.hovbutton:hover {
+	background-color: slateblue;
+	color: white;
+}
+
+.button {
+	background-color: white;
+	border: none;
+	color: slateblue;
+	padding: 4px 8px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 2px 4px 2px 0;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: slateblue;
+	color: white;
+}
+</style>
 </head>
 
 <body>
@@ -58,33 +150,32 @@ $('.dropdown-toggle').dropdown()
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
 <div class="container">
-<!-- <div id="id01" class="modal">
-   		<form class="modal-content animate" action="greeting" method="post"> -->
-   		<form style="width: 500px;" class="" action="/destiny/greeting" method="post">
-    		<div class="imgcontainer">
-      			<img src="http://erotic-chaos.com/wp-content/uploads/2017/06/img_avatar2.jpg" alt="Avatar" class="avatar">
+   	
+    		<div class="headhead">
+    			<h1>로그인 <small>BD Platform</small></h1>
     		</div>
-
+    		<div>&nbsp;</div>
+	<form style="width: 500px;" class="" action="/destiny/greeting" method="post">
     		<div class="w3-container">
       			<label><b>이메일</b></label>
       			<input type="text" placeholder="Enter e-mail" name="userEmail" required>
 
 			    <label><b>비밀번호</b></label>
       			<input type="password" placeholder="Enter Password" name="userPw" required>
-        
-      			<button type="submit">로그인</button>
-      			<input type="checkbox" name="userCheck"> 기억하기
+        		
+        		<div>&nbsp;</div>
+        		
+      			<input type="submit" class="btn btn-default" value="로그인"/>
+      			<a href="/destiny"><input type="button" class="btn btn-default" value="취소"/></a>
+      			<input type="checkbox" name="userCheck"/>기억하기
     		</div>
-			<div>&nbsp;</div>
 			
-    		<div class="w3-container" style="background-color:#f1f1f1">
-      			<button type="button1" class="cancelbtn"><a href="/destiny">취소</a></button> <!-- onclick="document.getElementById('id01').style.display='none'"  -->
-      			&nbsp;      							
-      			<span class="psw">Forgot <a href="#">password?</a></span>
-    		</div>
+			
+    		
+      		<!-- onclick="document.getElementById('id01').style.display='none'"  -->
+			<!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+    		
     		<div>&nbsp;</div>	<!-- Line blank -->
-<!--   		</form> End Form
-	</div>	End Modal(1) -->
 	</form>
 </div>	<!-- End Container -->
 
