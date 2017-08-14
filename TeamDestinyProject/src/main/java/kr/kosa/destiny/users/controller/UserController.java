@@ -69,12 +69,12 @@ public class UserController {
 	}
 	
 	//로그인
-	@RequestMapping(value="/users/signIn", method=RequestMethod.GET)
+	@RequestMapping(value="/greeting", method=RequestMethod.GET)
 	public String signIn() {
 		return "/welcome/welcome";
 	}
 	
-	@RequestMapping(value="/users/signIn", method=RequestMethod.POST)
+	@RequestMapping(value="/greeting", method=RequestMethod.POST)
 	public String signIn(String userEmail, String userPw, HttpSession session, Model model) {
 		try {
 			UserVO user = userService.selectUserByUserEmail(userEmail);
@@ -87,7 +87,7 @@ public class UserController {
 			} else {
 				session.invalidate();
 				model.addAttribute("errorPw", "비밀번호를 잘못 입력하셨습니다.");
-				model.addAttribute("home", "/user/login");
+				model.addAttribute("home", "/users/login");
 				return "users/PwWrong";
 			}
 		} catch(Exception e) {
@@ -157,12 +157,12 @@ public class UserController {
 	
 	@RequestMapping(value="/users/login")
 	public String login() {
-		return "/users/signIn";
+		return "/users/login";
 	}
 	
 	@RequestMapping(value="/users/join")
 	public String join() {
-		return "/users/signUp";
+		return "/users/join";
 	}
 
 }

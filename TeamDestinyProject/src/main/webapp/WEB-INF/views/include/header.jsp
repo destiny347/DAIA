@@ -178,7 +178,7 @@ span.psw {
 
 /* 민구 추가 스타일 */
 .headhead{
-border-bottom: 1px solid #696969;
+border-bottom: 1px solid #EAEAEA;
 }
 
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -231,6 +231,7 @@ color : white;
 }    
 
 </style>
+
 </head>
 
 <body> <!-- onload="document.getElementById('id01').style.display='block'" -->
@@ -258,11 +259,11 @@ color : white;
 	<!-- login -->
 	<div class="rightlogin col-sm-3 nt400" align="right">
 		<!-- Button to open the modal login form -->
-		<button id="login" class="btn btn-default" style="width:auto;"><a href="/destiny/users/login">로그인</a></button> <!--  onclick="document.getElementById('id01').style.display='block'"  -->
-		<button id="signIn" class="btn btn-default"style="width:auto;"><a href="/destiny/users/join">회원가입</a></button>	<!--  onclick="document.getElementById('id02').style.display='block'"  -->
+		<a href="/destiny/users/login"><button id="login" class="btn btn-default" style="width:auto;">로그인</button></a> <!--  onclick="document.getElementById('id01').style.display='block'"  -->
+		<a href="/destiny/users/join"><button id="join" class="btn btn-default"style="width:auto;">회원가입</button></a>	<!--  onclick="document.getElementById('id02').style.display='block'"  -->
    	</div>
    	
-	<div id="id01" class="modal">
+<!-- 	<div id="id01" class="modal">
    		<form class="modal-content animate" action="greeting" method="post">
     		<div class="imgcontainer">
       			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -286,9 +287,9 @@ color : white;
       			&nbsp;      							
       			<span class="psw">Forgot <a href="#">password?</a></span>
     		</div>
-    		<div>&nbsp;</div>	<!-- Line blank -->
-  		</form> <!-- End Form -->
-	</div>	<!-- End Modal(1) -->
+    		<div>&nbsp;</div>	Line blank
+  		</form> End Form
+	</div>	End Modal(1)
 	
 		
 	<div id="id02" class="modal">
@@ -334,7 +335,7 @@ color : white;
         		</div>
         		<div>&nbsp;</div>
         		
-<!--          		<div class="form-group">
+         		<div class="form-group">
             		<label class="col-sm-3 control-label" for="inputGender">성별</label>
               		<div class="col-sm-9">
               			<label class="radio-inline">
@@ -353,7 +354,7 @@ color : white;
                   		<input class="form-control" id="inputNumber" type="tel" name="userPhone" placeholder="- 없이 입력해 주세요">
               		</div>
         		</div>
-				<div>&nbsp;</div> -->
+				<div>&nbsp;</div>
 				
 				<div class="form-group">
           			<div class="col-sm-12 text-center">
@@ -362,10 +363,10 @@ color : white;
                		</div>
         		</div>
         			        
-        	</div>	<!-- End Modal(2)_Container -->
-        	<div>&nbsp;</div> <!-- Line blank -->
-        </form>	<!-- End Form -->
-    </div>	<!-- End Modal(2) -->
+        	</div>	End Modal(2)_Container
+        	<div>&nbsp;</div> Line blank
+        </form>	End Form
+    </div>	End Modal(2) -->
     
 </div> <!-- End Container -->
 </div> <!-- End HeaderLine -->

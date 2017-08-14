@@ -45,7 +45,7 @@
 <script type="text/javascript" src="js/js_menu.js" defer></script>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script src="https://maps.google.com/maps/api/js?sensor=true"></script>
 <style>
 .a {
 	margin: 70px 0px;
@@ -129,6 +129,10 @@
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
 	<div class="container">
+	<div class="map">
+      <div id="google-map" data-latitude="37.4950598" data-longitude="127.12241160000008"></div>
+   </div>
+	
 	<div class="" id="contact">
 		<h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
 		<p>Lets get in touch and talk about your and our next project.</p>

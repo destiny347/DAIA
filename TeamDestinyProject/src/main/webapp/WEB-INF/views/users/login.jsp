@@ -60,7 +60,7 @@ $('.dropdown-toggle').dropdown()
 <div class="container">
 <!-- <div id="id01" class="modal">
    		<form class="modal-content animate" action="greeting" method="post"> -->
-   		<form style="width: 500px;" class="" action="/destiny/users/signIn" method="post">
+   		<form style="width: 500px;" class="" action="/destiny/greeting" method="post">
     		<div class="imgcontainer">
       			<img src="http://erotic-chaos.com/wp-content/uploads/2017/06/img_avatar2.jpg" alt="Avatar" class="avatar">
     		</div>

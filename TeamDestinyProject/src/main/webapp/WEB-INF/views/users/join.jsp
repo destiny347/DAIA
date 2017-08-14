@@ -51,6 +51,11 @@ $('.dropdown-toggle').dropdown()
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<style>
+.container {
+	display: block;
+}
+</style>
 </head>
 
 <body>
@@ -58,47 +63,43 @@ $('.dropdown-toggle').dropdown()
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
 <div class="container">
-   		<form class="" action="/destiny/users/signUp" method="post">
-    		<div class="w3-container">
-    			<div class="imgcontainer">
-      				<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-    			</div>
-				<div class="w3-container">
-					<div class="page-header">
-    	   				<h1>회원가입 <small>BD Platform</small></h1>
-        			</div>
-        		</div>
-        		
+	<div class="headhead">
+    	<h1>회원가입 <small>BD Platform</small></h1>
+    </div>
+    <div>&nbsp;</div>
+
+        <form class="form-horizontal" action="/destiny/users/signUp" method="post">
+			<!-- <div class="w3-container" style="width: 1000px;">    -->     		
         		<div class="form-group">
-        			<label class="col-sm-3 control-label" for="inputEmail">* 이메일</label>
-        			<div class="col-sm-9">
+        			<label class="col-sm-2 control-label" for="inputEmail">* 이메일</label>
+        			<div class="col-sm-4">
           				<input class="form-control" id="inputEmail" type="email" name="userEmail" placeholder="이메일" required>        		
         			</div>
         		</div>
         		
         		<div class="form-group">
-          			<label class="col-sm-3 control-label" for="inputPassword">* 비밀번호</label>
-        			<div class="col-sm-9">
-          				<input class="form-control" id="inputPassword" type="password" name="userPw" placeholder="비밀번호" required>
-        				<p class="help-block">숫자, 특수문자 포함 8자 이상</p>
+          			<label class="col-sm-2 control-label" for="inputPassword">* 비밀번호</label>
+        			<div class="col-sm-4">
+          				<input class="form-control" id="inputPassword" type="password" name="userPw" placeholder="비밀번호" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
+        				<p class="help-block">비밀번호는 숫자 포함 8자 이상이여야 합니다.</p>
         			</div>
         		</div>
         		
         		<div class="form-group">
-              		<label class="col-sm-3 control-label" for="inputPasswordCheck">* 비밀번호 확인</label>
-             		<div class="col-sm-9">
-              			<input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호 확인" required>
+              		<label class="col-sm-2 control-label" for="inputPasswordCheck">* 비밀번호 확인</label>
+             		<div class="col-sm-4">
+              			<input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호 확인" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
                 		<p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
              		</div>
           		</div>
           		
           		<div class="form-group">
-            		<label class="col-sm-3 control-label" for="inputName">* 이름 또는 별명</label>
-          			<div class="col-sm-9">
+            		<label class="col-sm-2 control-label" for="inputName">* 이름 또는 별명</label>
+          			<div class="col-sm-4">
             			<input class="form-control" id="inputName" type="text" name="userName" placeholder="이름 또는 별명" required>
           			</div>
         		</div>
-        		<div>&nbsp;</div>
+        		
         		
 <!--          		<div class="form-group">
             		<label class="col-sm-3 control-label" for="inputGender">성별</label>
@@ -122,13 +123,13 @@ $('.dropdown-toggle').dropdown()
 				<div>&nbsp;</div> -->
 				
 				<div class="form-group">
-          			<div class="col-sm-12 text-center">
-            		<input class="btn btn-primary" action="action" onclick="return confirm('회원 가입을 완료하시겠습니까?')" type="submit" value="회원가입"/>
-            		<input class="btn btn-danger" action="action" type="button" value="취소" /> <!--  onclick="document.getElementById('id02').style.display='none'" -->
+          			<div class="col-sm-6 text-center">
+            		<input class="btn btn-primary"  type="submit" value="회원가입"/> <!-- onclick="return confirm('회원 가입을 완료하시겠습니까?')" -->
+            		<input class="btn btn-danger" type="button" value="취소"/> <!--  onclick="document.getElementById('id02').style.display='none'" -->
                		</div>
         		</div>
         			        
-        	</div>	<!-- End Modal(2)_Container -->
+        	<!-- </div>	End w3-Container -->
         	<div>&nbsp;</div> <!-- Line blank -->
         </form>	<!-- End Form -->
 

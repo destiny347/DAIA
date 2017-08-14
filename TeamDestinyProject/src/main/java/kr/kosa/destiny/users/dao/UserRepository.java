@@ -24,19 +24,17 @@ public class UserRepository implements IUserRepository {
 			user.setUserEmail(rs.getString("user_email"));
 			user.setUserPw(rs.getString("user_pw"));
 			user.setUserName(rs.getString("user_name"));
-			user.setUserPhone(rs.getString("user_phone"));
 			return user;
 		}
 	}
 	
 	@Override
 	public void signUp(UserVO user) {
-		String sql = "insert into users values(?,?,?,?)";
+		String sql = "insert into users values(?,?,?)";
 		jdbcTemplate.update(sql, 
 				user.getUserEmail(),
 				user.getUserPw(),
-				user.getUserName(),
-				user.getUserPhone()
+				user.getUserName()
 				);
 	}
 

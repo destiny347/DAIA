@@ -256,7 +256,7 @@ color : white;
 </header>
 
 <!-- Script 모음 -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 // Get the modal
 var modal = document.getElementById('id01');
 var modal2 = document.getElementById('id02');
@@ -269,7 +269,7 @@ window.onclick = function(event) {
         modal2.style.display = "none";
     }
 }
-</script>
+</script> -->
 
 </body>
 </html>
