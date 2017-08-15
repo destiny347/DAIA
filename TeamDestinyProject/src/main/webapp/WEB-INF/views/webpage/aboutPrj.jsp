@@ -45,35 +45,12 @@
 </script>
 
 <style>
-.a {
-   margin: 70px 0px;
-   text-align: center;
-   font-size: 140px;
-   color: #2196F3;
-}
 
-#buttonSave {
-   background-color: #008CBA;
+#main {
+   background-image: url("https://www.iths.org/wp-content/uploads/data-analysis-title.jpg");
+   background-size: 876px 399px;
+   background-repeat: no-repeat;
 }
-
-#centerText {
-   font-style: oblique;
-   font-size: 200%;
-   color: blue;
-}
-
-#upload {
-   font-size: 150%;
-}
-
-#content4 {
-   min-width: 310px;
-   max-width: 800px;
-   height: 400px;
-   margin: 0 auto;
-   overflow: hidden;
-}
-
 #image {
    float: left;
 }
@@ -97,6 +74,48 @@
 img:hover {
     opacity: 0.8;
 }
+
+#rightimg {
+float:right;
+}
+
+.hovbutton{
+    background-color: white; 
+    border: none;
+    color: slateblue;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 4px 2px 0;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    }
+.hovbutton:hover {
+background-color: slateblue;
+color : white;
+}
+.button {
+    background-color: white; 
+    border: none;
+    color: slateblue;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 4px 2px 0;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}    
+.button:hover {
+   background-color: slateblue;
+   color : white;
+}    
+
 </style>
 
 
@@ -112,12 +131,18 @@ img:hover {
       </div>
 
       <!-- 동영상 -->
-      <p id="centerText" align="center">Big Data analysis Platform</p>
-      <div><center>웹 기반 데이터 분석 플랫폼</center></div>
-      <div><center>데이터 속 숨은 인사이트를 쉽고 빠르게 찾아보세요.</center></div>
-      <div><center>방대한 데이터와 복잡한 분석 과정을 DAIA 플랫폼에서 손쉽게 다룰 수 있습니다.</center></div>
-      <div><center>분석 과정에서 사용/변경되는 데이터를 서버와 DB에 저장하고 R의 다양한 분석 기능과 알고리즘을 제공합니다.</center></div>
-      <div><center>데이터 통계에 대한 시각화 차트와 분석 결과에 대한 가이드 라인까지, 인사이트의 발견이 더욱 간편해집니다.</center></div>
+      <div id="main">
+         <br>웹 기반 데이터 분석 플랫폼
+         <br>데이터 속 숨은 인사이트를 쉽고 빠르게 찾아보세요.
+         </div>
+         
+      <div>
+      <h3><center>방대한 데이터와 복잡한 분석 과정을 DAIA 플랫폼에서 손쉽게 다룰 수 있습니다.</h3>
+      <center>분석 과정에서 사용/변경되는 데이터를 서버와 DB에 저장하고 R의 다양한 분석 기능과 알고리즘을 제공합니다.</center>
+      <center>데이터 통계에 대한 시각화 차트와 분석 결과에 대한 가이드 라인까지, 인사이트의 발견이 더욱 간편해집니다.</center>
+      </div>
+      
+      <!-- 동영상 -->
 
       <div class="w3-row-padding" align="center">
          <iframe width="560" height="315"
@@ -126,55 +151,20 @@ img:hover {
          <a href="project.html"></a>
       </div>
       
-      <!-- phase1 -->
-      <div class="w3-row-padding">
-
-            <div id="phase1">
-            <img src="http://erotic-chaos.com/wp-content/uploads/2017/06//phase1.png" alt="Trolltunga Norway" width="200">
-            </div>
-
-
-         <!-- phase2 -->
-
-            <div id="phase2">
-                  <img 
-                     src="http://erotic-chaos.com/wp-content/uploads/2017/06/phase2.png"
-                     alt="Trolltunga Norway" width="220" height="230">
-            </div>
-
-
-         <!-- phase3 -->
-
-            <div id="phase3">
-                  <img 
-                     src="http://erotic-chaos.com/wp-content/uploads/2017/06/phase3.png"
-                     alt="Trolltunga Norway" width="220" height="230">
-            </div>
-
-
-         <!-- phase4 -->
-
-            <div id="phase4">
-                  <img 
-                     src="http://erotic-chaos.com/wp-content/uploads/2017/06/phase4.png"
-                     alt="Trolltunga Norway" width="200" height="230">
-            </div>
-
-
-         <!-- phase5-->
-
-         <div id="phase5">
-               <img 
-                  src="http://erotic-chaos.com/wp-content/uploads/2017/06/phase5.jpg"
-                  alt="Trolltunga Norway" width="230">
-         </div>
-
+      <!-- 메뉴바 -->
+      <div align="center">
+      <a href="#phase1_detail"><button class="hovbutton" style="font-size:22px; width:200;">파일관리</button></a>
+      <a href="#phase2_detail"><button class="hovbutton" style="font-size:22px; width:200;">데이터 전처리</button></a>
+      <a href="#phase3_detail"><button class="hovbutton" style="font-size:22px; width:200;">데이터 탐색</button></a>
+      <a href="#phase4_detail"><button class="hovbutton" style="font-size:22px; width:200;">데이터 재구조화</button></a>
+      <a href="#phase5_detail"><button class="hovbutton" style="font-size:22px; width:200;">분석 및 가이드라인</button></a>
       </div>
 
       <!-- 프로젝트 소개 상세 -->
       <div class="aboutprj">
+      
          <div id="phase1_detail">
-            <h3>~ 분석환경 : 파일관리와 데이터조회</h3>
+            <h3>사용자 맞춤 분석환경 : 파일관리와 데이터조회</h3>
             <div id=image>
                <img
                   src="http://erotic-chaos.com/wp-content/uploads/2017/06//phase1.png"
@@ -193,15 +183,16 @@ img:hover {
 
             </div>
          </div>
-
-         <div id="phase2_detail">
+         
+		 
+         <div id="phase2_detail" align="right">
             <h3>섬세한 데이터 정제 : 다양한 전처리 기능</h3>
-            <div id=image>
-               <img
+            <div id=rightimg align="right">
+              <img
                   src="http://erotic-chaos.com/wp-content/uploads/2017/06//phase1.png"
-                  width="200">
+                  width="200"> 
             </div>
-            <div>
+            <div>            
                <br>데이터의 각 변수에 대한 기초 통계 정보를 통해 이상치와 결측치를 확인할 수 있습니다. 
                <br>전처리 작업을 진행할 열을 선택하고 함수를 적용하세요.
                <br>해당 열의 값을 그룹별 평균으로, NA 값을 지정한 숫자로 변형시키는 함수 등 이상치와 결측치를 처리하기 위한 다양한 함수를 제공합니다.
@@ -211,8 +202,10 @@ img:hover {
                <br>
                <br>
                <br>
-               <br>
+              
+             
             </div>
+            
          </div>
 
          <div id="phase3_detail">
@@ -236,9 +229,9 @@ img:hover {
             </div>
          </div>
          
-         <div id="phase4_detail">
+         <div id="phase4_detail" align="right">
             <h3>데이터의 통합 : 테이블 재구조화</h3>
-            <div id=image>
+            <div id=rightimg align="right">
                <img
                   src="http://erotic-chaos.com/wp-content/uploads/2017/06//phase1.png"
                   width="200">

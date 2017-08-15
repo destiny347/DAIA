@@ -165,9 +165,9 @@ span.psw {
         		
         		<div>&nbsp;</div>
         		
-      			<input type="submit" class="btn btn-default" value="로그인"/>
-      			<a href="/destiny"><input type="button" class="btn btn-default" value="취소"/></a>
-      			<input type="checkbox" name="userCheck"/>기억하기
+      			<input type="submit" class="btn btn-primary" value="로그인"/>
+      			<a href="/destiny"><input type="button" class="btn btn-danger" value="취소"/></a>
+      			<!-- <input type="checkbox" name="userCheck"/>기억하기 -->
     		</div>
 			
 			

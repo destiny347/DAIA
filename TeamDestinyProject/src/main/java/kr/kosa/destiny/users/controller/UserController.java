@@ -59,8 +59,7 @@ public class UserController {
 	public String signUp(@ModelAttribute("user") UserVO user, BindingResult result, Model model, RedirectAttributes redirectAttrs) {
 		if(result.hasErrors()) {
 			return "/";
-		}
-		try {
+		} try {
 			userService.signUp(user);
 		} catch(RuntimeException e) {
 			redirectAttrs.addFlashAttribute("message", e.getMessage());

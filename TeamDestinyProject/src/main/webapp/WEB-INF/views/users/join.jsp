@@ -22,6 +22,18 @@
 <!-- jQuery -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script>
+function myFunction() {
+    var txt;
+    if (confirm("회원가입 하시겠습니까?") == true) {
+        txt = "회원가입 되었습니다.";
+    } else {
+        txt = "회원가입이 취소 되었습니다.";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
 </head>
 
 <body>
@@ -89,7 +101,7 @@
 				
 				<div class="form-group">
           			<div class="col-sm-6 text-center">
-            		<input class="btn btn-primary"  type="submit" value="회원가입"/> <!-- onclick="return confirm('회원 가입을 완료하시겠습니까?')" -->
+            		<input class="btn btn-primary" type="submit" value="회원가입"/> <!-- onclick="return confirm('회원 가입을 완료하시겠습니까?')" -->
             		<a href="/destiny"><input class="btn btn-danger" type="button" value="취소"/></a> <!-- onclick="document.getElementById('id02').style.display='none'" -->
                		</div>
         		</div>

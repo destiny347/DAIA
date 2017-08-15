@@ -110,8 +110,10 @@ color : white;
    </div>
 
 	<div class="w3-right">
-    	<h4>[${user.userName}]님 환영합니다.</h4>        
-		<a href="/destiny/users/logout"><button class="btn btn-default" onclick="return confirm('정말로 로그아웃하시겠습니까?')">로그아웃</button></a>
+    	<h4>[${user.userName}]님 환영합니다.</h4>   
+    	<a href=""><button class="btn btn-primary">마이페이지</button></a>     
+		<a href="/destiny/users/logout"><button class="btn btn-danger" onclick="return confirm('정말로 로그아웃하시겠습니까?')">로그아웃</button></a>
+		
     </div>
    
   	</div> <!-- End Container -->

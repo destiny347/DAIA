@@ -69,7 +69,7 @@ $(".button").bind("click", function() {
 }
 
 .side-menu table {
-	width: 220px;
+	width: 200px;
 	height: 230px;
 	color: white;
 }
@@ -100,7 +100,7 @@ $(".button").bind("click", function() {
  		<table>
  		<tr>
  			<td><a href="/destiny/upload/list">파일관리</a></td>
- 			<td rowspan="7">&nbsp;&nbsp;<i class="fa fa-angle-double-right fa-3x"></i></td>
+ 			<td rowspan="7">&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right fa-2x"></i></td>
  		</tr>
 		<tr>
 			<td><a href="/destiny/analytics/handling">데이터 전처리</a></td>

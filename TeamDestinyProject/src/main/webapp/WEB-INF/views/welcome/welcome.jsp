@@ -38,9 +38,9 @@
                         </div> 
                     </div>
                </div>
-	<div style="width: 100%; height: 500px; border:1px solid black;">
+	<!-- <div style="width: 100%; height: 500px; border:1px solid black;">
 		메인페이지2
-	</div>
+	</div> -->
 </div>
 
 <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
