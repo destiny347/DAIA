@@ -3,7 +3,7 @@ package kr.kosa.destiny.analytics.model;
 public class SampleVO1 {
 
 	private String name;
-	private int data;
+	private double[] data;
 	private double y;
 	private Marker marker;
 	public String getName() {
@@ -12,10 +12,10 @@ public class SampleVO1 {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getData() {
+	public double[] getData() {
 		return data;
 	}
-	public void setData(int data) {
+	public void setData(double[] data) {
 		this.data = data;
 	}
 	public double getY() {

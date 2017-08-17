@@ -16,6 +16,11 @@ public class UserService implements IUserService {
 	public void signUp(UserVO user) {
 		userRepository.signUp(user);
 	}
+	
+	@Override
+	public void updateInfo(UserVO user) {
+		userRepository.updateInfo(user);
+	}
 
 	@Override
 	public boolean checkPassword(String userEmail, String userPw) {

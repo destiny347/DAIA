@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,33 +47,25 @@
 
 <style>
 
-#main {
-   background-image: url("https://www.iths.org/wp-content/uploads/data-analysis-title.jpg");
-   background-size: 876px 399px;
-   background-repeat: no-repeat;
-}
 #image {
    float: left;
+   display: block;
 }
 
-#phase1 {
-   float: left;
+#phase1_detail>#image:hover #phase1_image{
+margin: 10px 10px 10px 0;
+opacity: 1;
+width:300px;
 }
 
-#phase2 {
-   float: left;
-}
+#phase1_image {
+width:0;
+  position: #phase1_detail>#image;
+  overflow: hidden;
 
-#phase3 {
-   float: left;
-}
-
-#phase4 {
-   float: left;
-}
-
-img:hover {
-    opacity: 0.8;
+  transition: .5s ease;
+  opacity: 0;
+  
 }
 
 #rightimg {
@@ -93,10 +86,12 @@ float:right;
     transition-duration: 0.4s;
     cursor: pointer;
     }
+    
 .hovbutton:hover {
 background-color: slateblue;
 color : white;
 }
+
 .button {
     background-color: white; 
     border: none;
@@ -114,7 +109,15 @@ color : white;
 .button:hover {
    background-color: slateblue;
    color : white;
-}    
+} 
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+div{
+font-family: 'Noto Sans KR', sans-serif;
+font-weight:300;
+font-size: 17px;
+}
+
 
 </style>
 
@@ -130,25 +133,40 @@ color : white;
          <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
       </div>
 
-      <!-- 동영상 -->
-      <div id="main">
-         <br>웹 기반 데이터 분석 플랫폼
-         <br>데이터 속 숨은 인사이트를 쉽고 빠르게 찾아보세요.
-         </div>
+      <!-- 메인 -->
+      
+      <!-- Image header -->
+         <div class="w3-display-container">
+            <!--  w3-container -->
+            <img
+               src="http://synectique.eu/images/Process-analysis.jpg"
+               alt="Jeans" style="width: 100%">
+            <div class="w3-display-topright w3-text-white"
+               style="padding: 70px 700px">
+               <h1 class="w3-jumbo w3-hide-small" align="right">DAIA</h1>
+               데이터 속 숨은 인사이트를 쉽고 빠르게 찾아보세요.
+               <h1 class="w3-hide-large w3-hide-medium">2017</h1>
+
+            </div>
+            
+      <div id="main"></div>
          
-      <div>
-      <h3><center>방대한 데이터와 복잡한 분석 과정을 DAIA 플랫폼에서 손쉽게 다룰 수 있습니다.</h3>
+      <div><br><br>
+      <h3><center>방대한 데이터와 복잡한 분석 과정을<br>DAIA 플랫폼에서 손쉽게 다룰 수 있습니다.</h3><br><br>
       <center>분석 과정에서 사용/변경되는 데이터를 서버와 DB에 저장하고 R의 다양한 분석 기능과 알고리즘을 제공합니다.</center>
       <center>데이터 통계에 대한 시각화 차트와 분석 결과에 대한 가이드 라인까지, 인사이트의 발견이 더욱 간편해집니다.</center>
+      
       </div>
       
       <!-- 동영상 -->
 
       <div class="w3-row-padding" align="center">
+      <br>
          <iframe width="560" height="315"
             src="https://www.youtube.com/embed/vyRC1bUAwFE" frameborder="0"
             allowfullscreen></iframe>
          <a href="project.html"></a>
+         <br>
       </div>
       
       <!-- 메뉴바 -->
@@ -164,33 +182,36 @@ color : white;
       <div class="aboutprj">
       
          <div id="phase1_detail">
-            <h3>사용자 맞춤 분석환경 : 파일관리와 데이터조회</h3>
-            <div id=image>
+            <h3>사용자 맞춤 분석환경  |  파일관리와 데이터조회</h3>
+            <div id="image">
                <img
                   src="http://erotic-chaos.com/wp-content/uploads/2017/06//phase1.png"
-                  width="200">
-            </div>
+                  width="300">
+               <div id="phase1_image">
+               <img 
+               src="http://postfiles3.naver.net/MjAxNzA4MTdfMTc4/MDAxNTAyOTUxODAyNzY2.VAVk17YUBk098KVp1Y3XqnfRwIsxf-AlAZZi3x0A2TIg.ruqRVA4lgzj5M2-TMTTBW1wE_Np7pDFVstYiUJoOxGwg.PNG.ehdqkdmh/table.PNG?type=w1"
+               ></div>
+               
+               </div>
             <div>
-               <br>분석 파일을 csv 형식으로 업로드 해 주세요.
-               <br>DB에 저장된 파일의 목록을 언제든지 조회할 수 있습니다.<br> 
-               <br>데이터 분석 과정에 사용할 수 있도록 테이블 형식으로 변형하여 구조를 보기 쉽게 화면에 출력해 줍니다. 
-               <br>테이블의 열을 체크하여 변수 각각에 대한 전처리 작업을 빠르게 진행할 수 있습니다. 
-               <br>분석 단계마다 도출된 결과를 DB에 저장하여 변경 내용을 조회하고, 다른 데이터와의 결합에도 사용할 수 있습니다. 
+               <br> 분석 파일을 csv 형식으로 업로드 해 주세요.
+               <br> DB에 저장된 파일의 목록을 언제든지 조회할 수 있습니다.<br> 
+               <br> 데이터 분석 과정에 사용할 수 있도록 테이블 형식으로 변형하여 구조를 보기 쉽게 화면에 출력해 줍니다. 
+               <br> 테이블의 열을 체크하여 변수 각각에 대한 전처리 작업을 빠르게 진행할 수 있습니다. 
+               <br> 분석 단계마다 도출된 결과를 DB에 저장하여 변경 내용을 조회하고, 다른 데이터와의 결합에도 사용할 수 있습니다. 
                <br>
                <br>
-               <br>
-               <br>
-
             </div>
          </div>
+
          
-		 
+       
          <div id="phase2_detail" align="right">
             <h3>섬세한 데이터 정제 : 다양한 전처리 기능</h3>
             <div id=rightimg align="right">
               <img
                   src="http://erotic-chaos.com/wp-content/uploads/2017/06//phase1.png"
-                  width="200"> 
+                  width="300"> 
             </div>
             <div>            
                <br>데이터의 각 변수에 대한 기초 통계 정보를 통해 이상치와 결측치를 확인할 수 있습니다. 
@@ -213,7 +234,7 @@ color : white;
             <div id=image>
                <img
                   src="http://erotic-chaos.com/wp-content/uploads/2017/06//phase1.png"
-                  width="200">
+                  width="300">
             </div>
             <div>
                <br>관계를 파악하고 싶은 데이터 열과 그래프 형태를 선택해 주세요.
@@ -234,7 +255,7 @@ color : white;
             <div id=rightimg align="right">
                <img
                   src="http://erotic-chaos.com/wp-content/uploads/2017/06//phase1.png"
-                  width="200">
+                  width="300">
             </div>
             <div>
                <br>테이블 구조를 변형 시키기 위한 기능을 제공합니다.
@@ -254,7 +275,7 @@ color : white;
             <div id=image>
                <img
                   src="http://erotic-chaos.com/wp-content/uploads/2017/06//phase1.png"
-                  width="200">
+                  width="300">
             </div>
             <div>
                <br>다양한 분석 방법과 머신러닝 알고리즘을 제공합니다. 분석에 사용할 알고리즘을 선택해 주세요.

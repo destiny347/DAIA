@@ -12,4 +12,7 @@ public interface IUserRepository {
 	
 	//ID추출
 	UserVO selectUserByUserEmail(String userEmail);
+	
+	//정보 수정
+	void updateInfo(UserVO user);
 }

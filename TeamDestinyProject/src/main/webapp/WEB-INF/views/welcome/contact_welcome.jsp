@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,29 +21,65 @@
 <!-- jQuery -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function() {
+   $("#send").click(function(){   
+       alert("메일 감사합니다.");
+      
+   });
+});
+</script>
+
 <title>Contact US</title>
 </head>
-
+<style>
+#map {
+   height: 400px;
+   width: 100%;
+}
+</style>
 <body>
-<jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
+   <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
+   <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
-	<div class="container">
-	<div class="" id="contact">
-		<h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
-		<p>Lets get in touch and talk about your and our next project.</p>
-		<form action="/action_page.php" target="_blank">
-			<input class="w3-input" type="text" placeholder="Name" required name="Name"> 
-			<input class="w3-input w3-section" type="text" placeholder="Email" required name="Email"> 
-			<input class="w3-input w3-section" type="text" placeholder="Subject" required name="Subject"> 
-			<input class="w3-input w3-section" type="text" placeholder="Comment" required name="Comment">
-				<button class="w3-button w3-blue w3-section" type="submit">
-					<i class="fa fa-paper-plane"></i> SEND MESSAGE
-				</button>
-		</form>
-	</div>
-	</div>
-	
-<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+   <div class="container">
+
+
+      <h1>Map</h1>
+      <div id="map"></div>
+      <script>
+      function initMap() {
+        var uluru = {lat: 37.495361, lng: 127.122376};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 17,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMOH8JKPTynKmgWaKl6wSfkyt7CGj4Nl0&callback=initMap">
+    </script>
+
+      <div class="col-sm-6" id="contact" >
+         <h1 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h1>
+         <p>Lets get in touch and talk about your and our next project.</p>
+         <form action="/action_page.php" target="_blank">
+            <input class="w3-input" type="text" placeholder="Name" required
+               name="Name"> <input class="w3-input w3-section" type="text"
+               placeholder="Email" required name="Email"> <input
+               class="w3-input w3-section" type="text" placeholder="Subject"
+               required name="Subject"> <input class="w3-input w3-section"
+               type="text" placeholder="Comment" required name="Comment">
+            <button class="w3-button w3-blue w3-section" type="button" id="send">
+               <i class="fa fa-paper-plane"></i> SEND MESSAGE
+            </button>
+         </form>
+      </div>
+   </div>
+
+   <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </body>
 </html>

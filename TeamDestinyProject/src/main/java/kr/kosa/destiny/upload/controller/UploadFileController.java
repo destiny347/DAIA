@@ -1,6 +1,7 @@
 package kr.kosa.destiny.upload.controller;
 
 import java.nio.charset.Charset;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +12,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.kosa.destiny.analytics.service.IAnalyticsService;
 import kr.kosa.destiny.upload.model.UploadFileVO;
 import kr.kosa.destiny.upload.service.IUploadFileService;
 
@@ -27,6 +30,8 @@ public class UploadFileController {
 
    @Autowired
    IUploadFileService imageService;
+   @Autowired
+   IAnalyticsService analyticsService;
    
    @RequestMapping(value="/upload", method=RequestMethod.GET)
    public String home() {
@@ -72,11 +77,21 @@ public class UploadFileController {
    
    @RequestMapping("/upload/list")
    public String getImageList(Model model) {
-	   UploadFileVO file = new UploadFileVO();
+      UploadFileVO file = new UploadFileVO();
       model.addAttribute("fileList", imageService.getAllFileList());
       return "/upload/list";
    }
+   @RequestMapping("/upload/select")
+   public String selectFile(@RequestBody Map<String, Integer> request, Model model) {
+      int chkValue = request.get("dd");
+//      System.out.println(chkValue);
+//      model.addAttribute("rSummary", analyticsService.getSummary(chkValue));
+      System.out.println(chkValue);
+      model.addAttribute("result", analyticsService.getSummary(chkValue));
 
+      
+      return "/upload/okModal";
+   }
    @RequestMapping("/upload/list/{dir}")
    public String getFileListByDir(@PathVariable String dir, Model model) {
       model.addAttribute("fileList", imageService.getFileList("/"+dir));

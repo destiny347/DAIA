@@ -22,7 +22,6 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
 <title>header</title>
 
 <style>
@@ -106,28 +105,43 @@ span.psw {
 		<!-- w3 컨테이너 지우고 헤드헤드 클래스로 작업함! -->
 		<div class="headhead">
 			<div class="container">
-				<div class="logo" align="center">
-					<a href="/destiny/"> <img
-						src="http://erotic-chaos.com/wp-content/uploads/2017/08/Logo_Destiny.png"
-						style="width: 100px; height: 100px; border: 0">
-					</a>
+				<div class="col-sm-3">
+					<a href="/destiny">
+        			<img src="http://erotic-chaos.com/wp-content/uploads/2017/08/daia_logo.png" style="width:auto%; height:55px;">
+       				</a>
 				</div>
 
 				<!-- 부트스트랩 씌우고 테이블 버튼을 span에 버튼형식으로 추가함. -->
-				<div class="leftmenu-group col-sm-9 nt400">
+				<div class="leftmenu-group nt400" align="right">
 					<!-- <span class="mainmenu"><a class="button" style="cursor:pointer;"><i class="fa fa-list-ul" style="font-size: 30px"></i></a></span> -->
-					<span class="mainmenu"><a href="/destiny/aboutPrj"><button class="hovbutton" style="font-size: 22px; width: auto;">프로젝트 소개</button></a></span> 
-					<span class="mainmenu"><a href="/destiny/aboutUs"><button class="hovbutton" style="font-size: 22px; width: auto;">팀 소개</button></a></span> 
-					<span class="mainmenu"><a href="/destiny/board"><button class="hovbutton" style="font-size: 22px; width: auto;">게시판</button></a></span>
-					<span class="mainmenu"><a href="/destiny/contact"><button class="hovbutton" style="font-size: 22px; width: auto;">Contact</button></a></span>
+					<span class="mainmenu"><a href="/destiny/aboutPrj"><button class="hovbutton" style="font-size:17px; width:auto; height: 60px;">프로젝트 소개</button></a></span>
+					<span class="mainmenu"><a href="/destiny/aboutUs"><button class="hovbutton" style="font-size:17px; width:auto; height: 60px;">팀 소개</button></a></span>
+					<span class="mainmenu"><a href="/destiny/board"><button class="hovbutton" style="font-size:17px; width:auto; height: 60px;">FAQ</button></a></span>
+					<span class="mainmenu"><a href="/destiny/contact"><button class="hovbutton" style="font-size:17px; width:auto; height: 60px;">Contact</button></a></span>
+					
+					<div class="rightlogin w3-right" style="padding: 17px;">
+						<a href="/destiny/users/login"><button id="login" class="btn btn-default" style="font-size:14px; width: auto; height: 30px;">로그인</button></a>	<!-- onclick="document.getElementById('id01').style.display='block'"  -->
+						<a href="/destiny/users/join"><button id="join"	class="btn btn-default" style="font-size:14px; width: auto; height: 30px;">회원가입</button></a>	<!-- onclick="document.getElementById('id02').style.display='block'"  -->
+					</div>
 				</div>
 
 				<!-- login -->
-				<div class="rightlogin col-sm-3 nt400" align="right">
-					<!-- Button to open the modal login form -->
-					<a href="/destiny/users/login"><button id="login" class="btn btn-default" style="width: auto;">로그인</button></a>	<!-- onclick="document.getElementById('id01').style.display='block'"  -->
-					<a href="/destiny/users/join"><button id="join"	class="btn btn-default" style="width: auto;">회원가입</button></a>	<!-- onclick="document.getElementById('id02').style.display='block'"  -->
-				</div>
+				
+				
+					<%-- <div class="leftmenu-group nt400" align="right">
+		<!-- <span class="mainmenu"><a class="button" style="cursor:pointer;"><i class="fa fa-list-ul" style="font-size: 30px"></i></a></span> -->
+		<span class="mainmenu"><a href="/destiny/greeting/aboutPrj"><button class="hovbutton" style="font-size:17px; width:auto; height: 60px;">프로젝트 소개</button></a></span>
+		<span class="mainmenu"><a href="/destiny/greeting/aboutUs"><button class="hovbutton" style="font-size:17px; width:auto; height: 60px;">팀 소개</button></a></span>
+		<span class="mainmenu"><a href="/destiny/greeting/board"><button class="hovbutton" style="font-size:17px; width:auto; height: 60px;">FAQ</button></a></span>
+		<span class="mainmenu"><a href="/destiny/greeting/contact"><button class="hovbutton" style="font-size:17px; width:auto; height: 60px;">Contact</button></a></span>
+		
+		<div class="w3-right" style="padding: 17px;">
+    		   
+    		<a href=""><button class="btn btn-primary" style="font-size:14px; width: 100px; height: 30px;" >마이페이지</button></a>     
+			<a href="/destiny/users/logout"><button class="btn btn-danger" style="font-size:14px; width: 100px; height: 30px;" onclick="return confirm('정말로 로그아웃하시겠습니까?')">로그아웃</button></a>
+			<p>[${user.userName}]님 환영합니다.</p>
+		</div>
+   </div> --%>
 
 				<!-- 	<div id="id01" class="modal">
    		<form class="modal-content animate" action="greeting" method="post">

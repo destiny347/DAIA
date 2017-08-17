@@ -33,94 +33,106 @@ public class AnalyticsService implements IAnalyticsService {
 	@Autowired
 	IUploadFileService fileService;
 
-	   @Override
-	   public ArrayList<SampleVO> getCsvFile() {
-	      ArrayList<SampleVO> getCsv = new ArrayList<SampleVO>();
-	      try {
-	         rEngine.eval("setwd(\"c:R/Workplace\")");
-	         rEngine.eval(
-	               "(data_cust <- read.csv(\"BGCON_CUST_DATA.csv\", header=TRUE, sep=\",\", encoding=\"cp949\", fileEncoding = \"UCS-2\"))");
-	         rEngine.eval("(cnt_siu <- table(data_cust$SIU_CUST_YN))");
-	         rEngine.eval("(names(cnt_siu) <- c(\"분석대상\", \"정상인\", \"사기자\"))");
-	         REXP result = rEngine.eval("as.vector(cnt_siu)");
-	         REXP result1 = rEngine.eval("names(cnt_siu)");
+    @Override
+    public ArrayList<SampleVO> getCsvFile() {
+       ArrayList<SampleVO> getCsv = new ArrayList<SampleVO>();
+       try {
+          rEngine.eval(
+                "(data_cust <- read.csv(\"http://erotic-chaos.com/wp-content/uploads/2017/08/cust_data.csv\", header=TRUE, sep=\",\", encoding=\"utf-8\", fileEncoding = \"utf-8\"))");
+          rEngine.eval("(cnt_siu <- table(data_cust$SIU_CUST_YN))");
+          rEngine.eval("(names(cnt_siu) <- c(\"분석대상\", \"정상인\", \"사기자\"))");
+          REXP result = rEngine.eval("as.vector(cnt_siu)");
+          REXP result1 = rEngine.eval("names(cnt_siu)");
 
-	         int resultList[] = result.asIntArray();
-	         String resultList1[] = result1.asStringArray();
+          int resultList[] = result.asIntArray();
+          String resultList1[] = result1.asStringArray();
 
-	         for (int i = 1; i < resultList.length; i++) {
-	            SampleVO sample1 = new SampleVO();
-	            sample1.setName(resultList1[i]);
-	            sample1.setY(resultList[i]);
-	            getCsv.add(sample1);
-	         }
+          for (int i = 1; i < resultList.length; i++) {
+             SampleVO sample1 = new SampleVO();
+             sample1.setName(resultList1[i]);
+             sample1.setY(resultList[i]);
+             getCsv.add(sample1);
+          }
 
-	      } catch (Exception e) {
-	         logger.error(e.getMessage());
-	         throw new RuntimeException(e);
-	      }
-	      return getCsv;
-	   }
+       } catch (Exception e) {
+          logger.error(e.getMessage());
+          throw new RuntimeException(e);
+       }
+       return getCsv;
+    }
 
-	   @Override
-	   public ArrayList<SampleVO> getMarriedSiu() {
-	      ArrayList<SampleVO> getMarried = new ArrayList<SampleVO>();
-	      try {
-	         rEngine.eval(
-	               "(data_cust <- read.csv(\"http://erotic-chaos.com/wp-content/uploads/2017/08/data_cust_1-1.csv\", header=TRUE, sep=\",\", encoding=\"utf-8\", fileEncoding = \"utf-8\"))");
-	         rEngine.eval("(cnt_wedd <- table(subset(data_cust, select=WEDD_YN, subset=(data_cust$SIU_CUST_YN==1))))");
-	         rEngine.eval("(names(cnt_wedd) <- c(\"미혼사기자\", \"결혼사기자\"))");
-	         REXP result = rEngine.eval("as.vector(cnt_wedd)");
-	         REXP result1 = rEngine.eval("names(cnt_wedd)");
-	         
+    @Override
+    public ArrayList<SampleVO> getMarriedSiu() {
+       ArrayList<SampleVO> getMarried = new ArrayList<SampleVO>();
+       try {
+          rEngine.eval(
+                "(data_cust <- read.csv(\"http://erotic-chaos.com/wp-content/uploads/2017/08/data_cust_1-1.csv\", header=TRUE, sep=\",\", encoding=\"utf-8\", fileEncoding = \"utf-8\"))");
+          rEngine.eval("(cnt_wedd <- table(subset(data_cust, select=WEDD_YN, subset=(data_cust$SIU_CUST_YN==1))))");
+          rEngine.eval("(names(cnt_wedd) <- c(\"미혼사기자\", \"결혼사기자\"))");
+          REXP result = rEngine.eval("as.vector(cnt_wedd)");
+          REXP result1 = rEngine.eval("names(cnt_wedd)");
+          
 
-	         int resultList[] = result.asIntArray();
-	         String resultList1[] = result1.asStringArray();
+          int resultList[] = result.asIntArray();
+          String resultList1[] = result1.asStringArray();
 
-	         for (int i = 0; i < resultList1.length; i++) {
-	            SampleVO sample1 = new SampleVO();
-	            sample1.setName(resultList1[i]);
-	            sample1.setY(resultList[i]);
-	            getMarried.add(sample1);
-	         }
+          for (int i = 0; i < resultList1.length; i++) {
+             SampleVO sample1 = new SampleVO();
+             sample1.setName(resultList1[i]);
+             sample1.setY(resultList[i]);
+             getMarried.add(sample1);
+          }
 
-	            
-	      } catch (Exception e) {
-	         logger.error(e.getMessage());
-	         throw new RuntimeException(e);
-	      }
-	      return getMarried;
-	   }
+             
+       } catch (Exception e) {
+          logger.error(e.getMessage());
+          throw new RuntimeException(e);
+       }
+       return getMarried;
+    }
 
-	// 꺾은선 그래프로 등급별 사기자 수 확인하려고 했는데 일단 보류!!!
-	/*
-	 * @Override public ArrayList<SampleVO1> getBymincrdt() {
-	 * ArrayList<SampleVO1> siuList = new ArrayList<SampleVO1>(); try {
-	 * rEngine.eval("setwd(\"c:R/Workplace\")"); rEngine.
-	 * eval("(data_cust <- read.csv(\"BGCON_CUST_DATA.csv\", header=TRUE, sep=\",\", encoding=\"cp949\", fileEncoding = \"UCS-2\"))"
-	 * ); rEngine.
-	 * eval("(yn_to_10 <- function(row){if(row==\"Y\" row = 1 else if(row==\"N\") row = 0  else row = \"\")})"
-	 * ); rEngine.
-	 * eval("(data_cust$SIU_CUST_YN <- sapply(data_cust$SIU_CUST_YN, yn_to_10))"
-	 * ); rEngine.
-	 * eval("(na_to_6 <- function(row){if(is.na(row)) row = 6 else row = row})"
-	 * );
-	 * rEngine.eval("(data_cust$MINCRDT <- sapply(data_cust$MINCRDT, na_to_6))"
-	 * ); rEngine.
-	 * eval("(count_by_crdt <- table(subset(data_cust, select = MINCRDT, subset=(data_cust$SIU_CUST_YN==1))))"
-	 * ); REXP result = rEngine.eval("as.vector(count_by_crdt)"); rEngine.
-	 * eval("(names(count_by_crdt) <- c(\"등급없음\",\"1등급\",\"2등급\",\"3등급\",\"4등급\",\"5등급\",\"6등급\",\"7등급\",\"8등급\",\"9등급\",\"10등급\")"
-	 * ); REXP result1 = rEngine.eval("names(count_by_crdt)");
-	 * 
-	 * int resultList[] = result.asIntArray(); String resultList1[] =
-	 * result1.asStringArray();
-	 * 
-	 * for (int i=0; i<resultList.length; i++){ SampleVO1 sample1 = new
-	 * SampleVO1(); sample1.setName(resultList1[i]);
-	 * sample1.setData(resultList[i]); siuList.add(sample1); } } catch
-	 * (Exception e) { logger.error(e.getMessage()); throw new
-	 * RuntimeException(e); } return siuList; }
-	 */
+    @Override
+    public ArrayList<SampleVO1> getBlackML(){
+       ArrayList<SampleVO1> getBlack = new ArrayList<SampleVO1>();
+       try{
+          rEngine.eval("(fun_fmeasure <- function(table){\n"
+                + "precision <- table[2,2]/(table[1,2]+table[2,2])\n"
+                + "recall <- table[2,2]/(table[2,1]+table[2,2])\n"
+                + "return(2*precision*recall/(precision+recall))})");
+          
+          rEngine.eval("(result1 <- read.csv(\"http://erotic-chaos.com/wp-content/uploads/2017/08/result_xgboost.csv\", header=TRUE, sep=\",\", encoding=\"utf-8\", fileEncoding = \"utf-8\"))");
+          rEngine.eval("(temp1 <- table(result1$SIU_CUST_YN, result1$predicted_yn))");
+          REXP result1 = rEngine.eval("(fun_fmeasure(temp1))");
+          
+          rEngine.eval("(result2 <- read.csv(\"http://erotic-chaos.com/wp-content/uploads/2017/08/result_nnet.csv\", header=TRUE, sep=\",\", encoding=\"utf-8\", fileEncoding = \"utf-8\"))");
+          rEngine.eval("(temp2 <- table(result2$SIU_CUST_YN, result2$SIU_CUST_YN.1))");
+          REXP result2 = rEngine.eval("(fun_fmeasure(temp2))");
+          
+          rEngine.eval("(result3 <- read.csv(\"http://erotic-chaos.com/wp-content/uploads/2017/08/result_svm.csv\", header=TRUE, sep=\",\", encoding=\"utf-8\", fileEncoding = \"utf-8\"))");
+          rEngine.eval("(temp3 <- table(result3$SIU_CUST_YN, result3$svm_predicted_data))");
+          REXP result3 = rEngine.eval("(fun_fmeasure(temp3))");
+          
+          SampleVO1 sample1 = new SampleVO1();
+          sample1.setName("XG_Boost 검정값");
+          sample1.setData(result1.asDoubleArray());
+          getBlack.add(sample1);
+          
+          SampleVO1 sample2 = new SampleVO1();
+          sample2.setName("NNET 검정값");
+          sample2.setData(result2.asDoubleArray());
+          getBlack.add(sample2);
+          
+          SampleVO1 sample3 = new SampleVO1();
+          sample3.setName("E1071 검정값");
+          sample3.setData(result3.asDoubleArray());
+          getBlack.add(sample3);
+          
+       } catch (Exception e) {
+             logger.error(e.getMessage());
+             throw new RuntimeException(e);
+          }
+          return getBlack;
+    }
 
 	@Override
 	public ArrayList<SampleVO> analyticsDatabase(int fileId) {
@@ -343,7 +355,7 @@ public class AnalyticsService implements IAnalyticsService {
 
 		rEngine.eval("Sys.setlocale(category=\"LC_ALL\", locale=\"English_United States.1252\")");
 
-		rEngine.eval("data <- read.table(text=data, sep=\",\", fill=TRUE, header=TRUE, stringsAsFactors=FALSE, skipNul=TRUE, encoding=\"UTF-8\", fileEncoding=\"UTF-8\")");
+		rEngine.eval("dataFrame <- read.table(text=data, sep=\",\", fill=TRUE, header=TRUE, stringsAsFactors=FALSE, skipNul=TRUE, encoding=\"UTF-8\", fileEncoding=\"UTF-8\")");
 
 		//R에서 dataFrame을 summary 해서 dfSummary에 저장, REXP 클래스 타입의 summary 객체 생성 
 		REXP summary = rEngine.eval("(dfSummary <- summary(dataFrame))");
@@ -365,6 +377,7 @@ public class AnalyticsService implements IAnalyticsService {
 
 		return rData;	//rData 맵 리턴
 	}
+
 
 
 	@Override
@@ -401,73 +414,94 @@ public class AnalyticsService implements IAnalyticsService {
 	// 전처리 파트
 
 	@Override
-	public Map<String, Object> ynTo10(String[] column) {
-		Map<String, Object> rData = new Hashtable<String, Object>();
-		// Y, N 값을 1, 0으로 변환시키는 함수 정의
-		rEngine.eval("yn_to_10 <- function(row){if(row=='Y') row=1 else if(row=='N') row=0 else row=''}");
+	public List<Map<String, String[]>> ynTo10(String[] column) {
+
+		List<Map<String, String[]>> rData = new ArrayList<Map<String, String[]>>();	
+
+		rEngine.eval("yn_to_10 <- function(row){if(row=='Y') row='1' else if(row=='N') row='0' else row=''}");
 
 		// Y, N 값이 있는 열에 yn_to_10 적용
 		for(int i=0; i<column.length; i++) {
-			rEngine.eval("data$" + column[i] + " <- sapply(data$" + column[i] + ", yn_to_10)");
-			
-			System.out.println(column[i]);
-		}
+			Map<String, String[]> tmp = new Hashtable<String, String[]>();		
+			String ta = column[i];
+			rEngine.eval("data$" + ta + " <- sapply(data$" + ta + ", yn_to_10)");
+			REXP column2 = rEngine.eval("head(data$" + ta + ", 5)");
+			System.out.println(column2);
+			//			switch(column2.rtype) {
+			//			case REXP.STRSXP :
+			//			}
 
-
-		REXP result = rEngine.eval("data$" + column[0]);
-		System.out.println(result);
+			tmp.put(column[i], column2.asStringArray());
+			rData.add(tmp);	
+		}		
 
 		return rData;
 	} 
 
 	@Override
-	public Map<String, Object> nullToN(String[] column) {
-		Map<String, Object> rData = new Hashtable<String, Object>();
+	public List<Map<String, String[]>> nullToN(String[] column) {
+		List<Map<String, String[]>> rData = new ArrayList<Map<String, String[]>>();	
 		// null 값을 N으로 변환시키는 함수 정의
 		rEngine.eval("nullstring_to_N <- function(row){if(row==\"N\") row=\"N\" else if(row==\"Y\") row=\"Y\" else row=\"N\"}");
 		// null 값이 있는 행을 N으로
 		for(int i=0; i<column.length; i++) {
-			rEngine.eval("data$" + column[i] + "<- sapply(data$" + column[i] + ", nullstring_to_N)");
-			System.out.println(column[i]);
-		}
-		REXP result = rEngine.eval("data");
-		System.out.println(result);
+			Map<String, String[]> tmp = new Hashtable<String, String[]>();		
+			String ta = column[i];
+			rEngine.eval("data$" + ta + " <- sapply(data$" + ta + ", nullstring_to_N)");
+			REXP column2 = rEngine.eval("head(data$" + ta + ", 5)");
+			System.out.println(column2);
+			//			switch(column2.rtype) {
+			//			case REXP.STRSXP :
+			//			}
+
+			tmp.put(column[i], column2.asStringArray());
+			rData.add(tmp);	
+		}		
 
 		return rData;
 	}
-	
+
 	@Override
-	public Map<String, Object> naTo6(String[] column) {
-		Map<String, Object> rData = new Hashtable<String, Object>();
-		
-		rEngine.eval("na_to_6 <- function(row) {if(row==\"-2147483648\") row=6 else row=row}");
+	public List<Map<String, String[]>> naTo6(String[] column) {
+		List<Map<String, String[]>> rData = new ArrayList<Map<String, String[]>>();	
+
+		rEngine.eval("(na_to_6 <- function(row) {if(row==\"-2147483648\") row=6 else row=row})");
 
 		for(int i=0; i<column.length; i++) {
+			Map<String, String[]> tmp = new Hashtable<String, String[]>();		
+
 			rEngine.eval("data$" + column[i] + " <- sapply(data$" + column[i] + ", na_to_6)");
-			
-			System.out.println(column[i]);
-		}
+			REXP column2 = rEngine.eval("head(data$" + column[i] + ", 5)");
+			System.out.println(column2);
 
 
-		REXP result = rEngine.eval("data$" + column[0]);
-		System.out.println(result);
+			tmp.put(column[i], column2.asStringArray());
+			rData.add(tmp);	
+		}		
 
 		return rData;
 	} 
-	
-	
-	
+
+
+
 	@Override
-	public Map<String, Object> naToNumber(String[] column, int number) {
-		Map<String, Object> rData = new Hashtable<String, Object>();
+	public List<Map<String, String[]>> naToNumber(String[] column, int number) {
+		List<Map<String, String[]>> rData = new ArrayList<Map<String, String[]>>();
 		// NA 값을 입력 숫자로 변환시키는 함수 정의
 		rEngine.eval("na_to_num <- function(row){if(is.na(row)) row=" + number + " else row=row}");
 		// NA 값이 있는 열에 na_to_num 적용
-		rEngine.eval("data$" + column + "<- sapply(data$" + column + ", na_to_num)");
 
-		REXP result = rEngine.eval("data$" + column[0]);
-		System.out.println(result);
-				
+		for(int i=0; i<column.length; i++) {
+			Map<String, String[]> tmp = new Hashtable<String, String[]>();		
+
+			rEngine.eval("data$" + column[i] + " <- sapply(data$" + column[i] + ", na_to_num)");
+			REXP column2 = rEngine.eval("head(data$" + column[i] + ", 5)");
+			System.out.println(column2);
+
+			tmp.put(column[i], column2.asStringArray());
+			rData.add(tmp);	
+		}	
+
 		return rData;
 	}
 
@@ -639,25 +673,17 @@ public class AnalyticsService implements IAnalyticsService {
 	}
 
 	//   저장된 데이터의 모든 열을 대상으로 cast 진행 (재구조화 대상 열을 선택하고 별도의 파일로 저장한 상태에서 실행)
-	 @Override
-     public void getRestructuredData(String ...args) {
-//        rEngine.eval("setwd('D:/Projects/DAIA_R Prj/Workplace')");
-//        rEngine.eval("data_claim<-read.csv('data/BGCON_CLAIM_DATA.csv', header=TRUE, sep=',', encoding='CP949', fileEncoding='UCS-2')");
-        rEngine.eval("acci_dmnd_count<-table(data_claim$"+args[0]+", data_claim$"+args[1]+", data_claim$"+args[2]+")");
-        rEngine.eval("acci_dmnd_count<-as.data.frame(acci_dmnd_count)");
-         
-        REXP cols = rEngine.eval("names(acci_dmnd_count)<-c('"+args[0]+"', '"+args[1]+"', '"+args[2]+"', 'value')");
-        String[] colnames = cols.asStringArray();
-//        rEngine.eval("install.packages('reshape')");
-        rEngine.eval("library(reshape)");
+	@Override
+	public void getRestructuredData(String[] column) {
+		//        rEngine.eval("setwd('D:/Projects/DAIA_R Prj/Workplace')");
+		rEngine.eval("acci_dmnd_count<-table(data_claim$"+column[0]+", data_claim$"+column[1]+", data_claim$"+column[2]+")");
+		rEngine.eval("acci_dmnd_count<-as.data.frame(acci_dmnd_count)");
+		REXP cols = rEngine.eval("names(acci_dmnd_count)<-c('"+column[0]+"', '"+column[1]+"', '"+column[2]+"', 'value')");
+		String[] colnames = cols.asStringArray();
+		rEngine.eval("library(reshape)");
+		rEngine.eval("data_cast<-cast(data=acci_dmnd_count, "+colnames[0]+" ~ "+colnames[colnames.length-3]+" + "+colnames[colnames.length-2]+", fun=sum)");
 
-//        rEngine.eval("colnames(data)").asStringArray();
-        
-        rEngine.eval("data_cast<-cast(data=acci_dmnd_count, "+colnames[0]+" ~ "+colnames[colnames.length-3]+" + "+colnames[colnames.length-2]+", fun=sum)");
-
-//        return colnames; 
-
-     }
+	}
 
 	// 병합할 데이터 두개 선택 -> 각각의 데이터를 data1, data2에 담고 merge한 데이터를 data_merged 에 담기
 	@Override
@@ -922,6 +948,31 @@ public class AnalyticsService implements IAnalyticsService {
 	      return sexList;
 	   }
 	 */
+	@Override
+	public Map<String, Integer> min(String[] chkValue){
+		//int minNum = 0;
+		Map<String, Integer> testData = new Hashtable<String, Integer>();
+		for(int i=0; i<chkValue.length;i++){
+			rEngine.eval("test1 <- min(data$" + chkValue[i]+")");
+			REXP column2 = rEngine.eval("test1");
+			System.out.println(column2.asInt());
+			testData.put(chkValue[i],column2.asInt());
+		}	
+
+		return testData;
+	}
+	@Override
+	public Map<String, Integer> max(String[] chkValue){
+		Map<String, Integer> testData = new Hashtable<String, Integer>();
+		for(int i=0; i<chkValue.length;i++){
+			rEngine.eval("test2 <- max(data$" + chkValue[i]+")");
+			REXP column2 = rEngine.eval("test2");
+			System.out.println(column2.asInt());
+			testData.put(chkValue[i],column2.asInt());
+		}	
+
+		return testData;
+	}
 
 }
 

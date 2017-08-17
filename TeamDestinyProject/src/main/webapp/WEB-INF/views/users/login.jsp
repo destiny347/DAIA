@@ -142,6 +142,7 @@ span.psw {
 	background-color: slateblue;
 	color: white;
 }
+
 </style>
 </head>
 
@@ -151,17 +152,22 @@ span.psw {
 
 <div class="container">
    	
-    		<div class="headhead">
-    			<h1>로그인 <small>BD Platform</small></h1>
-    		</div>
-    		<div>&nbsp;</div>
+    <div class="headhead">
+    	<h1>로그인 <small>BD Platform</small></h1>
+    </div>
+    <div>&nbsp;</div>
+	
 	<form style="width: 500px;" class="" action="/destiny/greeting" method="post">
     		<div class="w3-container">
+    			<div>
       			<label><b>이메일</b></label>
       			<input type="text" placeholder="Enter e-mail" name="userEmail" required>
-
+      			</div>
+      			<div>&nbsp;</div>
+				<div>
 			    <label><b>비밀번호</b></label>
       			<input type="password" placeholder="Enter Password" name="userPw" required>
+      			</div>
         		
         		<div>&nbsp;</div>
         		

@@ -21,16 +21,15 @@ public interface IAnalyticsService {
 
 	//데이터 전처리 부분
 	
-	Map<String, Object> ynTo10(String[] column);
-	Map<String, Object> naTo6(String[] column);
-	Map<String, Object> nullToN(String[] column);
-	Map<String, Object> naToNumber(String[] column, int number);
+	List<Map<String, String[]>> ynTo10(String[] column);
+	List<Map<String, String[]>> nullToN(String[] column);
+	List<Map<String, String[]>>  naToNumber(String[] column, int number);
 	Map<String, Object> stringToNumber(String column);
 	Map<String, Object> getFirstChrToNum(String column);
 	
 	Map<String, Object> zeroToMeanByGroup(String groupcol, String datacol);
 	Map<String, Object> colToMeanByGroup(String groupcol, String datacol);
-	void getRestructuredData(String ...args);
+	void getRestructuredData(String[] column);
 	void getMergedTable(int fileId1, int fileId2);
 	List<Map<String, Object>> dataSampling(double trainrate, String column);
 	void xgboost(String independentvar, String primecol);
@@ -41,6 +40,10 @@ public interface IAnalyticsService {
 	// 민구 테스트
 	ArrayList<SampleVO> getCsvFile();
 	ArrayList<SampleVO> getMarriedSiu();
+	List<Map<String, String[]>> naTo6(String[] chkValue);
 
+	Map<String, Integer> min(String[] chkValue);
+	Map<String, Integer> max(String[] chkValue);
+	ArrayList<SampleVO1> getBlackML();
 
 }

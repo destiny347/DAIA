@@ -35,6 +35,133 @@ function myFunction() {
 </script>
 
 </head>
+<!-- <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    // JavaScript form validation
+    var checkPassword = function(str)
+    {
+      var re = /^(?=.*\d)(?=.*[a-z]).{8,}$/; 
+      return re.test(str);
+    };
+
+    var checkForm = function(e)
+    {
+      if(this.inputEmail.value == "") {
+        alert("Error: UserEmail cannot be blank!");
+        this.inputEmail.focus();
+        e.preventDefault(); // equivalent to return false
+        return;
+      }
+      re = /^\w+$/;
+    };
+
+    var myForm = document.getElementById("joinForm");
+    myForm.addEventListener("submit", checkForm, true);
+
+    
+  //HTML5 form validation
+
+    var supports_input_validity = function()
+    {
+      var i = document.createElement("input");
+      return "setCustomValidity" in i;
+    }
+
+    if(supports_input_validity()) {
+      var usernameInput = document.getElementById("inputEmail");
+      usernameInput.setCustomValidity(usernameInput.title);
+
+      // input key handlers
+
+      usernameInput.addEventListener("keyup", function() {
+        usernameInput.setCustomValidity(this.validity.patternMismatch ? usernameInput.title : "");
+      }, false);
+
+    }
+    
+ }, false);
+ 
+</script> -->
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    // JavaScript form validation
+    var checkPassword = function(str)
+    {
+      var re = /^(?=.*\d)(?=.*[a-z]).{8,}$/;
+      return re.test(str);
+    };
+
+    var checkForm = function(e)
+    {
+      if(this.inputEmail.value == "") {
+        alert("Error: UserEmail cannot be blank!");
+        this.inputEmail.focus();
+        e.preventDefault(); // equivalent to return false
+        return;
+      }
+      re = /^\w+$/;
+      if(this.inputPassword.value != "" && this.inputPassword.value == this.inputPasswordCheck.value) {
+        if(!checkPassword(this.inputPassword.value)) {
+          alert("The password you have entered is not valid!");
+          this.inputPassword.focus();
+          e.preventDefault();
+          return;
+        }
+      } else {
+        alert("Error: Please check that you've entered and confirmed your password!");
+        this.inputPassword.focus();
+        e.preventDefault();
+        return;
+      }
+      confirm("회원가입을 완료하시겠습니까?");
+    };
+
+    var myForm = document.getElementById("joinForm");
+    myForm.addEventListener("submit", checkForm, true);
+
+    // HTML5 form validation
+
+    var supports_input_validity = function()
+    {
+      var i = document.createElement("input");
+      return "setCustomValidity" in i;
+    }
+
+    if(supports_input_validity()) {
+      var usernameInput = document.getElementById("inputEmail");
+      usernameInput.setCustomValidity(usernameInput.title);
+
+      var pwd1Input = document.getElementById("inputPassword");
+      pwd1Input.setCustomValidity(pwd1Input.title);
+
+      var pwd2Input = document.getElementById("inputPasswordCheck");
+
+      // input key handlers
+
+      usernameInput.addEventListener("keyup", function() {
+        usernameInput.setCustomValidity(this.validity.patternMismatch ? usernameInput.title : "");
+      }, false);
+
+      pwd1Input.addEventListener("keyup", function() {
+        this.setCustomValidity(this.validity.patternMismatch ? pwd1Input.title : "");
+        if(this.checkValidity()) {
+          pwd2Input.pattern = this.value;
+          pwd2Input.setCustomValidity(pwd2Input.title);
+        } else {
+          pwd2Input.pattern = this.pattern;
+          pwd2Input.setCustomValidity("");
+        }
+      }, false);
+
+      pwd2Input.addEventListener("keyup", function() {
+        this.setCustomValidity(this.validity.patternMismatch ? pwd2Input.title : "");
+      }, false);
+
+    }
+
+  }, false);
+</script>
 
 <body>
 <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
@@ -46,27 +173,27 @@ function myFunction() {
     </div>
     <div>&nbsp;</div>
 
-        <form class="form-horizontal" action="/destiny/users/signUp" method="post">  		
+        <form id="joinForm" class="form-horizontal" action="/destiny/users/signUp" method="post">  		
         		<div class="form-group">
         			<label class="col-sm-2 control-label" for="inputEmail">* 이메일</label>
         			<div class="col-sm-4">
-          				<input class="form-control" id="inputEmail" type="email" name="userEmail" placeholder="이메일" required>        		
+          				<input class="form-control" id="inputEmail" type="email" name="userEmail" value="" title="이메일 주소의 형태로 입력해야 합니다." placeholder="이메일" required>        		
         			</div>
         		</div>
         		
         		<div class="form-group">
           			<label class="col-sm-2 control-label" for="inputPassword">* 비밀번호</label>
         			<div class="col-sm-4">
-          				<input class="form-control" id="inputPassword" type="password" name="userPw" placeholder="비밀번호" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
-        				<p class="help-block">비밀번호는 숫자 포함 8자 이상이여야 합니다.</p>
+          				<input class="form-control" id="inputPassword" type="password" name="userPw" title="비밀번호는 영문/숫자 포함 8자 이상이어야 합니다." placeholder="비밀번호" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
+        				<p class="help-block" style="color: red;" align="right">비밀번호는 영문/숫자 포함 8자 이상이어야 합니다.</p>
         			</div>
         		</div>
         		
         		<div class="form-group">
               		<label class="col-sm-2 control-label" for="inputPasswordCheck">* 비밀번호 확인</label>
              		<div class="col-sm-4">
-              			<input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호 확인" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
-                		<p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
+              			<input class="form-control" id="inputPasswordCheck" type="password" name="userPwCheck" title="위 비밀번호와 일치하지 않습니다." placeholder="비밀번호 확인" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
+                		<p class="help-block" style="color: red;" align="right">비밀번호를 한번 더 입력해주세요.</p>
              		</div>
           		</div>
           		

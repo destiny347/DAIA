@@ -64,7 +64,7 @@ $(".button").bind("click", function() {
 	width: auto;
 	height: auto;
 	position: fixed;
-	top: 210px;
+	top: 130px;
 	left: -160px;
 }
 

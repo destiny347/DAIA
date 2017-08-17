@@ -13,12 +13,16 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
@@ -41,27 +45,44 @@ public class AnalyticsController {
 	@Autowired
 	IUploadFileService uploadFileService;   
 
-	 // 막대그래프 구현부
-	   @RequestMapping("/analytics/iris2")
-	   public String getMarriedSiu(Model model) {
-	      ArrayList<SampleVO> weddList = analyticsService.getMarriedSiu();
-	      Gson gson = new Gson();
-	      String wedd = gson.toJson(weddList);
-	      model.addAttribute("wedd", wedd);
+	// 막대그래프 구현부
+    @RequestMapping(value="/analytics/bar")
+    @ResponseBody
+    public ResponseEntity<String> getMarriedSiu(Model model) {
+       ArrayList<SampleVO> weddList = analyticsService.getMarriedSiu();
+       Gson gson = new Gson();
+       String wedd = gson.toJson(weddList);
+       System.out.println(wedd);
+       HttpHeaders responseHeaders = new HttpHeaders();
+       responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+       return new ResponseEntity<String>(wedd, responseHeaders, HttpStatus.CREATED);
+    }
 
-	      return "analytics/visual";
-	   }
-
-	   // 파이차트로 사기자 구분
-	   @RequestMapping("/analytics/iris3")
-	   public String getCsvFile(Model model) {
-	      ArrayList<SampleVO> getCsv = analyticsService.getCsvFile();
-	      Gson gson = new Gson();
-	      String gcv = gson.toJson(getCsv);
-	      model.addAttribute("gcv", gcv);
-
-	      return "analytics/visual";
-	   }
+    // 파이차트로 사기자 구분
+    @RequestMapping(value="/analytics/pie")
+    @ResponseBody
+    public ResponseEntity<String> getCsvFile(Model model) {
+       ArrayList<SampleVO> getCsv = analyticsService.getCsvFile();
+       Gson gson = new Gson();
+       String gcv = gson.toJson(getCsv);
+       System.out.println(gcv);
+       HttpHeaders responseHeaders = new HttpHeaders();
+       responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+       return new ResponseEntity<String>(gcv, responseHeaders, HttpStatus.CREATED);
+    }
+    
+    // 바차트로 블랙차트 만들기
+    @RequestMapping(value="/analytics/black")
+    @ResponseBody
+    public ResponseEntity<String> getBlackML(Model model) {
+       ArrayList<SampleVO1> getBlack = analyticsService.getBlackML();
+       Gson gson = new Gson();
+       String black = gson.toJson(getBlack);
+       System.out.println(black);
+       HttpHeaders responseHeaders = new HttpHeaders();
+       responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+       return new ResponseEntity<String>(black, responseHeaders, HttpStatus.CREATED);
+    }
 	   
 	@RequestMapping("/analytics/database/{fileId}")
 	public String analyticsDatabase(@PathVariable int fileId, Model model) {
@@ -118,15 +139,15 @@ public class AnalyticsController {
 	public String restructuring( Model model) {
 		model.addAttribute("fileList",uploadFileService.getAllFileList());
 
-		UploadFileVO getFile = uploadFileService.getFile(8);
+		UploadFileVO getFile = uploadFileService.getFile(1);
 		model.addAttribute("fileName", getFile.getFileName());
-		Map<String, Object> test = analyticsService.analyticsDatabaseInfo(8);
+		Map<String, Object> test = analyticsService.analyticsDatabaseInfo(1);
 		model.addAttribute("list", test);
-		UploadFileVO dd = uploadFileService.getFile(10);
+		UploadFileVO dd = uploadFileService.getFile(2);
 		model.addAttribute("dd", dd.getFileName());
-		Map<String, Object> tmp = analyticsService.analyticsDatabaseInfo(10);
+		Map<String, Object> tmp = analyticsService.analyticsDatabaseInfo(2);
 		model.addAttribute("tmp", tmp);
-		Map<String, Object> result = analyticsService.analyticsDatabaseInfo(4);
+		Map<String, Object> result = analyticsService.analyticsDatabaseInfo(2);
 		model.addAttribute("result", result);
 		String groupcol = "OCCP_GRP_1";  // 이거 받아서 사용해야함
 		String datacol = "CUST_INCM";    // 이거 받아서 사용해야함.. 
@@ -153,9 +174,9 @@ public class AnalyticsController {
 	//머신러닝 부분 컨트롤러
 	@RequestMapping("/analytics/ML")
 	public String machineLearning(Model model) {
-		UploadFileVO getFile = uploadFileService.getFile(6);
+		UploadFileVO getFile = uploadFileService.getFile(2);
 		model.addAttribute("fileName", getFile.getFileName());
-		Map<String, Object> test = analyticsService.analyticsDatabaseInfo(6);
+		Map<String, Object> test = analyticsService.analyticsDatabaseInfo(2);
 		model.addAttribute("list", test);
 
 
