@@ -85,7 +85,7 @@ span.psw {
 
 
 /* 민구 추가 스타일 */
-.headhead {
+.headheadhead {
 	border-bottom: 1px solid #EAEAEA;
 }
 
@@ -143,6 +143,23 @@ span.psw {
 	color: white;
 }
 
+html{
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+body{
+	position:relative;
+	margin:0;
+	height:100%;
+}
+
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    
 </style>
 </head>
 
@@ -152,16 +169,16 @@ span.psw {
 
 <div class="container">
    	
-    <div class="headhead">
-    	<h1>로그인 <small>BD Platform</small></h1>
+    <div class="headheadhead">
+    	<h1>로그인&nbsp;<small>DAIA Platform</small></h1>
     </div>
     <div>&nbsp;</div>
 	
 	<form style="width: 500px;" class="" action="/destiny/greeting" method="post">
     		<div class="w3-container">
     			<div>
-      			<label><b>이메일</b></label>
-      			<input type="text" placeholder="Enter e-mail" name="userEmail" required>
+      			<label><b>아이디</b></label>
+      			<input type="text" placeholder="Enter Id" name="userId" required>
       			</div>
       			<div>&nbsp;</div>
 				<div>
@@ -171,9 +188,11 @@ span.psw {
         		
         		<div>&nbsp;</div>
         		
+        		<div align="center">
       			<input type="submit" class="btn btn-primary" value="로그인"/>
       			<a href="/destiny"><input type="button" class="btn btn-danger" value="취소"/></a>
-      			<!-- <input type="checkbox" name="userCheck"/>기억하기 -->
+      			</div>
+      			
     		</div>
 			
 			

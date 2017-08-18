@@ -24,8 +24,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
    $("#send").click(function(){   
-       alert("메일 감사합니다.");
-      
+       alert("소중한 의견 감사드립니다.");      
    });
 });
 </script>
@@ -43,9 +42,8 @@ $(document).ready(function() {
    <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
    <div class="container">
-
-
-      <h1>Map</h1>
+      
+      <h1 class="w3-border-bottom w3-border-light-grey w3-padding-16">Map</h1>
       <div id="map"></div>
       <script>
       function initMap() {
@@ -63,21 +61,20 @@ $(document).ready(function() {
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMOH8JKPTynKmgWaKl6wSfkyt7CGj4Nl0&callback=initMap">
     </script>
 
-      <div class="col-sm-6" id="contact" >
+      <div class="col-sm-6" id="contact">
          <h1 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h1>
-         <p>Lets get in touch and talk about your and our next project.</p>
+         <label>Lets get in touch and talk about your and our next project.</label>
          <form action="/action_page.php" target="_blank">
-            <input class="w3-input" type="text" placeholder="Name" required
-               name="Name"> <input class="w3-input w3-section" type="text"
-               placeholder="Email" required name="Email"> <input
-               class="w3-input w3-section" type="text" placeholder="Subject"
-               required name="Subject"> <input class="w3-input w3-section"
-               type="text" placeholder="Comment" required name="Comment">
+            <input class="w3-input" type="text" placeholder="Name" required name="Name"> 
+            <input class="w3-input w3-section" type="text" placeholder="Email" required name="Email"> 
+            <input class="w3-input w3-section" type="text" placeholder="Subject" required name="Subject"> <input class="w3-input w3-section"
+               		type="text" placeholder="Comment" required name="Comment">
             <button class="w3-button w3-blue w3-section" type="button" id="send">
                <i class="fa fa-paper-plane"></i> SEND MESSAGE
             </button>
          </form>
       </div>
+
    </div>
 
    <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>

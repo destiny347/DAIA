@@ -134,13 +134,30 @@ footer{
 	<div class="container">
 		<div class="col-lg-6 col-sm-6">
 		<div class="headheadhead">
-    		<h1>내 정보 <small>BD Platform</small></h1>
+    		<h1>회원 탈퇴 <small>DAIA Platform</small></h1>
     	</div>
     	</div>
 		<div class="row">&nbsp;</div> 
 		
-      
-			<form class="updateForm" action="/destiny/users/update/${user.userId}" method="post">  		
+      <form class="withdrawForm" action="/destiny/users/withDraw" method="post">
+        <div class="col-lg-12 col-sm-12" style="color: red; font-size: 15px;">
+      		<label>탈퇴하시려면 비밀번호를 입력해주세요.</label>
+      	</div>
+      		<div class="row">&nbsp;</div>
+      		<div class="row">&nbsp;</div>
+        <div class="col-lg-6 col-sm-6">          
+          <label>비밀번호</label>
+          <input class="w3-input w3-border" type="hidden" placeholder="Enter userId" value="${user.userId}" name="userId" readonly>
+          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="userPw" required>          
+        </div>
+        	<div class="row">&nbsp;</div>
+        	<div class="row">&nbsp;</div> 
+        <div class="col-lg-6 col-sm-6">
+          <button class="btn btn-danger" type="submit" onclick="return confirm('정말로 탈퇴하시겠습니까?')">탈퇴하기</button>
+        </div>
+        <div>&nbsp;</div>
+      </form>      		
+			<%-- <form class="updateForm" action="/destiny/users/update/${user.userId}" method="post">  		
         		<div class="form-group">
         			<div class="col-lg-2 col-sm-2" align="center" style="width: 130px;">
         			    <label class="control-label" for="inputId"><h5>아이디</h5></label>
@@ -212,7 +229,7 @@ footer{
             		<input class="btn btn-danger" type="button" value="취소" onclick="window.history.back(-1);return false;"/> <!-- onclick="document.getElementById('id02').style.display='none'" -->
                		</div>
         		</div>
-        </form>	<!-- End Form -->
+        </form>	<!-- End Form --> --%>
 	</div> <!-- End Container -->
 
 <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>

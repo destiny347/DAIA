@@ -10,19 +10,19 @@
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.nt300 {
+.ntv300 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #696969;
    font-weight: 300;
 }
 
-.nt400 {
+.ntv400 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #696969;
    font-weight: 400;
 }
 
-.nt700 {
+.ntv700 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #696969;
    font-weight: 700;
@@ -122,7 +122,11 @@ padding : 8px;
       $("#hide").click(function() {
          $("#blackContainer").hide();
       });
-
+	
+      $("#pdf").click(function() {
+          location.href = "http://localhost:8080/destiny/analytics/downloadPDF";
+       });
+      
    });
    });
 </script>
@@ -132,6 +136,9 @@ padding : 8px;
 </head>
 
 <body>
+<jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
+<div class="container">
 
    <div class="col-lg-12 col-md-12 col-sm-12">
       <table>
@@ -139,10 +146,10 @@ padding : 8px;
       </table>     
    </div>
    
-   <div class="col-lg-4 col-md-4 col-sm-12 nt400" style="height:150px; text-align: left;">
+   <div class="col-lg-4 col-md-4 col-sm-12 ntv400" style="height:150px; text-align: left;">
       <h3>검정통계량</h3>
       
-      <table class="t1 nt300">
+      <table class="t1 ntv300">
 
         <tr class="t1">
            <td class="t1">XG_Boost 검정값</td>
@@ -172,7 +179,7 @@ padding : 8px;
    </div>
  
 
-<div class="col-lg-12 col-md-12 col-sm-12 nt400" id="graph" style="margin-top: 5px">
+<div class="col-lg-12 col-md-12 col-sm-12 ntv400" id="graph" style="margin-top: 5px">
    <h3>검정통계량 그래프</h3>
 
       <div class="col-lg-4 col-md-4 col-sm-9" id="blackContainer" style="border-style: dotted; border-width: 1px; border-color: pink;">
@@ -185,16 +192,18 @@ padding : 8px;
       </table>     
    </div>
 
-   <div class="col-lg-6 col-md-6 col-sm-6 nt400" style="margin-top: 5px; display: inline-block;">
+   <div class="col-lg-6 col-md-6 col-sm-6 ntv400" style="margin-top: 5px; display: inline-block;">
       <input type="button" id="show" value="보임">
       <input type="button" id="hide" value="숨김">
    </div>
 
    <!-- 저장/리셋 -->
-   <div class="col-lg-6 col-md-6 col-sm-6 nt400" style="display: inline-block;">
-      <input type="submit" value="저장"> 
-      <a href="/destiny/upload/list" class="nt400"><input type="reset" value="처음으로"></a>
+   <div class="col-lg-6 col-md-6 col-sm-6 ntv400" style="display: inline-block;">
+      <input type="button" id = "pdf" value="저장"> 
+      <a href="/destiny/upload/list" class="ntv400"><input type="reset" value="처음으로"></a>
    </div>
-      
+
+</div> <!-- End Container -->
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>      
 </body>
 </html>

@@ -1,5 +1,7 @@
 package kr.kosa.destiny.users.service;
 
+import org.springframework.web.bind.annotation.PathVariable;
+
 import kr.kosa.destiny.users.model.UserVO;
 
 public interface IUserService {
@@ -7,11 +9,14 @@ public interface IUserService {
 	//회원가입
 	void signUp(UserVO user);
 	
+	//회원탈퇴
+	void withDraw(String userId, String userPw);
+	
 	//로그인
-	boolean checkPassword(String userEmail, String userPw);
+	boolean checkPassword(String userId, String userPw);
 	
 	//ID추출
-	UserVO selectUserByUserEmail(String userEmail);
+	UserVO selectUserByUserId(String userId);
 	
 	//정보 수정
 	void updateInfo(UserVO user);

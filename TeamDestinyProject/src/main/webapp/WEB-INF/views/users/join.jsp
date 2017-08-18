@@ -34,54 +34,28 @@ function myFunction() {
 }
 </script>
 
+<style>
+.headheadhead {
+	border-bottom: 1px solid #EAEAEA;
+}
+html{
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+body{
+	position:relative;
+	margin:0;
+	height:100%;
+}
+
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+</style>
 </head>
-<!-- <script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function() {
-    // JavaScript form validation
-    var checkPassword = function(str)
-    {
-      var re = /^(?=.*\d)(?=.*[a-z]).{8,}$/; 
-      return re.test(str);
-    };
-
-    var checkForm = function(e)
-    {
-      if(this.inputEmail.value == "") {
-        alert("Error: UserEmail cannot be blank!");
-        this.inputEmail.focus();
-        e.preventDefault(); // equivalent to return false
-        return;
-      }
-      re = /^\w+$/;
-    };
-
-    var myForm = document.getElementById("joinForm");
-    myForm.addEventListener("submit", checkForm, true);
-
-    
-  //HTML5 form validation
-
-    var supports_input_validity = function()
-    {
-      var i = document.createElement("input");
-      return "setCustomValidity" in i;
-    }
-
-    if(supports_input_validity()) {
-      var usernameInput = document.getElementById("inputEmail");
-      usernameInput.setCustomValidity(usernameInput.title);
-
-      // input key handlers
-
-      usernameInput.addEventListener("keyup", function() {
-        usernameInput.setCustomValidity(this.validity.patternMismatch ? usernameInput.title : "");
-      }, false);
-
-    }
-    
- }, false);
- 
-</script> -->
 
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function() {
@@ -94,9 +68,9 @@ function myFunction() {
 
     var checkForm = function(e)
     {
-      if(this.inputEmail.value == "") {
-        alert("Error: UserEmail cannot be blank!");
-        this.inputEmail.focus();
+      if(this.inputId.value == "") {
+        alert("Error: UserId cannot be blank!");
+        this.inputId.focus();
         e.preventDefault(); // equivalent to return false
         return;
       }
@@ -129,7 +103,7 @@ function myFunction() {
     }
 
     if(supports_input_validity()) {
-      var usernameInput = document.getElementById("inputEmail");
+      var usernameInput = document.getElementById("inputId");
       usernameInput.setCustomValidity(usernameInput.title);
 
       var pwd1Input = document.getElementById("inputPassword");
@@ -168,21 +142,22 @@ function myFunction() {
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
 <div class="container">
-	<div class="headhead">
-    	<h1>회원가입 <small>BD Platform</small></h1>
+	<div class="headheadhead">
+    	<h1>회원가입 <small>DAIA Platform</small></h1>
     </div>
     <div>&nbsp;</div>
 
-        <form id="joinForm" class="form-horizontal" action="/destiny/users/signUp" method="post">  		
+        <form id="joinForm" class="form-horizontal" action="/destiny/users/signUp" method="post">
+        
         		<div class="form-group">
-        			<label class="col-sm-2 control-label" for="inputEmail">* 이메일</label>
+        			<label class="col-sm-2 control-label" for="inputEmail">(*)아이디</label>
         			<div class="col-sm-4">
-          				<input class="form-control" id="inputEmail" type="email" name="userEmail" value="" title="이메일 주소의 형태로 입력해야 합니다." placeholder="이메일" required>        		
+          				<input class="form-control" id="inputId" type="text" name="userId" value="" title="아이디를 입력해주세요." placeholder="아이디" pattern="\w+" required>        		
         			</div>
-        		</div>
+        		</div>        		
         		
         		<div class="form-group">
-          			<label class="col-sm-2 control-label" for="inputPassword">* 비밀번호</label>
+          			<label class="col-sm-2 control-label" for="inputPassword">(*)비밀번호</label>
         			<div class="col-sm-4">
           				<input class="form-control" id="inputPassword" type="password" name="userPw" title="비밀번호는 영문/숫자 포함 8자 이상이어야 합니다." placeholder="비밀번호" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
         				<p class="help-block" style="color: red;" align="right">비밀번호는 영문/숫자 포함 8자 이상이어야 합니다.</p>
@@ -190,7 +165,7 @@ function myFunction() {
         		</div>
         		
         		<div class="form-group">
-              		<label class="col-sm-2 control-label" for="inputPasswordCheck">* 비밀번호 확인</label>
+              		<label class="col-sm-2 control-label" for="inputPasswordCheck">(*)비밀번호 확인</label>
              		<div class="col-sm-4">
               			<input class="form-control" id="inputPasswordCheck" type="password" name="userPwCheck" title="위 비밀번호와 일치하지 않습니다." placeholder="비밀번호 확인" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
                 		<p class="help-block" style="color: red;" align="right">비밀번호를 한번 더 입력해주세요.</p>
@@ -198,34 +173,19 @@ function myFunction() {
           		</div>
           		
           		<div class="form-group">
-            		<label class="col-sm-2 control-label" for="inputName">* 이름 또는 별명</label>
+            		<label class="col-sm-2 control-label" for="inputName">(*)이름 또는 별명</label>
           			<div class="col-sm-4">
             			<input class="form-control" id="inputName" type="text" name="userName" placeholder="이름 또는 별명" required>
           			</div>
         		</div>
-        		
-        		
-<!--          		<div class="form-group">
-            		<label class="col-sm-3 control-label" for="inputGender">성별</label>
-              		<div class="col-sm-9">
-              			<label class="radio-inline">
-              				<input type="radio" id="optionsRadios1" name="userGender" value="여성">여성
-              			</label>
-                  		<label class="radio-inline">
-              				<input type="radio" id="optionsRadios2" name="userGender" value="남성">남성
-              			</label>
-              		</div>
-        		</div>
-        		<div>&nbsp;</div>
-        		
+        		        		  		
         		<div class="form-group">
-            		<label class="col-sm-3 control-label" for="inputNumber">휴대폰 번호</label>
-              		<div class="col-sm-9">
-                  		<input class="form-control" id="inputNumber" type="tel" name="userPhone" placeholder="- 없이 입력해 주세요">
-              		</div>
+        			<label class="col-sm-2 control-label" for="inputEmail">이메일</label>
+        			<div class="col-sm-4">
+          				<input class="form-control" id="inputEmail" type="email" name="userEmail" value="" title="이메일 주소의 형태로 입력해야 합니다." placeholder="이메일" required>        		
+        			</div>
         		</div>
-				<div>&nbsp;</div> -->
-				
+        		
 				<div class="form-group">
           			<div class="col-sm-6 text-center">
             		<input class="btn btn-primary" type="submit" value="회원가입"/> <!-- onclick="return confirm('회원 가입을 완료하시겠습니까?')" -->

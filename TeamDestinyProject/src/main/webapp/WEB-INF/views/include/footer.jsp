@@ -7,23 +7,50 @@
 <html>
 <head>
 <style>
+
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-.nt300{
-font-family: 'Noto Sans KR', sans-serif;
-color : white;
-font-weight:300;
+
+.nt100 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 100;
 }
-.nt400{
-font-family: 'Noto Sans KR', sans-serif;
-color : white;
-font-weight:400;
+.nt200 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 200;
+}
+.nt300 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 300;
+}
+.nt400 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 400;
+}
+.nt500 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 500;
+}
+.nt600 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 600;
+}
+.nt700 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 700;
 }
 .fa{
-	margin: 0 10px 0 0;
+   margin: 0 10px 0 0;
 } 
 
 th, td {
-	padding: 5px;
+   padding: 5px;
     text-align: center;
 }
 
@@ -51,28 +78,28 @@ th, td {
 <body>
 
 <!-- Footer -->
-   <footer style="background-color:slateblue;">
+   <footer style="background-color:#1e1e1e;">
    
    <div class="container">
       <div class="mailing col-sm-4" align="center">
          <h4 class="nt400">Mailing list</h4>
-         	<table class="nt300">
+            <table class="nt200">
                <tr><td>Sign up if you would like to receive</td></tr>
                <tr><td>&nbsp;</td></tr>
             </table>
             <form action='/subscribe' method="post" class="form-horizontal form-light" >
-            	<div class="input-group col-sm-8" align="center">
+               <div class="input-group col-sm-8" align="center">
                   <input type="email" name="email" class="form-control" placeholder="Your email address..." required /> 
                   <span class="input-group-btn">
                      <input type="submit" class="btn btn-base" value="GO!" />
                   </span>
-            	</div>
+               </div>
             </form>
       </div>
       
          <div class="col-sm-4" align="center">
             <h4 class="nt400">Contact us</h4>
-            <table class="nt300">
+            <table class="nt200">
                <tr><td>010-2663-1401</td></tr>
                <tr><td><a href="mailto:hjk7902@gmail.com" title="Email Us" style="color:white;">BDplatform@gmail.com</a></td></tr>
                <tr><td><a href="http://www.BDplatform.co.kr" style="color:white;">http://www.BDplatform.co.kr</a></td></tr>
@@ -83,10 +110,10 @@ th, td {
                
                <h4 class="nt400">Follow us</h4>             
                <div class="input-group col-sm-10" align="center">               
-               	<a href="https://ko-kr.facebook.com/" style="color:white;"><i class="fa fa-facebook-square" style="font-size: 40px;"></i></a>   
-               	<a href="https://www.instagram.com/" style="color:white;"><i class="fa fa-instagram"   style="font-size: 40px;"></i></a>        
-               	<a href="https://twitter.com/?lang=ko" style="color:white;"><i class="fa fa-twitter"   style="font-size: 40px;"></i></a>        
-     			<a href="https://www.linkedin.com/" style="color:white;"><i class="fa fa-linkedin" style="font-size: 40px;"></i></a>
+                  <a href="https://ko-kr.facebook.com/" style="color:white;"><i class="fa fa-facebook-square" style="font-size: 40px;"></i></a>   
+                  <a href="https://www.instagram.com/" style="color:white;"><i class="fa fa-instagram"   style="font-size: 40px;"></i></a>        
+                  <a href="https://twitter.com/?lang=ko" style="color:white;"><i class="fa fa-twitter"   style="font-size: 40px;"></i></a>        
+              <a href="https://www.linkedin.com/" style="color:white;"><i class="fa fa-linkedin" style="font-size: 40px;"></i></a>
                </div>
          </div>
          

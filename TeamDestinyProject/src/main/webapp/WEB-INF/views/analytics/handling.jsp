@@ -248,6 +248,10 @@ $(document).ready(function() {
 
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
+<div class="container">
+
 	<h1>정보</h1>
 	<div>
 		<h3>파일명 : [${fileName}]</h3>
@@ -256,6 +260,7 @@ $(document).ready(function() {
 		<input type="button" id="show_all" value="테이블 전체보기"> <input
 			type="button" id="show_sum" value="테이블 요약보기(5행)"
 			style="display: none">
+	<div style="overflow-x: auto;">
 		<table id="sum_table" border="1">
 			<thead>
 				<tr>
@@ -281,6 +286,7 @@ $(document).ready(function() {
 				</c:forEach>
 			</tbody>
 		</table>
+	</div>
 	</div>
 	<br>
 	<div id="resultTemp"></div>
@@ -316,18 +322,8 @@ $(document).ready(function() {
 			<tr>
 				<td>&nbsp;</td>
 			</tr>
-			<tr>
-				<td>&nbsp;</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-			</tr>
+
+
 		</table>
 		<table align=right>
 			<tr>
@@ -381,15 +377,18 @@ $(document).ready(function() {
 		</table>
 	</div>
 
+	<div class="col-lg-6 col-md-6 col-sm-6" align=right>
+		<table>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		<a href="/destiny/analytics/restructuring">
+		<input type="button" value="다음 단계로" /></a>
+	</div>
+	
+</div> <!-- End Container -->
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 
 </body>
-<footer class="col-lg-6 col-md-6 col-sm-6" align=right>
-	<table>
-		<tr>
-			<td>&nbsp;</td>
-		</tr>
-	</table>
-	<a href="/destiny/analytics/restructuring"><input type="button"
-		value="다음 단계로" /></a>
-</footer>
 </html>

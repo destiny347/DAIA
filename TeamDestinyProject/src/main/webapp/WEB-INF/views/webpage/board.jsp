@@ -81,11 +81,29 @@ div.panel {
    overflow: hidden;
    transition: max-height 0.2s ease-out;
 }
+
+html{
+margin:0;
+padding:0;
+height:100%;
+}
+
+.faq{
+position:relative;
+margin:0;
+height:150%;
+}
+
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+}
 </style>
 <script>
    
 </script>
-<body>
+<body class="faq">
    <!-- class="w3-content" style="max-width: 1200px" -->
    <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
    <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
@@ -106,27 +124,15 @@ div.panel {
       <div class="w3-overlay w3-hide-large" onclick="w3_close()"
          style="cursor: pointer" title="close side menu" id="myOverlay"></div>
 
-      <!-- !PAGE CONTENT! -->
-      <div class="" style="">
-         <!--w3-main margin-left: 250px -->
-
          <!-- Push down content on small screens -->
          <div class="w3-hide-large" style="margin-top: 83px"></div>
+          
+        <div>
+			<div class="headheadhead">
+    			<h1 class="w3-border-bottom w3-border-light-grey w3-padding-16">FAQ</h1>
+    		</div>
+    	</div>
 
-         <!-- Image header -->
-         <div class="w3-display-container">
-            <!--  w3-container -->
-            <img
-               src="https://c1.staticflickr.com/3/2808/12264548363_f9a26b699c_k.jpg"
-               alt="Jeans" style="width: 100%">
-            <div class="w3-display-topleft w3-text-white"
-               style="padding: 24px 48px">
-               <h1 class="w3-jumbo w3-hide-small">FAQ</h1>
-               <h1 class="w3-hide-large w3-hide-medium">2017</h1>
-
-            </div>
-         </div>
-         <h3>자주하는 질문</h3>
          <button class="accordion">분석 파일 관리</button>
          <div class="panel">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
@@ -197,12 +203,11 @@ div.panel {
          </script>
 
 
+	</div>  <!-- End Container -->
 
-      </div>
-
-   </div>
-   <!-- End Container -->
-
-   <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+ 
 </body>
+<footer>
+ <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+</footer> 
 </html>

@@ -1,61 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans">
 
 	<context:component-scan base-package="kr.kosa.destiny.upload.controller" />
+
 	<context:component-scan base-package="kr.kosa.destiny.analytics.controller" />
+
 	<context:component-scan base-package="kr.kosa.destiny.users.controller" />
-	
-	<mvc:annotation-driven/>
+
+	<mvc:annotation-driven />
+
+	<bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver"
+		id="viewResolver1">
+
+		<property value="1" name="order" />
+
+		<property value="views" name="basename" />
+
+	</bean>
 
 	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		id="viewResolver2">
+
+		<property value="2" name="order" />
+
+		<property value="/WEB-INF/views/" name="prefix" />
+
+		<property value=".jsp" name="suffix" />
+
 	</bean>
 
-	<mvc:view-controller path="/" view-name="home"/>
+	<mvc:view-controller view-name="home" path="/" />
 
-	<mvc:resources location="/WEB-INF/resources/" mapping="/**" />
-	<mvc:resources location="/WEB-INF/resources/img/" mapping="/img/**" />
-	<mvc:resources location="/WEB-INF/resources/js/" mapping="/js/**" />
-	<mvc:resources location="/WEB-INF/resources/css/" mapping="/css/**" />
-	<mvc:resources location="/WEB-INF/resources/html/" mapping="/html/**"/>
+	<mvc:resources mapping="/**" location="/WEB-INF/resources/" />
 
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<mvc:resources mapping="/img/**" location="/WEB-INF/resources/img/" />
+
+	<mvc:resources mapping="/js/**" location="/WEB-INF/resources/js/" />
+
+	<mvc:resources mapping="/css/**" location="/WEB-INF/resources/css/" />
+
+	<mvc:resources mapping="/html/**" location="/WEB-INF/resources/html/" />
+
+	<bean
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		id="multipartResolver">
+
 		<property name="maxUploadSize">
+
 			<value>50000000</value>
+
 		</property>
+
 	</bean>
-	
-	<bean id="messageSource"
-		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="defaultEncoding" value="UTF-8" />
+
+	<bean
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+		id="messageSource">
+
+		<property value="UTF-8" name="defaultEncoding" />
+
 		<property name="basenames">
+
 			<list>
+
 				<value>classpath:i18n/hr</value>
+
 			</list>
+
 		</property>
+
 	</bean>
-	
- <!-- 	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/welcome/**"/>
-			<mvc:mapping path="/upload/**"/>
-			<mvc:mapping path="/analytics/**"/>
-			<bean class="kr.kosa.destiny.common.LoginInterceptor"/>
-		</mvc:interceptor>
-	</mvc:interceptors> -->
+
+	<!-- <mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/welcome/**"/> 
+		<mvc:mapping path="/upload/**"/> <mvc:mapping path="/analytics/**"/> <bean 
+		class="kr.kosa.destiny.common.LoginInterceptor"/> </mvc:interceptor> </mvc:interceptors> -->
+
+
 </beans>

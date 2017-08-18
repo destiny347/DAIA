@@ -22,46 +22,55 @@ public class UserRepository implements IUserRepository {
 		@Override
 		public UserVO mapRow(ResultSet rs, int count) throws SQLException {
 			UserVO user = new UserVO();
-			user.setUserEmail(rs.getString("user_email"));
+			user.setUserId(rs.getString("user_id"));
 			user.setUserPw(rs.getString("user_pw"));
 			user.setUserPwCheck(rs.getString("user_pw_check"));
 			user.setUserName(rs.getString("user_name"));
+			user.setUserEmail(rs.getString("user_email"));
 			return user;
 		}
 	}
 	
 	@Override
 	public void signUp(UserVO user) {
-		String sql = "insert into users values(?,?,?,?)";
+		String sql = "insert into users values(?,?,?,?,?)";
 		jdbcTemplate.update(sql, 
-				user.getUserEmail(),
+				user.getUserId(),
 				user.getUserPw(),
 				user.getUserPwCheck(),
-				user.getUserName()
+				user.getUserName(),
+				user.getUserEmail()
 				);
 	}
 	
 	@Override
 	public void updateInfo(UserVO user) {
-		String sql = "update users set user_email=?, user_pw=?, user_name=? where user_email=?";
-		jdbcTemplate.update(sql, 
-				user.getUserEmail(),
+		String sql = "update users set user_pw=?, user_pw_check=?, user_name=?, user_email=? where user_id=?";
+		jdbcTemplate.update(sql,				
 				user.getUserPw(),
+				user.getUserPwCheck(),
 				user.getUserName(),
-				user.getUserEmail()
+				user.getUserEmail(),
+				user.getUserId()
 				);
 	}
-
+	
 	@Override
-	public String getPassword(String userEmail) {
-		String sql = "select user_pw from users where user_email=?";
-		return jdbcTemplate.queryForObject(sql, String.class, userEmail);
+	public void withDraw(String userId, String userPw) {
+		String sql = "delete from users where (user_id=? and user_pw=?)";
+		jdbcTemplate.update(sql, userId, userPw);
 	}
 
 	@Override
-	public UserVO selectUserByUserEmail(String userEmail) {
-		String sql = "select * from users where user_email=?";
-		return jdbcTemplate.queryForObject(sql, new UserMapper(),userEmail);
+	public String getPassword(String userId) {
+		String sql = "select user_pw from users where user_id=?";
+		return jdbcTemplate.queryForObject(sql, String.class, userId);
+	}
+
+	@Override
+	public UserVO selectUserByUserId(String userId) {
+		String sql = "select * from users where user_id=?";
+		return jdbcTemplate.queryForObject(sql, new UserMapper(),userId);
 	
 	}
 

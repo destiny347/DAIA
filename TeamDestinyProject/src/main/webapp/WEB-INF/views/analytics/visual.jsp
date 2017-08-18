@@ -9,19 +9,19 @@
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.nt300 {
+.ntv300 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #696969;
    font-weight: 300;
 }
 
-.nt400 {
+.ntv400 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #696969;
    font-weight: 400;
 }
 
-.nt700 {
+.ntv700 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #696969;
    font-weight: 700;
@@ -61,6 +61,7 @@ $(document).ready(function(){
             type: 'get',
             async : true,
             dataType : "JSON",
+
             success : function(data){
                 console.log(JSON.stringify(data));
               $(function() {
@@ -112,7 +113,9 @@ $(document).ready(function(){
             pie: 'get',
             async : true,
             dataType : "JSON",
+            
             success : function(data){
+               console.log(data);
                console.log(JSON.stringify(data));
                $(function() {
                   new Highcharts.chart({
@@ -247,10 +250,13 @@ $(document).ready(function(){
 
 
 <body>
+<jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
+<div class="container">
    <!-- 시각화하려는 변수를 선택하는 부분 -->
 
-   <div class="col-sm-12 nt400">
+   <div class="col-sm-12 ntv400">
 
       <h3>
          변수 선택 : <input type="text" id="dataName" readonly>
@@ -258,19 +264,35 @@ $(document).ready(function(){
 
    </div>
    <br>
-
-   <!-- 시각화하려는 변수를 선택하는 부분 -->
-
-   <div class="col-sm-12 nt400">
-      종속 변수 선택 : <input type="text" id="dataName"><br> 종속 변수 선택
-      : <input type="text" id="dataName"><br> 독립 변수 선택 : <input
-         type="text" id="dataName"><br>
-   </div>
+   <table id="result_table" border="1" >
+      <thead>
+         <tr>
+            <c:forEach var="colName" items="${result.colNames}">
+               <c:forEach var="colNameValue" items="${colName}">
+                  <th><input class="chkCol" name="chkColnames" type="checkbox">
+                     <label class="chkCol" for="chkColnames">${colName}</label></th>
+               </c:forEach>
+            </c:forEach>
+         </tr>
+      </thead>
+      <tbody>
+         <c:forEach var="i" begin="0" end="${fn:length(list.data[0])}">
+            <c:if test="${i le 5}">
+               <c:set var="row" value="${result.data}" />
+               <tr>
+                  <c:forEach var="data" items="${row}">
+                     <td>${data[i]}</td>
+                  </c:forEach>
+               </tr>
+            </c:if>
+         </c:forEach>
+      </tbody>
+   </table>
    <br>
 
    <!-- 그래프 타입 선택 -->
 
-   <div class="col-sm-12 nt400">
+   <div class="col-sm-12 ntv400">
       <h3>그래프 타입 선택</h3>
       <input type="checkbox" id="barcheck"> 막대 그래프 <br> <input
          type="checkbox" id="piecheck"> 파이 그래프 <br> <input
@@ -282,7 +304,7 @@ $(document).ready(function(){
 
    <!-- 그래프 표시부  -->
 
-   <div class="col-sm-12 nt400" id="graph" style="margin-top: 5px">
+   <div class="col-sm-12 ntv400" id="graph" style="margin-top: 5px">
       <h3>그래프 표시부</h3>
 
       <br>
@@ -308,7 +330,7 @@ $(document).ready(function(){
    </div>
 
    <!-- 저장/리셋 -->
-   <div class="col-sm-12 nt400" align="center">
+   <div class="col-sm-12 ntv400" align="center">
       <input type="submit" value="SAVE"> 
       <input type="reset" value="RESET">
    </div>
@@ -319,11 +341,12 @@ $(document).ready(function(){
       </table>     
    </div>
    
-   <div class="col-sm-12 nt400" align="right">
-      <a href="/destiny/analytics/ML" class="nt400"><input type="button"
+   <div class="col-sm-12 ntv400" align="right">
+      <a href="/destiny/analytics/ML" class="ntv400"><input type="button"
          value="다음 단계로" /></a>
    </div>
-
-
+   
+</div> <!-- End Conatiner -->
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </body>
 </html>

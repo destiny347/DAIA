@@ -33,9 +33,9 @@ public class UserController {
 	IUserService userService;
 
 	//jsp 파일에서 ${} 사용을 위한 모델 생성.
-	public Model callNameModel(String userEmail, Model model) {
-		UserVO user = userService.selectUserByUserEmail(userEmail);
-		model.addAttribute("userEmail", user.getUserEmail());
+	public Model callNameModel(String userId, Model model) {
+		UserVO user = userService.selectUserByUserId(userId);
+		model.addAttribute("userId", user.getUserId());
 		return model;
 	}
 
@@ -70,29 +70,57 @@ public class UserController {
 		}
 		return "redirect:/";
 	}
+	
+	//회원 탈퇴
+	   @RequestMapping(value="/users/withDraw", method=RequestMethod.GET)
+	   public String withDraw(HttpSession session, Model model) {
+	      String userId = (String)session.getAttribute("userId");    
+	      return "/users/myPage";
+	   }
+
+	   @RequestMapping(value="/users/withDraw", method=RequestMethod.POST)
+	   public String withDraw(String userId, String userPw, Model model, HttpSession session) {
+	      callNameModel(userId, model);      
+	      try {
+	         if(userService.checkPassword(userId, userPw)) {            
+	            userService.withDraw(userId, userPw);
+	            session.removeAttribute(userId);
+	            return "redirect:/";
+	         } else {				
+					model.addAttribute("errorPw", "비밀번호를 잘못 입력하셨습니다.");
+					model.addAttribute("home", "/users/withdraw");
+					return "users/PwWrong";
+	         }
+
+	      } catch(Exception e) {
+	         model.addAttribute("exception", e);
+	         return "redirect:/";
+	      }
+
+	   }
 
 	//정보수정
-	@RequestMapping(value="/users/update/{userEmail}", method=RequestMethod.GET)
-	public String updateInfo(@PathVariable String userEmail,Model model, HttpSession session) {
-		UserVO user = userService.selectUserByUserEmail(userEmail+".com");
-		System.out.println(user.getUserEmail());
+	@RequestMapping(value="/users/update/{userId}", method=RequestMethod.GET)
+	public String updateInfo(@PathVariable String userId, Model model, HttpSession session) {
+		UserVO user = userService.selectUserByUserId(userId);
+		/*System.out.println(user.getUserId());*/
 		model.addAttribute("user", user);
 		return "/users/update";
 	}
 
-	@RequestMapping(value="/users/update/{userEmail}", method=RequestMethod.POST)
+	@RequestMapping(value="/users/update/{userId}", method=RequestMethod.POST)
 	public String updateInfo(@ModelAttribute("user") @Valid UserVO users) {
 		userService.updateInfo(users);
 		return "redirect:/greeting";
 	}
 
 	//내 정보
-	@RequestMapping("/users/myPage/{userEmail}")
-	public String myPage(@PathVariable (value= "userEmail") String userEmail,  Model model, HttpSession session) {
-		UserVO user = userService.selectUserByUserEmail(userEmail+".com");		
+	@RequestMapping("/users/myPage/{userId}")
+	public String myPage(@PathVariable (value= "userId") String userId,  Model model, HttpSession session) {
+		UserVO user = userService.selectUserByUserId(userId);		
 		model.addAttribute("user", user);				
 		return "/users/myPage";
-	}	
+	}
 
 	//로그인
 	@RequestMapping(value="/greeting", method=RequestMethod.GET)
@@ -101,13 +129,13 @@ public class UserController {
 	}
 
 	@RequestMapping(value="/greeting", method=RequestMethod.POST)
-	public String signIn(String userEmail, String userPw, HttpSession session, Model model) {
+	public String signIn(String userId, String userPw, HttpSession session, Model model) {
 		try {
-			UserVO user = userService.selectUserByUserEmail(userEmail);
-			callNameModel(userEmail, model);
+			UserVO user = userService.selectUserByUserId(userId);
+			callNameModel(userId, model);
 
-			if(userService.checkPassword(userEmail, userPw)) {
-				session.setAttribute("userEmail", userEmail);
+			if(userService.checkPassword(userId, userPw)) {
+				session.setAttribute("userId", userId);
 				session.setAttribute("user", user);
 				return "redirect:/greeting";
 			} else {
@@ -195,6 +223,11 @@ public class UserController {
 	@RequestMapping(value="/users/update")
 	public String update() {
 		return "/users/update";
+	}
+	
+	@RequestMapping(value="/users/withdraw")
+	public String withdraw() {
+		return "/users/withdrawForm";
 	}
 
 }

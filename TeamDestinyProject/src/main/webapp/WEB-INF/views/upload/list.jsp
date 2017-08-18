@@ -216,6 +216,7 @@ a {
    <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
    <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
+<div class="container">
    <c:url var="actionURL" value='/upload/new' />
    <form action="${actionURL}" method="post" enctype="multipart/form-data"
       class="form-horizontal">
@@ -291,7 +292,7 @@ a {
 
    </form>
 
-
+</div>
 </body>
 <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </html>

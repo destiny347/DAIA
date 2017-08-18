@@ -21,73 +21,86 @@
 
 <title>Sidebar</title>
 
-<!-- <script>
-$(document).ready(function() {
-	var menu_flag = false;
-	$(".w3-sidebar").hide();
-$(".button").bind("click", function() {
-	if (menu_flag) {
-	$(".w3-sidebar").hide();
-	/* $(".side_bar").animate({"left":"-50%"}, 200); */
-	menu_flag = false;
-} else {
-	$(".w3-sidebar").show();
-	/* $(".side_bar").animate({"left":"0px"}, 200); */
-	menu_flag = true;
-	}
-});
-});
-</script> -->
-
 <style>
-@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:300);
-@font-face {
-	font-family: 'Titillium Web';
-	font-style: normal;
-	font-weight: 300;
-	src: local('Titillium WebLight'), local('TitilliumWeb-Light'),
-		url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff)
-		format('woff');
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nt100 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 100;
+}
+.nt200 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 200;
+}
+.nt300 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 300;
+}
+.nt400 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 400;
+}
+.nt500 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 500;
+}
+.nt600 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 600;
+}
+.nt700 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 700;
 }
 
 .side-menu:hover {
-	opacity: 1.0;
-	left: 0px;
+   opacity: 1.0;
+   left: 0px;
+   transition-duration: 0.8s;
 }
 
 .side-menu {
-	float: left;
-	background-color: mediumslateblue;
-	color: white;
-	opacity: 0.5;
-	width: auto;
-	height: auto;
-	position: fixed;
-	top: 130px;
-	left: -160px;
+   float: left;
+   background-color: #1e1e1e;
+   color: #ebebeb;
+   opacity: 0.4;
+   width: auto;
+   height: auto;
+   position: fixed;
+   top: 110px;
+   left: -135px;
+   transition-duration: 0.5s;
 }
 
 .side-menu table {
-	width: 200px;
-	height: 230px;
-	color: white;
+	width: 180px;
+	height: 190px;
+   color: #ebebeb;
+   transition-duration: 0.5s;
 }
 
  .side-menu table tr td a {
-	font-size: 15px;
-	color: white;
-	font-family: 'Titillium Web', sans-serif;
-	text-decoration: none;
-	text-align: center;
+   font-size: 15px;
+   color: #ebebeb;
+   text-decoration: none;
+   text-align: center;
+   transition-duration: 0.5s;
 }
 
 .side-menu td:hover, .side-menu td:hover>a, nav.side-menu td.active>a, .dropdown-menu>td>a:hover,
-	.dropdown-menu>td>a:focus, .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover,
-	.dropdown-menu>.active>a:focus, .no-touch .dashboard-page nav.dashboard-menu tr td:hover a,
-	.dashboard-page nav.dashboard-menu tr td.active a {
-	color: white;
-	background-color: slateblue;
+   .dropdown-menu>td>a:focus, .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover,
+   .dropdown-menu>.active>a:focus, .no-touch .dashboard-page nav.dashboard-menu tr td:hover a,
+   .dashboard-page nav.dashboard-menu tr td.active a {
+   color: #ebebeb;
+   background-color: #3c3c3c;
+   transition-duration: 0.8s;
 }
 
 </style>
@@ -96,32 +109,26 @@ $(".button").bind("click", function() {
 
 <body>
 
- 	<div class="side-menu">
- 		<table>
- 		<tr>
- 			<td><a href="/destiny/upload/list">파일관리</a></td>
- 			<td rowspan="7">&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right fa-2x"></i></td>
- 		</tr>
-		<tr>
-			<td><a href="/destiny/analytics/handling">데이터 전처리</a></td>
-		</tr>
-		<tr>
-			<td><a href="/destiny/analytics/restructuring">데이터 재구조화</a></td>
-		</tr>
-		<tr>
-			<td><a href="/destiny/analytics/info/">데이터 탐색</a></td>
-		</tr>
-		<tr>
-			<td><a href="/destiny/analytics/visual">데이터 시각화</a></td>
-		</tr>
-		<tr>
-			<td><a href="">데이터 주성분분석</a></td>
-		</tr>
-		<tr>
-			<td><a href="/destiny/analytics/ML">머신러닝</a></td>
-		</tr>
-		</table>
-	</div>
+    <div class="side-menu">
+       <table>
+       <tr>
+          <td><a href="/destiny/upload/list">파일관리</a></td>
+          <td rowspan="5">&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right fa-2x"></i></td>
+       </tr>
+      <tr>
+         <td><a href="/destiny/analytics/handling">데이터 전처리</a></td>
+      </tr>
+      <tr>
+         <td><a href="/destiny/analytics/restructuring">데이터 재구조화</a></td>
+      </tr>
+      <tr>
+         <td><a href="/destiny/analytics/visual">데이터 시각화</a></td>
+      </tr>
+      <tr>
+         <td><a href="/destiny/analytics/ML">머신러닝</a></td>
+      </tr>
+      </table>
+   </div>
 
 </body>
 </html>

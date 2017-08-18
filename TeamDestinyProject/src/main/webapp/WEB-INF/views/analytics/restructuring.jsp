@@ -70,6 +70,10 @@ ${rData.colNames}<p>
 ${rData.data}<p>
 -->
 
+<jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
+
+<div class="container">
 	<form id="select_col">		
 		<div class="container">
 			<!-- Trigger the modal with a button -->
@@ -153,6 +157,7 @@ ${rData.data}<p>
 				데이터 명 : <input type="text" id="dataName" value="${fileName}"
 					readonly>
 			</h3>
+		<div style="overflow-x: auto;">
 			<table id="sum_table" border="1">
 				<thead>
 					<tr>
@@ -178,7 +183,7 @@ ${rData.data}<p>
 					</c:forEach>
 				</tbody>
 			</table>
-			<div id="ddtable" style="display: none">
+			<div id="ddtable" style="display: none; oveflow-x: auto;">
 			<h3>
 				데이터 명 : <input type="text" id="dataName" value="${dd}"
 					readonly>
@@ -209,6 +214,7 @@ ${rData.data}<p>
 				</tbody>
 			</table>
 			</div>
+			</div>
 		</div>
 	</form>
 
@@ -227,6 +233,7 @@ ${rData.data}<p>
 
 	<div>
 		<h3>재구조화 데이터 테이블</h3>
+		<div style="overflow-x: auto;">
 		<table id="result_table" border="1" style="display: none">
 			<thead>
 				<tr>
@@ -251,6 +258,7 @@ ${rData.data}<p>
 				</c:forEach>
 			</tbody>
 		</table>
+		</div>
 	</div>
 
 	<!-- 테이블 조인 & 리셋 -->
@@ -267,6 +275,8 @@ ${rData.data}<p>
 			</tr>
 		</table>
 	</div>
-
+	
+</div> <!-- End Container -->	
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </body>
 </html>

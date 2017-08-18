@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>메인 페이지</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- W3.CSS Templates -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -23,6 +22,33 @@
 <!-- jQuery -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<style>
+html, body{
+background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
+margin:0;
+padding:0;
+height:100%;
+}
+
+html{
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+body{
+	position:relative;
+	margin:0;
+	height:100%;
+}
+
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+}
+</style>
+
 </head>
 
 <body>
@@ -34,7 +60,7 @@
         <div class="row">
             <div class="box">               
                     <div class="col-lg-12 text-center">
-                        <iframe width="1100" height="600" src="https://www.youtube.com/embed/EVaV7AwqBWg?rel=0&autoplay=1&loop=1&list=PLpSlDiXC0EEZiFDmw04BLvsbVCzS7c84N" frameborder="0" allowfullscreen></iframe>                               
+                        <!-- <iframe width="1100" height="600" src="https://www.youtube.com/embed/EVaV7AwqBWg?rel=0&autoplay=1&loop=1&list=PLpSlDiXC0EEZiFDmw04BLvsbVCzS7c84N" frameborder="0" allowfullscreen></iframe> -->                               
                         </div> 
                     </div>
                </div>
