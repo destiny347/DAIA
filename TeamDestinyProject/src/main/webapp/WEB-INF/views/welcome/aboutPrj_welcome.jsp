@@ -65,38 +65,40 @@ color : white;
 
 .nt100 {
    font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
+   color: #ebebeb;
    font-weight: 100;
 }
 .nt200 {
    font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
+   color: #ebebeb;
    font-weight: 200;
 }
-.nt300 {
+
+.nt350 {
    font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 300;
+   color: #ebebeb;
+   font-weight: 350;
 }
+<!-- 레귤러 폰트 -->
 .nt400 {
    font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
+   color: #ebebeb;
    font-weight: 400;
 }
 .nt500 {
    font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
+   color: #ebebeb;
    font-weight: 500;
-}
-.nt600 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 600;
 }
 .nt700 {
    font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
+   color: #ebebeb;
    font-weight: 700;
+}
+.nt900 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 900;
 }
 
 </style>
@@ -125,9 +127,16 @@ color : white;
                src="http://erotic-chaos.com/wp-content/uploads/2017/08/prj_main.png"
                alt="Jeans" style="width: 100%">    
             </div>
-         
-      <div><br><br>
+               <div class="col-lg-12 col-md-12 col-sm-12">
+      <table>
+         <tr><td>&nbsp;</td></tr>
+      </table>     
+   </div>
+   
+      <div>
       <h3><center>방대한 데이터와 복잡한 분석 과정을<br>DAIA 플랫폼에서 손쉽게 다룰 수 있습니다.</h3><br><br>
+      </div>
+      <div>
       <center>분석 과정에서 사용/변경되는 데이터를 서버와 DB에 저장하고 R의 다양한 분석 기능과 알고리즘을 제공합니다.</center>
       <center>데이터 통계에 대한 시각화 차트와 분석 결과에 대한 가이드 라인까지, <br><br><b>인사이트의 발견이 더욱 간편해집니다.</b></center>
       

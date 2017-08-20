@@ -15,16 +15,12 @@
    color: #ebebeb;
    font-weight: 100;
 }
-.nt200 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #ebebeb;
-   font-weight: 200;
-}
 .nt300 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #ebebeb;
    font-weight: 300;
 }
+<!-- 레귤러 폰트 -->
 .nt400 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #ebebeb;
@@ -35,16 +31,17 @@
    color: #ebebeb;
    font-weight: 500;
 }
-.nt600 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #ebebeb;
-   font-weight: 600;
-}
 .nt700 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #ebebeb;
    font-weight: 700;
 }
+.nt900 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 900;
+}
+
 .fa{
    margin: 0 10px 0 0;
 } 
@@ -83,7 +80,7 @@ th, td {
    <div class="container">
       <div class="mailing col-sm-4" align="center">
          <h4 class="nt400">Mailing list</h4>
-            <table class="nt200">
+            <table class="nt300">
                <tr><td>Sign up if you would like to receive</td></tr>
                <tr><td>&nbsp;</td></tr>
             </table>

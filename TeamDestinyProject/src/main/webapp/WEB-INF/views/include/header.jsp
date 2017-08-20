@@ -40,16 +40,12 @@
    color: #ebebeb;
    font-weight: 100;
 }
-.nt200 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #ebebeb;
-   font-weight: 200;
-}
 .nt300 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #ebebeb;
    font-weight: 300;
 }
+<!-- 레귤러 폰트 -->
 .nt400 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #ebebeb;
@@ -60,15 +56,15 @@
    color: #ebebeb;
    font-weight: 500;
 }
-.nt600 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #ebebeb;
-   font-weight: 600;
-}
 .nt700 {
    font-family: 'Noto Sans KR', sans-serif;
    color: #ebebeb;
    font-weight: 700;
+}
+.nt900 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #ebebeb;
+   font-weight: 900;
 }
 
 .hovbutton {
@@ -102,6 +98,7 @@ border-radius : 4px;
    text-decoration: none;
    display: inline-block;
    font-size: 12px;
+   font-weight : 500;
    margin: 2px 4px;
    -webkit-transition-duration: 0.5s; /* Safari */
    transition-duration: 0.5s;
@@ -131,7 +128,7 @@ border-radius : 4px;
             </div>
 
             <!-- 부트스트랩 씌우고 테이블 버튼을 span에 버튼형식으로 추가함. -->
-            <div class="leftmenu-group nt300" align="right">
+            <div class="leftmenu-group nt400" align="right">
                <span class="mainmenu"><a href="/destiny/aboutPrj"><button class="hovbutton" style="width:auto; height: 10%;">프로젝트 소개</button></a></span>
                <span class="mainmenu"><a href="/destiny/aboutUs"><button class="hovbutton" style="width:auto; height: 10%;">팀 소개</button></a></span>
                <span class="mainmenu"><a href="/destiny/board"><button class="hovbutton" style="width:auto; height: 10%;">FAQ</button></a></span>
@@ -139,7 +136,6 @@ border-radius : 4px;
                <span class="mainmenu"><a href="/destiny/users/login"><button id="login" class="hovbutton1" style="width: auto; height: 10%;">로그인</button></a></span>   <!-- onclick="document.getElementById('id01').style.display='block'"  -->
                <span class="mainmenu"><a href="/destiny/users/join"><button id="join"   class="hovbutton1" style="width: auto; height: 10%;">회원가입</button></a></span>   <!-- onclick="document.getElementById('id02').style.display='block'"  -->
                </div>
-
 
          </div><!-- End Container -->
       </div><!-- End HeaderLine -->
