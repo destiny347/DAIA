@@ -174,13 +174,13 @@ footer{
 
    <div class="container"  style="font-family:'Noto Sans KR', sans-serif; color: #ebebeb; background-color: rgba( 0, 0, 0, 0.6 ); width: 530px; position: relative; top: 100px;">
       <div class="headheadhead" style="width: 500px;">
-          <h1>회원 탈퇴 <small>DAIA Platform</small></h1>
+          <h1>내 정보 <small>DAIA Platform</small></h1>
        </div>
       <div class="row">&nbsp;</div> 
       
-      <form class="withdrawForm" action="/destiny/users/withDraw" method="post">
+      <form class="checkPwForm" action="/destiny/users/checkPw" method="post">
         <div class="col-lg-12 col-sm-12" style="color: yellow; font-size: 15px;">
-            <label>탈퇴하시려면 비밀번호를 입력해주세요.</label>
+            <label>정보를 수정하시려면 비밀번호를 입력해주세요.</label>
          </div>
             <div class="row">&nbsp;</div>
             <div class="row">&nbsp;</div>
@@ -192,7 +192,7 @@ footer{
            <div class="row">&nbsp;</div>
            <div class="row">&nbsp;</div> 
         <div class="col-lg-12 col-sm-12" align="center";>
-          <button class="btn btn-primary" type="submit" onclick="return confirm('정말로 탈퇴하시겠습니까?')">완료</button>
+          <button class="btn btn-primary" type="submit">완료</button>
           <input class="btn btn-warning" type="button" value="취소" onclick="window.history.back(-1);return false;"/>
         </div>
         <div>&nbsp;</div>

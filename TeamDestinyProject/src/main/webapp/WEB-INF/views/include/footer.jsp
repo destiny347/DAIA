@@ -77,7 +77,7 @@ th, td {
 <!-- Footer -->
    <footer style="background-color:#1e1e1e;">
    
-   <div class="container">
+   <div class="container" style="font-family:'Noto Sans KR', sans-serif; color: #ebebeb;">
       <div class="mailing col-sm-4" align="center">
          <h4 class="nt400">Mailing list</h4>
             <table class="nt300">
@@ -86,9 +86,9 @@ th, td {
             </table>
             <form action='/subscribe' method="post" class="form-horizontal form-light" >
                <div class="input-group col-sm-8" align="center">
-                  <input type="email" name="email" class="form-control" placeholder="Your email address..." required /> 
+                  <input type="email" name="email" class="form-control" placeholder="Your email address..." style="color: #1e1e1e" required /> 
                   <span class="input-group-btn">
-                     <input type="submit" class="btn btn-base" value="GO!" />
+                     <input type="submit" class="btn btn-base" value="GO!" style="color: #1e1e1e"/>
                   </span>
                </div>
             </form>

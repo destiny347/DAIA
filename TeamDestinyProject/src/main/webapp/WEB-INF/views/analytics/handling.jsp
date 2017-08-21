@@ -238,10 +238,68 @@ $(document).ready(function() {
 
 
 
-<style>
+<style type="text/css">
+
 .radiobutton {
 	height: 150px;
 }
+
+<!-- Fonts -->
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nti100 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 100;
+}
+.nti300 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 300;
+}
+<!-- 레귤러 폰트 -->
+.nti400 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 400;
+}
+.nti500 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 500;
+}
+.nti700 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 700;
+}
+.nti900 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 900;
+}
+
+html, body{
+position:static;
+margin:0;
+padding:0;
+height:100%;
+}
+
+.blank{
+margin-top:5px;
+margin-bottom:5px;
+}
+
+.blank1{
+margin-top:10px;
+margin-bottom:10px;
+}
+
+th {
+padding: 5px !important;
+}
+
 </style>
 
 <title>데이터 전처리</title>
@@ -250,23 +308,34 @@ $(document).ready(function() {
 <body>
 <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
-<div class="container">
+<div class="container" style="font-family:'Noto Sans KR', sans-serif; font-weight:400; color: #1e1e1e;">
 
-	<h1>정보</h1>
-	<div>
-		<h3>파일명 : [${fileName}]</h3>
+<div style="border-bottom: 1px solid #1e1e1e; width:80%">
+	<h3>정보</h3>
 	</div>
+	
+	<div class="blank">&nbsp;</div>
+	
+	<div style="border: 1px solid #1e1e1e; border-radius: 3px; width:80%; ">
+		<h4>파일명 : [${fileName}]</h4>
+	</div>
+	
+	<div class="blank">&nbsp;</div>
+	
 	<div id="show_col_sum">
 		<input type="button" id="show_all" value="테이블 전체보기"> <input
 			type="button" id="show_sum" value="테이블 요약보기(5행)"
 			style="display: none">
 	<div style="overflow-x: auto;">
+	
+	<div class="blank">&nbsp;</div>
+	
 		<table id="sum_table" border="1">
 			<thead>
 				<tr>
 					<c:forEach var="colName" items="${list.colNames}">
 						<c:forEach var="colNameValue" items="${colName}">
-							<th><input class="chkCol" name="chkColnames" type="checkbox"
+							<th style="text-align: center;"><input class="chkCol" name="chkColnames" type="checkbox"
 								value="${colName}"> <label class="chkCol"
 								for="chkColnames">${colName}</label></th>
 						</c:forEach>
@@ -288,58 +357,69 @@ $(document).ready(function() {
 		</table>
 	</div>
 	</div>
+	
 	<br>
-	<div id="resultTemp"></div>
-	<div class="col-lg-3 col-md-6 col-sm-6">
+	
+	<div class="resultTemp col-lg-4 col-md-6 col-sm-6 row">
+	
+	<div style="border-bottom: 1px solid #1e1e1e; width:80%">
 		<h3>결측치</h3>
+	</div>
+		 <div class="blank">&nbsp;</div>	
 		<table class="radiobutton">
 			<tr>
-				<td><input type="radio" id="ynTo10" name="handling1"
-					value="ynTo10">ynTo10</td>
+				<td style="text-align:left;"><input type="radio" id="ynTo10" name="handling1"
+					value="ynTo10" style="margin-right:10px;">ynTo10</td>
 			</tr>
 			<tr>
-				<td>&nbsp;</td>
+				<td style="text-align:left;">&nbsp;</td>
 			</tr>
 			<tr>
-				<td><input type="radio" id="nullToN" name="handling1"
-					value="nullToN">nullToN</td>
+				<td style="text-align:left;"><input type="radio" id="nullToN" name="handling1"
+					value="nullToN" style="margin-right:10px;">nullToN</td>
 			</tr>
 			<tr>
-				<td>&nbsp;</td>
+				<td style="text-align:left;">&nbsp;</td>
 			</tr>
 			<tr>
-				<td><input type="radio" id="naTo6" name="handling1"
-					value="naTo6">naTo6</td>
+				<td style="text-align:left;"><input type="radio" id="naTo6" name="handling1"
+					value="naTo6" style="margin-right:10px;">naTo6</td>
 			</tr>
 			<tr>
-				<td>&nbsp;</td>
+				<td style="text-align:left;">&nbsp;</td>
 			</tr>
 			<tr>
-				<td><input type="radio" id="naToNum" name="handling1"
-					value="naToNum">na -></td>
-				<td>&nbsp;&nbsp;<input type="text" id="naToNumber"></td>
+				<td style="text-align:left;"><input type="radio" id="naToNum" name="handling1"
+					value="naToNum" style="margin-right:10px;">na&nbsp;&nbsp;&nbsp;-></td>
+				<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="naToNumber" style="width:30%; margin-right:10px;"></td>
 			</tr>
 			<tr>
-				<td>&nbsp;</td>
+				<td style="text-align:left;">&nbsp;</td>
 			</tr>
-
 
 		</table>
-		<table align=right>
+		
+		<table>
 			<tr>
-				<td><input type="submit" id="convert" value="변환" /></td>
-				<td>&nbsp;</td>
+				<td><input type="submit" id="convert" value="변환" style="margin-right:5px;"/></td>
 				<td><a href="/destiny/upload/list"><input type="button"
 						value="취소" /></a></td>
 			</tr>
 		</table>
-	</div>
-	<div id="resultTemp2"></div>
-	<div class="col-lg-3 col-md-6 col-sm-6">
-		<h3>이상치</h3>
+	</div> <!-- resultTemp -->
+	
+	
+	<div class="resultTemp2 col-lg-4 col-md-6 col-sm-6 row" align=left>
+	
+			<div style="border-bottom: 1px solid #1e1e1e; width:80%">
+				<h3>이상치</h3>
+				</div>
+				
+				<div class="blank">&nbsp;</div>
+				
 		<table class="radiobutton">
 			<tr>
-				<td><input type="radio" name="handling2" id="Min">Min
+				<td style="text-align:left;"><input type="radio" name="handling2" id="Min">Min
 					
 				</td>
 				
@@ -348,26 +428,27 @@ $(document).ready(function() {
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="handling2" id="Max">Max</td>
+				<td style="text-align:left;"><input type="radio" name="handling2" id="Max">Max</td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="handling2" id="Avg">Avg</td>
+				<td style="text-align:left;"><input type="radio" name="handling2" id="Avg">Avg</td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="handling2" id="기타">기타
-					: <input type="text"></td>
+				<td style="text-align:left;"><input type="radio" name="handling2" id="기타">기타
+					: <input type="text" style="width:30%; margin-right:10px;"></td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
 			</tr>
 		</table>
-		<table align=right>
+		
+		<table style="text-align:right">
 			<tr>
 				<td><a href=""><input type="submit" id="convert2" value="변환" /></a></td>
 				<td>&nbsp;</td>
@@ -375,17 +456,14 @@ $(document).ready(function() {
 						value="취소" /></a></td>
 			</tr>
 		</table>
+		<div class="blank">&nbsp;</div>
 	</div>
 
-	<div class="col-lg-6 col-md-6 col-sm-6" align=right>
-		<table>
-			<tr>
-				<td>&nbsp;</td>
-			</tr>
-		</table>
-		<a href="/destiny/analytics/restructuring">
-		<input type="button" value="다음 단계로" /></a>
-	</div>
+	<div class="col-lg-12 col-md-12 col-sm-12">
+	<a href="/destiny/analytics/restructuring">
+		<input type="button" value="다음 단계로" style="margin-left:75%;"/></a>
+	</div>		
+	
 	
 </div> <!-- End Container -->
 <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>

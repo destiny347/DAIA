@@ -68,7 +68,7 @@
 }
 
 .hovbutton {
-border-radius : 4px;
+   border-radius : 4px;
    background-color: #1e1e1e;
    border: none;
    color: #ebebeb;
@@ -119,7 +119,7 @@ border-radius : 4px;
    <header>
 
       <!-- w3 컨테이너 지우고 헤드헤드 클래스로 작업함! -->
-      <div class="headhead">
+      <div class="headhead" style="font-family:'Noto Sans KR', sans-serif; color: #1e1e1e;">
          <div class="container">
             <div class="col-sm-3">
                <a href="/destiny">

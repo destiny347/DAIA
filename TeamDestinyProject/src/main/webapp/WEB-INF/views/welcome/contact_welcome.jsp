@@ -24,8 +24,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
    $("#send").click(function(){   
-       alert("소중한 의견 감사드립니다.");
-      
+       alert("소중한 의견 감사드립니다.");      
    });
 });
 </script>
@@ -33,18 +32,60 @@ $(document).ready(function() {
 <title>Contact US</title>
 </head>
 <style>
+html, body{
+background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
+margin:0;
+padding:0;
+height:100%;
+}
+
 #map {
    height: 400px;
    width: 100%;
+}
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nt100 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 100;
+}
+.nt300 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 300;
+}
+<!-- 레귤러 폰트 -->
+.nt400 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 400;
+}
+.nt500 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 500;
+}
+.nt700 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 700;
+}
+.nt900 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 900;
 }
 </style>
 <body>
    <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
    <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
-   <div class="container">
-      <h1 class="w3-border-bottom w3-border-lightgray w3-padding-16">Map</h1>
+   <div class="container" style="font-family:'Noto Sans KR', sans-serif; color: #ebebeb; background-color: rgba( 0, 0, 0, 0.8 );">
+      <div class="col-sm-12">
+      <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Map</h2>
       <div id="map"></div>
+      </div>
       <script>
       function initMap() {
         var uluru = {lat: 37.495361, lng: 127.122376};
@@ -61,14 +102,14 @@ $(document).ready(function() {
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMOH8JKPTynKmgWaKl6wSfkyt7CGj4Nl0&callback=initMap">
     </script>
 
-      <div class="col-sm-6" id="contact">
-         <h1 class="w3-border-bottom  w3-border-lightgray w3-padding-16">Contact</h1>
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" id="contact">
+         <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h2>
          <label>Lets get in touch and talk about your and our next project.</label>
          <form action="/action_page.php" target="_blank">
             <input class="w3-input" type="text" placeholder="Name" required name="Name"> 
             <input class="w3-input w3-section" type="text" placeholder="Email" required name="Email"> 
             <input class="w3-input w3-section" type="text" placeholder="Subject" required name="Subject"> <input class="w3-input w3-section"
-               		type="text" placeholder="Comment" required name="Comment">
+                     type="text" placeholder="Comment" required name="Comment">
             <button class="w3-button w3-blue w3-section" type="button" id="send">
                <i class="fa fa-paper-plane"></i> SEND MESSAGE
             </button>

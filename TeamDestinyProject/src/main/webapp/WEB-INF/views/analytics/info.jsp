@@ -6,19 +6,76 @@
 <head>
 <meta charset="UTF-8">
 <style type="text/css">
+
+<!-- Fonts -->
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nti100 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 100;
+}
+.nti300 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 300;
+}
+<!-- 레귤러 폰트 -->
+.nti400 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 400;
+}
+.nti500 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 500;
+}
+.nti700 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 700;
+}
+.nti900 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 900;
+}
+
+html, body{
+position:static;
+margin:0;
+padding:0;
+height:100%;
+}
+
+footer{
+    position:relative;
+    top: 120px;
+    bottom:0;
+    width:100%;
+}
+
+.blank{
+margin-top:5px;
+margin-bottom:5px;
+}
+
+.blank1{
+margin-top:10px;
+margin-bottom:10px;
+}
+
+th {
+padding: 5px !important;
+}
+
+
+
 </style>
 <!-- Bootstrap Core CSS -->
 <link href="../../css/bootstrap.css" rel="stylesheet">
 <link href="../../css/bootstrap.min.css" rel="stylesheet">
-
-
-<!-- Fonts -->
-<link
-   href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-   rel="stylesheet" type="text/css">
-<link
-   href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
-   rel="stylesheet" type="text/css">
 
 <!-- jQuery -->
 <script src="../../js/jquery.js"></script>
@@ -83,7 +140,6 @@
             $('#col_table').append(thead);
             $('#col_table').append(tbody);
           });
-       
        
                     
       //초기화버튼 클릭이벤트
@@ -239,29 +295,43 @@
 
 </head>
 <body>
-	
 
-	
-   <h1>정보</h1>
+<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
+<div class="container" style="font-family:'Noto Sans KR', sans-serif; font-weight:400; color: #1e1e1e;">	
+
+	<div style="border-bottom: 1px solid #1e1e1e; width:80%">
+   <h3>정보</h3>
+</div>
+<div class="blank">&nbsp;</div>
    <c:forEach var="j" begin="0" end="${rData.size()-1}">
-
-      <div>
-         <h3>파일명 : [${fileName.get(j)}]</h3>
+		
+		<div class="blank">&nbsp;</div>			
+      <div style="border: 1px solid #1e1e1e; border-radius: 3px; width:80%; ">
+         <h4>파일명 : [${fileName.get(j)}]</h4>
       </div>
+      
+      <div class="blank">&nbsp;</div>
+      
       <div id="show_col_sum">
          <p>
-            <label class="chkColnames" for="checkAll">전체 선택</label><input
+            <label class="chkColnames nti400" for="checkAll">전체 선택&nbsp;&nbsp;</label><input
                type="checkbox" class="chkColnames" id="checkAll" />
          </p>
-         <input type="button" id="show_all" value="테이블 전체보기"> <input
+         <input type="button" id="show_all" value="테이블 전체보기"> 
+         <input
             type="button" id="show_sum" value="테이블 요약보기(5행)"
             style="display: none">
+            <div style="overflow-x: auto;">
+            
+            <div class="blank">&nbsp;</div>
+            
          <table id="sum_table" border="1">
             <thead>
                <tr>
                   <c:forEach var="colName" items="${rData.get(j).colNames}">
-                        <th><input class="chkCol" name="chkColnames"
+                        <th style="text-align: center;"><input class="chkCol" name="chkColnames"
                            type="checkbox" value="${colName}"> <label class="chkCol"
                            for="chkColnames">${colName}</label></th>
                   </c:forEach>
@@ -281,6 +351,7 @@
                </c:forEach>
             </tbody>
          </table>
+         </div>
       </div>
    </c:forEach>
 
@@ -290,17 +361,28 @@
    <input class="btn" type="reset" id="reset" value="초기화" />
    <a href="/destiny/upload/list"><input class="btn" type="button"
       value="취소" /></a>
-	
+      
+ <div class="blank">&nbsp;</div>	
+ 
 <form action="/analytics/handling" method="post">	
    <div id="selectCol" style="display: none">
-      <h1>선택한 열 정보</h1>
+      
+      <div style="border-bottom: 1px solid #1e1e1e; width:80%">
+      <h3>선택한 열 정보</h3>
+      </div>
+      <div class="blank">&nbsp;</div>
       <h5>
          데이터 명 : <input type="text" name="dataName" id="outputFile">
       </h5>
+      <div class="blank">&nbsp;</div>
+      
+      
       <div id="dvData">
 
          <input type="button" id="show_sum2" value="테이블 요약보기(5행)"> <input
             type="button" id="show_all2" value="테이블 전체보기" style="display: none">
+            <div class="blank">&nbsp;</div>
+            <div style="overflow-x: auto;">
          <table id="col_table" class="col_table" border=1>
             <thead>
                <tr></tr>
@@ -309,15 +391,18 @@
                <tr></tr>
             </tbody>
          </table>
-         <br>
-         <div class="container">
+         </div>
+         <div class="blank">&nbsp;</div>
+         
 			<input value="다음" id="export" type="button" /> 
 			<a href="/destiny/upload/list"> <input
 				type="reset" value="취소" /></a>
-		 </div>
+		 
 		</div>
 	</div>
 </form>				
+			 </div> <!-- container -->
 			 
 </body>
+<footer><jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include></footer>
 </html>

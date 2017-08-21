@@ -26,38 +26,34 @@
 
 .nt100 {
    font-family: 'Noto Sans KR', sans-serif;
-   color: #ebebeb;
+   color: #1e1e1e;
    font-weight: 100;
-}
-.nt200 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #ebebeb;
-   font-weight: 200;
 }
 .nt300 {
    font-family: 'Noto Sans KR', sans-serif;
-   color: #ebebeb;
+   color: #1e1e1e;
    font-weight: 300;
 }
+<!-- 레귤러 폰트 -->
 .nt400 {
    font-family: 'Noto Sans KR', sans-serif;
-   color: #ebebeb;
+   color: #1e1e1e;
    font-weight: 400;
 }
 .nt500 {
    font-family: 'Noto Sans KR', sans-serif;
-   color: #ebebeb;
+   color: #1e1e1e;
    font-weight: 500;
-}
-.nt600 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #ebebeb;
-   font-weight: 600;
 }
 .nt700 {
    font-family: 'Noto Sans KR', sans-serif;
-   color: #ebebeb;
+   color: #1e1e1e;
    font-weight: 700;
+}
+.nt900 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 900;
 }
 
 .side-menu:hover {
@@ -70,18 +66,18 @@
    float: left;
    background-color: #1e1e1e;
    color: #ebebeb;
-   opacity: 0.4;
+   opacity: 0.6;
    width: auto;
    height: auto;
    position: fixed;
-   top: 110px;
-   left: -135px;
+   top: 120px;
+   left: -145px;
    transition-duration: 0.5s;
 }
 
 .side-menu table {
-	width: 180px;
-	height: 190px;
+   width: 200px;
+   height: 220px;
    color: #ebebeb;
    transition-duration: 0.5s;
 }
@@ -109,23 +105,23 @@
 
 <body>
 
-    <div class="side-menu">
+    <div class="side-menu" style="font-family:'Noto Sans KR', sans-serif; color: #1e1e1e;">
        <table>
        <tr>
-          <td><a href="/destiny/upload/list">파일관리</a></td>
-          <td rowspan="5">&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right fa-2x"></i></td>
+          <td><a href="/destiny/upload/list" style="font-size: 17px;">파일관리</a></td>
+          <td rowspan="5" >&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right fa-2x"></i></td>
        </tr>
       <tr>
-         <td><a href="/destiny/analytics/handling">데이터 전처리</a></td>
+         <td><a href="/destiny/analytics/handling" style="font-size: 17px;">데이터 전처리</a></td>
       </tr>
       <tr>
-         <td><a href="/destiny/analytics/restructuring">데이터 재구조화</a></td>
+         <td><a href="/destiny/analytics/restructuring" style="font-size: 17px;">데이터 재구조화</a></td>
       </tr>
       <tr>
-         <td><a href="/destiny/analytics/visual">데이터 시각화</a></td>
+         <td><a href="/destiny/analytics/visual" style="font-size: 17px;">데이터 시각화</a></td>
       </tr>
       <tr>
-         <td><a href="/destiny/analytics/ML">머신러닝</a></td>
+         <td><a href="/destiny/analytics/ML" style="font-size: 17px;">머신러닝</a></td>
       </tr>
       </table>
    </div>

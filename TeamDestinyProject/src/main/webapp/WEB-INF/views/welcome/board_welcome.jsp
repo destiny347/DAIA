@@ -27,6 +27,13 @@
 <title>Board</title>
 
 <style>
+html, body{
+background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
+margin:0;
+padding:0;
+height:100%;
+}
+
 .w3-sidebar a {
    font-family: "Roboto", sans-serif
 }
@@ -81,12 +88,65 @@ div.panel {
    overflow: hidden;
    transition: max-height 0.2s ease-out;
 }
+
+html{
+margin:0;
+padding:0;
+height:100%;
+}
+
+.faq {
+position: relative;
+margin: 0;
+overflow-y: scroll;
+}
+
+footer{
+    position:relative;
+    margin-bottom: 0px;
+    width:100%;
+}
+
+
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nt100 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 100;
+}
+.nt300 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 300;
+}
+<!-- 레귤러 폰트 -->
+.nt400 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 400;
+}
+.nt500 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 500;
+}
+.nt700 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 700;
+}
+.nt900 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 900;
+}
 </style>
 <script>
    
 </script>
-<body>
-   <!-- class="w3-content" style="max-width: 1200px" -->
+<body class="faq">
    <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
    <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
    <!-- Sidebar/menu -->
@@ -100,17 +160,21 @@ div.panel {
          onclick="w3_open()"><i class="fa fa-bars"></i></a>
    </header> -->
 
-   <div class="container">
+   <div class="container" style="font-family:'Noto Sans KR', sans-serif; color: #1e1e1e; background-color: rgba( 0, 0, 0, 0.7 ); min-height: 769px;">
+   <div class="col-sm-12">
 
       <!-- Overlay effect when opening sidebar on small screens -->
       <div class="w3-overlay w3-hide-large" onclick="w3_close()"
          style="cursor: pointer" title="close side menu" id="myOverlay"></div>
-               
+
+         <!-- Push down content on small screens -->
+         <div class="w3-hide-large" style="margin-top: 83px"></div>
+          
         <div>
-			<div class="headheadhead">
-    			<h1 class="w3-border-bottom w3-border-light-grey w3-padding-16">FAQ</h1>
-    		</div>
-    	</div>
+         <div class="headheadhead" style="font-family:'Noto Sans KR', sans-serif; color: #ebebeb;">
+             <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">FAQ</h2>
+          </div>
+       </div>
 
          <button class="accordion">분석 파일 관리</button>
          <div class="panel">
@@ -180,10 +244,12 @@ div.panel {
                }
             }
          </script>
+   </div>
+   </div>  <!-- End Container -->
 
-
-	</div>  <!-- End Container -->
-
-   <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+ 
 </body>
+<footer>
+ <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+</footer> 
 </html>

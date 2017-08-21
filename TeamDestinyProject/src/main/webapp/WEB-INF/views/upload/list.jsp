@@ -189,7 +189,57 @@
       }) 
    });
 </script>
+
 <style type="text/css">
+
+html, body{
+position:static;
+margin:0;
+padding:0;
+height:100%;
+}
+
+footer{
+    position:relative;
+    bottom:0;
+    top: 45px;
+    width:100%;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nt100 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 100;
+}
+.nt300 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 300;
+}
+<!-- 레귤러 폰트 -->
+.nt400 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 400;
+}
+.nt500 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 500;
+}
+.nt700 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 700;
+}
+.nt900 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 900;
+}
+
 a {
    color: #000;
 }
@@ -209,6 +259,15 @@ a {
    display: none;
 }
 
+.blank{
+margin-top:5px;
+margin-bottom:5px;n
+}
+
+.blank1{
+margin-top:10px;
+margin-bottom:10px;
+}
 
 
 </style>
@@ -216,38 +275,47 @@ a {
    <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
    <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
-<div class="container">
+<div class="container" style="font-family:'Noto Sans KR', sans-serif; font-weight:400; color: #1e1e1e;">
    <c:url var="actionURL" value='/upload/new' />
    <form action="${actionURL}" method="post" enctype="multipart/form-data"
       class="form-horizontal">
 
       <div id="myForm">
+         <div style="border-bottom: 1px solid #1e1e1e; width:80%">
          <h3>File Upload</h3>
+         </div>
+         <div class="blank">&nbsp;</div>
          <input type="file" name="file" id="txtFileUpload" accept=".csv">
-         <button type="submit" onclick="myFunction()">저장</button>
+         <div class="blank">&nbsp;</div>
+         <button type="submit" onclick="myFunction()"  style="margin-right:10px;">저장</button>
          <input type="reset" id="reset" value="취소">
       </div>
 
+<div class="blank1">&nbsp;</div>
+
+	<div style="border-bottom: 1px solid #1e1e1e; width:80%">
       <h3>File List</h3>
+      </div>
+      <div class="blank">&nbsp;</div>
       <table border="1">
          <tr>
-            <th>ID</th>
-            <td>경로</td>
-            <td>파일명</td>
-            <td>크기</td>
-            <td>유형</td>
-            <td>날짜</td>
-            <td>상세설명</td>
-            <td>삭제</td>
-            <td style="display: none">순서</td>
-            <td style="display: none">사용자 id</td>
+            <th style="padding: 10px;">ID</th>
+            <td style="padding: 10px;">경로</td>
+            <td style="padding: 10px;">파일명</td>
+            <td style="padding: 10px;">크기</td>
+            <td style="padding: 10px;">유형</td>
+            <td style="padding: 10px;">날짜</td>
+            <td style="padding: 10px;">상세설명</td>
+            <td style="padding: 10px;">삭제</td>
+            <td style="display: none; padding: 10px;">순서</td>
+            <td style="display: none; padding: 10px;">사용자 id</td>
          </tr>
          <c:forEach var="file" items="${fileList}">
             <tr>
-               <td><input type="checkbox" name="fileId" id="${file.fileName}"
+               <td style="padding: 10px;"><input type="checkbox" name="fileId" id="${file.fileName}"
                   value="${file.fileId}">${file.fileId}</td>
-               <td>${file.directoryName}</td>
-               <td><c:set var="len" value="${fn:length(file.fileName)}" /> <c:set
+               <td style="padding: 10px;">${file.directoryName}</td>
+               <td style="padding: 10px;"><c:set var="len" value="${fn:length(file.fileName)}" /> <c:set
                      var="filetype"
                      value="${fn:toUpperCase(fn:substring(file.fileName, len-4, len))}" />
                   <c:if
@@ -260,11 +328,11 @@ a {
                      <a href='<c:url value="/pds/${file.fileId}"/>'>${file.fileName}</a>
                      <br>
                   </c:if></td>
-               <td><fmt:formatNumber value="${file.fileSize/1024}"
+               <td style="padding: 10px;"><fmt:formatNumber value="${file.fileSize/1024}"
                      pattern="#,###" />KB</td>
-               <td>${file.fileContentType}</td>
-               <td>${file.fileUploadDate}</td>
-               <td style="display: none">${file.flowNum}</td>
+               <td style="padding: 10px;">${file.fileContentType}</td>
+               <td style="padding: 10px;">${file.fileUploadDate}</td>
+               <td style="display: none; padding: 10px;">${file.flowNum}</td>
                <td>
                   <!-- Modal --> <input type="radio" name="radioo"
                   value="${file.fileId}"> 
@@ -283,16 +351,16 @@ a {
        value="요약">
       <div id="test"></div>
 
-
+	
       <h3>확인</h3>
-      <div class="dibugConsole" id="dibugConsole"></div>
-      <h3></h3>
+
+      <div class="dibugConsole" id="dibugConsole" style="border: 1px solid #1e1e1e; border-radius: 3px; position:relative; height: 32px; padding:5px 0px 0px 5px; width:60%;"></div>
+      <div class="blank">&nbsp;</div>
       <input type="button" id="GetTotal" onclick="checkSelectedId();"
-         value="다음" />
+         value="다음"/>
 
    </form>
-
 </div>
 </body>
-<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+<footer><jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include></footer>
 </html>
