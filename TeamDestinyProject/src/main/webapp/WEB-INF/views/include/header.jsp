@@ -24,7 +24,7 @@
 <style>
 
 .container {
-   padding: 8px;
+   padding: 8px !important;
 }
 
 /* 민구 추가 스타일 */
@@ -67,6 +67,7 @@
    font-weight: 900;
 }
 
+/* 흑 백 메뉴 전환 */
 .hovbutton {
    border-radius : 4px;
    background-color: #1e1e1e;
@@ -76,7 +77,7 @@
    text-align: center;
    text-decoration: none;
    display: inline-block;
-   font-size: 12px;
+   font-size: 14px;
    margin: 2px 4px;
    -webkit-transition-duration: 0.5s; /* Safari */
    transition-duration: 0.5s;
@@ -88,6 +89,8 @@
    color: #1e1e1e;
 }
 
+/* 백 흑 메뉴 전환(로그인 회원가입) */
+
 .hovbutton1 {
    border-radius : 4px;
    background-color: #ffffff;
@@ -97,9 +100,9 @@
    text-align: center;
    text-decoration: none;
    display: inline-block;
-   font-size: 12px;
+   font-size: 14px;
    font-weight : 500;
-   margin: 2px 4px;
+   margin: 4px 4px;
    -webkit-transition-duration: 0.5s; /* Safari */
    transition-duration: 0.5s;
    cursor: pointer;

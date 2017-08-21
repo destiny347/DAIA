@@ -261,7 +261,7 @@ a {
 
 .blank{
 margin-top:5px;
-margin-bottom:5px;n
+margin-bottom:5px;
 }
 
 .blank1{
