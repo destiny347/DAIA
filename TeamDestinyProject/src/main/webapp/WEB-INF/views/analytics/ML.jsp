@@ -9,8 +9,8 @@
 <!-- jQuery -->
 <script src="../js/jquery.js"></script>
 <script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-	</script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+   </script>
 
 <title>Destiny</title>
 
@@ -21,86 +21,171 @@
 
 <!-- Fonts -->
 <link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-	rel="stylesheet" type="text/css">
+   href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+   rel="stylesheet" type="text/css">
 <link
-	href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
-	rel="stylesheet" type="text/css">
+   href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
+   rel="stylesheet" type="text/css">
+   
+<style type="text/css">
+.radiobutton {
+   height: 150px;
+}
 
+<!-- Fonts -->
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nti100 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 100;
+}
+.nti300 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 300;
+}
+<!-- 레귤러 폰트 -->
+.nti400 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 400;
+}
+.nti500 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 500;
+}
+.nti700 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 700;
+}
+.nti900 {
+   font-family: 'Noto Sans KR', sans-serif;
+   color: #1e1e1e;
+   font-weight: 900;
+}
+
+html, body{
+position:static;
+margin:0;
+padding:0;
+height:100%;
+}
+
+.blank{
+margin-top:5px;
+margin-bottom:5px;
+}
+
+.blank1{
+margin-top:10px;
+margin-bottom:10px;
+}
+
+th {
+padding: 5px !important;
+}
+</style>
 </head>
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#저장').click(function() {	
-		var num = /^[0-9]{2}$/; 
-		
-		if(num.test($('#1').val()) == true && num.test($('#2').val()) == true){
-			var tmp = "성공 -> "+ $('#1').val() +" : "+ $('#2').val();
-			alert(tmp);
-		}
-		else{
-			alert("두자리 숫자만을 입력해 주세요");
-		}
-			
-		
- 	});
-	$('#result').click(function() {	
-		if (confirm("정말 "+$('input[name=Algorithm]:checked').val()+"를 선택 하시겠습니까?" ) == true){    //확인
-		    document.form.submit();
-		}else {   //취소
-			return false;
-		}	
- 	}); 		
+   $('#저장').click(function() {   
+      var num = /^[0-9]{2}$/; 
+      
+      if(num.test($('#1').val()) == true && num.test($('#2').val()) == true){
+         var tmp = "성공 -> "+ $('#1').val() +" : "+ $('#2').val();
+         alert(tmp);
+      }
+      else{
+         alert("두자리 숫자만을 입력해 주세요");
+      }
+         
+      
+    });
+   $('#result').click(function() {   
+      if (confirm("정말 "+$('input[name=Algorithm]:checked').val()+"를 선택 하시겠습니까?" ) == true){    //확인
+          document.form.submit();
+      }else {   //취소
+         return false;
+      }   
+    });       
 }); 
 
 </script>
 <body>
 <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
-<div class="container">
 
-	<div>
-		<h3>
-			데이터 명 : <input type="text" id="dataName" value="${fileName}" readonly>
-		</h3>
-	</div>
-	<br>
-	<div>
-		<a><b>&nbsp;&nbsp;&nbsp;Training set</b></a>&nbsp;&nbsp;&nbsp;<input
-			type="text" id="1" style="width: 30px">&nbsp;&nbsp;:&nbsp;&nbsp;<input
-			type="text" id="2" style="width: 30px">&nbsp;&nbsp; <input
-			type="button" id="저장" class="btn" style="width: 70px" value="저장">
-	</div>
-	<br>
-	<br>
+<div class="container" style="font-family:'Noto Sans KR', sans-serif; font-weight:400; color: #1e1e1e;">
 
-
-	<div>
-		<label for="inputAlgorithm"><b>&nbsp;&nbsp;&nbsp;&nbsp;알고리즘
-				선택</b><br></label>
-		<div>
-			<br> <label class="radio-inline" for="optionsRadios1"></label>
-			&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="Algorithm" id="1"
-				value="회귀" checked>&nbsp;Regression / 회귀 <label
-				class="radio-inline" for="optionsRadios2"></label> <input
-				type="radio" name="Algorithm" id="2" value="분류">&nbsp;Classfication
-			/ 분류 <label class="radio-inline" for="optionsRadios3"></label> <input
-				type="radio" name="Algorithm" id="3" value="연관">&nbsp;Association
-			/ 연관 <label class="radio-inline" for="optionsRadios4"></label> <input
-				type="radio" name="Algorithm" id="4" value="군집">&nbsp;Cluster
-			Analysis / 군집
-		</div>
-	</div>
-	
-	<div class="col-lg-6 col-md-6 col-sm-6">
-	<table>
-		<tr>
-			<td>&nbsp;</td>
-		</tr>
-	</table>
-	<a href="/destiny/analytics/analysis"><input type="button"
-		id="result" value="결과 보기" /></a>
-	</div>
-	
+   <div style="border-bottom: 1px solid #1e1e1e; width:80%">
+      <h3>머신러닝</h3>
+   </div>
+   <div class="blank">&nbsp;</div>
+   
+   <div style="border: 1px solid #1e1e1e; border-radius: 3px; width:80%; ">
+      <h4>&nbsp;데이터 명 : [ ${fileName} ]</h4>
+   </div>
+   <div class="blank">&nbsp;</div>
+   <div class="blank">&nbsp;</div>
+   
+   <div style="border-bottom: 1px solid #1e1e1e; width:80%">
+      <h3>Training set 설정</h3>   
+   </div>
+   <div class="blank">&nbsp;</div>
+   <div>
+      <table>
+      <tr>
+         <td><input type="text" id="1" placeholder="70" style="width: 50px; height: 40px; font-size: 20px; text-align: center;"></td>
+         <td><label style="font-size: 20px;">&nbsp; : &nbsp; </label></td>
+         <td><input type="text" id="2" placeholder="30" style="width: 50px; height: 40px; font-size: 20px; text-align: center;"></td>
+         <td>&nbsp;&nbsp;&nbsp;</td>
+         <td><button id="저장" class="btn btn-success" style="width: 60px; height: 40px; font-size: 17px;" value="저장">저장</button></td>
+         
+      </tr>
+      </table>      
+   </div>
+   <div class="blank">&nbsp;</div>
+   <div class="blank">&nbsp;</div>
+      
+   <div style="border-bottom: 1px solid #1e1e1e; width:80%">
+      <h3><label for="inputAlgorithm"><b>알고리즘 선택</b>
+         </label></h3>
+   </div>
+   <div class="blank">&nbsp;</div>
+   <div>
+      <table>
+         <tr style="font-size: 16px;">
+            <td style="width: auto;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="Algorithm" id="1" value="회귀" checked></td>
+            <td style="width: auto; text-align: left;"><label class="radio-inline" for="optionsRadios1">Regression / 회귀</label></td>
+         </tr>
+         <tr><td>&nbsp;</td></tr>
+         <tr style="font-size: 16px;">
+            <td style="width: auto;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="Algorithm" id="2" value="분류"></td>
+            <td style="width: auto; text-align: left;"><label class="radio-inline" for="optionsRadios2">Classfication   / 분류</label></td>               
+         </tr>
+         <tr><td>&nbsp;</td></tr>
+         <tr style="font-size: 16px;">
+            <td style="width: auto;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="Algorithm" id="3" value="연관"></td>
+            <td style="width: auto; text-align: left;"><label class="radio-inline" for="optionsRadios3">Association / 연관</label></td>            
+         </tr>
+         <tr><td>&nbsp;</td></tr>
+         <tr style="font-size: 16px;">
+            <td style="width: auto;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="Algorithm" id="4" value="군집"></td>
+            <td style="width: auto; text-align: left;"><label class="radio-inline" for="optionsRadios4">Cluster Analysis / 군집</label></td>                        
+         </tr>
+      </table>
+   </div>
+   <div class="blank">&nbsp;</div>
+   <div>
+      <a href="/destiny/analytics/analysis"><button class="btn btn-primary" id="result" value="결과 보기" style="width: auto; height: 40px; font-size: 17px;">결과 보기</button></a>
+   </div>
+   <div class="blank">&nbsp;</div>
+   
+   
+   
 </div> <!-- End Container -->
 <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </body>

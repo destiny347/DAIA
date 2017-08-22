@@ -170,13 +170,13 @@ margin-bottom:10px;
 
 <div class="start">
 <div class="ntm400" style="text-align: center; padding: 12px 12px; font-size: 18px;">
-<div class="main2">바로 시작하기</div>
+<div class="main2" style="cursor: pointer;" onclick="location.href='/destiny/upload/list'">바로 시작하기</div>
 </div>
 </div>
 
 <div class="tutorial">
 <div class="ntm400" style="text-align: center; padding: 12px 12px; font-size: 18px;">
-<div class="main2">튜토리얼 보기</div>
+<div class="main2" style="cursor: pointer;" onclick="location.href='/destiny/aboutPrj'">튜토리얼 보기</div>
 </div>
 </div>
 

@@ -24,7 +24,7 @@
 <style>
 
 .container {
-   padding: 8px;
+   padding: 8px !important;
 }
 
 /* 민구 추가 스타일 */
@@ -67,6 +67,7 @@
    font-weight: 900;
 }
 
+/* 흑 백 메뉴 전환 */
 .hovbutton {
    border-radius : 4px;
    background-color: #1e1e1e;
@@ -76,7 +77,7 @@
    text-align: center;
    text-decoration: none;
    display: inline-block;
-   font-size: 12px;
+   font-size: 14px;
    margin: 2px 4px;
    -webkit-transition-duration: 0.5s; /* Safari */
    transition-duration: 0.5s;
@@ -88,6 +89,8 @@
    color: #1e1e1e;
 }
 
+/* 백 흑 메뉴 전환(로그인 회원가입) */
+
 .hovbutton1 {
    border-radius : 4px;
    background-color: #ffffff;
@@ -97,9 +100,9 @@
    text-align: center;
    text-decoration: none;
    display: inline-block;
-   font-size: 12px;
+   font-size: 14px;
    font-weight : 500;
-   margin: 2px 4px;
+   margin: 4px 4px;
    -webkit-transition-duration: 0.5s; /* Safari */
    transition-duration: 0.5s;
    cursor: pointer;
@@ -119,10 +122,10 @@
    <header>
 
       <!-- w3 컨테이너 지우고 헤드헤드 클래스로 작업함! -->
-      <div class="headhead">
+      <div class="headhead" style="font-family:'Noto Sans KR', sans-serif; color: #1e1e1e;">
          <div class="container">
             <div class="col-sm-3">
-               <a href="/destiny/greeting">
+               <a href="/destiny">
                  <img src="http://erotic-chaos.com/wp-content/uploads/2017/08/daia_logo.png" style="width:auto%; height:40px;">
                    </a>
             </div>
@@ -136,7 +139,6 @@
                <span class="mainmenu"><a href="/destiny/users/myPage/${user.userId}"><button id="myPage" class="hovbutton1" style="width: auto; height: 10%;">내 정보</button></a></span>
                <span class="mainmenu"><a href="/destiny/users/logout"><button id="logout" class="hovbutton1" style="width: auto; height: 10%;" onclick="return confirm('정말로 로그아웃하시겠습니까?')">로그아웃</button></a></span>
                </div>
-
 
          </div><!-- End Container -->
       </div><!-- End HeaderLine -->

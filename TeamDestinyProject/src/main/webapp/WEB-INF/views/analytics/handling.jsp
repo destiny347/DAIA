@@ -18,6 +18,8 @@
 
 $(document).ready(function() {  
    
+	$("#resultTemp").hide();
+	
    //테이블 행 숨기는 기능
     $("#sum_table > tbody > tr:nth-child(n+6)").hide();
     
@@ -69,6 +71,7 @@ $(document).ready(function() {
                // jsondata.key();
   
                 $("#resultTemp").text(jsondata);
+                $("#resultTemp").show();
                /*  for(var i =0; i < jsondata.length; i++){
                 	
                 	$("#resultTemp").text(jsondata);
@@ -359,9 +362,10 @@ padding: 5px !important;
 	</div>
 	
 	<br>
+
+	<div id="resultTemp" style="border: 1px solid #1e1e1e; border-radius: 3px; width:80%; padding:auto;"></div>
 	
-	<div class="resultTemp col-lg-4 col-md-6 col-sm-6 row">
-	
+	<div class="col-lg-4 col-md-6 col-sm-6 row">
 	<div style="border-bottom: 1px solid #1e1e1e; width:80%">
 		<h3>결측치</h3>
 	</div>
