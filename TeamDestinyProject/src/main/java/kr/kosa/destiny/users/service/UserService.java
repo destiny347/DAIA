@@ -2,8 +2,6 @@ package kr.kosa.destiny.users.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-
 import kr.kosa.destiny.users.dao.IUserRepository;
 import kr.kosa.destiny.users.model.UserVO;
 

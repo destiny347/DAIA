@@ -6,7 +6,7 @@
 <html>
 <head>
 
-<title>메인 페이지</title>
+<title>DAIA Platform</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,10 +28,10 @@
 
 <style>
 html, body{
-background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
-margin:0;
-padding:0;
-height:100%;
+	background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
+	margin:0;
+	padding:0;
+	height:100%;
 }
 
 html{
@@ -92,43 +92,40 @@ footer{
 	font-size: 24px;
 	color : #ebebeb;
     text-align: center;
-    animation: float-down 2s;
-    
+    animation: float-down 2s;    
     margin-top: 25%;
-    }
+}
     
 .main2{
 	font-family: 'Noto Sans KR', sans-serif;
 	color : #ebebeb;
     animation: float-down 2.4s;
-    }    
+}    
 
 .box{
-width: 95%;
-background-color: #1e1e1e;
-margin: 0 auto;
+	width: 95%;
+	background-color: #1e1e1e;
+	margin: 0 auto;
 }    
 
 .start{
-display: inline-block;
-width: 180px;
-background-color: #1e1e1e;
-color: #ebebeb;
-margin-right: 10px;
-
+	display: inline-block;
+	width: 180px;
+	background-color: #1e1e1e;
+	color: #ebebeb;
+	margin-right: 10px;
 }
 
 .tutorial{
-display: inline-block;
-width: 180px;
-background-color: #1e1e1e;
-color: #ebebeb;
-margin-left: 10px;
-
+	display: inline-block;
+	width: 180px;
+	background-color: #1e1e1e;
+	color: #ebebeb;
+	margin-left: 10px;
 }
 
 .start:hover, .tutorial:hover{
-box-shadow: 0 0 16px 16px rgba(200,200,200,0.2), 0 0 20px 20px rgba(180,180,180,0.1);
+	box-shadow: 0 0 16px 16px rgba(200,200,200,0.2), 0 0 20px 20px rgba(180,180,180,0.1);
 }
     
 
@@ -142,8 +139,8 @@ box-shadow: 0 0 16px 16px rgba(200,200,200,0.2), 0 0 20px 20px rgba(180,180,180,
 }
 
 .blank{
-margin-top:10px;
-margin-bottom:10px;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 </style>
@@ -156,41 +153,28 @@ margin-bottom:10px;
 
 <div class="container">
 	<div class="box">
-	<div class="main1" style="padding:12px 12px;">
-	Data is not information, information is not knowledge, knowledge is not understanding, understanding is not wisdom. &nbsp;&nbsp; -Clifford Stoll
+		<div class="main1" style="padding:12px 12px;">
+		Data is not information, information is not knowledge, knowledge is not understanding, understanding is not wisdom. &nbsp;&nbsp; -Clifford Stoll
+		</div>
+	</div>
+
+	<div class="col-sm-12" align="center">
+		<div class="blank">&nbsp;</div>
+		<div class="blank">&nbsp;</div>
+	
+		<div class="start">
+			<div class="ntm400" style="text-align: center; padding: 12px 12px; font-size: 18px;">
+				<div class="main2" style="cursor: pointer;" onclick="location.href='/destiny/upload/list'">바로 시작하기</div>
+			</div>
+		</div>
+	
+		<div class="tutorial">
+			<div class="ntm400" style="text-align: center; padding: 12px 12px; font-size: 18px;">
+				<div class="main2" style="cursor: pointer;" onclick="location.href='/destiny/aboutPrj'">튜토리얼 보기</div>
+			</div>
+		</div>
 	</div>
 </div>
-
-
-
-
-<div class="col-sm-12" align="center">
-<div class="blank">&nbsp;</div>
-<div class="blank">&nbsp;</div>
-
-<div class="start">
-<div class="ntm400" style="text-align: center; padding: 12px 12px; font-size: 18px;">
-<div class="main2" style="cursor: pointer;" onclick="location.href='/destiny/upload/list'">바로 시작하기</div>
-</div>
-</div>
-
-<div class="tutorial">
-<div class="ntm400" style="text-align: center; padding: 12px 12px; font-size: 18px;">
-<div class="main2" style="cursor: pointer;" onclick="location.href='/destiny/aboutPrj'">튜토리얼 보기</div>
-</div>
-</div>
-
-</div>
-
-
-
-
-
-</div>
-
-
-
-
 
 </body>
 <footer><jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include></footer>

@@ -66,7 +66,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 	@Override
 	public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 	

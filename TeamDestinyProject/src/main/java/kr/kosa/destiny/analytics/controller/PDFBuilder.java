@@ -13,10 +13,6 @@ import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfImage;
-import com.itextpdf.text.pdf.PdfIndirectObject;
-import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -24,10 +20,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import kr.kosa.destiny.analytics.model.Book;
 
 /**
- * This view class generates a PDF document 'on the fly' based on the data
- * contained in the model.
- * @author www.codejava.net
- *
+ * 이 클래스는 최종 데이터를 PDF파일로 저장하기 위한 컨트롤러입니다.
  */
 public class PDFBuilder extends AbstractITextPdfView {
 
@@ -36,6 +29,7 @@ public class PDFBuilder extends AbstractITextPdfView {
 			PdfWriter writer, HttpServletRequest request, HttpServletResponse response)
 					throws Exception {
 		// get data model which is passed by the Spring container
+		@SuppressWarnings("unchecked")
 		List<Book> listBooks = (List<Book>) model.get("listBooks");
 
 		doc.add(new Paragraph("Test Statistic"));

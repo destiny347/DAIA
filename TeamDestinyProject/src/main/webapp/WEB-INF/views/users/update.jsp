@@ -247,8 +247,8 @@ footer{
  
             <div class="form-group">
                    <div class="col-lg-12 col-sm-12" align="center">
-                  <input class="btn btn-primary" type="submit" value="완료" onclick="return confirm('정말로 수정하시겠습니까?')" /> <!-- onclick="return confirm('회원 가입을 완료하시겠습니까?')" -->
-                  <input class="btn btn-warning" type="button" value="취소" onclick="window.history.back(-1);return false;"/> <!-- onclick="document.getElementById('id02').style.display='none'" -->
+                  <input class="btn btn-primary" type="submit" value="완료" onclick="return confirm('정말로 수정하시겠습니까?')" /> 
+                  <input class="btn btn-warning" type="button" value="취소" onclick="window.history.back(-1);return false;"/> 
                      </div>
               </div>
               <div class="row">&nbsp;</div>

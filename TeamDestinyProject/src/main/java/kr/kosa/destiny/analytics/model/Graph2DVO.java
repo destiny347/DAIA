@@ -1,11 +1,10 @@
 package kr.kosa.destiny.analytics.model;
 
-public class SampleVO {
+public class Graph2DVO {
 	private String type;
 	private String name;
 	private double[] data;
 	private int y;
-	private Marker marker;
 	
 	public String getType() {
 		return type;
@@ -31,11 +30,6 @@ public class SampleVO {
 	public void setY(int y) {
 		this.y = y;
 	}
-	public Marker getMarker() {
-		return marker;
-	}
-	public void setMarker(Marker marker) {
-		this.marker = marker;
-	}
+
 }
 

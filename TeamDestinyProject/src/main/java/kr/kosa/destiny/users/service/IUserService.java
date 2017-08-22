@@ -1,7 +1,5 @@
 package kr.kosa.destiny.users.service;
 
-import org.springframework.web.bind.annotation.PathVariable;
-
 import kr.kosa.destiny.users.model.UserVO;
 
 public interface IUserService {

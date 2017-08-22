@@ -1,18 +1,12 @@
 package kr.kosa.destiny.upload.controller;
 
-import java.nio.charset.Charset;
-import java.util.Map;
+
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,163 +20,57 @@ import kr.kosa.destiny.upload.service.IUploadFileService;
 
 @Controller
 public class UploadFileController {
-   static final Logger logger = Logger.getLogger(UploadFileController.class);
+	static final Logger logger = Logger.getLogger(UploadFileController.class);
 
-   @Autowired
-   IUploadFileService imageService;
-   @Autowired
-   IAnalyticsService analyticsService;
-   
-   @RequestMapping(value="/upload", method=RequestMethod.GET)
-   public String home() {
-      return "/upload/index";
-   }
-   
-   @RequestMapping(value="/upload/new", method=RequestMethod.GET)
-   public String uploadImage(Model model) {
-      model.addAttribute("dir", "/");
-      return "/upload/form";
-   }
-   
-   @RequestMapping(value="/upload/new", method=RequestMethod.POST)
-   public String uploadImage(@RequestParam(value="dir", required=false, defaultValue="/") String dir, @RequestParam MultipartFile file, RedirectAttributes redirectAttrs) {
-      logger.info(file.getOriginalFilename());
-      try{
-         if(file!=null && !file.isEmpty()) {
-            logger.info("/upload : " + file.getOriginalFilename());
-            UploadFileVO image = new UploadFileVO();
-            image.setDirectoryName(dir);
-            image.setFileName(file.getOriginalFilename());
-            image.setFileSize(file.getSize());
-            image.setFileContentType(file.getContentType());
-            image.setFileData(file.getBytes());
-            image.setFlowNum(1);
-            logger.info("/upload : " + image.toString());
+	@Autowired
+	IUploadFileService uploadFileService;
+	@Autowired
+	IAnalyticsService analyticsService;
 
-            imageService.uploadFile(image);
-         }
-//         redirectAttrs.addFlashAttribute("dir", dir);
-      }catch(Exception e){
-         e.printStackTrace();
-         redirectAttrs.addFlashAttribute("message", e.getMessage());
-      }
-      return "redirect:/upload/list";//+dir;
-   }
-   
-   @RequestMapping("/upload/gallery")
-   public String getFileList(@RequestParam(value="dir", required=false, defaultValue="/images")String dir, Model model) {
-      model.addAttribute("fileList", imageService.getImageList(dir));
-      return "/upload/gallery";
-   }
-   
-   @RequestMapping("/upload/list")
-   public String getImageList(Model model) {
-      UploadFileVO file = new UploadFileVO();
-      model.addAttribute("fileList", imageService.getAllFileList());
-      return "/upload/list";
-   }
-   @RequestMapping("/upload/select")
-   public String selectFile(@RequestBody Map<String, Integer> request, Model model) {
-      int chkValue = request.get("dd");
-//      System.out.println(chkValue);
-//      model.addAttribute("rSummary", analyticsService.getSummary(chkValue));
-      System.out.println(chkValue);
-      model.addAttribute("result", analyticsService.getSummary(chkValue));
+	//파일 업로드 컨트롤러.
+	@RequestMapping(value="/upload/new", method=RequestMethod.GET)
+	public String uploadImage(Model model) {
+		model.addAttribute("dir", "/");
+		return "/upload/form";
+	}
 
-      
-      return "/upload/okModal";
-   }
-   @RequestMapping("/upload/list/{dir}")
-   public String getFileListByDir(@PathVariable String dir, Model model) {
-      model.addAttribute("fileList", imageService.getFileList("/"+dir));
-      return "/upload/list";
-   }
-   /*
-   @RequestMapping("/img/{fileId}")
-   public ResponseEntity<byte[]> getImageFile(@PathVariable int fileId) {
-      UploadFileVO file = imageService.getFile(fileId);
-      final HttpHeaders headers = new HttpHeaders();
-      if(file != null) {
-         logger.info("getFile " + file.toString());
-         String[] mtypes = file.getFileContentType().split("/");
-         headers.setContentType(new MediaType(mtypes[0], mtypes[1]));
-         headers.setContentDispositionFormData("attachment", file.getFileName(), Charset.forName("UTF-8")); //4.3.7 이후 charset 지정 가능
-         headers.setContentLength(file.getFileSize());
-         return new ResponseEntity<byte[]>(file.getFileData(), headers, HttpStatus.OK);
-      }else {
-         return new ResponseEntity<byte[]>(HttpStatus.NOT_FOUND);
-      }
-   }
-*/
-   @RequestMapping("/pds/{fileId}")
-   public ResponseEntity<byte[]> getBinaryFile(@PathVariable int fileId) {
-      UploadFileVO file = imageService.getFile(fileId);
-      final HttpHeaders headers = new HttpHeaders();
-      if(file != null) {
-         logger.info("getFile " + file.toString());
-         String[] mtypes = file.getFileContentType().split("/");
-         headers.setContentType(new MediaType(mtypes[0], mtypes[1]));
-         headers.setContentDispositionFormData("attachment", file.getFileName(), Charset.forName("UTF-8")); //4.3.7 이후 charset 지정 가능
-         headers.setContentLength(file.getFileSize());
-         return new ResponseEntity<byte[]>(file.getFileData(), headers, HttpStatus.OK);
-      }else {
-         return new ResponseEntity<byte[]>(HttpStatus.NOT_FOUND);
-      }
-   }
-   
-   @RequestMapping("/upload/delete/{fileId}")
-   public String deleteFile(@PathVariable int fileId) {
-//      String dir = imageService.getDirectoryName(fileId);
-      imageService.deleteFile(fileId);
-      return "redirect:/upload/list";// + dir;
-   }
-   
-   @RequestMapping("/upload/updateDir")
-   public String updateDirectory(@RequestParam int[] fileIds, @RequestParam String directoryName) {
-//      String dir = imageService.getDirectoryName(fileId);
-      imageService.updateDirectory(fileIds, directoryName);
-      return "redirect:/upload/list";
-   }
-   
-/*	@RequestMapping(value="/include/header")
-	public String header() {
-		return "/include/header";
+	@RequestMapping(value="/upload/new", method=RequestMethod.POST)
+	public String uploadImage(@RequestParam(value="dir", required=false, defaultValue="/") String dir, @RequestParam MultipartFile file, RedirectAttributes redirectAttrs) {
+		logger.info(file.getOriginalFilename());
+		try{
+			if(file!=null && !file.isEmpty()) {
+				logger.info("/upload : " + file.getOriginalFilename());
+				UploadFileVO file2 = new UploadFileVO();
+				file2.setDirectoryName(dir);
+				file2.setFileName(file.getOriginalFilename());
+				file2.setFileSize(file.getSize());
+				file2.setFileContentType(file.getContentType());
+				file2.setFileData(file.getBytes());
+				file2.setFlowNum(1);
+				logger.info("/upload : " + file2.toString());
+
+				uploadFileService.uploadFile(file2);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			redirectAttrs.addFlashAttribute("message", e.getMessage());
+		}
+		return "redirect:/upload/list";
 	}
-	
-	@RequestMapping(value="/include/footer")
-	public String footer() {
-		return "/include/footer";
+
+	//파일 업로드 리스트 컨트롤러.
+	@RequestMapping("/upload/list")
+	public String getImageList(Model model) {
+		model.addAttribute("fileList", uploadFileService.getAllFileList());
+		return "/upload/list";
 	}
-	
-	@RequestMapping(value="/webpage/main")
-	public String main() {
-		return "/webpage/main";
+
+	//업로드 파일 삭제 컨트롤러
+	@RequestMapping("/upload/delete/{fileId}")
+	public String deleteFile(@PathVariable int fileId) {
+		uploadFileService.deleteFile(fileId);
+		return "redirect:/upload/list";
 	}
-	
-	@RequestMapping(value="/webpage/aboutPrj")
-	public String aboutPrj() {
-		return "/webpage/aboutPrj";
-	}
-	
-	@RequestMapping(value="/webpage/aboutUs")
-	public String aboutUs() {
-		return "/webpage/aboutUs";
-	}
-	
-	@RequestMapping(value="/webpage/contact")
-	public String contact() {
-		return "/webpage/contact";
-	}
-	
-	@RequestMapping(value="/webpage/board")
-	public String board() {
-		return "/webpage/board";
-	}
-	
-	@RequestMapping(value="/webpage/registration")
-	public String registration() {
-		return "/webpage/registration";
-	}*/
 	
 }
 
