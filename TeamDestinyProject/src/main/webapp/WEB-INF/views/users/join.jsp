@@ -185,36 +185,70 @@ footer{
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
 <div class="container" style="font-family:'Noto Sans KR', sans-serif; color: #ebebeb; background-color: rgba( 0, 0, 0, 0.6 ); width: 530px; position: relative; top: 100px;">
-        
-    <div class="headheadhead" style="width: 500px; opacity: 1.0;">
-       <h1>로그인 <small>DAIA Platform</small></h1>
+   <div class="headheadhead" style="width: 500px; opacity: 1.0;">
+       <h1>회원가입 <small>DAIA Platform</small></h1>
     </div>
     <div>&nbsp;</div>
-    
-   
-   <form style="width: 500px; opacity: 1.0;" class="" action="/destiny/greeting" method="post">
-          <div class="w3-container">
-             <div>
-               <label><b>아이디</b></label>
-               <input type="text" placeholder="Enter Id" name="userId" style="color: #1e1e1e" required>
-               </div>
-               <div>&nbsp;</div>
-            <div>
-             <label><b>비밀번호</b></label>
-               <input type="password" placeholder="Enter Password" name="userPw" style="color: #1e1e1e" required>
-               </div>
-              
-              <div>&nbsp;</div>
-              
-              <div align="center">
-               <input type="submit" class="btn btn-primary" value="로그인"/>
-               <a href="/destiny"><input type="button" class="btn btn-warning" value="취소"/></a>
-               </div>               
-          </div>          
-          <div>&nbsp;</div>   <!-- Line blank -->
-   </form>
-</div>   <!-- End Container -->
 
-</body>
+        <form id="joinForm" class="form-horizontal" action="/destiny/users/signUp" method="post" style="opacity: 1.0;">
+        
+              <div class="form-group">
+                 <div class="col-lg-3 col-sm-3" align="center">
+                    <label class="control-label" for="inputEmail">아이디</label>
+                 </div>
+                 <div class="col-lg-9 col-sm-9">
+                      <input class="form-control" id="inputId" type="text" name="userId" value="" title="사용자아이디는 문자,숫자,_를 사용할 수 있습니다. 공백은 사용할 수 없습니다." placeholder="아이디" pattern="\w+" required>              
+                 </div>
+              </div>              
+              
+              <div class="form-group">
+                 <div class="col-lg-3 col-sm-3" align="center">
+                    <label class="control-label" for="inputPassword">비밀번호</label>
+                 </div>             
+                 <div class="col-lg-9 col-sm-9">
+                      <input class="form-control" id="inputPassword" type="password" name="userPw" title="비밀번호는 영문/숫자 포함 8자 이상이어야 합니다." placeholder="비밀번호" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
+                    <p class="help-block" style="color: yellow;" align="right">비밀번호는 영문/숫자 포함 8자 이상이어야 합니다.</p>
+                 </div>
+              </div>
+              
+              <div class="form-group">
+                 <div class="col-lg-3 col-sm-3" align="center">
+                    <label class="control-label" for="inputPasswordCheck">비밀번호 확인</label>
+                 </div>                    
+                   <div class="col-lg-9 col-sm-9">
+                       <input class="form-control" id="inputPasswordCheck" type="password" name="userPwCheck" title="위 비밀번호와 일치하지 않습니다." placeholder="비밀번호 확인" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
+                      <p class="help-block" style="color: yellow;" align="right">비밀번호를 한번 더 입력해주세요.</p>
+                   </div>
+                </div>
+                
+                <div class="form-group">
+                   <div class="col-lg-3 col-sm-3" align="center">
+                    <label class="control-label" for="inputName">이름 또는 별명</label>
+                 </div>                  
+                   <div class="col-lg-9 col-sm-9">
+                     <input class="form-control" id="inputName" type="text" name="userName" title="이름 또는 별명을 입력해주세요." placeholder="이름 또는 별명" required>
+                   </div>
+              </div>
+                                    
+              <div class="form-group">
+               <div class="col-lg-3 col-sm-3" align="center">
+                    <label class="control-label" for="inputEmail">이메일</label>   
+                 </div>                              
+                 <div class="col-lg-9 col-sm-9">
+                      <input class="form-control" id="inputEmail" type="email" name="userEmail" value="" title="이메일 주소의 형태로 입력해야 합니다." placeholder="이메일" required>              
+                 </div>
+              </div>
+              
+            <div class="form-group">
+                   <div class="col-sm-12 text-center">
+                  <input class="btn btn-primary" type="submit" value="회원가입"/> <!-- onclick="return confirm('회원 가입을 완료하시겠습니까?')" -->
+                  <a href="/destiny"><input class="btn btn-warning" type="button" value="취소"/></a> <!-- onclick="document.getElementById('id02').style.display='none'" -->
+                     </div>
+              </div>
+        </form>   <!-- End Form -->
+
+</div>
+
 <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+</body>
 </html>
