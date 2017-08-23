@@ -124,7 +124,7 @@ public class AnalyticsController {
 		return "analytics/restructuring";
 	}
 
-	//시각화 부분 컨트롤러.
+	//시각화 부분 컨트롤러. ㅎㅎ
 	   @RequestMapping("/analytics/visual")
 	   public String visual(Model model) {
 	      UploadFileVO getFile = new UploadFileVO();
