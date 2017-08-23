@@ -24,28 +24,106 @@
 
 <style>
 html, body{
-background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
-margin:0;
-padding:0;
-height:100%;
-}
-
-html{
+	background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
 	margin:0;
 	padding:0;
 	height:100%;
 }
-
 body{
-	position:relative;
-	margin:0;
-	height:100%;
+    display:flex;
+    flex-flow: column;
+    min-height:100vh;
 }
-
-footer{
-    position:fixed;
-    bottom:0;
-    width:100%;
+main{
+	flex:1;
+}
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+.ntm100 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #ebebeb;
+    font-weight: 100;
+}
+.nt300 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #ebebeb;
+    font-weight: 300;
+}
+<!-- 레귤러 폰트 -->
+.ntㅡm00 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #ebebeb;
+    font-weight: 400;
+}
+.nt500 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #ebebeb;
+    font-weight: 500;
+}
+.nt700 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #ebebeb;
+    font-weight: 700;
+}
+.nt900 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #ebebeb;
+    font-weight: 900;
+}
+.main1{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    font-size: 24px;
+    color : #ebebeb;
+    text-align: center;
+    animation: float-down 2s;    
+    margin-top: 25%;
+}
+    
+.main2{
+    font-family: 'Noto Sans KR', sans-serif;
+    color : #ebebeb;
+    animation: float-down 2.4s;
+}    
+.box{
+    width: 95%;
+    background-color: #1e1e1e;
+    margin: 0 auto;
+}    
+.start{
+    display: inline-block;   
+    height: 54px;
+    background-color: #1e1e1e;
+    color: #ebebeb;
+    max-width: 180px;
+    margin: auto;
+    -webkit-transition-duration: 0.3s; /* Safari */
+    transition-duration: 0.3s;
+}
+.tutorial{
+    display: inline-block;
+    height: 54px;
+    background-color: #1e1e1e;
+    color: #ebebeb;
+    max-width: 180px;
+    margin: auto;   
+    -webkit-transition-duration: 0.3s; /* Safari */
+    transition-duration: 0.3s;
+}
+.start:hover, .tutorial:hover{
+    box-shadow: 0 6px 6px -3px white;
+}
+    
+@keyframes float-down{
+    from
+        {transform: translate(0px, -50px);
+        opacity: 0;}
+    to
+        {transform: translate(0px, 0px);
+        opacity: 1;
+}
+.blank{
+	margin-top:10px;
+	margin-bottom:10px;
 }
 </style>
 
@@ -56,19 +134,29 @@ footer{
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
 
+<main>
 <div class="container">
-        <div class="row">
-            <div class="box">               
-                    <div class="col-lg-12 text-center">
-                        <!-- <iframe width="1100" height="600" src="https://www.youtube.com/embed/EVaV7AwqBWg?rel=0&autoplay=1&loop=1&list=PLpSlDiXC0EEZiFDmw04BLvsbVCzS7c84N" frameborder="0" allowfullscreen></iframe> -->                               
-                        </div> 
-                    </div>
-               </div>
-	<!-- <div style="width: 100%; height: 500px; border:1px solid black;">
-		메인페이지2
-	</div> -->
+   <div class="box">
+   <div class="main1" style="padding:12px 12px;">
+   Data is not information, information is not knowledge, knowledge is not understanding, understanding is not wisdom. &nbsp;&nbsp; -&nbsp;Clifford Stoll
+   </div>
 </div>
-
-<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+<div class="col-sm-12" align="center">
+<div class="blank">&nbsp;</div>
+<div class="blank">&nbsp;</div>
+	<div class="start">
+		<div class="ntm400" style="text-align: center; padding: 12px 12px; font-size: 18px;">
+			<div class="main2" style="cursor: pointer;" onclick="location.href='/destiny/upload/list'">바로 시작하기</div>	
+			</div>
+		</div>
+	<div class="tutorial">
+		<div class="ntm400" style="text-align: center; padding: 12px 12px; font-size: 18px;">
+			<div class="main2" style="cursor: pointer;" onclick="location.href='/destiny/greeting/aboutPrj'">튜토리얼 보기</div>
+			</div>
+	</div>
+</div>
+</div>
+</main>
 </body>
+<footer><jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include></footer>
 </html>

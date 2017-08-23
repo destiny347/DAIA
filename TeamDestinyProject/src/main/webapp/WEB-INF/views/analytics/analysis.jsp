@@ -9,38 +9,89 @@
 <!-- Fonts -->
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-.ntv300 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #696969;
-   font-weight: 300;
+.nti100 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 100;
 }
-
-.ntv400 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #696969;
-   font-weight: 400;
+.nti300 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 300;
 }
-
-.ntv700 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #696969;
-   font-weight: 700;
+<!-- 레귤러 폰트 -->
+.nti400 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 400;
 }
-
+.nti500 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 500;
+}
+.nti700 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 700;
+}
+.nti900 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 900;
+}
+html, body{
+	position:static;
+	margin:0;
+	padding:0;
+	height:100%;
+}
+body {
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+}
+main {
+	flex: 1;
+}
+footer{
+    position:relative;
+    bottom:0;
+    width:100%;
+}
+.blank{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.blank1{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+th {
+	padding: 5px !important;
+}
 h {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #696969;
-   font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #696969;
+    font-weight: 400;
 }
-
 .t1{
-font-size: 16px;
-text-align: left;
-border-style: solid;
-border-width: 1px;
-border-color: #696969;
-padding : 8px;
+ 	font-size: 16px;
+	text-align: left;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #696969;
+	padding : 8px;
+}
+html{
+	margin:0;
+	padding:0;
+	height:100%;
+}
+footer{
+    position:relative;
+    margin-bottom: 0px;
+    width:100%;
 }
 
 </style>
@@ -136,21 +187,23 @@ padding : 8px;
 </head>
 
 <body>
+<main>
 <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
-<div class="container">
+<div class="container" style="font-family:'Noto Sans KR', sans-serif; font-weight:400; color: #1e1e1e;">
 
    <div class="col-lg-12 col-md-12 col-sm-12">
       <table>
          <tr><td>&nbsp;</td></tr>
       </table>     
    </div>
+   <div style="border-bottom: 1px solid #1e1e1e; width:80%">
+		<h3>검정통계량</h3>
+   </div>
+   <div class="blank">&nbsp;</div>
    
-   <div class="col-lg-4 col-md-4 col-sm-12 ntv400" style="height:150px; text-align: left;">
-      <h3>검정통계량</h3>
-      
+   <div class="col-lg-4 col-md-4 col-sm-12" style="height:150px; text-align: left;">
       <table class="t1 ntv300">
-
         <tr class="t1">
            <td class="t1">XG_Boost 검정값</td>
            <td class="t1">0.5254054054054055</td>
@@ -163,47 +216,48 @@ padding : 8px;
            <td class="t1">E1071 검정값</td>
            <td class="t1">0.0459363957597173</td>
         </tr>
+      </table>             
+   </div>
 
-<!--          <tr>
-         <td style="padding:20px;">테스트! 이 자리에는 검정통계량 표가 나와야 합니다.</td>
-         </tr>
- -->         
-      </table> 
-            
-   </div>
-   
-   <div class="col-lg-12 col-md-12 col-sm-12">
-      <table>
-         <tr><td>&nbsp;</td></tr>
-      </table>     
-   </div>
  
-
+   
+	<div class="col-sm-12" style="border-bottom: 1px solid #1e1e1e; width:80%">
+		<h3>검정통계량 그래프</h3>
+   </div>
+   <div class="blank">&nbsp;</div>
+   
 <div class="col-lg-12 col-md-12 col-sm-12 ntv400" id="graph" style="margin-top: 5px">
-   <h3>검정통계량 그래프</h3>
-
+   <div class="blank">&nbsp;</div>
       <div class="col-lg-4 col-md-4 col-sm-9" id="blackContainer" style="border-style: dotted; border-width: 1px; border-color: pink;">
    </div>
 </div>
-
-   <div class="col-lg-12 col-md-12 col-sm-12">
-      <table>
-         <tr><td>&nbsp;</td></tr>
-      </table>     
-   </div>
-
-   <div class="col-lg-6 col-md-6 col-sm-6 ntv400" style="margin-top: 5px; display: inline-block;">
-      <input type="button" id="show" value="보임">
-      <input type="button" id="hide" value="숨김">
-   </div>
+		
+	<div style="clear: both;">
+		<div class="blank">&nbsp;</div>
+		&nbsp;&nbsp;&nbsp;
+		<input class="btn btn-info" type="button" id="show" value="보임" style="width: auto; height: 35px; font-size: 15px;">
+		&nbsp;
+		<input class="btn btn-info" type="button" id="hide" value="숨김" style="width: auto; height: 35px; font-size: 15px;">
+	</div>
+	
 
    <!-- 저장/리셋 -->
-   <div class="col-lg-6 col-md-6 col-sm-6 ntv400" style="display: inline-block;">
-      <input type="button" id = "pdf" value="저장"> 
-      <a href="/destiny/upload/list" class="ntv400"><input type="reset" value="처음으로"></a>
+   <div class="col-sm-12" style="border-bottom: 1px solid #1e1e1e; width:80%">
+		<h3>&nbsp;</h3>
    </div>
-
+   	<div style="clear: both;">
+		<div class="blank">&nbsp;</div>
+		&nbsp;&nbsp;&nbsp;
+		<input class="btn btn-primary" type="button" id="pdf" value="저장" style="width: auto; height: 35px; font-size: 15px;">
+		&nbsp;
+		<a href="/destiny/upload/list">
+			<input class="btn btn-default" type="button" value="처음으로" style="width: auto; height: 35px; font-size: 15px;"/>
+		</a>
+	</div>
+	<div class="blank">&nbsp;</div>
 </div> <!-- End Container -->
-<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>      
+</main>
+
 </body>
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </html>

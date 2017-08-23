@@ -11,8 +11,7 @@
 
 <!-- jQuery -->
 <script src="../js/jquery.js"></script>
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 </script>
 <script type="text/javascript"> 
 
@@ -283,24 +282,34 @@ $(document).ready(function() {
 }
 
 html, body{
-position:static;
-margin:0;
-padding:0;
-height:100%;
+	position:static;
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+body {
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+}
+
+main {
+	flex: 1;
 }
 
 .blank{
-margin-top:5px;
-margin-bottom:5px;
+	margin-top:5px;
+	margin-bottom:5px;
 }
 
 .blank1{
-margin-top:10px;
-margin-bottom:10px;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 th {
-padding: 5px !important;
+	padding: 5px !important;
 }
 
 </style>
@@ -309,6 +318,7 @@ padding: 5px !important;
 
 </head>
 <body>
+<main>
 <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 <div class="container" style="font-family:'Noto Sans KR', sans-serif; font-weight:400; color: #1e1e1e;">
@@ -319,17 +329,16 @@ padding: 5px !important;
 	
 	<div class="blank">&nbsp;</div>
 	
-	<div style="border: 1px solid #1e1e1e; border-radius: 3px; width:80%; ">
-		<h4>파일명 : [${fileName}]</h4>
+	<div style="border: 1px solid #1e1e1e; border-radius: 3px; width:30%; ">
+		<h4>&nbsp;파일명 : [ ${fileName} ]</h4>
 	</div>
 	
 	<div class="blank">&nbsp;</div>
 	
 	<div id="show_col_sum">
-		<input type="button" id="show_all" value="테이블 전체보기"> <input
-			type="button" id="show_sum" value="테이블 요약보기(5행)"
-			style="display: none">
-	<div style="overflow-x: auto;">
+		<input class="btn btn-default" type="button" id="show_all" value="테이블 전체보기" style=" width: auto; height: 35px; font-size: 15px;"> 
+		<input class="btn btn-default" type="button" id="show_sum" value="테이블 요약보기(5행)" style="display: none;  width: auto; height: 35px; font-size: 15px;">
+	<div style="overflow-x: auto; width: 90%;">
 	
 	<div class="blank">&nbsp;</div>
 	
@@ -362,10 +371,11 @@ padding: 5px !important;
 	</div>
 	
 	<br>
-
+	
 	<div id="resultTemp" style="border: 1px solid #1e1e1e; border-radius: 3px; width:80%; padding:auto;"></div>
 	
 	<div class="col-lg-4 col-md-6 col-sm-6 row">
+	
 	<div style="border-bottom: 1px solid #1e1e1e; width:80%">
 		<h3>결측치</h3>
 	</div>
@@ -405,9 +415,8 @@ padding: 5px !important;
 		
 		<table>
 			<tr>
-				<td><input type="submit" id="convert" value="변환" style="margin-right:5px;"/></td>
-				<td><a href="/destiny/upload/list"><input type="button"
-						value="취소" /></a></td>
+				<td><input class="btn btn-primary" type="submit" id="convert" value="변환" style="margin-right:5px; width: auto; height: 35px; font-size: 15px;"/></td>
+				<!-- <td><a href="/destiny/upload/list"><input class="btn btn-warning" type="button" value="취소" style="width: auto; height: 35px; font-size: 15px;"/></a></td> -->
 			</tr>
 		</table>
 	</div> <!-- resultTemp -->
@@ -423,29 +432,25 @@ padding: 5px !important;
 				
 		<table class="radiobutton">
 			<tr>
-				<td style="text-align:left;"><input type="radio" name="handling2" id="Min">Min
-					
-				</td>
-				
+				<td style="text-align:left;"><input type="radio" name="handling2" id="Min">&nbsp; Min</td>								
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td style="text-align:left;"><input type="radio" name="handling2" id="Max">Max</td>
+				<td style="text-align:left;"><input type="radio" name="handling2" id="Max">&nbsp;  Max</td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td style="text-align:left;"><input type="radio" name="handling2" id="Avg">Avg</td>
+				<td style="text-align:left;"><input type="radio" name="handling2" id="Avg">&nbsp;  Avg</td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td style="text-align:left;"><input type="radio" name="handling2" id="기타">기타
-					: <input type="text" style="width:30%; margin-right:10px;"></td>
+				<td style="text-align:left;"><input type="radio" name="handling2" id="기타">&nbsp;  기타 &nbsp; : &nbsp; <input type="text" style="width:30%; margin-right:10px;"></td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
@@ -454,23 +459,29 @@ padding: 5px !important;
 		
 		<table style="text-align:right">
 			<tr>
-				<td><a href=""><input type="submit" id="convert2" value="변환" /></a></td>
+				<td><a href=""><input class="btn btn-primary" type="submit" id="convert2" value="변환" style="width: auto; height: 35px; font-size: 15px;"/></a></td>
 				<td>&nbsp;</td>
-				<td><a href="/destiny/upload/list"><input type="button"
-						value="취소" /></a></td>
+				<!-- <td><a href="/destiny/upload/list"><input class="btn btn-warning" type="reset"	value="취소" style="width: auto; height: 35px; font-size: 15px;"/></a></td> -->
 			</tr>
 		</table>
 		<div class="blank">&nbsp;</div>
+		<div class="blank">&nbsp;</div>
 	</div>
 
-	<div class="col-lg-12 col-md-12 col-sm-12">
+	<div style="clear: both;">
+	<a href="/destiny/upload/list">
+		<input class="btn btn-default" type="button" value="이전 단계로" style="width: auto; height: 35px; font-size: 15px;"/>
+	</a>
 	<a href="/destiny/analytics/restructuring">
-		<input type="button" value="다음 단계로" style="margin-left:75%;"/></a>
-	</div>		
+		<input class="btn btn-default" type="button" value="다음 단계로" style="width: auto; height: 35px; font-size: 15px;"/>
+	</a>
+	<div class="blank">&nbsp;</div>
+	</div>
 	
 	
 </div> <!-- End Container -->
-<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+</main>
 
 </body>
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </html>

@@ -17,10 +17,10 @@
 <style>
 
 html, body{ 
-background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
-margin:0;
-padding:0;
-height:100%;
+	background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
+	margin:0;
+	padding:0;
+	height:100%;
 }
 
 .hovbutton{
@@ -40,8 +40,8 @@ height:100%;
     }
     
 .hovbutton:hover {
-background-color: #white;
-color : #1e1e1e;
+	background-color: #white;
+	color : #1e1e1e;
 }
 
 .button {
@@ -59,51 +59,51 @@ color : #1e1e1e;
     cursor: pointer;
 }    
 .button:hover {
-   background-color: #1e1e1e;
-   color : white;
+    background-color: #1e1e1e;
+    color : white;
 } 
 
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .nt100 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 100;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 100;
 }
 .nt300 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 300;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 300;
 }
 <!-- 레귤러 폰트 -->
 .nt400 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 400;
 }
 .nt500 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 500;
 }
 .nt700 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 700;
 }
 .nt900 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 900;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 900;
 }
 
 div > p {
-margin-bottom:0;
+	margin-bottom:0;
 }
 
 .blank{
-margin-top:15px;
-margin-bottom:15px;
+	margin-top:15px;
+	margin-bottom:15px;
 }
 
 .blank1{
@@ -112,8 +112,8 @@ margin-bottom:30px;
 }
 
 .column{
--webkit-column-count: 1;
- -moz-column-count: 1;
+	-webkit-column-count: 1;
+	-moz-column-count: 1;
     column-count: 1;
 }
 
@@ -127,7 +127,7 @@ border-width: 1px;
 </style>
 
 
-<title>프로젝트 소개</title>
+<title>DAIA Platform</title>
 </head>
 
 <body>
@@ -146,8 +146,7 @@ border-width: 1px;
       
       <!-- Image header -->
          <div class="col-sm-12" >
-            <img
-               src="http://erotic-chaos.com/wp-content/uploads/2017/08/prj_main.png"
+            <img src="http://erotic-chaos.com/wp-content/uploads/2017/08/prj_main.png"
                alt="Jeans" style="width: 100%">    
             </div>
          
@@ -193,8 +192,7 @@ border-width: 1px;
 
       <div align="center">
       <br>
-         <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/vyRC1bUAwFE" frameborder="0" allowfullscreen></iframe>
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/vyRC1bUAwFE" frameborder="0" allowfullscreen></iframe>
          <a href="project.html"></a>
          <br>
       </div>
@@ -296,9 +294,7 @@ border-width: 1px;
                
             </td>
             <td>
-            <img
-                  src="http://media.cutimes.com/cutimes/article/2017/06/22/mergerpieces64-crop-600x338.jpg"
-                  width="350">
+            <img src="http://media.cutimes.com/cutimes/article/2017/06/22/mergerpieces64-crop-600x338.jpg" width="350">
             </td>
             </tr>
             </table>
@@ -319,14 +315,15 @@ border-width: 1px;
             </td>
             <td class="column" style="text-align:center; padding-left:10px;">
            
-            다양한 분석 방법과 머신러닝 알고리즘을 제공합니다. 분석에 사용할 알고리즘을 선택해 주세요.
-머신러닝을 실행하기 위해 데이터를 train set과 test set으로 샘플링 해 주세요. 각 샘플에 대한 추출 비율을 직접 설정할 수 있습니다.  
-분석 결과 뿐만 아니라 업무에 용이하게 사용될 수 있도록 해석에 대한 가이드라인을 지원합니다.
-</td>
-</tr>
-</table>
-</div>
-         <div class="col-lg-12 col-md-12 col-sm-12 blank1">&nbsp;</div>
+          	  다양한 분석 방법과 머신러닝 알고리즘을 제공합니다. 분석에 사용할 알고리즘을 선택해 주세요.
+			머신러닝을 실행하기 위해 데이터를 train set과 test set으로 샘플링 해 주세요. 각 샘플에 대한 추출 비율을 직접 설정할 수 있습니다.  
+			분석 결과 뿐만 아니라 업무에 용이하게 사용될 수 있도록 해석에 대한 가이드라인을 지원합니다.
+			</td>
+			</tr>
+			</table>
+		</div>
+      
+      <div class="col-lg-12 col-md-12 col-sm-12 blank1">&nbsp;</div>
 
       </div>
 

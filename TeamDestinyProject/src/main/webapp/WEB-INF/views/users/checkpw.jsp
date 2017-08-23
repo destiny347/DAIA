@@ -5,10 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<title>DAIA Platform</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>메인 페이지</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- W3.CSS Templates -->
@@ -25,25 +23,25 @@
 
 <style>
 html, body{
-background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
-margin:0;
-padding:0;
-height:100%;
+	background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
+	margin:0;
+	padding:0;
+	height:100%;
 }
 
 .headheadhead {
-   border-bottom: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
 }
 html{
-   margin:0;
-   padding:0;
-   height:100%;
+    margin:0;
+    padding:0;
+    height:100%;
 }
 
 body{
-   position:relative;
-   margin:0;
-   height:100%;
+    position:relative;
+    margin:0;
+    height:100%;
 }
 
 footer{
@@ -54,35 +52,35 @@ footer{
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .nt100 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 100;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 100;
 }
 .nt300 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 300;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 300;
 }
 <!-- 레귤러 폰트 -->
 .nt400 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 400;
 }
 .nt500 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 500;
 }
 .nt700 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 700;
 }
 .nt900 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 900;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 900;
 }
 </style>
 
@@ -175,7 +173,7 @@ footer{
    <div class="container"  style="font-family:'Noto Sans KR', sans-serif; color: #ebebeb; background-color: rgba( 0, 0, 0, 0.6 ); width: 530px; position: relative; top: 100px;">
       <div class="headheadhead" style="width: 500px;">
           <h1>내 정보 <small>DAIA Platform</small></h1>
-       </div>
+      </div>
       <div class="row">&nbsp;</div> 
       
       <form class="checkPwForm" action="/destiny/users/checkPw" method="post">
@@ -197,79 +195,7 @@ footer{
         </div>
         <div>&nbsp;</div>
       </form>            
-         <%-- <form class="updateForm" action="/destiny/users/update/${user.userId}" method="post">        
-              <div class="form-group">
-                 <div class="col-lg-2 col-sm-2" align="center" style="width: 130px;">
-                     <label class="control-label" for="inputId"><h5>아이디</h5></label>
-                 </div>
-                 <div class="col-lg-4 col-sm-4">
-                    <input class="form-control" id="inputId" type="text" name="userId" placeholder="아이디" pattern="\w+" value="${user.userId}" readonly>
-                 </div>
-              </div>
-              <div class="row">&nbsp;</div>         
-              
-              <div class="form-group">
-                 <div class="col-lg-2 col-sm-2" align="center" style="width: 130px;">
-                     <label class="control-label" for="inputPassword"><h5>비밀번호</h5></label>
-                 </div>
-                 <div class="col-lg-4 col-sm-4">
-                    <input class="form-control" id="inputPassword" type="password" name="userPw" placeholder="비밀번호" pattern="(?=.*\d)(?=.*[a-z]).{8,}" value="${user.userPw}"  title="비밀번호는 숫자 포함 8자 이상이어야 합니다." required>
-                 </div>
-                 <div class="row">&nbsp;</div>
-                 <div class="col-lg-2 col-sm-2" style="width: 130px;">
-                     &nbsp;
-                 </div>
-                 <div class="col-lg-4 col-sm-4">
-                    <p class="help-block" align="right" style="color: red;">비밀번호는 숫자 포함 8자 이상이어야 합니다.</p>
-                 </div>
-              </div>
-              <div class="row">&nbsp;</div>
-              
-              <div class="form-group">
-                 <div class="col-lg-2 col-sm-2" align="center" style="width: 130px;">
-                     <label class="control-label" for="inputPasswordCheck"><h5>비밀번호 확인</h5></label>
-                 </div>
-                 <div class="col-lg-4 col-sm-4">
-                    <input class="form-control" id="inputPasswordCheck" type="password" name="userPwCheck" placeholder="비밀번호 확인" pattern="(?=.*\d)(?=.*[a-z]).{8,}" value="${user.userPwCheck}"  title="비밀번호를 한번 더 입력해주세요." required>
-                 </div>
-                 <div class="row">&nbsp;</div>
-                 <div class="col-lg-2 col-sm-2" style="width: 130px;">
-                     &nbsp;
-                 </div>
-                 <div class="col-lg-4 col-sm-4">
-                    <p class="help-block" align="right" style="color: red;">비밀번호를 한번 더 입력해주세요.</p>
-                 </div>
-              </div>
-              <div class="row">&nbsp;</div>
-              
-              <div class="form-group">
-                 <div class="col-lg-2 col-sm-2" align="center" style="width: 130px;">
-                     <label class="control-label" for="inputName" style="text-align: right;"><h5>이름 또는 별명</h5></label>
-                 </div>
-                 <div class="col-lg-4 col-sm-4">
-                    <input class="form-control" id="inputName" type="text" name="userName" placeholder="이름 또는 별명" value="${user.userName}" required>
-                 </div>
-              </div>
-              <div class="row">&nbsp;</div>
-              
-              <div class="form-group">
-                 <div class="col-lg-2 col-sm-2" align="center" style="width: 130px;">
-                     <label class="control-label" for="inputEmail"><h5>이메일</h5></label>
-                 </div>
-                 <div class="col-lg-4 col-sm-4">
-                    <input class="form-control" id="inputEmail" type="email" name="userEmail" placeholder="이메일" value="${user.userEmail}">
-                 </div>
-              </div>
-              <div class="row">&nbsp;</div>                     
-              <div class="row">&nbsp;</div>
- 
-            <div class="form-group">
-                   <div class="col-lg-6 col-sm-6" align="center">
-                  <input class="btn btn-primary" type="submit" value="완료" /> <!-- onclick="return confirm('회원 가입을 완료하시겠습니까?')" -->
-                  <input class="btn btn-danger" type="button" value="취소" onclick="window.history.back(-1);return false;"/> <!-- onclick="document.getElementById('id02').style.display='none'" -->
-                     </div>
-              </div>
-        </form>   <!-- End Form --> --%>
+         
    </div> <!-- End Container -->
 
 <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>

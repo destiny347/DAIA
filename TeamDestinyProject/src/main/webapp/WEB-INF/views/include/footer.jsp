@@ -48,7 +48,7 @@
 
 th, td {
    padding: 5px;
-    text-align: center;
+   text-align: center;
 }
 
 </style>
@@ -69,7 +69,7 @@ th, td {
 
 
 
-<title>footer</title>
+<title>DAIA Platform</title>
 </head>
 
 <body>

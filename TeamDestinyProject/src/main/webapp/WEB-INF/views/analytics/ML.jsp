@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,10 @@
 
 <!-- jQuery -->
 <script src="../js/jquery.js"></script>
-<script type="text/javascript"
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
    </script>
 
-<title>Destiny</title>
+<title>DAIA Platform</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="../css/bootstrap.css" rel="stylesheet">
@@ -20,73 +20,87 @@
 
 
 <!-- Fonts -->
-<link
-   href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
    rel="stylesheet" type="text/css">
-<link
-   href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
    rel="stylesheet" type="text/css">
    
 <style type="text/css">
 .radiobutton {
-   height: 150px;
+    height: 150px;
 }
 
 <!-- Fonts -->
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .nti100 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 100;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 100;
 }
 .nti300 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 300;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 300;
 }
 <!-- 레귤러 폰트 -->
 .nti400 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 400;
 }
 .nti500 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 500;
 }
 .nti700 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 700;
 }
 .nti900 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 900;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 900;
 }
 
 html, body{
-position:static;
-margin:0;
-padding:0;
-height:100%;
+	position:static;
+	margin:0;
+	padding:0;
+	height:100%;
 }
-
+body {
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+}
+main {
+	flex: 1;
+}
 .blank{
-margin-top:5px;
-margin-bottom:5px;
+	margin-top:5px;
+	margin-bottom:5px;
 }
-
 .blank1{
-margin-top:10px;
-margin-bottom:10px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+th {
+	padding: 5px !important;
+}
+html{
+	margin:0;
+	padding:0;
+	height:100%;
+}
+footer{
+    position:relative;
+    margin-bottom: 0px;
+    width:100%;
 }
 
-th {
-padding: 5px !important;
-}
 </style>
 </head>
 <script type="text/javascript">
@@ -115,6 +129,7 @@ $(document).ready(function() {
 
 </script>
 <body>
+<main>
 <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
@@ -129,7 +144,34 @@ $(document).ready(function() {
       <h4>&nbsp;데이터 명 : [ ${fileName} ]</h4>
    </div>
    <div class="blank">&nbsp;</div>
-   <div class="blank">&nbsp;</div>
+   
+    <div style="overflow-x: auto;">  
+    <table id="result_table" border="1">
+         <thead>
+            <tr>
+               <c:forEach var="colName" items="${list.colNames}">
+                  <c:forEach var="colNameValue" items="${colName}">
+                     <th style="text-align: center;"><input class="chkCol" name="chkColnames" type="checkbox"
+                        value="${colName}"> <label class="chkCol"
+                        for="chkColnames">${colName}</label></th>
+                  </c:forEach>
+               </c:forEach>
+            </tr>
+         </thead>
+         <tbody>
+            <c:forEach var="i" begin="0" end="${fn:length(list.data[0])}">
+               <c:if test="${i le 5}">
+                  <c:set var="row" value="${list.data}" />
+                  <tr>
+                     <c:forEach var="data" items="${row}">
+                        <td>${data[i]}</td>
+                     </c:forEach>
+                  </tr>
+               </c:if>
+            </c:forEach>
+         </tbody>
+      </table>
+   </div>
    
    <div style="border-bottom: 1px solid #1e1e1e; width:80%">
       <h3>Training set 설정</h3>   
@@ -187,6 +229,8 @@ $(document).ready(function() {
    
    
 </div> <!-- End Container -->
+</main>
+
 <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </body>
 

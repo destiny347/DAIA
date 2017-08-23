@@ -94,19 +94,19 @@ public class AnalyticsController {
 	public String restructuring( Model model) {
 		model.addAttribute("fileList",uploadFileService.getAllFileList());
 
-		UploadFileVO getFile = uploadFileService.getFile(1);
+		UploadFileVO getFile = uploadFileService.getFile(2);
 		model.addAttribute("fileName", getFile.getFileName());
 
-		Map<String, Object> test = analyticsService.analyticsDatabaseInfo(1);
+		Map<String, Object> test = analyticsService.analyticsDatabaseInfo(2);
 		model.addAttribute("list", test);
 
-		UploadFileVO dd = uploadFileService.getFile(2);
+		UploadFileVO dd = uploadFileService.getFile(3);
 		model.addAttribute("dd", dd.getFileName());
 
-		Map<String, Object> tmp = analyticsService.analyticsDatabaseInfo(2);
+		Map<String, Object> tmp = analyticsService.analyticsDatabaseInfo(3);
 		model.addAttribute("tmp", tmp);
 
-		Map<String, Object> result = analyticsService.analyticsDatabaseInfo(2);
+		Map<String, Object> result = analyticsService.analyticsDatabaseInfo(4);
 		model.addAttribute("result", result);
 
 		String groupcol = "OCCP_GRP_1";  
@@ -125,10 +125,18 @@ public class AnalyticsController {
 	}
 
 	//시각화 부분 컨트롤러.
-	@RequestMapping("/analytics/visual")
-	public String visual() {
-		return "analytics/visual";
-	}
+	   @RequestMapping("/analytics/visual")
+	   public String visual(Model model) {
+	      UploadFileVO getFile = new UploadFileVO();
+
+	      getFile= uploadFileService.getFile(4);
+	      String fName = getFile.getFileName();
+	      Map<String, Object> visual = analyticsService.analyticsDatabaseInfo(4);
+	      model.addAttribute("list", visual);
+	      model.addAttribute("fileName", fName);
+	      
+	      return "analytics/visual";
+	   }
 
 	//막대그래프 구현부.
 	@RequestMapping(value="/analytics/bar")
@@ -172,9 +180,9 @@ public class AnalyticsController {
 	//머신러닝 부분 컨트롤러.
 	@RequestMapping("/analytics/ML")
 	public String machineLearning(Model model) {
-		UploadFileVO getFile = uploadFileService.getFile(1);
+		UploadFileVO getFile = uploadFileService.getFile(4);
 		model.addAttribute("fileName", getFile.getFileName());
-		Map<String, Object> test = analyticsService.analyticsDatabaseInfo(1);
+		Map<String, Object> test = analyticsService.analyticsDatabaseInfo(4);
 		model.addAttribute("list", test);
 
 		return "analytics/ML";

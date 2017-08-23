@@ -19,7 +19,7 @@
 <script   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>header</title>
+<title>DAIA Platform</title>
 
 <style>
 
@@ -113,9 +113,7 @@
    color: #ffffff;
 }
 
-
 </style>
-
 </head>
 
 <body>
@@ -124,10 +122,18 @@
       <!-- w3 컨테이너 지우고 헤드헤드 클래스로 작업함! -->
       <div class="headhead" style="font-family:'Noto Sans KR', sans-serif; color: #1e1e1e;">
          <div class="container">
-            <div class="col-sm-3">
-               <a href="/destiny">
-                 <img src="http://erotic-chaos.com/wp-content/uploads/2017/08/daia_logo.png" style="width:auto%; height:40px;">
-                   </a>
+            <div class="col-sm-4">
+            	<table>
+            		<tr>
+            			<td><a href="/destiny/greeting">
+                 			<img src="http://erotic-chaos.com/wp-content/uploads/2017/08/daia_logo.png" style="width:auto%; height:40px;">                 
+               				</a>
+               			</td>
+               			<td>&nbsp;&nbsp;</td>
+               			<td><span class="DAIA" style="background-color: #1e1e1e; color: #ebebeb; font-size: 25px; cursor: pointer;" onclick="location.href='/destiny/greeting'">DAIA PLATFORM</span>               			
+               			</td>               			
+            		</tr>
+            	</table>
             </div>
 
             <!-- 부트스트랩 씌우고 테이블 버튼을 span에 버튼형식으로 추가함. -->

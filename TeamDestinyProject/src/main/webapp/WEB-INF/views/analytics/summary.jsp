@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Destiny</title>
+<title>DAIA Platform</title>
 </head>
 <body>
 <h1>열 단위 출력</h1>

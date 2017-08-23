@@ -19,7 +19,7 @@
 <!-- jQuery -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<title>Sidebar</title>
+<title>DAIA Platform</title>
 
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);

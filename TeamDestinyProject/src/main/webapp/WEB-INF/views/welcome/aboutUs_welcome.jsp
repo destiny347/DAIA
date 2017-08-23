@@ -11,27 +11,22 @@
 
 <!-- W3.CSS Templates -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- BootStrap CSS -->
-<link rel="stylesheet"
-   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- jQuery -->
-<script type="text/javascript"
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <style>
 html, body{ 
-background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
-margin:0;
-padding:0;
-height:100%;
+	background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
+	margin:0;
+	padding:0;
+	height:100%;
 }
 
 // 기본 폰트 클래스 ntXXX 형태로 사용!
@@ -71,7 +66,7 @@ height:100%;
 }
 </style>
 
-<title>팀 소개</title>
+<title>DAIA Platform</title>
 </head>
 
 <body>
@@ -140,7 +135,6 @@ height:100%;
                      <p class="w3-opacity">Cuty Sexy Pretty</p>
                 </td>                
          </tr>
-
       </table>
    </div>
    

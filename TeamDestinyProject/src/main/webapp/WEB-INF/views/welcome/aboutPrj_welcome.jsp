@@ -17,10 +17,10 @@
 <style>
 
 html, body{ 
-background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
-margin:0;
-padding:0;
-height:100%;
+	background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
+	margin:0;
+	padding:0;
+	height:100%;
 }
 
 .hovbutton{
@@ -40,8 +40,8 @@ height:100%;
     }
     
 .hovbutton:hover {
-background-color: #white;
-color : #1e1e1e;
+	background-color: #white;
+	color : #1e1e1e;
 }
 
 .button {
@@ -59,8 +59,8 @@ color : #1e1e1e;
     cursor: pointer;
 }    
 .button:hover {
-   background-color: #1e1e1e;
-   color : white;
+	background-color: #1e1e1e;
+	color : white;
 } 
 
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -98,36 +98,29 @@ color : #1e1e1e;
 }
 
 div > p {
-margin-bottom:0;
+	margin-bottom:0;
 }
 
 .blank{
-margin-top:15px;
-margin-bottom:15px;
+	margin-top:15px;
+	margin-bottom:15px;
 }
 
 .blank1{
-margin-top:30px;
-margin-bottom:30px;
+	margin-top:30px;
+	margin-bottom:30px;
 }
 
 .column{
--webkit-column-count: 1;
- -moz-column-count: 1;
+	-webkit-column-count: 1;
+	-moz-column-count: 1;
     column-count: 1;
 }
 
-/*
-div{
-border-style: dotted;
-border-color: orange;
-border-width: 1px;
-} 
-*/
 </style>
 
 
-<title>프로젝트 소개</title>
+<title>DAIA Platform</title>
 </head>
 
 <body>
@@ -193,8 +186,7 @@ border-width: 1px;
 
       <div align="center">
       <br>
-         <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/vyRC1bUAwFE" frameborder="0" allowfullscreen></iframe>
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/vyRC1bUAwFE" frameborder="0" allowfullscreen></iframe>
          <a href="project.html"></a>
          <br>
       </div>
@@ -230,10 +222,10 @@ border-width: 1px;
    <td class="column" style="text-align:center; padding-left:10px;">
             <b>분석 파일을 csv 형식으로 업로드 해 주세요.DB에 저장된 파일의 목록을 언제든지 조회할 수 있습니다.</b>
             <div class="blank">&nbsp;</div>          
-            데이터 분석 과정에 사용할 수 있도록 테이블 형식으로 변형하여 구조를 보기 쉽게 화면에 출력해 줍니다.
-            테이블의 열을 체크하여 변수 각각에 대한 전처리 작업을 빠르게 진행할 수 있습니다. 
-            분석 단계마다 도출된 결과를 DB에 저장하여 변경 내용을 조회하고,
-            다른 데이터와의 결합에도 사용할 수 있습니다.
+           		 데이터 분석 과정에 사용할 수 있도록 테이블 형식으로 변형하여 구조를 보기 쉽게 화면에 출력해 줍니다.
+             	테이블의 열을 체크하여 변수 각각에 대한 전처리 작업을 빠르게 진행할 수 있습니다. 
+            	분석 단계마다 도출된 결과를 DB에 저장하여 변경 내용을 조회하고,
+            	다른 데이터와의 결합에도 사용할 수 있습니다.
             </td>
             </tr>
             </table>

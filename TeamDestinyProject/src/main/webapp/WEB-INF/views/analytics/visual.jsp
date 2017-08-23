@@ -8,63 +8,77 @@
 
 <style>
 .radiobutton {
-   height: 150px;
+    height: 150px;
 }
 
 <!-- Fonts -->
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .nti100 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 100;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 100;
 }
 .nti300 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 300;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 300;
 }
 <!-- 레귤러 폰트 -->
 .nti400 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 400;
 }
 .nti500 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 500;
 }
 .nti700 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 700;
 }
 .nti900 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 900;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 900;
 }
 
-html, body{
-position:static;
-margin:0;
-padding:0;
-height:100%;
+body{
+    display:flex;
+    flex-flow: column;
+    min-height:100vh;
+}
+
+main{
+	flex:1;
 }
 
 .blank{
-margin-top:5px;
-margin-bottom:5px;
+	margin-top:5px;
+	margin-bottom:5px;
 }
 
 .blank1{
-margin-top:10px;
-margin-bottom:10px;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 th {
-padding: 5px !important;
+	padding: 5px !important;
+}
+
+html{
+	margin:0;
+	padding:0;
+	height:100%;
+}
+footer{
+    position:relative;
+    margin-bottom: 0px;
+    width:100%;
 }
 </style>
 
@@ -276,128 +290,134 @@ $(document).ready(function(){
             $("#blackContainer").hide();
          }
       });
- });   
-
-   });
+ 	});   
+  });
 
 
 </script>
 
 
-<title>visual</title>
+<title>DAIA Platform</title>
 </head>
 
 
 
 <body>
+<main>
 <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
 <div class="container" style="font-family:'Noto Sans KR', sans-serif; font-weight:400; color: #1e1e1e;">
    <!-- 시각화하려는 변수를 선택하는 부분 -->
-   
-   <div class="" style="border-bottom: 1px solid #1e1e1e; width: 80%;">
-      <h3>데이터 시각화</h3>
-   </div>   
-   <div class="blank">&nbsp;</div>
-   
-   <div class="" style="border: 1px solid #1e1e1e; border-radius: 3px; width:80%; ">
-      <h4>&nbsp; 변수선택 : []</h4>
+	
+	<div class="" style="border-bottom: 1px solid #1e1e1e; width: 80%;">
+		<h3>데이터 시각화</h3>
+	</div>	
+	<div class="blank">&nbsp;</div>
+	
+	   <div class="" style="border: 1px solid #1e1e1e; border-radius: 3px; width:80%; ">
+      <h4>&nbsp;변수선택 : [ cust_data.csv ]</h4>
    </div>
    <div class="blank">&nbsp;</div>
    
-    <table id="result_table" border="1" >
-      <thead>
-         <tr>
-            <c:forEach var="colName" items="${result.colNames}">
-               <c:forEach var="colNameValue" items="${colName}">
-                  <th><input class="chkCol" name="chkColnames" type="checkbox">
-                     <label class="chkCol" for="chkColnames">${colName}</label></th>
-               </c:forEach>
-            </c:forEach>
-         </tr>
-      </thead>
-      <tbody>
-         <c:forEach var="i" begin="0" end="${fn:length(list.data[0])}">
-            <c:if test="${i le 5}">
-               <c:set var="row" value="${result.data}" />
-               <tr>
-                  <c:forEach var="data" items="${row}">
-                     <td>${data[i]}</td>
+    <div style="overflow-x: auto;">  
+    <table id="result_table" border="1">
+         <thead>
+            <tr>
+               <c:forEach var="colName" items="${list.colNames}">
+                  <c:forEach var="colNameValue" items="${colName}">
+                     <th style="text-align: center;"><input class="chkCol" name="chkColnames" type="checkbox"
+                        value="${colName}"> <label class="chkCol"
+                        for="chkColnames">${colName}</label></th>
                   </c:forEach>
-               </tr>
-            </c:if>
-         </c:forEach>
-      </tbody>
-   </table>
+               </c:forEach>
+            </tr>
+         </thead>
+         <tbody>
+            <c:forEach var="i" begin="0" end="${fn:length(list.data[0])}">
+               <c:if test="${i le 5}">
+                  <c:set var="row" value="${list.data}" />
+                  <tr>
+                     <c:forEach var="data" items="${row}">
+                        <td>${data[i]}</td>
+                     </c:forEach>
+                  </tr>
+               </c:if>
+            </c:forEach>
+         </tbody>
+      </table>
+   </div>
+
    
 
    <!-- 그래프 타입 선택 -->
-   <div class="" style="border-bottom: 1px solid #1e1e1e; width:80%">
-      <h3>그래프 타입 선택</h3>      
-   </div>
-   <div class="blank">&nbsp;</div>
-   <div class="">
-      <table>
-         <tr style="font-size: 16px;">
-            <td style="width: auto;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="barcheck"></td>
-            <td style="width: auto; text-align: left;">&nbsp;&nbsp; 막대 그래프</td>
-         </tr>
-         <tr><td>&nbsp;</td></tr>
-         <tr style="font-size: 16px;">
-            <td style="width: auto;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="piecheck"></td>
-            <td style="width: auto; text-align: left;">&nbsp;&nbsp; 파이 그래프</td>               
-         </tr>
-         <tr><td>&nbsp;</td></tr>
-         <tr style="font-size: 16px;">
-            <td style="width: auto;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="linecheck"></td>
-            <td style="width: auto; text-align: left;">&nbsp;&nbsp; 3D 그래프</td>            
-         </tr>
-      </table>
-   </div>
-   <div class="blank">&nbsp;</div>
-   <div class="">
-      &nbsp;&nbsp;&nbsp;
-      <input class="btn btn-primary" type="button" id="show" value="보임" style="width: auto; height: 40px; font-size: 17px;">
-      &nbsp;
-      <input class="btn btn-warning" type="button" id="hide" value="숨김" style="width: auto; height: 40px; font-size: 17px;">
-   </div>
+	<div class="" style="border-bottom: 1px solid #1e1e1e; width:80%">
+		<h3>그래프 타입 선택</h3>		
+	</div>
+	<div class="blank">&nbsp;</div>
+	<div class="">
+		<table>
+			<tr style="font-size: 16px;">
+				<td style="width: auto;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="barcheck"></td>
+				<td style="width: auto; text-align: left;">&nbsp;&nbsp; 막대 그래프</td>
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr style="font-size: 16px;">
+				<td style="width: auto;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="piecheck"></td>
+				<td style="width: auto; text-align: left;">&nbsp;&nbsp; 파이 그래프</td>					
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr style="font-size: 16px;">
+				<td style="width: auto;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="linecheck"></td>
+				<td style="width: auto; text-align: left;">&nbsp;&nbsp; 3D 그래프</td>				
+			</tr>
+		</table>
+	</div>
+	<div class="blank">&nbsp;</div>
+	<div class="">
+		&nbsp;&nbsp;&nbsp;
+		<input class="btn btn-info" type="button" id="show" value="보임" style="width: auto; height: 35px; font-size: 15px;">
+		&nbsp;
+		<input class="btn btn-info" type="button" id="hide" value="숨김" style="width: auto; height: 35px; font-size: 15px;">
+	</div>
 
 
-   <!-- 그래프 표시부  -->
-   <div class="" style="border-bottom: 1px solid #1e1e1e; width:100%;">
-      <h3>그래프 표시부</h3>      
-   </div>
-   <div class="blank">&nbsp;</div>
-   <div class="col-sm-12">
-      <div class="col-sm-4" id="barChartContainer"
-         style="border-style: solid; border-width: 1px; border-color: pink; display: none;">      
+	<!-- 그래프 표시부  -->
+	<div class="" style="border-bottom: 1px solid #1e1e1e; width:100%;">
+		<h3>그래프 표시부</h3>		
+	</div>
+	<div class="blank">&nbsp;</div>
+	<div class="col-sm-12">
+		<div class="col-sm-4" id="barChartContainer"
+			style="border-style: solid; border-width: 1px; border-color: pink; display: none;">		
         <!-- <div id="bar"></div> -->
-      </div>
-      <div class="col-sm-4" id="pieChartContainer"
-           style="border-style: solid; border-width: 1px; border-color: pink; display: none;">
+		</div>
+		<div class="col-sm-4" id="pieChartContainer"
+        	style="border-style: solid; border-width: 1px; border-color: pink; display: none;">
         <!-- <div id="pie"></div>  -->
-      </div>
-      <div class="col-sm-4" id="blackContainer"
-         style="border-style: solid; border-width: 1px; border-color: pink; display: none;">         
-      </div>
-   </div>   
+		</div>
+		<div class="col-sm-4" id="blackContainer"
+			style="border-style: solid; border-width: 1px; border-color: pink; display: none;">         
+		</div>
+	</div>	
 
-   <!-- 저장/리셋 -->
-   <div>
-      <div class="blank">&nbsp;</div>
-      &nbsp;&nbsp;&nbsp;
-      <input class="btn btn-primary" type="submit" value="저장" style="width: auto; height: 40px; font-size: 17px;">
-      &nbsp;
-      <input class="btn btn-warning" type="reset" value="리셋" style="width: auto; height: 40px; font-size: 17px;">
-      &nbsp;
-      <a href="/destiny/analytics/ML">
-         <input class="btn btn-default" type="button" value="다음 단계로" style="width: auto; height: 40px; font-size: 17px;"/>
-      </a>
-   </div>
-   <div class="blank">&nbsp;</div>
+	<!-- 저장/리셋 -->
+	<div>
+		<div class="blank">&nbsp;</div>
+		&nbsp;&nbsp;&nbsp;
+		<input class="btn btn-primary" type="submit" value="저장" style="width: auto; height: 35px; font-size: 15px;">
+		&nbsp;
+		<input class="btn btn-warning" type="reset" value="리셋" style="width: auto; height: 35px; font-size: 15px;">
+		&nbsp;
+		<a href="/destiny/analytics/ML">
+			<input class="btn btn-default" type="button" value="다음 단계로" style="width: auto; height: 35px; font-size: 15px;"/>
+		</a>
+	</div>
+	<div class="blank">&nbsp;</div>
    
 </div> <!-- End Conatiner -->
-<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+</main>
+
 </body>
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </html>

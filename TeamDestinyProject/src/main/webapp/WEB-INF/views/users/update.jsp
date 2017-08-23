@@ -6,9 +6,10 @@
 <html>
 <head>
 
+<title>DAIA Platform</title>
+
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>메인 페이지</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- W3.CSS Templates -->
@@ -25,25 +26,25 @@
 
 <style>
 html, body{
-background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
-margin:0;
-padding:0;
-height:100%;
+	background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
+	margin:0;
+	padding:0;
+	height:100%;
 }
 
 .headheadhead {
-   border-bottom: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
 }
 html{
-   margin:0;
-   padding:0;
-   height:100%;
+    margin:0;
+    padding:0;
+    height:100%;
 }
 
 body{
-   position:relative;
-   margin:0;
-   height:100%;
+    position:relative;
+    margin:0;
+    height:100%;
 }
 
 footer{
@@ -54,35 +55,35 @@ footer{
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .nt100 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 100;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 100;
 }
 .nt300 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 300;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 300;
 }
 <!-- 레귤러 폰트 -->
 .nt400 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 400;
 }
 .nt500 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 500;
 }
 .nt700 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 700;
 }
 .nt900 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 900;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 900;
 }
 </style>
 
@@ -256,6 +257,6 @@ footer{
         </form>   <!-- End Form -->
    </div> <!-- End Container -->
 
-<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </body>
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </html>

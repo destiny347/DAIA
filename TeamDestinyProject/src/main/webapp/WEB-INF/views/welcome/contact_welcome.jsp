@@ -29,14 +29,14 @@ $(document).ready(function() {
 });
 </script>
 
-<title>Contact US</title>
+<title>DAIA Platform</title>
 </head>
 <style>
 html, body{
-background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
-margin:0;
-padding:0;
-height:100%;
+	background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
+	margin:0;
+	padding:0;
+	height:100%;
 }
 
 #map {

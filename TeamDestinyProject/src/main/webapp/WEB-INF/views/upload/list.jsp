@@ -8,23 +8,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Destiny</title>
-<!-- Favicon -->
-<link href="<c:url value='/favicon.png'/>" rel="icon" type="image/png">
+<title>DAIA Platform</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src='//code.jquery.com/jquery.min.js'></script>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <script type="text/javascript">
-
-
    $(document)
          .ready(
                function() {
@@ -193,85 +187,95 @@
 <style type="text/css">
 
 html, body{
-position:static;
-margin:0;
-padding:0;
-height:100%;
+	position:static;
+	margin:0;
+	padding:0;
+	height:100%;
 }
-
+body {
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+}
+main {
+	flex: 1;
+}
 footer{
     position:relative;
     bottom:0;
-    top: 45px;
     width:100%;
 }
-
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
 .nt100 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 100;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 100;
 }
 .nt300 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 300;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 300;
 }
 <!-- 레귤러 폰트 -->
 .nt400 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 400;
 }
 .nt500 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 500;
 }
 .nt700 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 700;
 }
 .nt900 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 900;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 900;
 }
-
 a {
-   color: #000;
+    color: #000;
 }
-
 .mask {
-   width: 100%;
-   height: 100%;
-   position: fixed;
-   left: 0;
-   top: 0;
-   z-index: 10;
-   background: #000;
-   opacity: .5;
-   filter: alpha(opacity = 50);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background: #000;
+    opacity: .5;
+    filter: alpha(opacity = 50);
 }
 #test {
-   display: none;
+    display: none;
 }
-
 .blank{
-margin-top:5px;
-margin-bottom:5px;
+	margin-top:5px;
+	margin-bottom:5px;
 }
-
 .blank1{
-margin-top:10px;
-margin-bottom:10px;
+	margin-top:10px;
+	margin-bottom:10px;
 }
-
+html{
+	margin:0;
+	padding:0;
+	height:100%;
+}
+footer{
+    position:relative;
+    margin-bottom: 0px;
+    width:100%;
+}
 
 </style>
 <body>
+<main>
    <jsp:include page="/WEB-INF/views/include/header_welcome.jsp"></jsp:include>
    <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
@@ -282,19 +286,19 @@ margin-bottom:10px;
 
       <div id="myForm">
          <div style="border-bottom: 1px solid #1e1e1e; width:80%">
-         <h3>File Upload</h3>
+         <h3>파일 업로드</h3>
          </div>
          <div class="blank">&nbsp;</div>
          <input type="file" name="file" id="txtFileUpload" accept=".csv">
          <div class="blank">&nbsp;</div>
-         <button type="submit" onclick="myFunction()"  style="margin-right:10px;">저장</button>
-         <input type="reset" id="reset" value="취소">
+         <button class="btn btn-primary" type="submit" onclick="myFunction()" style="margin-right:10px; width: auto; height: 35px; font-size: 15px;">저장</button>
+         <input class="btn btn-warning" type="reset" id="reset" value="취소" style="width: auto; height: 35px; font-size: 15px;">
       </div>
 
 <div class="blank1">&nbsp;</div>
 
 	<div style="border-bottom: 1px solid #1e1e1e; width:80%">
-      <h3>File List</h3>
+      <h3>파일 목록</h3>
       </div>
       <div class="blank">&nbsp;</div>
       <table border="1">
@@ -313,7 +317,7 @@ margin-bottom:10px;
          <c:forEach var="file" items="${fileList}">
             <tr>
                <td style="padding: 10px;"><input type="checkbox" name="fileId" id="${file.fileName}"
-                  value="${file.fileId}">${file.fileId}</td>
+                  value="${file.fileId}">&nbsp;${file.fileId}</td>
                <td style="padding: 10px;">${file.directoryName}</td>
                <td style="padding: 10px;"><c:set var="len" value="${fn:length(file.fileName)}" /> <c:set
                      var="filetype"
@@ -344,23 +348,30 @@ margin-bottom:10px;
          </c:forEach>
       </table>
       <h3></h3>
-      <input type="button" onclick="checkSelectedValue();" value="선택영역 확인" />
+      <input class="btn btn-default" type="button" onclick="checkSelectedValue();" value="선택영역 확인" style="width: auto; height: 35px; font-size: 15px;"/>
 
       <!-- Modal -->
-      <input type="button" id="select" class="btn btn-info btn-lg" data-toggle="modal"  data-target="#myModal"
-       value="요약">
+      <input type="button" id="select" class="btn btn-default" data-toggle="modal"  data-target="#myModal"
+       value="요약" style="width: auto; height: 35px; font-size: 15px;">
       <div id="test"></div>
 
-	
+	  <div>      
       <h3>확인</h3>
-
+	  </div>
+	  <div class="blank">&nbsp;</div>
+	  
       <div class="dibugConsole" id="dibugConsole" style="border: 1px solid #1e1e1e; border-radius: 3px; position:relative; height: 32px; padding:5px 0px 0px 5px; width:60%;"></div>
       <div class="blank">&nbsp;</div>
-      <input type="button" id="GetTotal" onclick="checkSelectedId();"
-         value="다음"/>
-
+      <a href="/destiny/greeting"> 
+			<input class="btn btn-default" type="button" value="홈으로" style="width: auto; height: 35px; font-size: 15px;"/>
+	  </a>
+      <input class="btn btn-default" type="button" id="GetTotal" onclick="checkSelectedId();"
+         value="다음 단계로" style="width: auto; height: 35px; font-size: 15px;"/>
+         <div class="blank">&nbsp;</div>	  
    </form>
 </div>
+</main>
+
 </body>
-<footer><jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include></footer>
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </html>

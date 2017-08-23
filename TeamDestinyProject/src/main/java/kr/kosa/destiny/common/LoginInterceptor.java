@@ -29,8 +29,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 				//로그인 또는 로그아웃 uri 일 경우에는 uri 정보를 저장하지 않습니다.
 			}
 			
-			String userEmail = (String)request.getSession().getAttribute("userEmail");
-			if(userEmail == null || userEmail.equals("")) {
+			String userId = (String)request.getSession().getAttribute("userId");
+			if(userId == null || userId.equals("")) {
 				/*response.sendRedirect(request.getContextPath()+"/");*/	//홈으로 redirect
 				//로그인 하지 않고 기능을 사용할 경우 경고창 팝업
 				response.setContentType("text/html; charset=UTF-8");
@@ -66,6 +66,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 	@Override
 	public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
+		// TODO Auto-generated method stub
 		
 	}
 	

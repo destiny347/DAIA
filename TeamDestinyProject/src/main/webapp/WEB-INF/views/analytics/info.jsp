@@ -11,66 +11,72 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .nti100 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 100;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 100;
 }
 .nti300 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 300;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 300;
 }
 <!-- 레귤러 폰트 -->
 .nti400 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 400;
 }
 .nti500 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 500;
 }
 .nti700 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 700;
 }
 .nti900 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 900;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 900;
 }
 
-html, body{
-position:static;
-margin:0;
-padding:0;
-height:100%;
+html{
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+body {
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+}
+
+main {
+	flex: 1;
 }
 
 footer{
     position:relative;
-    top: 120px;
-    bottom:0;
+    margin-bottom: 0px;
     width:100%;
 }
 
 .blank{
-margin-top:5px;
-margin-bottom:5px;
+	margin-top:5px;
+	margin-bottom:5px;
 }
 
 .blank1{
-margin-top:10px;
-margin-bottom:10px;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 th {
-padding: 5px !important;
+	padding: 5px !important;
 }
-
-
 
 </style>
 <!-- Bootstrap Core CSS -->
@@ -187,115 +193,22 @@ padding: 5px !important;
     
       
       $('#export').click(function() {
-    	  /*
-			 var blob;
-			 var filenamam;
-			var titles = [];
-			  var data = [];
-			  var index =[];
-			$('#sum_table thead tr input[type=checkbox]:checked').each(function() {
-				     index.push($(this).closest('th').index());
-
-		        });
-
-			  var thead = $('<thead>');
-			   $('#sum_table thead tr th').each(function() {
-			     if (jQuery.inArray($(this).index(), index) != -1) {
-			      // thead.append($('<th>' + $(this).text() + '</th>'));
-			       //console.log($(this).text());	     
-			      thead.append($('<th>' + $(this).text()+ '</th>'));
-			      titles.push($(this).text());
-			     }	     
-			   });
-
-			  /*
-			   * Get the actual data, this will contain all the data, in 1 array
-			   
-			  var tbody = $('<tbody>');
-			   $('#sum_table tbody tr').each(function() {
-			     var tr = $('<tr>');
-			     $(this).find('td').each(function() {
-			       if (jQuery.inArray($(this).index(), index) != -1) {
-			         tr.append($('<td>' + $(this).text() + '</td>'));
-			         //console.log($(this).text());
-			         data.push($(this).text());
-			       }
-			     });
-			     tbody.append(tr);	    
-			   });
-			   var CSVString = prepCSVRow(titles, titles.length, '');
-				CSVString = prepCSVRow(data, titles.length, CSVString);
-				blob = new Blob(["\ufeff", CSVString]);
-				 alert(JSON.stringify(["\ufeff", CSVString]));
-
-				filenamam =  $("#outputFile").val();
-			 console.log(filenamam);
-				var outputFile2 = {
-					 fileName : filenamam,	 
-				  //체크된 열의 이름을 담는다.
-				 	blob : CSVString,
-				 	dmd : '야 정신차리라고'
-				 };	 
-				*/
-				 location.href = 'http://localhost:8080/destiny/analytics/handling';
-				
-				
+    	  
+		 location.href = 'http://localhost:8080/destiny/analytics/handling';
+						
 		});
-      
-   });  
+    });  
    
- //------------------------------------------------------
-
-
-
-
-	function prepCSVRow(arr, columnCount, initial) {
-		  var row = ""; // this will hold data
-		  var delimeter = ","; // data slice separator, in excel it's `;`, in usual CSv it's `,`
-		  var newLine = "\r\n"; // newline separator for CSV row
-
-		  /*
-		   * Convert [1,2,3,4] into [[1,2], [3,4]] while count is 2
-		   * @param _arr {Array} - the actual array to split
-		   * @param _count {Number} - the amount to split
-		   * return {Array} - splitted array
-		   */
-		  function splitArray(_arr, _count) {
-		    var splitted = [];
-		    var result = [];
-		    _arr.forEach(function(item, idx) {
-		      if ((idx + 1) % _count === 0) {
-		        splitted.push(item);
-		        result.push(splitted);
-		        splitted = [];
-		      } else {
-		        splitted.push(item);
-		      }
-		    });
-		    return result;
-		  }
-		  var plainArr = splitArray(arr, columnCount);
-		  // don't know how to explain this
-		  // you just have to like follow the code
-		  // and you understand, it's pretty simple
-		  // it converts `['a', 'b', 'c']` to `a,b,c` string
-		  plainArr.forEach(function(arrItem) {
-		    arrItem.forEach(function(item, idx) {
-		      row += item + ((idx + 1) === arrItem.length ? '' : delimeter);
-		    });
-		    row += newLine;
-		  });
-		  return initial + row;
-		}
-   
+ 
          
 </script>
 
-<title>Destiny</title>
+<title>DAIA Platform</title>
 
 </head>
-<body>
 
+<body>
+<main>
 <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/include/sidebar.jsp"></jsp:include>
 
@@ -308,22 +221,23 @@ padding: 5px !important;
    <c:forEach var="j" begin="0" end="${rData.size()-1}">
 		
 		<div class="blank">&nbsp;</div>			
-      <div style="border: 1px solid #1e1e1e; border-radius: 3px; width:80%; ">
-         <h4>파일명 : [${fileName.get(j)}]</h4>
+      <div style="border: 1px solid #1e1e1e; border-radius: 3px; width:30%; ">
+         <h4>&nbsp; 파일명 : [ ${fileName.get(j)} ]</h4>
       </div>
       
       <div class="blank">&nbsp;</div>
       
       <div id="show_col_sum">
          <p>
-            <label class="chkColnames nti400" for="checkAll">전체 선택&nbsp;&nbsp;</label><input
-               type="checkbox" class="chkColnames" id="checkAll" />
+            <label class="chkColnames nti400" for="checkAll">전체 선택&nbsp;&nbsp;</label>
+            <input type="checkbox" class="chkColnames" id="checkAll" />
          </p>
-         <input type="button" id="show_all" value="테이블 전체보기"> 
-         <input
+         <input class="btn btn-default" type="button" id="show_all" value="테이블 전체보기" style="width: auto; height: 35px; font-size: 15px;"> 
+         <input class="btn btn-default"
             type="button" id="show_sum" value="테이블 요약보기(5행)"
-            style="display: none">
-            <div style="overflow-x: auto;">
+            style="display: none; width: auto; height: 35px; font-size: 15px;">
+            
+            <div style="overflow-x: auto; width: 90%;">
             
             <div class="blank">&nbsp;</div>
             
@@ -357,17 +271,16 @@ padding: 5px !important;
 
    <br>
 
-   <input class="btn" type="button" id="confirm" value="확인" />
-   <input class="btn" type="reset" id="reset" value="초기화" />
-   <a href="/destiny/upload/list"><input class="btn" type="button"
-      value="취소" /></a>
+   <input class="btn btn-primary" type="button" id="confirm" value="확인" style="width: auto; height: 35px; font-size: 15px;" />   
+   <a href="/destiny/upload/list"><input class="btn btn-warning" type="button" value="취소" style="width: auto; height: 35px; font-size: 15px;"/></a>
+   <input class="btn btn-info" type="reset" id="reset" value="초기화" style="width: auto; height: 35px; font-size: 15px;" />
       
  <div class="blank">&nbsp;</div>	
  
 <form action="/analytics/handling" method="post">	
    <div id="selectCol" style="display: none">
       
-      <div style="border-bottom: 1px solid #1e1e1e; width:80%">
+      <div style="border-bottom: 1px solid #1e1e1e; width: 80%;">
       <h3>선택한 열 정보</h3>
       </div>
       <div class="blank">&nbsp;</div>
@@ -379,10 +292,10 @@ padding: 5px !important;
       
       <div id="dvData">
 
-         <input type="button" id="show_sum2" value="테이블 요약보기(5행)"> <input
-            type="button" id="show_all2" value="테이블 전체보기" style="display: none">
+         <input class="btn btn-default" type="button" id="show_sum2" value="테이블 요약보기(5행)" style="width: auto; height: 35px; font-size: 15px;"> 
+         <input class="btn btn-default" type="button" id="show_all2" value="테이블 전체보기" style="display: none; width: auto; height: 35px; font-size: 15px;">
             <div class="blank">&nbsp;</div>
-            <div style="overflow-x: auto;">
+            <div style="overflow-x: auto; width: 90%;">
          <table id="col_table" class="col_table" border=1>
             <thead>
                <tr></tr>
@@ -393,16 +306,17 @@ padding: 5px !important;
          </table>
          </div>
          <div class="blank">&nbsp;</div>
-         
-			<input value="다음" id="export" type="button" /> 
-			<a href="/destiny/upload/list"> <input
-				type="reset" value="취소" /></a>
-		 
+         	<a href="/destiny/upload/list"> 
+				<input class="btn btn-default" type="button" value="이전 단계로" style="width: auto; height: 35px; font-size: 15px;"/>
+	 		 </a>
+			<input class="btn btn-default" value="다음 단계로" id="export" type="button" style="width: auto; height: 35px; font-size: 15px;"/>
+			<div class="blank">&nbsp;</div> 
 		</div>
 	</div>
 </form>				
-			 </div> <!-- container -->
-			 
+			 </div> <!-- End container -->
+</main>	
+		 
 </body>
-<footer><jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include></footer>
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </html>

@@ -6,7 +6,7 @@
 <html>
 <head>
 
-<title>메인 페이지</title>
+<title>DAIA Platform</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,162 +24,162 @@
 
 <style>
 html, body{
-background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
-margin:0;
-padding:0;
-height:100%;
+	background-image : url("http://erotic-chaos.com/wp-content/uploads/2017/08/bg_001.jpg");
+	margin:0;
+	padding:0;
+	height:100%;
 }
 
 /* Set a style for all buttons */
 button {
-   background-color: #f1f1f1;
-   color: white;
-   padding: 14px 20px;
-   margin: 8px 0;
-   border: none;
-   cursor: pointer;
-   width: 100%;
+    background-color: #f1f1f1;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
 
 button:hover {
-   opacity: 0.8;
+    opacity: 0.8;
 }
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-   width: 100%;
-   padding: 12px 20px;
-   margin: 5px 0;
-   display: inline-block;
-   border: 1px solid #ccc;
-   box-sizing: border-box;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 /* Extra styles for the cancel button */
 .cancelbtn {
-   width: auto;
-   padding: 10px 18px;
-   background-color: #f1f1f1;
-   float: left;
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f1f1f1;
+    float: left;
 }
 
 .createbtn {
-   width: auto;
-   padding: 10px 18px;
-   background-color: #ffffff;
+    width: auto;
+    padding: 10px 18px;
+    background-color: #ffffff;
 }
 
 /* Center the image and position the close button */
 .imgcontainer {
-   text-align: center;
-   margin: 24px 0 12px 0;
-   position: relative;
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
 }
 
 img.avatar {
-   width: 40%;
-   border-radius: 50%;
+    width: 40%;
+    border-radius: 50%;
 }
 
 .container {
-   padding: 16px;
+    padding: 16px;
 }
 
 span.psw {
-   float: right;
-   padding-top: 16px;
+    float: right;
+    padding-top: 16px;
 }
 
 
 /* 민구 추가 스타일 */
 .headheadhead {
-   border-bottom: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
 }
 
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .nt100 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 100;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 100;
 }
 .nt300 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 300;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 300;
 }
 <!-- 레귤러 폰트 -->
 .nt400 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 400;
 }
 .nt500 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 500;
 }
 .nt700 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 700;
 }
 .nt900 {
-   font-family: 'Noto Sans KR', sans-serif;
-   color: #1e1e1e;
-   font-weight: 900;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1e1e1e;
+    font-weight: 900;
 }
 
 .hovbutton {
-   background-color: white;
-   border: none;
-   color: slateblue;
-   padding: 4px 8px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 2px 4px 2px 0;
-   -webkit-transition-duration: 0.4s; /* Safari */
-   transition-duration: 0.4s;
-   cursor: pointer;
+    background-color: white;
+    border: none;
+    color: slateblue;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 4px 2px 0;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
 }
 
 .hovbutton:hover {
-   background-color: slateblue;
-   color: white;
+    background-color: slateblue;
+    color: white;
 }
 
 .button {
-   background-color: white;
-   border: none;
-   color: slateblue;
-   padding: 4px 8px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 2px 4px 2px 0;
-   -webkit-transition-duration: 0.4s; /* Safari */
-   transition-duration: 0.4s;
-   cursor: pointer;
+    background-color: white;
+    border: none;
+    color: slateblue;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 4px 2px 0;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
 }
 
 .button:hover {
-   background-color: slateblue;
-   color: white;
+    background-color: slateblue;
+    color: white;
 }
 
 html{
-   margin:0;
-   padding:0;
-   height:100%;
+    margin:0;
+    padding:0;
+    height:100%;
 }
 
 body{
-   position:relative;
-   margin:0;
-   height:100%;
+    position:relative;
+    margin:0;
+    height:100%;
 }
 
 footer{
