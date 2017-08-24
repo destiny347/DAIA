@@ -85,46 +85,46 @@ html, body{
       <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16" align="left">About Team Member</h2>
       <table>
           <tr>
-            	<td><img src="http://postfiles6.naver.net/MjAxNzA2MTVfNjQg/MDAxNDk3NDU0MTQyNjI4.aWC2JgdrWemjPYQYQMwR0kbW94EOz_Afq3NE3Ai_wAkg.TUdyuUIG8H1qVeEnYfP91DkiKtRP0YCtnNdnjmoqih8g.JPEG.naong526/KMG.jpg?type=w3"
+               <td><img src="http://erotic-chaos.com/wp-content/uploads/2017/06/4.jpg"
                         alt="Min-Goo" style="width: 160px; height: 210px;">
-            	</td>
+               </td>
                 <td style="width: 70px;"></td>
-                <td><img src="http://postfiles9.naver.net/MjAxNzA2MTVfMjc1/MDAxNDk3NDU0MTQyNDAz.mZ7HeqSYzEHUxwfuhDd2qY2dc9mJ1g3DnxHEWi1XbHQg.jfbQarpnmOOvX-SxjD_cfGy9nTgxNZ-Iljr-Xh_qJgIg.JPEG.naong526/JSE2.jpg?type=w3"
+                <td><img src="http://erotic-chaos.com/wp-content/uploads/2017/06/3.jpg"
                         alt="Seung-Eun" style="width: 160px; height: 210px;">
                 </td>
                 <td style="width: 70px;"></td>
-                <td><img src="http://postfiles8.naver.net/MjAxNzA2MTVfMTI3/MDAxNDk3NDU0MTQyMTMy.GXg7uA7JMI6Gp6TPFytlVI2pLndOfkjPIDpU1NzqjtYg.Rxx3jQe1d_hwNlrNTqtgSNIrn3T6nC-FDhBzna3v-yIg.JPEG.naong526/HSG.jpg?type=w3"
+                <td><img src="http://erotic-chaos.com/wp-content/uploads/2017/06/2.jpg"
                         alt="Soon-Gu" style="width: 160px; height: 210px;">
                 </td>
                 <td style="width: 70px;"></td>
-                <td><img src="http://postfiles10.naver.net/MjAxNzA2MTVfMjUz/MDAxNDk3NDU0MTQyODM4.73XO59bYLaoY7ufXK1zazRN8F68HQrlV2-wUvOg3mrkg.8cSw5xC8DJ4Tf1agHLrddQ9uJmEyprqc23R7LZ2_NO8g.JPEG.naong526/LMH.jpg?type=w3"
+                <td><img src="http://erotic-chaos.com/wp-content/uploads/2017/06/5.jpg"
                         alt="Me-Hyung" style="width: 160px; height: 210px;">
                 </td>
                 <td style="width: 70px;"></td>
-                <td><img src="http://postfiles11.naver.net/MjAxNzA2MTVfNjkg/MDAxNDk3NDU0MTQzMDI4.mWcasdGpiG2y32gcZJuzl1E8_sXt8Mqf_NIO88mA-dkg.qIAh5QKxqmx6JlL4BXTVHuz-M4zrt3Jh_peNZRY-G24g.JPEG.naong526/SCS.jpg?type=w3"
+                <td><img src="http://erotic-chaos.com/wp-content/uploads/2017/06/1.jpg"
                         alt="Chang-Seon" style="width: 160px; height: 210px;">
                 </td>           
          </tr>
          <tr><td>&nbsp;</td></tr>
          <tr>
-            	<td><h4 style="text-align: center">Min-Gu Kang</h4>
-                     <p class="w3-opacity">Captain</p>
+               <td><h4 style="text-align: center">Min-Gu Kang</h4>
+                     <p class="w3-opacity">Project Manager</p>
                 </td>
                 <td style="width: 70px;"></td>
                 <td><h4 style="text-align: center">Seung-Eun Jeong</h4>
-                     <p class="w3-opacity">Engineer</p>
+                     <p class="w3-opacity">Chief Engineer</p>
                 </td>
                 <td style="width: 70px;"></td>
                 <td><h4 style="text-align: center">Soon-Gu Hong</h4>
-                     <p class="w3-opacity">Engine</p>
+                     <p class="w3-opacity">BackEnd Engineer</p>
                 </td>
                 <td style="width: 70px;"></td>
                 <td><h4 style="text-align: center">Me-Hyeong Lee</h4>
-                     <p class="w3-opacity">Anti-Humanist</p>
+                     <p class="w3-opacity">Analyst / Scriptor</p>
                 </td>
                 <td style="width: 70px;"></td>
                 <td><h4 style="text-align: center">Chang-Seon Shin</h4>
-                     <p class="w3-opacity">Cuty Sexy Pretty</p>
+                     <p class="w3-opacity">FrontEnd Engineer</p>
                 </td>                
          </tr>
 
